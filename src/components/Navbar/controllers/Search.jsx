@@ -2,7 +2,9 @@ import React from 'react'
 
 const Search = () => {
   return (
-    <div>Seach</div>
+    <div>
+      <img src="assets/images/search.png" alt='Search'/>
+    </div>
   )
 }
 

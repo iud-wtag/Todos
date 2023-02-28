@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 *{
-  /* background: #E5E5E5; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
 body{
-  background: #E5E5E5;
+  background: #F8F9FF;
 }
 .container{
   max-width: 1216px;
