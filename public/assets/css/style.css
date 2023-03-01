@@ -8,9 +8,19 @@
 body{
   background: #F8F9FF;
 }
+a{
+  text-decoration: none;
+}
+button{
+  border: none;
+  background:none;
+}
 .container{
   max-width: 1216px;
   margin: auto;
+}
+.todo-section{
+  padding: 65px 0px;
 }
 .todo-logo{
   display: flex;
@@ -33,4 +43,95 @@ body{
 .navbarBack{
   background: #FFFFFF;
   border: 1px solid #DDE2FF;
+}
+.btn-section{
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0px;
+}
+.btn{
+  border-radius: 5px;
+  padding: 10px;
+}
+.btn:hover{
+  cursor: pointer;
+}
+.create-btn .btn{
+  background: #7A8DFD;
+  padding: 10px 20px;
+  border: none;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+.todo-board{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+}
+.todo-card{
+  min-width: 382px;
+  background: #FFFFFF;
+  border: 1px solid #DDE2FF;
+  border-radius: 5px;
+  padding: 15px;
+}
+.add-card {
+
+}
+.todo-add-crud{
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.todo-add-crud .add-task-btn{
+  border: 1px solid #DDE2FF;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #32394B;
+}
+.add-card .todo-input{
+  min-width: 351px;
+  min-height: 80px;
+  background: #FFFFFF;
+  border: 3px solid #D1D8FF;
+  border-radius: 5px;
+}
+.todo-card .todo-header{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #32394B;
+  padding-bottom: 10px;
+}
+.todo-card .todo-createTime{
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #BBBDD0;
+  padding-bottom: 25px;
+}
+.add-card{
+
+}
+.todo-crud-btn{
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.todo-crud-btn>button{
+  border: none;
+}
+.create-btn .btn:disabled{
+  background: #7A8DFD;
+  opacity: 0.6;
+  cursor: no-drop;
 }

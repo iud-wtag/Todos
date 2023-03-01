@@ -1,34 +1,36 @@
+import * as actions from "./actionTypes";
 export const addTodo = (data) => {
   return {
-    type: "ADD_TODO",
+    type: actions.ADD_TODO,
     payload: {
       id: new Date().getTime().toString(),
       data: data,
+      time: new Date().toLocaleDateString("de-DE"),
     },
   };
 };
 export const removeTodo = () => {
   return {
-    type: "REMOVE_TODO",
+    type: actions.REMOVE_TODO,
   };
 };
 export const updateTodo = () => {
   return {
-    type: "UPDATE_TODO",
+    type: actions.UPDATE_TODO,
   };
 };
 export const allList = () => {
   return {
-    type: "ALL_LIST",
+    type: actions.ALL_LIST,
   };
 };
 export const completeList = () => {
   return {
-    type: "COMPLETE_LIST",
+    type: actions.COMPLETE_LIST,
   };
 };
 export const incompleteList = () => {
   return {
-    type: "INCOMPLETE_LIST",
+    type: actions.INCOMPLETE_LIST,
   };
 };
