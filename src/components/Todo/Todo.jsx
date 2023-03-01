@@ -39,7 +39,7 @@ const Todo = () => {
           {
             createToken?
             <div className='todo-card add-card'>
-              <input className='todo-input' type="text" name="" id="" onChange={handleTaskChange} value={task}/>
+              <textarea className='todo-input' type="text" name="" id="" onChange={handleTaskChange} value={task}></textarea>
               <div className='todo-add-crud'>
                 <button onClick={handleAddTask} className="add-task-btn">Add Task</button>
                 <button><img src="assets/images/delete.png" alt="Delete Btn" /></button>
