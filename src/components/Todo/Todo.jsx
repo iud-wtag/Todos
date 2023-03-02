@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
-import { addTodo } from '../../actions';
+import { addTodo, handleCreateBtn } from '../../actions';
+import FilterTodo from './controllers/FilterTodo';
+import CreateTodo from "./controllers/CreateTodo";
+import AddCard from './AddCard/AddCard';
+import TodoViews from './TodoViews/TodoViews';
 
 const Todo = () => {
   const [task,setTask] = useState("");
-  const [createToken,setCreateToken] = useState(false);
   const dispatch = useDispatch();
   const todoList = useSelector((state)=>state.todoReducers.list)
-  const handleCreatClick = () => {
-    setCreateToken(!createToken);
+  const isCreateBtnClicked = useSelector((state)=>state.handleTokens.isCreateBtnClicked);
+  const handleCreateClick = () => {
+    dispatch(handleCreateBtn(isCreateBtnClicked));
   }
   const handleTaskChange = (e) =>{
     setTask(e.target.value);
@@ -17,7 +21,7 @@ const Todo = () => {
     if(task.trim()){
       dispatch(addTodo(task));
       setTask('')
-      handleCreatClick();
+      handleCreateClick();
     }
   }
   return (
@@ -25,46 +29,17 @@ const Todo = () => {
       <div className="container todo-section">
         <h1 className='addTask-header'>Add Task</h1> 
         <div className="btn-section">
-          <div className="create-btn">
-            <button className='btn' onClick={handleCreatClick} disabled={createToken}>
-              <img src="assets/images/plus.png" alt="plus" />
-              Create
-            </button>
-          </div>
-          <div className="filter-btn">
-            <button className='btn'>All</button>
-            <button className='btn'>Incomplete</button>
-            <button className='btn'>Complete</button>
-          </div>
+          <CreateTodo handleCreateClick={handleCreateClick} isCreateBtnClicked={isCreateBtnClicked}/>
+          <FilterTodo/>
         </div>
         <div className='todo-board'>
           {
-            createToken?
-            <div className='todo-card add-card'>
-              <textarea className='todo-input' type="text" name="" id="" onChange={handleTaskChange} value={task}></textarea>
-              <div className='todo-add-crud'>
-                <button onClick={handleAddTask} className="add-task-btn">Add Task</button>
-                <button><img src="assets/images/delete.png" alt="Delete Btn" /></button>
-              </div>
-            </div>
+            isCreateBtnClicked?
+              <AddCard handleTaskChange={handleTaskChange} handleAddTask={handleAddTask} task={task}/>
             :
             <></>
           }
-          {
-            todoList.map((list)=>{
-              return(
-                <div className='todo-card' key={list.id}>
-                  <h3 className='todo-header'>{list.data}</h3>
-                  <p className='todo-createTime'>Created At: {list.time}</p>
-                  <div className="todo-crud-btn">
-                    <button><img src="assets/images/check.png" alt="Completed Btn" /></button>
-                    <button><img src="assets/images/edit.png" alt="Edit Btn" /></button>
-                    <button><img src="assets/images/delete.png" alt="Delete Btn" /></button>
-                  </div>
-                </div>
-              )
-            })
-          }
+          <TodoViews todoList={todoList}/>
         </div>
       </div>
     </>

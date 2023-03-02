@@ -9,28 +9,12 @@ export const addTodo = (data) => {
     },
   };
 };
-export const removeTodo = () => {
+
+export const handleCreateBtn = (isCreateBtnClicked) => {
   return {
-    type: actions.REMOVE_TODO,
-  };
-};
-export const updateTodo = () => {
-  return {
-    type: actions.UPDATE_TODO,
-  };
-};
-export const allList = () => {
-  return {
-    type: actions.ALL_LIST,
-  };
-};
-export const completeList = () => {
-  return {
-    type: actions.COMPLETE_LIST,
-  };
-};
-export const incompleteList = () => {
-  return {
-    type: actions.INCOMPLETE_LIST,
+    type: actions.HANDLE_CREATE,
+    payload: {
+      isCreateBtnClicked: !isCreateBtnClicked,
+    },
   };
 };
