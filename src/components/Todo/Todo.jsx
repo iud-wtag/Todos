@@ -14,9 +14,11 @@ const Todo = () => {
     setTask(e.target.value);
   }
   const handleAddTask = (e) =>{
-    dispatch(addTodo(task));
-    setTask('')
-    handleCreatClick();
+    if(task.trim()){
+      dispatch(addTodo(task));
+      setTask('')
+      handleCreatClick();
+    }
   }
   return (
     <>
