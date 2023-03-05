@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const AddCard = ({handleTaskChange, handleAddTask, task}) => {
+const AddCard = ({handleInputChange, handleAddTask, inputData}) => {
   return (
     <div className='todo-card add-card'>
-      <textarea className='todo-input' type="text" name="" id="" onChange={handleTaskChange} value={task}></textarea>
+      <textarea className='todo-input' type="text" onChange={handleInputChange} value={inputData}></textarea>
       <div className='todo-add-crud'>
         <button onClick={handleAddTask} className="add-task-btn">Add Task</button>
         <button><img src="assets/images/delete.png" alt="Delete Btn" /></button>
@@ -15,8 +15,8 @@ const AddCard = ({handleTaskChange, handleAddTask, task}) => {
 
 AddCard.propTypes = {
   handleAddTask: PropTypes.func.isRequired,
-  handleAddTask: PropTypes.func.isRequired,
-  task: PropTypes.string.isRequired
+  handleInputChange: PropTypes.func.isRequired,
+  inputData: PropTypes.string.isRequired
 }
 
 export default AddCard

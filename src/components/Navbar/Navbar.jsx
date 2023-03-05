@@ -1,13 +1,13 @@
 import React from 'react'
 import Logo from 'components/Navbar/controllers/Logo';
-import Search from 'components/Navbar/controllers/Search';
+import SearchBar from 'components/Navbar/controllers/SearchBar';
 const Navbar = () => {
   return (
     <div className='navbarBack'>
       <div className="container">
         <div className='navbar'>
           <Logo/>
-          <Search/>
+          <SearchBar/>
         </div>
       </div>
     </div>

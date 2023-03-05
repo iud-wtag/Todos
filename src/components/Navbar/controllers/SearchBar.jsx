@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Search = () => {
+const SearchBar = () => {
   return (
     <div>
       <img src="assets/images/search.png" alt='Search'/>
@@ -8,4 +8,4 @@ const Search = () => {
   )
 }
 
-export default Search
+export default SearchBar;

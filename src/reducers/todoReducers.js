@@ -9,7 +9,6 @@ const todoReducers = (state = initialData, action) => {
       const { id, data, time } = action.payload;
       return {
         ...state,
-        list: [...state.list],
         list: [
           {
             id: id,

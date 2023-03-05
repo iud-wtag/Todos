@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const FilterTodo = props => {
   return (
@@ -11,6 +11,6 @@ const FilterTodo = props => {
   )
 }
 
-FilterTodo.propTypes = {}
+// FilterTodo.propTypes = {}
 
 export default FilterTodo;
