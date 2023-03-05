@@ -1,5 +1,5 @@
-import todoReducers from "./todoReducers";
-import handleTokens from "./handleTokens";
+import todoReducers from "reducers/todoReducers";
+import handleTokens from "reducers/handleTokens";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({

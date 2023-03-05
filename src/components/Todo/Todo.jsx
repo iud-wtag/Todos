@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
-import { addTodo, handleCreateBtn } from '../../actions';
-import FilterTodo from './controllers/FilterTodo';
-import CreateTodo from "./controllers/CreateTodo";
-import AddCard from './AddCard/AddCard';
-import TodoViews from './TodoViews/TodoViews';
+import { addTodo, handleCreateBtn } from 'actions';
+import FilterTodo from 'components/Todo/controllers/FilterTodo';
+import CreateTodo from "components/Todo/controllers/CreateTodo";
+import AddCard from 'components/Todo/AddCard/AddCard';
+import TodoViews from 'components/Todo/TodoViews/TodoViews';
 
 const Todo = () => {
   const [task,setTask] = useState("");

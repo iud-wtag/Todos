@@ -1,7 +1,7 @@
-import * as actions from "./actionTypes";
+import * as actionTypes from "actions/actionTypes";
 export const addTodo = (data) => {
   return {
-    type: actions.ADD_TODO,
+    type: actionTypes.ADD_TODO,
     payload: {
       id: new Date().getTime().toString(),
       data: data,
@@ -12,7 +12,7 @@ export const addTodo = (data) => {
 
 export const handleCreateBtn = (isCreateBtnClicked) => {
   return {
-    type: actions.HANDLE_CREATE,
+    type: actionTypes.HANDLE_CREATE,
     payload: {
       isCreateBtnClicked: !isCreateBtnClicked,
     },

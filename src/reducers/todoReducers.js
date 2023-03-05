@@ -1,11 +1,11 @@
-import * as actions from "../actions/actionTypes";
+import * as actionType from "actions/actionTypes";
 const initialData = {
   list: [],
 };
 
 const todoReducers = (state = initialData, action) => {
   switch (action.type) {
-    case actions.ADD_TODO:
+    case actionType.ADD_TODO:
       const { id, data, time } = action.payload;
       return {
         ...state,
