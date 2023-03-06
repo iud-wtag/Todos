@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 const FilterTodo = props => {
   return (
@@ -10,7 +9,5 @@ const FilterTodo = props => {
     </div>
   )
 }
-
-// FilterTodo.propTypes = {}
 
 export default FilterTodo;
