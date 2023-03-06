@@ -18,3 +18,12 @@ export const handleCreateBtn = (isCreateBtnClicked) => {
     },
   };
 };
+
+export const deleteTodo = (id) => {
+  return {
+    type: actionTypes.DELETE_TODO,
+    payload: {
+      id: id,
+    },
+  };
+};

@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import FormButtons from 'components/Todo/AddCard/controllers/FormButtons'
 
-const AddCard = ({handleInputChange, handleAddTask, inputData}) => {
+const AddCard = ({handleInputChange, handleAddTask, inputData, handleCancelClick}) => {
   return (
     <div className='todo-card add-card'>
       <form>
-        <input className='todo-input' type="text" id='todo-input' onChange={handleInputChange} value={inputData} autoFocus></input>
-        <FormButtons handleAddTask={handleAddTask}/>
+        <textarea className='todo-input' type="text" id='todo-input' onChange={handleInputChange} value={inputData} autoFocus></textarea>
+        <FormButtons handleAddTask={handleAddTask} handleCancelClick={handleCancelClick}/>
       </form>
     </div>
   )
@@ -16,7 +16,8 @@ const AddCard = ({handleInputChange, handleAddTask, inputData}) => {
 AddCard.propTypes = {
   handleAddTask: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
-  inputData: PropTypes.string.isRequired
+  inputData: PropTypes.string.isRequired,
+  handleCancelClick: PropTypes.func.isRequired
 }
 
 export default AddCard
