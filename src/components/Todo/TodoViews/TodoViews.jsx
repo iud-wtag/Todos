@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TodoViews = ({todoList,}) => {
+const TodoViews = ({todoList}) => {
   return(
     todoList.map((list)=>{
         return(
