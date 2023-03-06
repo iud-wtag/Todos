@@ -20,6 +20,7 @@ const Todo = () => {
     setInputData(e.target.value);
   };
   const handleAddTask = (e) => {
+    e.preventDefault();
     if (inputData.trim()) {
       dispatch(addTodo(inputData));
       setInputData("");

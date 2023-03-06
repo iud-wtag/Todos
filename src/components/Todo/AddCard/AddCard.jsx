@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import FormButtons from 'components/Todo/AddCard/controllers/FormButtons'
 
 const AddCard = ({handleInputChange, handleAddTask, inputData}) => {
   return (
     <div className='todo-card add-card'>
-      <textarea className='todo-input' type="text" onChange={handleInputChange} value={inputData}></textarea>
-      <div className='todo-add-crud'>
-        <button onClick={handleAddTask} className="add-task-btn">Add Task</button>
-        <button><img src="assets/images/delete.png" alt="Delete Btn" /></button>
-      </div>
+      <form>
+        <input className='todo-input' type="text" id='todo-input' onChange={handleInputChange} value={inputData} autoFocus></input>
+        <FormButtons handleAddTask={handleAddTask}/>
+      </form>
     </div>
   )
 }
