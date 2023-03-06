@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, handleCreateBtn } from "actions";
+import { addTodo, deleteTodo, handleCreateBtn } from "actions";
 import TopBar from "components/Todo/TopBar/TopBar";
 import AddCard from "components/Todo/AddCard/AddCard";
 import TodoViews from "components/Todo/TodoViews/TodoViews";
@@ -36,6 +36,10 @@ const Todo = () => {
     }
   };
 
+  const handleDeleteTask = (taskID) =>{
+    dispatch(deleteTodo(taskID))
+  }
+
   return (
     <>
       <div className="container todo-section">
@@ -51,7 +55,7 @@ const Todo = () => {
           ) : (
             <></>
           )}
-          <TodoViews todoList={todoList} />
+          <TodoViews todoList={todoList} handleDeleteTask={handleDeleteTask}/>
         </div>
       </div>
     </>
