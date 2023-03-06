@@ -28,11 +28,15 @@ const Todo = () => {
   };
 
   const handleAddTask = (e) => {
-    e.preventDefault();
     if (inputData.trim()) {
       dispatch(addTodo(inputData));
       setInputData("");
       handleCreateClick();
+    }
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleAddTask();
     }
   };
 
@@ -45,15 +49,14 @@ const Todo = () => {
       <div className="container todo-section">
         <TopBar handleCreateClick={handleCreateClick} isCreateBtnClicked={isCreateBtnClicked} />
         <div className="todo-board">
-          {isCreateBtnClicked ? (
+          {isCreateBtnClicked && (
             <AddCard
               handleInputChange={handleInputChange}
               handleAddTask={handleAddTask}
+              handleKeyDown={handleKeyDown}
               inputData={inputData}
               handleCancelClick={handleCancelClick}
             />
-          ) : (
-            <></>
           )}
           <TodoViews todoList={todoList} handleDeleteTask={handleDeleteTask}/>
         </div>
