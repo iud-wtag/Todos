@@ -5,10 +5,8 @@ import Todo from "components/Todo/Todo";
 const App = () => {
   return (
     <>
-      <div>
-        <Navbar />
-        <Todo />
-      </div>
+      <Navbar />
+      <Todo />
     </>
   );
 };
