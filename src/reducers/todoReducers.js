@@ -6,14 +6,14 @@ const initialData = {
 const todoReducers = (state = initialData, action) => {
   switch (action.type) {
     case actionType.ADD_TODO:
-      const { id, data, time, isTaskComplete, completeTime } = action.payload;
+      const { id, data, date, isTaskComplete, completeTime } = action.payload;
       return {
         ...state,
         list: [
           {
             id: id,
             data: data,
-            time: time,
+            date: date,
             isTaskComplete: isTaskComplete,
             completeTime: completeTime,
           },
