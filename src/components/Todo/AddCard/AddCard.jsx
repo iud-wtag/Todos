@@ -21,7 +21,10 @@ const AddCard = ({
         onKeyDown={handleKeyDown}
       ></textarea>
 
-      <FormButtons handleAddTask={handleAddTask} handleCancelClick={handleCancelClick} />
+      <FormButtons
+        handleAddTask={handleAddTask}
+        handleCancelClick={handleCancelClick}
+      />
     </div>
   );
 };
