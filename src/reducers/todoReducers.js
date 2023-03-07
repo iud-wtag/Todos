@@ -6,7 +6,7 @@ const initialData = {
 const todoReducers = (state = initialData, action) => {
   switch (action.type) {
     case actionType.ADD_TODO:
-      const { id, data, time } = action.payload;
+      const { id, data, time, isTaskComplete, completeTime } = action.payload;
       return {
         ...state,
         list: [
@@ -14,6 +14,8 @@ const todoReducers = (state = initialData, action) => {
             id: id,
             data: data,
             time: time,
+            isTaskComplete: isTaskComplete,
+            completeTime: completeTime,
           },
           ...state.list,
         ],
@@ -24,6 +26,15 @@ const todoReducers = (state = initialData, action) => {
       return {
         ...state,
         list: newList,
+      };
+
+    case actionType.COMPLETE_TODO:
+      const completedTaskIndex = state.list.findIndex((e) => e.id === action.id);
+      state.list[completedTaskIndex].completeTime = action.completeTime;
+      state.list[completedTaskIndex].isTaskComplete = action.isTaskComplete;
+      return {
+        ...state,
+        list: [...state.list],
       };
 
     default:

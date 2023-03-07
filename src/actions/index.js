@@ -6,6 +6,8 @@ export const addTodo = (data) => {
       id: new Date().getTime().toString(),
       data: data,
       time: new Date().toLocaleDateString("de-DE"),
+      isTaskComplete: false,
+      completeTime: null,
     },
   };
 };
@@ -23,5 +25,17 @@ export const deleteTodo = (id) => {
   return {
     type: actionTypes.DELETE_TODO,
     id,
+  };
+};
+
+export const completeTodo = (id) => {
+  function getDays(day1, day2) {
+    return Math.ceil((day2 - day1) / (1000 * 3600 * 24));
+  }
+  return {
+    type: actionTypes.COMPLETE_TODO,
+    id,
+    isTaskComplete: true,
+    completeTime: getDays(id, new Date().getTime()),
   };
 };

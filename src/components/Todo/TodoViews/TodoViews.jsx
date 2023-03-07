@@ -1,14 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
-import IncompleteTask from "components/Todo/TodoViews/controllers/IncompleteTask";
+import IncompleteController from "components/Todo/TodoViews/controllers/IncompleteController";
+import CompletedController from "components/Todo/TodoViews/controllers/CompletedController";
 import TodoDetails from "components/Todo/TodoViews/views/TodoDetails";
 
-const TodoViews = ({ todoList, handleDeleteTask }) => {
+const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
   return todoList.map((list) => {
     return (
       <div className="todo-card" key={list.id}>
         <TodoDetails list={list} />
-        <IncompleteTask handleDeleteTask={handleDeleteTask} taskID={list.id} />
+        {list.isTaskComplete ? (
+          <CompletedController
+            handleDeleteTask={handleDeleteTask}
+            taskID={list.id}
+            completeTime={list.completeTime}
+          />
+        ) : (
+          <IncompleteController
+            handleDeleteTask={handleDeleteTask}
+            handleCompleteTask={handleCompleteTask}
+            taskID={list.id}
+          />
+        )}
       </div>
     );
   });
@@ -17,6 +30,7 @@ const TodoViews = ({ todoList, handleDeleteTask }) => {
 TodoViews.propTypes = {
   todoList: PropTypes.array.isRequired,
   handleDeleteTask: PropTypes.func.isRequired,
+  handleCompleteTask: PropTypes.func.isRequired,
 };
 
 export default TodoViews;

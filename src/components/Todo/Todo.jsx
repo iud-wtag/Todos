@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, deleteTodo, handleCreateBtn } from "actions";
+import { addTodo, completeTodo, deleteTodo, handleCreateBtn } from "actions";
 import TopBar from "components/Todo/TopBar/TopBar";
 import AddCard from "components/Todo/AddCard/AddCard";
 import TodoViews from "components/Todo/TodoViews/TodoViews";
@@ -20,7 +20,7 @@ const Todo = () => {
   const handleCancelClick = (e) => {
     e.preventDefault();
     setInputData("");
-    handleCreateClick()
+    handleCreateClick();
   };
 
   const handleInputChange = (e) => {
@@ -40,9 +40,13 @@ const Todo = () => {
     }
   };
 
-  const handleDeleteTask = (taskID) =>{
-    dispatch(deleteTodo(taskID))
-  }
+  const handleDeleteTask = (taskID) => {
+    dispatch(deleteTodo(taskID));
+  };
+
+  const handleCompleteTask = (taskID) => {
+    dispatch(completeTodo(taskID));
+  };
 
   return (
     <>
@@ -58,7 +62,11 @@ const Todo = () => {
               handleCancelClick={handleCancelClick}
             />
           )}
-          <TodoViews todoList={todoList} handleDeleteTask={handleDeleteTask}/>
+          <TodoViews
+            todoList={todoList}
+            handleDeleteTask={handleDeleteTask}
+            handleCompleteTask={handleCompleteTask}
+          />
         </div>
       </div>
     </>

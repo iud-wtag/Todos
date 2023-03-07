@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const TodoDetails = ({ list }) => {
   return (
     <>
-      <h3 className="todo-header">{list.data}</h3>
+      <h3 className={`todo-header ${list.isTaskComplete && "task-complete"}`}>{list.data}</h3>
       <p className="todo-createTime">Created At: {list.time}</p>
     </>
   );
