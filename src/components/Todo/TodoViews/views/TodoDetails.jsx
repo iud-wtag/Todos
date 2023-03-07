@@ -5,7 +5,7 @@ const TodoDetails = ({ list }) => {
   return (
     <>
       <h3 className="todo-header">{list.data}</h3>
-      <p className="todo-createTime">Created At: {list.time}</p>
+      <p className="todo-createTime">Created At: {list.date}</p>
     </>
   );
 };
