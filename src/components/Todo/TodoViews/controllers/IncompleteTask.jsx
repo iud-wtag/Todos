@@ -10,11 +10,7 @@ const IncompleteTask = ({ handleDeleteTask, taskID }) => {
       <button>
         <img src="assets/images/edit.png" alt="Edit button" />
       </button>
-      <button
-        onClick={() => {
-          handleDeleteTask(taskID);
-        }}
-      >
+      <button onClick={() => handleDeleteTask(taskID)}>
         <img src="assets/images/delete.png" alt="Delete button" />
       </button>
     </div>
