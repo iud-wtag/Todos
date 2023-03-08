@@ -4,7 +4,12 @@ import IncompleteController from "components/Todo/TodoViews/controllers/Incomple
 import CompletedController from "components/Todo/TodoViews/controllers/CompletedController";
 import TodoDetails from "components/Todo/TodoViews/views/TodoDetails";
 
-const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
+const TodoViews = ({
+  todoList,
+  handleDeleteTask,
+  handleCompleteTask,
+  handleEditTask,
+}) => {
   return todoList.map((list) => {
     return (
       <div className="todo-card" key={list.id}>
@@ -12,13 +17,14 @@ const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
         {list.isTaskComplete ? (
           <CompletedController
             handleDeleteTask={handleDeleteTask}
-            taskID={list.id}
             completeTime={list.completeTime}
+            taskID={list.id}
           />
         ) : (
           <IncompleteController
             handleDeleteTask={handleDeleteTask}
             handleCompleteTask={handleCompleteTask}
+            handleEditTask={handleEditTask}
             taskID={list.id}
           />
         )}
@@ -31,6 +37,7 @@ TodoViews.propTypes = {
   todoList: PropTypes.array.isRequired,
   handleDeleteTask: PropTypes.func.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
+  handleEditTask: PropTypes.func.isRequired,
 };
 
 export default TodoViews;

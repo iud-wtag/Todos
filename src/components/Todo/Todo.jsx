@@ -7,11 +7,15 @@ import TodoViews from "components/Todo/TodoViews/TodoViews";
 
 const Todo = () => {
   const dispatch = useDispatch();
-
   const [inputData, setInputData] = useState("");
-
   const todoList = useSelector((state) => state.todoReducers.list);
-  const isCreateBtnClicked = useSelector((state) => state.handleTokens.isCreateBtnClicked);
+
+  const isCreateBtnClicked = useSelector(
+    (state) => state.handleTokens.isCreateBtnClicked
+  );
+  const isEditBtnClicked = useSelector(
+    (state) => state.handleTokens.isEditBtnClicked
+  );
 
   const handleCreateClick = () => {
     dispatch(handleCreateBtn(isCreateBtnClicked));
@@ -47,11 +51,17 @@ const Todo = () => {
   const handleCompleteTask = (taskID) => {
     dispatch(completeTodo(taskID));
   };
+  const handleEditTask = (taskID) => {
+    // console.log("CLOICLCLOSDLAS");
+  };
 
   return (
     <>
       <div className="container todo-section">
-        <TopBar handleCreateClick={handleCreateClick} isCreateBtnClicked={isCreateBtnClicked} />
+        <TopBar
+          handleCreateClick={handleCreateClick}
+          isCreateBtnClicked={isCreateBtnClicked}
+        />
         <div className="todo-board">
           {isCreateBtnClicked && (
             <AddCard
@@ -66,6 +76,7 @@ const Todo = () => {
             todoList={todoList}
             handleDeleteTask={handleDeleteTask}
             handleCompleteTask={handleCompleteTask}
+            handleEditTask={handleEditTask}
           />
         </div>
       </div>

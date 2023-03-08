@@ -39,3 +39,18 @@ export const completeTodo = (id) => {
     completeTime: getDays(id, new Date().getTime()),
   };
 };
+
+export const editTodo = (id) => {
+  return {
+    type: actionTypes.EDIT_TODO,
+  };
+};
+
+export const handleEditBtn = (isEditBtnClicked) => {
+  return {
+    type: actionTypes.HANDLE_EDIT,
+    payload: {
+      isEditBtnClicked: !isEditBtnClicked,
+    },
+  };
+};
