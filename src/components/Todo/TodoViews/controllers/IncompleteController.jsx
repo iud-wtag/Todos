@@ -6,15 +6,22 @@ const IncompleteController = ({
   handleCompleteTask,
   taskID,
 }) => {
+  const handleComplete = () => {
+    handleCompleteTask(taskID);
+  };
+  const handleDelete = () => {
+    handleDeleteTask(taskID);
+  };
+
   return (
     <div className="todo-crud-btn incomplete-btns">
-      <button onClick={() => handleCompleteTask(taskID)}>
+      <button onClick={handleComplete}>
         <img src="assets/images/check.png" alt="Complete button" />
       </button>
       <button>
         <img src="assets/images/edit.png" alt="Edit button" />
       </button>
-      <button onClick={() => handleDeleteTask(taskID)}>
+      <button onClick={handleDelete}>
         <img src="assets/images/delete.png" alt="Delete button" />
       </button>
     </div>
