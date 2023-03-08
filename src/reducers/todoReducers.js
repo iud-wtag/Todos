@@ -29,7 +29,9 @@ const todoReducers = (state = initialData, action) => {
       };
 
     case actionType.COMPLETE_TODO:
-      const completedTaskIndex = state.list.findIndex((e) => e.id === action.id);
+      const completedTaskIndex = state.list.findIndex(
+        (e) => e.id === action.id
+      );
       state.list[completedTaskIndex].completeTime = action.completeTime;
       state.list[completedTaskIndex].isTaskComplete = action.isTaskComplete;
       return {

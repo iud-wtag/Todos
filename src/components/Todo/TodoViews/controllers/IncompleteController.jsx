@@ -1,7 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const IncompleteController = ({ handleDeleteTask, handleCompleteTask, taskID }) => {
+const IncompleteController = ({
+  handleDeleteTask,
+  handleCompleteTask,
+  taskID,
+}) => {
   return (
     <div className="todo-crud-btn incomplete-btns">
       <button onClick={() => handleCompleteTask(taskID)}>
