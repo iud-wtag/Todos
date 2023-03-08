@@ -22,7 +22,7 @@ const Todo = () => {
   const handleCancelClick = (e) => {
     e.preventDefault();
     setInputData("");
-    handleCreateClick()
+    handleCreateClick();
   };
 
   const handleInputChange = (e) => {
@@ -42,9 +42,9 @@ const Todo = () => {
     }
   };
 
-  const handleDeleteTask = (taskID) =>{
-    dispatch(deleteTodo(taskID))
-  }
+  const handleDeleteTask = (taskID) => {
+    dispatch(deleteTodo(taskID));
+  };
 
   return (
     <>
@@ -63,7 +63,7 @@ const Todo = () => {
               handleCancelClick={handleCancelClick}
             />
           )}
-          <TodoViews todoList={todoList} handleDeleteTask={handleDeleteTask}/>
+          <TodoViews todoList={todoList} handleDeleteTask={handleDeleteTask} />
         </div>
       </div>
     </>
