@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Search = () => {
   return (
-    <div>
-      <img src="assets/images/search.png" alt='Search'/>
-    </div>
-  )
-}
+    <>
+      <img src="assets/images/search.png" alt="Search" />
+    </>
+  );
+};
 
-export default Search
+export default Search;

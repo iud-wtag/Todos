@@ -1,36 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-body{
-  background: #F8F9FF;
+body {
+  background: #f8f9ff;
 }
-.container{
+.container {
   max-width: 1216px;
   margin: auto;
 }
-.todo-logo{
+.todo-logo {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-.todo-logo .logo-txt{
+.todo-logo .logo-txt {
   font-weight: 700;
   font-size: 36px;
   line-height: 42px;
-  color: #7A8DFD;
+  color: #7a8dfd;
 }
-.navbar{
+.navbar {
   padding: 15px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
 }
-.navbarBack{
-  background: #FFFFFF;
-  border: 1px solid #DDE2FF;
+.navbarBack {
+  background: #ffffff;
+  border: 1px solid #dde2ff;
 }
