@@ -8,7 +8,10 @@ const TopBar = ({ handleCreateClick, isCreateBtnClicked }) => {
     <>
       <h1 className="addTask-header">Add Task</h1>
       <div className="btn-section">
-        <CreateTodo handleCreateClick={handleCreateClick} isCreateBtnClicked={isCreateBtnClicked} />
+        <CreateTodo
+          handleCreateClick={handleCreateClick}
+          isCreateBtnClicked={isCreateBtnClicked}
+        />
         <FilterTodo />
       </div>
     </>

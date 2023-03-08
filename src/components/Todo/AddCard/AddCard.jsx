@@ -2,7 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import FormButtons from "components/Todo/AddCard/controllers/FormButtons";
 
-const AddCard = ({ handleInputChange, handleAddTask, inputData, handleKeyDown }) => {
+const AddCard = ({
+  handleInputChange,
+  handleAddTask,
+  inputData,
+  handleKeyDown,
+}) => {
   return (
     <div className="todo-card add-card">
       <textarea
