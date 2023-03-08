@@ -11,7 +11,9 @@ const Todo = () => {
   const [inputData, setInputData] = useState("");
 
   const todoList = useSelector((state) => state.todoReducers.list);
-  const isCreateBtnClicked = useSelector((state) => state.handleTokens.isCreateBtnClicked);
+  const isCreateBtnClicked = useSelector(
+    (state) => state.handleTokens.isCreateBtnClicked
+  );
 
   const handleCreateClick = () => {
     dispatch(handleCreateBtn(isCreateBtnClicked));
@@ -51,7 +53,10 @@ const Todo = () => {
   return (
     <>
       <div className="container todo-section">
-        <TopBar handleCreateClick={handleCreateClick} isCreateBtnClicked={isCreateBtnClicked} />
+        <TopBar
+          handleCreateClick={handleCreateClick}
+          isCreateBtnClicked={isCreateBtnClicked}
+        />
         <div className="todo-board">
           {isCreateBtnClicked && (
             <AddCard
