@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const IncompleteTask = ({ handleDeleteTask, taskID }) => {
+  const handleDelete = () => {
+    handleDeleteTask(taskID);
+  };
   return (
     <div className="todo-crud-btn">
       <button>
@@ -10,7 +13,7 @@ const IncompleteTask = ({ handleDeleteTask, taskID }) => {
       <button>
         <img src="assets/images/edit.png" alt="Edit button" />
       </button>
-      <button onClick={() => handleDeleteTask(taskID)}>
+      <button onClick={handleDelete}>
         <img src="assets/images/delete.png" alt="Delete button" />
       </button>
     </div>
