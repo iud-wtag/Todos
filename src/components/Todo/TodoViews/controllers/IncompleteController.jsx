@@ -13,13 +13,16 @@ const IncompleteController = ({
   const handleDelete = () => {
     handleDeleteTask(taskID);
   };
+  const handleEdit = () => {
+    handleEditTask(taskID);
+  };
 
   return (
     <div className="todo-crud-btn incomplete-btns">
       <button onClick={handleComplete}>
         <img src="assets/images/check.png" alt="Complete button" />
       </button>
-      <button onClick={() => handleEditTask(taskID)}>
+      <button onClick={handleEdit}>
         <img src="assets/images/edit.png" alt="Edit button" />
       </button>
       <button onClick={handleDelete}>
