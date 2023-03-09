@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import IncompleteTask from "components/Todo/TodoViews/incomplete-task.component";
+import CompletedTask from "components/Todo/TodoViews/completed-task.component";
 import TodoDetails from "components/Todo/TodoViews/todo-details.component";
 
 const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
@@ -9,13 +10,13 @@ const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
       <div className="todo-card" key={list.id}>
         <TodoDetails list={list} />
         {list.isTaskComplete ? (
-          <CompletedController
+          <CompletedTask
             handleDeleteTask={handleDeleteTask}
             taskID={list.id}
             completeTime={list.completeTime}
           />
         ) : (
-          <IncompleteController
+          <IncompleteTask
             handleDeleteTask={handleDeleteTask}
             handleCompleteTask={handleCompleteTask}
             taskID={list.id}

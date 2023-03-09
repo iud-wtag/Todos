@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import deleteButton from "assets/images/delete.png";
 
-const CompletedController = ({ handleDeleteTask, taskID, completeTime }) => {
+const CompletedTask = ({ handleDeleteTask, taskID, completeTime }) => {
   return (
     <div className="todo-crud-btn complete-btns">
       <button onClick={() => handleDeleteTask(taskID)}>
-        <img src="assets/images/delete.png" alt="Delete button" />
+        <img src={deleteButton} alt="Delete button" />
       </button>
       <p className="complete-msg">
         Completed in {completeTime} {completeTime <= 1 ? "day" : "days"}
@@ -14,9 +15,9 @@ const CompletedController = ({ handleDeleteTask, taskID, completeTime }) => {
   );
 };
 
-CompletedController.propTypes = {
+CompletedTask.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
   taskID: PropTypes.string.isRequired,
 };
 
-export default CompletedController;
+export default CompletedTask;
