@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, handleCreateBtn } from "actions";
+import Navbar from "components/Todo/Navbar/Navbar";
 import TopBar from "components/Todo/TopBar/TopBar";
 import AddCard from "components/Todo/AddCard/AddCard";
 import TodoViews from "components/Todo/TodoViews/TodoViews";
@@ -36,6 +37,7 @@ const Todo = () => {
 
   return (
     <>
+      <Navbar />
       <div className="container todo-section">
         <TopBar
           handleCreateClick={handleCreateClick}
