@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import IncompleteController from "components/Todo/TodoViews/controllers/IncompleteController";
-import CompletedController from "components/Todo/TodoViews/controllers/CompletedController";
-import TodoDetails from "components/Todo/TodoViews/views/TodoDetails";
+import IncompleteTask from "components/Todo/TodoViews/incomplete-task.component";
+import TodoDetails from "components/Todo/TodoViews/todo-details.component";
 
 const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
   return todoList.map((list) => {

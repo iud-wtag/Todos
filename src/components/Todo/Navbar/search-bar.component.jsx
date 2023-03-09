@@ -1,9 +1,10 @@
 import React from "react";
+import searchIcon from "assets/images/search.png";
 
 const SearchBar = () => {
   return (
     <>
-      <img src="assets/images/search.png" alt="Search" />
+      <img src={searchIcon} alt="Search" />
     </>
   );
 };

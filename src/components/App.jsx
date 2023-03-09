@@ -1,14 +1,9 @@
 import React from "react";
-import Navbar from "components/Navbar/Navbar";
-import Todo from "components/Todo/Todo";
+import Todo from "components/Todo/todo";
+import "assets/css/style.css";
 
 const App = () => {
-  return (
-    <>
-      <Navbar />
-      <Todo />
-    </>
-  );
+  return <Todo />;
 };
 
 export default App;

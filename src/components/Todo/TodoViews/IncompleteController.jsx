@@ -1,5 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import checkButton from "assets/images/check.png";
+import editButton from "assets/images/edit.png";
+import deleteButton from "assets/images/delete.png";
 
 const IncompleteController = ({
   handleDeleteTask,
@@ -14,15 +17,21 @@ const IncompleteController = ({
   };
 
   return (
+<<<<<<<< HEAD:src/components/Todo/TodoViews/IncompleteController.jsx
     <div className="todo-crud-btn incomplete-btns">
       <button onClick={handleComplete}>
         <img src="assets/images/check.png" alt="Complete button" />
+========
+    <div className="todo-crud-btn">
+      <button>
+        <img src={checkButton} alt="Complete button" />
+>>>>>>>> STEP-3-Delete-Tasks:src/components/Todo/TodoViews/incomplete-task.component.jsx
       </button>
       <button>
-        <img src="assets/images/edit.png" alt="Edit button" />
+        <img src={editButton} alt="Edit button" />
       </button>
       <button onClick={handleDelete}>
-        <img src="assets/images/delete.png" alt="Delete button" />
+        <img src={deleteButton} alt="Delete button" />
       </button>
     </div>
   );
