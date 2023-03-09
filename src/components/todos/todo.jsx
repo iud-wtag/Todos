@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, handleCreateBtn } from "actions";
-import Navbar from "components/todos/navbar/nav-bar";
+import Navbar from "components/todos/navbar/navbar";
 import TopBar from "components/todos/topBar/top-bar";
 import AddCard from "components/todos/addCard/add-card";
 import TodoViews from "components/todos/todoViews/todo-views";
