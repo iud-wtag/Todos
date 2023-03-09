@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import FilterTodo from "components/todo/topBar/filter-todo";
-import CreateTodo from "components/todo/topBar/create-todo";
+import FilterTodo from "components/todos/topBar/filter-todo";
+import CreateTodo from "components/todos/topBar/create-todo";
 
 const TopBar = ({ handleCreateClick, isCreateBtnClicked }) => {
   return (

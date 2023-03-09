@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, handleCreateBtn } from "actions";
-import Navbar from "components/todo/navbar/navbar";
-import TopBar from "components/todo/topBar/top-bar";
-import AddCard from "components/todo/addCard/add-card";
-import TodoViews from "components/todo/todoViews/todo-views";
+import Navbar from "components/todos/navbar/nav-bar";
+import TopBar from "components/todos/topBar/top-bar";
+import AddCard from "components/todos/addCard/add-card";
+import TodoViews from "components/todos/todoViews/todo-views";
 
 const Todo = () => {
   const dispatch = useDispatch();

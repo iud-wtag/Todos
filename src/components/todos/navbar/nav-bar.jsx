@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "components/todo/navbar/logo";
-import SearchBar from "components/todo/navbar/search-bar";
+import Logo from "components/todos/navbar/logo";
+import SearchBar from "components/todos/navbar/search-bar";
 
 const Navbar = () => {
   return (

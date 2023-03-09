@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import FormButtons from "components/todo/addCard/form-buttons";
+import FormButtons from "components/todos/addCard/form-buttons";
 
 const AddCard = ({
   handleInputChange,
