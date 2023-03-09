@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, deleteTodo, handleCreateBtn } from "actions";
-import TopBar from "components/Todo/TopBar/TopBar";
-import AddCard from "components/Todo/AddCard/AddCard";
-import TodoViews from "components/Todo/TodoViews/TodoViews";
+import { addTodo, handleCreateBtn, deleteTodo } from "actions";
+import Navbar from "components/todos/navbar/navbar";
+import TopBar from "components/todos/topBar/top-bar";
+import AddCard from "components/todos/addCard/add-card";
+import TodoViews from "components/todos/todoViews/todo-views";
 
 const Todo = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const Todo = () => {
 
   return (
     <>
+      <Navbar />
       <div className="container todo-section">
         <TopBar
           handleCreateClick={handleCreateClick}

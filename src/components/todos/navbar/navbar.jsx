@@ -1,6 +1,7 @@
 import React from "react";
-import Logo from "components/Navbar/controllers/Logo";
-import SearchBar from "components/Navbar/controllers/SearchBar";
+import Logo from "components/todos/navbar/logo";
+import SearchBar from "components/todos/navbar/search-bar";
+
 const Navbar = () => {
   return (
     <div className="navbarBack">

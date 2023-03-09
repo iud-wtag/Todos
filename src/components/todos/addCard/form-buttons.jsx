@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import deleteButton from "assets/images/delete.png";
 
 const FormButtons = ({ handleAddTask, handleCancelClick }) => {
   return (
@@ -8,7 +9,7 @@ const FormButtons = ({ handleAddTask, handleCancelClick }) => {
         Add Task
       </button>
       <button onClick={handleCancelClick}>
-        <img src="assets/images/delete.png" alt="Delete Btn" />
+        <img src={deleteButton} alt="Delete Btn" />
       </button>
     </div>
   );
