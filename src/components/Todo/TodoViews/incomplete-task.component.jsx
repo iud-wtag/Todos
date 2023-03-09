@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import checkButton from "assets/images/check.png";
+import editButton from "assets/images/edit.png";
+import deleteButton from "assets/images/delete.png";
 
-const IncompleteController = ({
+const IncompleteTask = ({
   handleDeleteTask,
   handleCompleteTask,
   handleEditTask,
@@ -20,23 +23,23 @@ const IncompleteController = ({
   return (
     <div className="todo-crud-btn incomplete-btns">
       <button onClick={handleComplete}>
-        <img src="assets/images/check.png" alt="Complete button" />
+        <img src={checkButton} alt="Complete button" />
       </button>
       <button onClick={handleEdit}>
-        <img src="assets/images/edit.png" alt="Edit button" />
+        <img src={editButton} alt="Edit button" />
       </button>
       <button onClick={handleDelete}>
-        <img src="assets/images/delete.png" alt="Delete button" />
+        <img src={deleteButton} alt="Delete button" />
       </button>
     </div>
   );
 };
 
-IncompleteController.propTypes = {
+IncompleteTask.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
   handleEditTask: PropTypes.func.isRequired,
   taskID: PropTypes.string.isRequired,
 };
 
-export default IncompleteController;
+export default IncompleteTask;
