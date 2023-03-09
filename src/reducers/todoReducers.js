@@ -22,7 +22,7 @@ const todoReducers = (state = initialData, action) => {
       };
 
     case actionType.DELETE_TODO:
-      const newList = state.list.filter((e) => e.id !== action.id);
+      const newList = state.list.filter((task) => task.id !== action.id);
       return {
         ...state,
         list: newList,
@@ -30,7 +30,7 @@ const todoReducers = (state = initialData, action) => {
 
     case actionType.COMPLETE_TODO:
       const completedTaskIndex = state.list.findIndex(
-        (e) => e.id === action.id
+        (task) => task.id === action.id
       );
       state.list[completedTaskIndex].completeTime = action.completeTime;
       state.list[completedTaskIndex].isTaskComplete = action.isTaskComplete;
