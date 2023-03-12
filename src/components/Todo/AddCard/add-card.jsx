@@ -8,6 +8,7 @@ const AddCard = ({
   inputData,
   handleKeyDown,
   handleCancelClick,
+  isEmptyError,
 }) => {
   return (
     <div className="todo-card add-card">
@@ -24,6 +25,7 @@ const AddCard = ({
       <FormButtons
         handleAddTask={handleAddTask}
         handleCancelClick={handleCancelClick}
+        isEmptyError={isEmptyError}
       />
     </div>
   );
@@ -34,6 +36,7 @@ AddCard.propTypes = {
   handleInputChange: PropTypes.func.isRequired,
   inputData: PropTypes.string.isRequired,
   handleCancelClick: PropTypes.func.isRequired,
+  isEmptyError: PropTypes.bool.isRequired,
 };
 
 export default AddCard;

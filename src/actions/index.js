@@ -1,7 +1,12 @@
-import * as actionTypes from "actions/actionTypes";
+import {
+  ADD_TODO,
+  HANDLE_CREATE,
+  HANDLE_EMPTY,
+  DELETE_TODO,
+} from "actions/actionTypes";
 export const addTodo = (data) => {
   return {
-    type: actionTypes.ADD_TODO,
+    type: ADD_TODO,
     payload: {
       id: new Date().getTime().toString(),
       data: data,
@@ -12,7 +17,7 @@ export const addTodo = (data) => {
 
 export const handleCreateBtn = (isCreateBtnClicked) => {
   return {
-    type: actionTypes.HANDLE_CREATE,
+    type: HANDLE_CREATE,
     payload: {
       isCreateBtnClicked: !isCreateBtnClicked,
     },
@@ -21,7 +26,15 @@ export const handleCreateBtn = (isCreateBtnClicked) => {
 
 export const deleteTodo = (id) => {
   return {
-    type: actionTypes.DELETE_TODO,
+    type: DELETE_TODO,
     id,
+  };
+};
+export const handleEmptyError = (isEmptyError) => {
+  return {
+    type: HANDLE_EMPTY,
+    payload: {
+      isEmptyError: !isEmptyError,
+    },
   };
 };
