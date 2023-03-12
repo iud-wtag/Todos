@@ -1,4 +1,4 @@
-import { ADD_TODO, HANDLE_CREATE } from "actions/actionTypes";
+import { ADD_TODO, HANDLE_CREATE, HANDLE_EMPTY } from "actions/actionTypes";
 export const addTodo = (data) => {
   return {
     type: ADD_TODO,
@@ -15,6 +15,15 @@ export const handleCreateBtn = (isCreateBtnClicked) => {
     type: HANDLE_CREATE,
     payload: {
       isCreateBtnClicked: !isCreateBtnClicked,
+    },
+  };
+};
+
+export const handleEmptyError = (isEmptyError) => {
+  return {
+    type: HANDLE_EMPTY,
+    payload: {
+      isEmptyError: !isEmptyError,
     },
   };
 };
