@@ -1,34 +1,29 @@
+import { ADD_TODO, HANDLE_CREATE, HANDLE_EMPTY } from "actions/actionTypes";
 export const addTodo = (data) => {
   return {
-    type: "ADD_TODO",
+    type: ADD_TODO,
     payload: {
       id: new Date().getTime().toString(),
       data: data,
+      date: new Date().toLocaleDateString("de-DE"),
     },
   };
 };
-export const removeTodo = () => {
+
+export const handleCreateBtn = (isCreateBtnClicked) => {
   return {
-    type: "REMOVE_TODO",
+    type: HANDLE_CREATE,
+    payload: {
+      isCreateBtnClicked: !isCreateBtnClicked,
+    },
   };
 };
-export const updateTodo = () => {
+
+export const handleEmptyError = (isEmptyError) => {
   return {
-    type: "UPDATE_TODO",
-  };
-};
-export const allList = () => {
-  return {
-    type: "ALL_LIST",
-  };
-};
-export const completeList = () => {
-  return {
-    type: "COMPLETE_LIST",
-  };
-};
-export const incompleteList = () => {
-  return {
-    type: "INCOMPLETE_LIST",
+    type: HANDLE_EMPTY,
+    payload: {
+      isEmptyError: isEmptyError,
+    },
   };
 };

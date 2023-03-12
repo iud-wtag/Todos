@@ -1,20 +1,21 @@
+import { ADD_TODO } from "actions/actionTypes";
 const initialData = {
   list: [],
 };
 
 const todoReducers = (state = initialData, action) => {
   switch (action.type) {
-    case "ADD_TODO":
-      const { id, data } = action.payload;
-      console.log(state);
+    case ADD_TODO:
+      const { id, data, date } = action.payload;
       return {
         ...state,
         list: [
-          ...state.list,
           {
             id: id,
             data: data,
+            date: date,
           },
+          ...state.list,
         ],
       };
 
