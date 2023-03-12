@@ -10,29 +10,30 @@ const Todo = () => {
   const dispatch = useDispatch();
 
   const [inputData, setInputData] = useState("");
-  // const [isEmptyError, setIsEmptyError] = useState(false);
 
   const todoList = useSelector((state) => state.todoReducers.list);
   const isCreateBtnClicked = useSelector(
     (state) => state.handleTokens.isCreateBtnClicked
   );
-
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
   const toggleEmptyError = () => {
     dispatch(handleEmptyError(isEmptyError));
   };
-
   const handleCreateClick = () => {
     dispatch(handleCreateBtn(isCreateBtnClicked));
+  };
+  const sanitizeInput = (input) => {
+    return input.replace(/(<([^>]+)>)/g, "");
   };
   const handleInputChange = (e) => {
     setInputData(e.target.value);
     if (isEmptyError) toggleEmptyError();
   };
   const handleAddTask = (e) => {
-    if (inputData.trim()) {
-      dispatch(addTodo(inputData));
+    const sanitizedData = sanitizeInput(inputData);
+    if (sanitizedData.trim()) {
+      dispatch(addTodo(sanitizedData));
       setInputData("");
       handleCreateClick();
 
