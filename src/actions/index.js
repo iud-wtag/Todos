@@ -4,6 +4,8 @@ import {
   HANDLE_EMPTY,
   DELETE_TODO,
   COMPLETE_TODO,
+  EDIT_TODO,
+  HANDLE_EDIT,
 } from "actions/actionTypes";
 
 export const addTodo = (data) => {
@@ -49,13 +51,13 @@ export const completeTodo = (id) => {
 
 export const editTodo = (id) => {
   return {
-    type: actionTypes.EDIT_TODO,
+    type: EDIT_TODO,
   };
 };
 
 export const handleEditBtn = (isEditBtnClicked) => {
   return {
-    type: actionTypes.HANDLE_EDIT,
+    type: HANDLE_EDIT,
     payload: {
       isEditBtnClicked: !isEditBtnClicked,
     },

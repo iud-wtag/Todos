@@ -1,4 +1,4 @@
-import { HANDLE_CREATE } from "actions/actionTypes";
+import { HANDLE_CREATE, HANDLE_EDIT } from "actions/actionTypes";
 
 const initialToken = {
   isCreateBtnClicked: false,
@@ -13,7 +13,7 @@ const handleTokens = (state = initialToken, action) => {
         isCreateBtnClicked: isCreateBtnClicked,
       };
 
-    case actionType.HANDLE_EDIT:
+    case HANDLE_EDIT:
       const { isEditBtnClicked } = action.payload;
       return {
         isEditBtnClicked: isEditBtnClicked,
