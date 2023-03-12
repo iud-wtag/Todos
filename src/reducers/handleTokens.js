@@ -1,4 +1,4 @@
-import * as actionType from "actions/actionTypes";
+import { HANDLE_CREATE } from "actions/actionTypes";
 
 const initialToken = {
   isCreateBtnClicked: false,
@@ -7,7 +7,7 @@ const initialToken = {
 
 const handleTokens = (state = initialToken, action) => {
   switch (action.type) {
-    case actionType.HANDLE_CREATE:
+    case HANDLE_CREATE:
       const { isCreateBtnClicked } = action.payload;
       return {
         isCreateBtnClicked: isCreateBtnClicked,

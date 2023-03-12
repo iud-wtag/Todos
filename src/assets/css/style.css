@@ -151,3 +151,8 @@ button {
   opacity: 0.6;
   cursor: no-drop;
 }
+.error {
+  font-size: 14px;
+  font-weight: 500;
+  color: crimson;
+}
