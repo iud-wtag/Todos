@@ -33,6 +33,7 @@ const Todo = () => {
     e.preventDefault();
     setInputData("");
     handleCreateClick();
+    if (isEmptyError) toggleEmptyError();
   };
 
   const sanitizeInput = (input) => {
