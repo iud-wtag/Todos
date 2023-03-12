@@ -40,7 +40,8 @@ const Todo = () => {
     toggleEmptyError(false);
   };
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    const ENTER = "Enter";
+    if (e.key === ENTER) {
       handleAddTask();
     }
   };
