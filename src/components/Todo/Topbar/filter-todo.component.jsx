@@ -1,6 +1,6 @@
 import React from "react";
 
-const FilterTodo = (props) => {
+const FilterTodo = () => {
   return (
     <div className="filter-btn">
       <button className="btn">All</button>

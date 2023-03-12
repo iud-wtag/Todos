@@ -1,11 +1,11 @@
-import * as actionType from "actions/actionTypes";
+import { ADD_TODO, DELETE_TODO, COMPLETE_TODO } from "actions/actionTypes";
 const initialData = {
   list: [],
 };
 
 const todoReducers = (state = initialData, action) => {
   switch (action.type) {
-    case actionType.ADD_TODO:
+    case ADD_TODO:
       const { id, data, date, isTaskComplete, completeTime } = action.payload;
       return {
         ...state,
@@ -21,14 +21,14 @@ const todoReducers = (state = initialData, action) => {
         ],
       };
 
-    case actionType.DELETE_TODO:
+    case DELETE_TODO:
       const newList = state.list.filter((task) => task.id !== action.id);
       return {
         ...state,
         list: newList,
       };
 
-    case actionType.COMPLETE_TODO:
+    case COMPLETE_TODO:
       const completedTaskIndex = state.list.findIndex(
         (task) => task.id === action.id
       );

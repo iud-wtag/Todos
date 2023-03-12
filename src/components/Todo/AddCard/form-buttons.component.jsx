@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
 
-const FormButtons = ({ handleAddTask, handleCancelClick }) => {
+const FormButtons = ({ handleAddTask, handleCancelClick, isEmptyError }) => {
   return (
     <div className="todo-add-crud">
       <button onClick={handleAddTask} className="add-task-btn">
@@ -11,6 +11,7 @@ const FormButtons = ({ handleAddTask, handleCancelClick }) => {
       <button onClick={handleCancelClick}>
         <img src={deleteButton} alt="Delete Btn" />
       </button>
+      {isEmptyError && <p className="error">Title is required</p>}
     </div>
   );
 };
@@ -18,6 +19,7 @@ const FormButtons = ({ handleAddTask, handleCancelClick }) => {
 FormButtons.propTypes = {
   handleAddTask: PropTypes.func.isRequired,
   handleCancelClick: PropTypes.func.isRequired,
+  isEmptyError: PropTypes.bool.isRequired,
 };
 
 export default FormButtons;
