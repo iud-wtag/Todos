@@ -3,7 +3,9 @@ import {
   HANDLE_CREATE,
   HANDLE_EMPTY,
   DELETE_TODO,
+  COMPLETE_TODO,
 } from "actions/actionTypes";
+
 export const addTodo = (data) => {
   return {
     type: ADD_TODO,
@@ -38,7 +40,7 @@ export const completeTodo = (id) => {
     return Math.ceil((day2 - day1) / (1000 * 3600 * 24));
   }
   return {
-    type: actionTypes.COMPLETE_TODO,
+    type: COMPLETE_TODO,
     id,
     isTaskComplete: true,
     completeTime: getDays(id, new Date().getTime()),
