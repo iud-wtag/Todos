@@ -3,9 +3,12 @@ import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
 
 const CompletedTask = ({ handleDeleteTask, taskID, completeTime }) => {
+  const handledelete = () => {
+    handleDeleteTask(taskID);
+  };
   return (
     <div className="todo-crud-btn complete-btns">
-      <button onClick={() => handleDeleteTask(taskID)}>
+      <button onClick={handledelete}>
         <img src={deleteButton} alt="Delete button" />
       </button>
       <p className="complete-msg">
