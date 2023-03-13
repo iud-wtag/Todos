@@ -7,7 +7,9 @@ const TodoDetails = ({ list }) => {
       <h3 className={`todo-header ${list.isTaskComplete && "task-complete"}`}>
         {list.data}
       </h3>
-      <p className="todo-createTime">Created At: {list.date}</p>
+      <p className="todo-createTime">
+        Created At: {list.date.toLocaleDateString("de-DE")}
+      </p>
     </>
   );
 };

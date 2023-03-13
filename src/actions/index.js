@@ -5,6 +5,7 @@ import {
   DELETE_TODO,
   COMPLETE_TODO,
 } from "actions/actionTypes";
+import { getDays } from "helpers/getDays";
 
 export const addTodo = (data) => {
   return {
@@ -12,7 +13,7 @@ export const addTodo = (data) => {
     payload: {
       id: new Date().getTime().toString(),
       data: data,
-      date: new Date().toLocaleDateString("de-DE"),
+      date: new Date(),
       isTaskComplete: false,
       completeTime: null,
     },
@@ -35,15 +36,12 @@ export const deleteTodo = (id) => {
   };
 };
 
-export const completeTodo = (id) => {
-  function getDays(day1, day2) {
-    return Math.ceil((day2 - day1) / (1000 * 3600 * 24));
-  }
+export const completeTodo = (id, date) => {
   return {
     type: COMPLETE_TODO,
     id,
     isTaskComplete: true,
-    completeTime: getDays(id, new Date().getTime()),
+    completeTime: getDays(date.getTime(), new Date().getTime()),
   };
 };
 export const handleEmptyError = (isEmptyError) => {

@@ -4,9 +4,14 @@ import checkButton from "assets/images/check.png";
 import editButton from "assets/images/edit.png";
 import deleteButton from "assets/images/delete.png";
 
-const IncompleteTask = ({ handleDeleteTask, handleCompleteTask, taskID }) => {
+const IncompleteTask = ({
+  handleDeleteTask,
+  handleCompleteTask,
+  taskID,
+  startDate,
+}) => {
   const handleComplete = () => {
-    handleCompleteTask(taskID);
+    handleCompleteTask(taskID, startDate);
   };
   const handleDelete = () => {
     handleDeleteTask(taskID);

@@ -20,6 +20,7 @@ const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
             handleDeleteTask={handleDeleteTask}
             handleCompleteTask={handleCompleteTask}
             taskID={list.id}
+            startDate={list.date}
           />
         )}
       </div>
