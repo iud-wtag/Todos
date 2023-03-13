@@ -66,7 +66,6 @@ const Todo = () => {
   };
 
   const handleCompleteTask = (taskID, startDate) => {
-    console.log(startDate);
     dispatch(completeTodo(taskID, startDate));
   };
 
