@@ -1,4 +1,9 @@
-import { ADD_TODO, HANDLE_CREATE, HANDLE_EMPTY } from "actions/actionTypes";
+import {
+  ADD_TODO,
+  HANDLE_CREATE,
+  HANDLE_EMPTY,
+  DELETE_TODO,
+} from "actions/actionTypes";
 export const addTodo = (data) => {
   return {
     type: ADD_TODO,
@@ -19,6 +24,12 @@ export const handleCreateBtn = (isCreateBtnClicked) => {
   };
 };
 
+export const deleteTodo = (id) => {
+  return {
+    type: DELETE_TODO,
+    id,
+  };
+};
 export const handleEmptyError = (isEmptyError) => {
   return {
     type: HANDLE_EMPTY,

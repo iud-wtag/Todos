@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, handleCreateBtn, handleEmptyError } from "actions";
+import {
+  addTodo,
+  handleCreateBtn,
+  deleteTodo,
+  handleEmptyError,
+} from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
 import AddCard from "components/Todo/AddCard/add-card";
@@ -24,12 +29,22 @@ const Todo = () => {
   const handleCreateClick = () => {
     dispatch(handleCreateBtn(isCreateBtnClicked));
   };
+
+  const handleCancelClick = (e) => {
+    e.preventDefault();
+    setInputData("");
+    handleCreateClick();
+    toggleEmptyError(false);
+  };
+
   const handleInputChange = (e) => {
     setInputData(e.target.value);
     toggleEmptyError(false);
   };
+
   const handleAddTask = (e) => {
     const sanitizedData = sanitizeInput(inputData);
+
     if (sanitizedData.trim() === "") {
       toggleEmptyError(true);
       return;
@@ -41,9 +56,14 @@ const Todo = () => {
   };
   const handleKeyDown = (e) => {
     const ENTER = "Enter";
+
     if (e.key === ENTER) {
       handleAddTask();
     }
+  };
+
+  const handleDeleteTask = (taskID) => {
+    dispatch(deleteTodo(taskID));
   };
 
   return (
@@ -61,10 +81,11 @@ const Todo = () => {
               handleAddTask={handleAddTask}
               handleKeyDown={handleKeyDown}
               inputData={inputData}
+              handleCancelClick={handleCancelClick}
               isEmptyError={isEmptyError}
             />
           )}
-          <TodoViews todoList={todoList} />
+          <TodoViews todoList={todoList} handleDeleteTask={handleDeleteTask} />
         </div>
       </div>
     </>

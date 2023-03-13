@@ -7,6 +7,7 @@ const AddCard = ({
   handleAddTask,
   inputData,
   handleKeyDown,
+  handleCancelClick,
   isEmptyError,
 }) => {
   return (
@@ -21,7 +22,11 @@ const AddCard = ({
         onKeyDown={handleKeyDown}
       ></textarea>
 
-      <FormButtons handleAddTask={handleAddTask} isEmptyError={isEmptyError} />
+      <FormButtons
+        handleAddTask={handleAddTask}
+        handleCancelClick={handleCancelClick}
+        isEmptyError={isEmptyError}
+      />
     </div>
   );
 };
@@ -30,6 +35,7 @@ AddCard.propTypes = {
   handleAddTask: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   inputData: PropTypes.string.isRequired,
+  handleCancelClick: PropTypes.func.isRequired,
   isEmptyError: PropTypes.bool.isRequired,
 };
 

@@ -1,4 +1,4 @@
-import { ADD_TODO } from "actions/actionTypes";
+import { ADD_TODO, DELETE_TODO } from "actions/actionTypes";
 const initialData = {
   list: [],
 };
@@ -17,6 +17,13 @@ const todoReducers = (state = initialData, action) => {
           },
           ...state.list,
         ],
+      };
+
+    case DELETE_TODO:
+      const newList = state.list.filter((task) => task.id !== action.id);
+      return {
+        ...state,
+        list: newList,
       };
 
     default:
