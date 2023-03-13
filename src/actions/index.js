@@ -34,7 +34,7 @@ export const handleEmptyError = (isEmptyError) => {
   return {
     type: HANDLE_EMPTY,
     payload: {
-      isEmptyError: !isEmptyError,
+      isEmptyError: isEmptyError,
     },
   };
 };
