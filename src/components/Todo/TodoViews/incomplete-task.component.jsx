@@ -4,14 +4,22 @@ import checkButton from "assets/images/check.png";
 import editButton from "assets/images/edit.png";
 import deleteButton from "assets/images/delete.png";
 
-const IncompleteTask = ({ handleDeleteTask, taskID }) => {
+const IncompleteTask = ({
+  handleDeleteTask,
+  handleCompleteTask,
+  taskID,
+  startDate,
+}) => {
+  const handleComplete = () => {
+    handleCompleteTask(taskID, startDate);
+  };
   const handleDelete = () => {
     handleDeleteTask(taskID);
   };
 
   return (
-    <div className="todo-crud-btn">
-      <button>
+    <div className="todo-crud-btn incomplete-btns">
+      <button onClick={handleComplete}>
         <img src={checkButton} alt="Complete button" />
       </button>
       <button>
@@ -26,6 +34,7 @@ const IncompleteTask = ({ handleDeleteTask, taskID }) => {
 
 IncompleteTask.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
+  handleCompleteTask: PropTypes.func.isRequired,
   taskID: PropTypes.string.isRequired,
 };
 

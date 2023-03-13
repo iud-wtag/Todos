@@ -111,6 +111,11 @@ button {
   color: #32394b;
   padding-bottom: 10px;
 }
+
+.todo-card .todo-header.task-complete {
+  text-decoration-line: line-through;
+  color: #0bc475;
+}
 .todo-card .todo-createTime {
   font-weight: 700;
   font-size: 14px;
@@ -124,6 +129,19 @@ button {
   display: flex;
   align-items: center;
   gap: 25px;
+}
+.todo-crud-btn.incomplete-btns {
+}
+.todo-crud-btn.complete-btns {
+  justify-content: space-between;
+}
+.complete-btns .complete-msg {
+  background: #7a8dfd;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 12px;
+  line-height: 14px;
 }
 .todo-crud-btn > button {
   border: none;

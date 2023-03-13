@@ -4,6 +4,7 @@ import {
   addTodo,
   handleCreateBtn,
   deleteTodo,
+  completeTodo,
   handleEmptyError,
 } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
@@ -66,6 +67,10 @@ const Todo = () => {
     dispatch(deleteTodo(taskID));
   };
 
+  const handleCompleteTask = (taskID, startDate) => {
+    dispatch(completeTodo(taskID, startDate));
+  };
+
   return (
     <>
       <Navbar />
@@ -85,7 +90,11 @@ const Todo = () => {
               isEmptyError={isEmptyError}
             />
           )}
-          <TodoViews todoList={todoList} handleDeleteTask={handleDeleteTask} />
+          <TodoViews
+            todoList={todoList}
+            handleDeleteTask={handleDeleteTask}
+            handleCompleteTask={handleCompleteTask}
+          />
         </div>
       </div>
     </>

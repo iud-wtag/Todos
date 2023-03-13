@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO } from "actions/actionTypes";
+import { ADD_TODO, DELETE_TODO, COMPLETE_TODO } from "actions/actionTypes";
 const initialData = {
   list: [],
 };
@@ -6,7 +6,7 @@ const initialData = {
 const todoReducers = (state = initialData, action) => {
   switch (action.type) {
     case ADD_TODO:
-      const { id, data, date } = action.payload;
+      const { id, data, date, isTaskComplete, completeTime } = action.payload;
       return {
         ...state,
         list: [
@@ -14,6 +14,8 @@ const todoReducers = (state = initialData, action) => {
             id: id,
             data: data,
             date: date,
+            isTaskComplete: isTaskComplete,
+            completeTime: completeTime,
           },
           ...state.list,
         ],
@@ -24,6 +26,17 @@ const todoReducers = (state = initialData, action) => {
       return {
         ...state,
         list: newList,
+      };
+
+    case COMPLETE_TODO:
+      const completedTaskIndex = state.list.findIndex(
+        (task) => task.id === action.id
+      );
+      state.list[completedTaskIndex].completeTime = action.completeTime;
+      state.list[completedTaskIndex].isTaskComplete = action.isTaskComplete;
+      return {
+        ...state,
+        list: [...state.list],
       };
 
     default:
