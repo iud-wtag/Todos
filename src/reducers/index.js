@@ -1,11 +1,11 @@
 import todoReducers from "reducers/todoReducers";
-import handleTokens from "reducers/handleTokens";
+import handleButtonClick from "reducers/handleButtonClick";
 import handleErrors from "reducers/handleErrors";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
   todoReducers,
-  handleTokens,
+  handleButtonClick,
   handleErrors,
 });
 
