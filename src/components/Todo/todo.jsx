@@ -34,7 +34,7 @@ const Todo = () => {
     e.preventDefault();
     setInputData("");
     handleCreateClick();
-    if (isEmptyError) toggleEmptyError();
+    toggleEmptyError(false);
   };
 
   const handleInputChange = (e) => {
@@ -44,6 +44,7 @@ const Todo = () => {
 
   const handleAddTask = (e) => {
     const sanitizedData = sanitizeInput(inputData);
+
     if (sanitizedData.trim() === "") {
       toggleEmptyError(true);
       return;
@@ -55,6 +56,7 @@ const Todo = () => {
   };
   const handleKeyDown = (e) => {
     const ENTER = "Enter";
+
     if (e.key === ENTER) {
       handleAddTask();
     }
