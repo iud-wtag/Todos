@@ -7,7 +7,7 @@ const CompletedTask = ({ handleDeleteTask, taskID, completeTime }) => {
     handleDeleteTask(taskID);
   };
   return (
-    <div className="todo-crud-btn complete-btns">
+    <div className="todo-view__btns complete-btns">
       <button onClick={handleDelete}>
         <img src={deleteButton} alt="Delete button" />
       </button>
