@@ -11,9 +11,9 @@ const AddCard = ({
   isEmptyError,
 }) => {
   return (
-    <div className="todo-card add-card">
+    <div className="todo-card todo-add-card">
       <textarea
-        className="todo-input"
+        className="todo-card__input"
         type="text"
         id="todo-input"
         onChange={handleInputChange}

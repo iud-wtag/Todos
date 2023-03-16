@@ -1,11 +1,11 @@
 import { HANDLE_CREATE, HANDLE_EDIT } from "actions/actionTypes";
 
-const initialToken = {
+const initialButton = {
   isCreateBtnClicked: false,
   isEditBtnClicked: false,
 };
 
-const handleTokens = (state = initialToken, action) => {
+const handleButtonClick = (state = initialButton, action) => {
   switch (action.type) {
     case HANDLE_CREATE:
       const { isCreateBtnClicked } = action.payload;
@@ -23,4 +23,4 @@ const handleTokens = (state = initialToken, action) => {
       return state;
   }
 };
-export default handleTokens;
+export default handleButtonClick;

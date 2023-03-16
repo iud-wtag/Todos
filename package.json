@@ -42,5 +42,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/iud-wtag/Todos.git",
+  "author": "Imtiaj Rafi <imtiaj.uddin@welldev.io>",
+  "license": "MIT"
 }

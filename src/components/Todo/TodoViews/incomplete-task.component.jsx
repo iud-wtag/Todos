@@ -9,9 +9,10 @@ const IncompleteTask = ({
   handleCompleteTask,
   handleEditTask,
   taskID,
+  startDate,
 }) => {
   const handleComplete = () => {
-    handleCompleteTask(taskID);
+    handleCompleteTask(taskID, startDate);
   };
   const handleDelete = () => {
     handleDeleteTask(taskID);
@@ -21,7 +22,7 @@ const IncompleteTask = ({
   };
 
   return (
-    <div className="todo-crud-btn incomplete-btns">
+    <div className="todo-view__btns incomplete-btns">
       <button onClick={handleComplete}>
         <img src={checkButton} alt="Complete button" />
       </button>

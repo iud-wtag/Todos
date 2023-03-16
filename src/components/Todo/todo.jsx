@@ -11,6 +11,7 @@ import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
 import AddCard from "components/Todo/AddCard/add-card";
 import TodoViews from "components/Todo/TodoViews/todo-views";
+import { sanitizeInput } from "helpers/sanitizeInput";
 
 const Todo = () => {
   const dispatch = useDispatch();
@@ -18,15 +19,15 @@ const Todo = () => {
   const todoList = useSelector((state) => state.todoReducers.list);
 
   const isCreateBtnClicked = useSelector(
-    (state) => state.handleTokens.isCreateBtnClicked
+    (state) => state.handleButtonClick.isCreateBtnClicked
   );
   const isEditBtnClicked = useSelector(
     (state) => state.handleTokens.isEditBtnClicked
   );
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
-  const toggleEmptyError = () => {
-    dispatch(handleEmptyError(isEmptyError));
+  const toggleEmptyError = (toggleValue) => {
+    dispatch(handleEmptyError(toggleValue));
   };
   const handleCreateClick = () => {
     dispatch(handleCreateBtn(isCreateBtnClicked));
@@ -36,31 +37,30 @@ const Todo = () => {
     e.preventDefault();
     setInputData("");
     handleCreateClick();
-    if (isEmptyError) toggleEmptyError();
+    toggleEmptyError(false);
   };
 
-  const sanitizeInput = (input) => {
-    return input.replace(/(<([^>]+)>)/g, "");
-  };
   const handleInputChange = (e) => {
     setInputData(e.target.value);
-    if (isEmptyError) toggleEmptyError();
+    toggleEmptyError(false);
   };
 
   const handleAddTask = (e) => {
     const sanitizedData = sanitizeInput(inputData);
-    if (sanitizedData.trim()) {
-      dispatch(addTodo(sanitizedData));
-      setInputData("");
-      handleCreateClick();
 
-      if (isEmptyError) toggleEmptyError();
-    } else {
-      if (!isEmptyError) toggleEmptyError();
+    if (sanitizedData.trim() === "") {
+      toggleEmptyError(true);
+      return;
     }
+    dispatch(addTodo(sanitizedData));
+    setInputData("");
+    handleCreateClick();
+    toggleEmptyError(false);
   };
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    const ENTER = "Enter";
+
+    if (e.key === ENTER) {
       handleAddTask();
     }
   };
@@ -69,22 +69,22 @@ const Todo = () => {
     dispatch(deleteTodo(taskID));
   };
 
-  const handleCompleteTask = (taskID) => {
-    dispatch(completeTodo(taskID));
+  const handleCompleteTask = (taskID, startDate) => {
+    dispatch(completeTodo(taskID, startDate));
   };
   const handleEditTask = (taskID) => {
     // console.log("CLOICLCLOSDLAS");
   };
 
   return (
-    <>
+    <div className="todo">
       <Navbar />
-      <div className="container todo-section">
+      <div className="todo__container todo__section">
         <TopBar
           handleCreateClick={handleCreateClick}
           isCreateBtnClicked={isCreateBtnClicked}
         />
-        <div className="todo-board">
+        <div className="todo__board">
           {isCreateBtnClicked && (
             <AddCard
               handleInputChange={handleInputChange}
@@ -103,7 +103,7 @@ const Todo = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

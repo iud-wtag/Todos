@@ -12,7 +12,7 @@ const TodoViews = ({
 }) => {
   return todoList.map((list) => {
     return (
-      <div className="todo-card" key={list.id}>
+      <div className="todo-card todo-view-card" key={list.id}>
         <TodoDetails list={list} />
         {list.isTaskComplete ? (
           <CompletedTask
@@ -26,6 +26,7 @@ const TodoViews = ({
             handleCompleteTask={handleCompleteTask}
             handleEditTask={handleEditTask}
             taskID={list.id}
+            startDate={list.date}
           />
         )}
       </div>
