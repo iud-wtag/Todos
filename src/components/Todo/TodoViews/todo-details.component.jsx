@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 
 const TodoDetails = ({ list }) => {
   return (
-    <>
-      <h3 className="todo-header">{list.data}</h3>
-      <p className="todo-createTime">Created At: {list.date}</p>
-    </>
+    <div className="todo-view__details">
+      <h3 className="todo-view__title">{list.data}</h3>
+      <p className="todo-view__create-time">Created At: {list.date}</p>
+    </div>
   );
 };
 

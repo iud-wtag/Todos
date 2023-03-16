@@ -15,11 +15,14 @@ button {
   border: none;
   background: none;
 }
-.container {
+.todo {
+}
+.todo__container,
+.navbar__container {
   max-width: 1216px;
   margin: auto;
 }
-.todo-section {
+.todo__section {
   padding: 65px 0px;
 }
 .todo-logo {
@@ -27,23 +30,29 @@ button {
   align-items: center;
   gap: 15px;
 }
-.todo-logo .logo-txt {
+.todo-logo__img {
+}
+.todo-logo__txt {
   font-weight: 700;
   font-size: 36px;
   line-height: 42px;
   color: #7a8dfd;
 }
-.navbar {
+.navbar-back__navbar {
   padding: 15px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.navbarBack {
+.navbar-back {
   background: #ffffff;
   border: 1px solid #dde2ff;
 }
-.btn-section {
+.todo-top {
+}
+.todo-top__title {
+}
+.todo-top__btn-section {
   display: flex;
   justify-content: space-between;
   padding: 30px 0px;
@@ -55,7 +64,7 @@ button {
 .btn:hover {
   cursor: pointer;
 }
-.create-btn .btn {
+.create-btn__btn {
   background: #7a8dfd;
   padding: 10px 20px;
   border: none;
@@ -67,7 +76,7 @@ button {
   font-size: 16px;
   line-height: 19px;
 }
-.todo-board {
+.todo__board {
   display: flex;
   flex-wrap: wrap;
   gap: 34px;
@@ -79,15 +88,15 @@ button {
   border-radius: 5px;
   padding: 15px;
 }
-.add-card {
+.todo-add-card {
 }
-.todo-add-crud {
+.add-card__btn-section {
   padding-top: 15px;
   display: flex;
   align-items: center;
   gap: 15px;
 }
-.todo-add-crud .add-task-btn {
+.todo-add__btn {
   border: 1px solid #dde2ff;
   border-radius: 5px;
   padding: 10px 15px;
@@ -96,35 +105,37 @@ button {
   line-height: 19px;
   color: #32394b;
 }
-.add-card .todo-input {
+.todo-delete__btn {
+}
+.todo-card__input {
   min-width: 351px;
   min-height: 80px;
   background: #ffffff;
   border: 3px solid #d1d8ff;
   border-radius: 5px;
 }
-.todo-card .todo-header {
+.todo-view-card {
+}
+.todo-view__title {
   font-weight: 700;
   font-size: 24px;
   line-height: 28px;
   color: #32394b;
   padding-bottom: 10px;
 }
-.todo-card .todo-createTime {
+.todo-view__create-time {
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
   color: #bbbdd0;
   padding-bottom: 25px;
 }
-.add-card {
-}
-.todo-crud-btn {
+.todo-view__btns {
   display: flex;
   align-items: center;
   gap: 25px;
 }
-.todo-crud-btn > button {
+.todo-view__btns > button {
   border: none;
 }
 .create-btn .btn:disabled {

@@ -4,10 +4,10 @@ import logo from "assets/images/logo.png";
 const Logo = () => {
   return (
     <div className="todo-logo">
-      <div className="logo-img">
+      <div className="todo-logo__img">
         <img src={logo} alt="logo" />
       </div>
-      <div className="logo-txt">
+      <div className="todo-logo__txt">
         <h3>Todos</h3>
       </div>
     </div>

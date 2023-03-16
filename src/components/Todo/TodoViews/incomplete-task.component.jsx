@@ -5,7 +5,7 @@ import deleteButton from "assets/images/delete.png";
 
 const IncompleteTask = () => {
   return (
-    <div className="todo-crud-btn">
+    <div className="todo-view__btns">
       <button>
         <img src={checkButton} alt="Complete button" />
       </button>

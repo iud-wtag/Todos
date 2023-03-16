@@ -5,16 +5,16 @@ import CreateTodo from "components/Todo/Topbar/create-todo.component";
 
 const TopBar = ({ handleCreateClick, isCreateBtnClicked }) => {
   return (
-    <>
-      <h1 className="addTask-header">Add Task</h1>
-      <div className="btn-section">
+    <div className="todo-top">
+      <h1 className="todo-top__title">Add Task</h1>
+      <div className="todo-top__btn-section">
         <CreateTodo
           handleCreateClick={handleCreateClick}
           isCreateBtnClicked={isCreateBtnClicked}
         />
         <FilterTodo />
       </div>
-    </>
+    </div>
   );
 };
 
