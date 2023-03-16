@@ -18,7 +18,7 @@ const IncompleteTask = ({
   };
 
   return (
-    <div className="todo-crud-btn incomplete-btns">
+    <div className="todo-view__btns incomplete-btns">
       <button onClick={handleComplete}>
         <img src={checkButton} alt="Complete button" />
       </button>

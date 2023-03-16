@@ -4,11 +4,11 @@ import deleteButton from "assets/images/delete.png";
 
 const FormButtons = ({ handleAddTask, handleCancelClick, isEmptyError }) => {
   return (
-    <div className="todo-add-crud">
-      <button onClick={handleAddTask} className="add-task-btn">
+    <div className="add-card__btn-section">
+      <button onClick={handleAddTask} className="todo-add__btn">
         Add Task
       </button>
-      <button onClick={handleCancelClick}>
+      <button className="todo-delete__btn" onClick={handleCancelClick}>
         <img src={deleteButton} alt="Delete Btn" />
       </button>
       {isEmptyError && <p className="error">Title is required</p>}
