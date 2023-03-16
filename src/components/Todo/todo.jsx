@@ -67,14 +67,14 @@ const Todo = () => {
   };
 
   return (
-    <>
+    <div className="todo">
       <Navbar />
-      <div className="container todo-section">
+      <div className="todo__container todo__section">
         <TopBar
           handleCreateClick={handleCreateClick}
           isCreateBtnClicked={isCreateBtnClicked}
         />
-        <div className="todo-board">
+        <div className="todo__board">
           {isCreateBtnClicked && (
             <AddCard
               handleInputChange={handleInputChange}
@@ -88,7 +88,7 @@ const Todo = () => {
           <TodoViews todoList={todoList} handleDeleteTask={handleDeleteTask} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

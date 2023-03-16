@@ -6,7 +6,7 @@ import TodoDetails from "components/Todo/TodoViews/todo-details.component";
 const TodoViews = ({ todoList, handleDeleteTask }) => {
   return todoList.map((list) => {
     return (
-      <div className="todo-card" key={list.id}>
+      <div className="todo-card todo-view-card" key={list.id}>
         <TodoDetails list={list} />
         <IncompleteTask handleDeleteTask={handleDeleteTask} taskID={list.id} />
       </div>

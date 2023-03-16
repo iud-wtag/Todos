@@ -4,9 +4,9 @@ import SearchBar from "components/Todo/Navbar/search-bar.component";
 
 const Navbar = () => {
   return (
-    <div className="navbarBack">
-      <div className="container">
-        <div className="navbar">
+    <div className="navbar-back">
+      <div className="navbar__container">
+        <div className="navbar-back__navbar">
           <Logo />
           <SearchBar />
         </div>
