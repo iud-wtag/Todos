@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 const TodoDetails = ({ list }) => {
+  const titleClasses = classNames("todo-view__title", {
+    "task-complete": list.isTaskComplete,
+  });
   return (
     <div className="todo-view__details">
-      <h3
-        className={`todo-view__title ${list.isTaskComplete && "task-complete"}`}
-      >
-        {list.data}
-      </h3>
+      <h3 className={titleClasses}>{list.data}</h3>
       <p className="todo-view__create-time">
         Created At: {list.date.toLocaleDateString("de-DE")}
       </p>
