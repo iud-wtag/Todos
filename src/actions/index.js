@@ -45,6 +45,7 @@ export const completeTodo = (id, date) => {
     id,
     isTaskComplete: true,
     completeTime: getDays(date.getTime(), new Date().getTime()),
+    isEditBtnClicked: false,
   };
 };
 

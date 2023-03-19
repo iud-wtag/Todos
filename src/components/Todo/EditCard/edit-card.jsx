@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import EditButtons from "components/Todo/EditCard/edit-buttons.component";
 
-const EditCard = ({ handleEditTask, taskID, taskData }) => {
+const EditCard = ({
+  handleEditTask,
+  taskID,
+  taskData,
+  handleCompleteTask,
+  startDate,
+}) => {
   const [editData, setEditData] = useState(taskData);
   const handleChange = (e) => {
     setEditData(e.target.value);
@@ -22,6 +28,9 @@ const EditCard = ({ handleEditTask, taskID, taskData }) => {
         handleEditTask={handleEditTask}
         editData={editData}
         taskID={taskID}
+        taskData={taskData}
+        handleCompleteTask={handleCompleteTask}
+        startDate={startDate}
       />
     </div>
   );
@@ -31,6 +40,8 @@ EditCard.propTypes = {
   handleEditTask: PropTypes.func.isRequired,
   taskID: PropTypes.string.isRequired,
   taskData: PropTypes.string.isRequired,
+  handleCompleteTask: PropTypes.func.isRequired,
+  startDate: PropTypes.object.isRequired,
 };
 
 export default EditCard;

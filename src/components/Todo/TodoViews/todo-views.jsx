@@ -20,6 +20,8 @@ const TodoViews = ({
             handleEditTask={handleEditTask}
             taskID={list.id}
             taskData={list.data}
+            handleCompleteTask={handleCompleteTask}
+            startDate={list.date}
           />
         ) : (
           <>
