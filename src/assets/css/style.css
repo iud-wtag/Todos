@@ -91,13 +91,15 @@ button {
 }
 .todo-add-card {
 }
-.add-card__btn-section {
+.add-card__btn-section,
+.edit-card__btn-section {
   padding-top: 15px;
   display: flex;
   align-items: center;
   gap: 15px;
 }
-.todo-add__btn {
+.todo-add__btn,
+.todo-save__btn {
   border: 1px solid #dde2ff;
   border-radius: 5px;
   padding: 10px 15px;
