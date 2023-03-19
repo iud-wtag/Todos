@@ -18,7 +18,6 @@ const EditButtons = ({ handleEditTask, editData, taskID }) => {
       <button className="todo-delete__btn">
         <img src={deleteButton} alt="Delete Button" />
       </button>
-      {/* {isEmptyError && <p className="error">Title is required</p>} */}
     </div>
   );
 };

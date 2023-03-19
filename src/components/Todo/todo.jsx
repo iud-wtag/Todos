@@ -76,8 +76,13 @@ const Todo = () => {
   const handleCompleteTask = (taskID, startDate) => {
     dispatch(completeTodo(taskID, startDate));
   };
+
   const handleEditTask = (taskID, editedInput) => {
-    dispatch(editTodo(taskID, editedInput));
+    const sanitizedData = sanitizeInput(editedInput);
+    if (sanitizedData.trim() === "") {
+      return;
+    }
+    dispatch(editTodo(taskID, sanitizedData));
   };
 
   return (
