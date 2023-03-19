@@ -18,6 +18,7 @@ export const addTodo = (data) => {
       date: new Date(),
       isTaskComplete: false,
       completeTime: null,
+      isEditBtnClicked: false,
     },
   };
 };
@@ -47,18 +48,20 @@ export const completeTodo = (id, date) => {
   };
 };
 
-export const editTodo = (id) => {
+export const editTodo = (id, editedData) => {
   return {
     type: EDIT_TODO,
+    id,
+    data: editedData,
+    isEditBtnClicked: false,
   };
 };
 
-export const handleEditBtn = (isEditBtnClicked) => {
+export const handleEditBtn = (id, isEditBtnClicked) => {
   return {
     type: HANDLE_EDIT,
-    payload: {
-      isEditBtnClicked: !isEditBtnClicked,
-    },
+    id,
+    isEditBtnClicked: !isEditBtnClicked,
   };
 };
 

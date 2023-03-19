@@ -7,7 +7,7 @@ import deleteButton from "assets/images/delete.png";
 const IncompleteTask = ({
   handleDeleteTask,
   handleCompleteTask,
-  handleEditTask,
+  handleEditClick,
   taskID,
   startDate,
 }) => {
@@ -18,7 +18,7 @@ const IncompleteTask = ({
     handleDeleteTask(taskID);
   };
   const handleEdit = () => {
-    handleEditTask(taskID);
+    handleEditClick(taskID);
   };
 
   return (
@@ -39,8 +39,9 @@ const IncompleteTask = ({
 IncompleteTask.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
-  handleEditTask: PropTypes.func.isRequired,
+  handleEditClick: PropTypes.func.isRequired,
   taskID: PropTypes.string.isRequired,
+  startDate: PropTypes.object.isRequired,
 };
 
 export default IncompleteTask;

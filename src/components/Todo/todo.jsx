@@ -5,7 +5,9 @@ import {
   handleCreateBtn,
   deleteTodo,
   completeTodo,
+  handleEditBtn,
   handleEmptyError,
+  editTodo,
 } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
@@ -22,7 +24,7 @@ const Todo = () => {
     (state) => state.handleButtonClick.isCreateBtnClicked
   );
   const isEditBtnClicked = useSelector(
-    (state) => state.handleTokens.isEditBtnClicked
+    (state) => state.handleButtonClick.isEditBtnClicked
   );
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
@@ -39,13 +41,16 @@ const Todo = () => {
     handleCreateClick();
     toggleEmptyError(false);
   };
+  const handleEditClick = (taskID) => {
+    dispatch(handleEditBtn(taskID, isEditBtnClicked));
+  };
 
   const handleInputChange = (e) => {
     setInputData(e.target.value);
     toggleEmptyError(false);
   };
 
-  const handleAddTask = (e) => {
+  const handleAddTask = () => {
     const sanitizedData = sanitizeInput(inputData);
 
     if (sanitizedData.trim() === "") {
@@ -59,7 +64,6 @@ const Todo = () => {
   };
   const handleKeyDown = (e) => {
     const ENTER = "Enter";
-
     if (e.key === ENTER) {
       handleAddTask();
     }
@@ -72,8 +76,8 @@ const Todo = () => {
   const handleCompleteTask = (taskID, startDate) => {
     dispatch(completeTodo(taskID, startDate));
   };
-  const handleEditTask = (taskID) => {
-    // console.log("CLOICLCLOSDLAS");
+  const handleEditTask = (taskID, editedInput) => {
+    dispatch(editTodo(taskID, editedInput));
   };
 
   return (
@@ -99,6 +103,7 @@ const Todo = () => {
             todoList={todoList}
             handleDeleteTask={handleDeleteTask}
             handleCompleteTask={handleCompleteTask}
+            handleEditClick={handleEditClick}
             handleEditTask={handleEditTask}
           />
         </div>

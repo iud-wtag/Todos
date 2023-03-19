@@ -1,8 +1,7 @@
-import { HANDLE_CREATE, HANDLE_EDIT } from "actions/actionTypes";
+import { HANDLE_CREATE } from "actions/actionTypes";
 
 const initialButton = {
   isCreateBtnClicked: false,
-  isEditBtnClicked: false,
 };
 
 const handleButtonClick = (state = initialButton, action) => {
@@ -10,13 +9,8 @@ const handleButtonClick = (state = initialButton, action) => {
     case HANDLE_CREATE:
       const { isCreateBtnClicked } = action.payload;
       return {
+        ...state,
         isCreateBtnClicked: isCreateBtnClicked,
-      };
-
-    case HANDLE_EDIT:
-      const { isEditBtnClicked } = action.payload;
-      return {
-        isEditBtnClicked: isEditBtnClicked,
       };
 
     default:
