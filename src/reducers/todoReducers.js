@@ -12,7 +12,7 @@ const todoReducers = (state = initialData, action) => {
         list: [
           {
             id: id,
-            data: data,
+            task: task,
             date: date,
             isTaskComplete: isTaskComplete,
             completeTime: completeTime,

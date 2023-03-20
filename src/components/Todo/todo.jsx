@@ -42,8 +42,7 @@ const Todo = () => {
     setInputData(e.target.value);
     toggleEmptyError(false);
   };
-
-  const handleAddTask = (e) => {
+  const handleAddTask = () => {
     const sanitizedData = sanitizeInput(inputData);
 
     if (sanitizedData.trim() === "") {
