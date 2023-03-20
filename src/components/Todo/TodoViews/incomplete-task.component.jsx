@@ -8,14 +8,14 @@ import { COMPLETE_BUTTON, EDIT_BUTTON, DELETE_BUTTON } from "common/constants";
 const IncompleteTask = ({
   handleDeleteTask,
   handleCompleteTask,
-  taskID,
+  taskId,
   startDate,
 }) => {
   const handleComplete = () => {
-    handleCompleteTask(taskID, startDate);
+    handleCompleteTask(taskId, startDate);
   };
   const handleDelete = () => {
-    handleDeleteTask(taskID);
+    handleDeleteTask(taskId);
   };
 
   return (
@@ -36,7 +36,7 @@ const IncompleteTask = ({
 IncompleteTask.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
-  taskID: PropTypes.string.isRequired,
+  taskId: PropTypes.string.isRequired,
 };
 
 export default IncompleteTask;

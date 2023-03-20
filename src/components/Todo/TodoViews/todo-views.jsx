@@ -12,14 +12,14 @@ const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
         {list.isTaskComplete ? (
           <CompletedTask
             handleDeleteTask={handleDeleteTask}
-            taskID={list.id}
+            taskId={list.id}
             completeTime={list.completeTime}
           />
         ) : (
           <IncompleteTask
             handleDeleteTask={handleDeleteTask}
             handleCompleteTask={handleCompleteTask}
-            taskID={list.id}
+            taskId={list.id}
             startDate={list.date}
           />
         )}

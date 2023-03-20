@@ -34,17 +34,17 @@ const Todo = () => {
   };
 
   const handleAddTask = (inputTask) => {
-    const sanitizedData = sanitizeInput(inputTask);
-    if (sanitizedData.trim() === "") {
+    const sanitizedTask = sanitizeInput(inputTask);
+    if (sanitizedTask.trim() === "") {
       toggleEmptyError(true);
       return;
     }
-    dispatch(addTodo(sanitizedData));
+    dispatch(addTodo(sanitizedTask));
     handleCreateClick();
     toggleEmptyError(false);
   };
-  const handleDeleteTask = (taskID) => {
-    dispatch(deleteTodo(taskID));
+  const handleDeleteTask = (taskId) => {
+    dispatch(deleteTodo(taskId));
   };
 
   const handleCompleteTask = (taskID, startDate) => {
