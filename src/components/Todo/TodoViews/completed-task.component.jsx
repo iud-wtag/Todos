@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
+import { DELETE_BUTTON } from "common/constants";
 
 const CompletedTask = ({ handleDeleteTask, taskId, completeTime }) => {
   const handleDelete = () => {
@@ -9,7 +10,7 @@ const CompletedTask = ({ handleDeleteTask, taskId, completeTime }) => {
   return (
     <div className="todo-view__btns complete-btns">
       <button onClick={handleDelete}>
-        <img src={deleteButton} alt="Delete button" />
+        <img src={deleteButton} alt={DELETE_BUTTON} />
       </button>
       <p className="complete-msg">
         Completed in {completeTime} {completeTime <= 1 ? "day" : "days"}

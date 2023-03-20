@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
@@ -17,7 +17,6 @@ import { sanitizeInput } from "helpers/sanitizeInput";
 
 const Todo = () => {
   const dispatch = useDispatch();
-  const [inputData, setInputData] = useState("");
   const todoList = useSelector((state) => state.todoReducers.list);
 
   const isCreateBtnClicked = useSelector(
@@ -34,10 +33,7 @@ const Todo = () => {
   const handleCreateClick = () => {
     dispatch(handleCreateBtn(isCreateBtnClicked));
   };
-
-  const handleCancelClick = (e) => {
-    e.preventDefault();
-    setInputData("");
+  const handleCancelClick = () => {
     handleCreateClick();
     toggleEmptyError(false);
   };
@@ -45,38 +41,22 @@ const Todo = () => {
     dispatch(handleEditBtn(taskID, isEditBtnClicked));
   };
 
-  const handleInputChange = (e) => {
-    setInputData(e.target.value);
-    toggleEmptyError(false);
-  };
-
-  const handleAddTask = () => {
-    const sanitizedData = sanitizeInput(inputData);
-
-    if (sanitizedData.trim() === "") {
+  const handleAddTask = (inputTask) => {
+    const sanitizedTask = sanitizeInput(inputTask);
+    if (sanitizedTask.trim() === "") {
       toggleEmptyError(true);
       return;
     }
-    dispatch(addTodo(sanitizedData));
-    setInputData("");
+    dispatch(addTodo(sanitizedTask));
     handleCreateClick();
     toggleEmptyError(false);
   };
-  const handleKeyDown = (e) => {
-    const ENTER = "Enter";
-    if (e.key === ENTER) {
-      handleAddTask();
-    }
+  const handleDeleteTask = (taskId) => {
+    dispatch(deleteTodo(taskId));
   };
-
-  const handleDeleteTask = (taskID) => {
-    dispatch(deleteTodo(taskID));
+  const handleCompleteTask = (taskId, startDate) => {
+    dispatch(completeTodo(taskId, startDate));
   };
-
-  const handleCompleteTask = (taskID, startDate) => {
-    dispatch(completeTodo(taskID, startDate));
-  };
-
   const handleEditTask = (taskID, editedInput) => {
     const sanitizedData = sanitizeInput(editedInput);
     if (sanitizedData.trim() === "") {
@@ -96,12 +76,10 @@ const Todo = () => {
         <div className="todo__board">
           {isCreateBtnClicked && (
             <AddCard
-              handleInputChange={handleInputChange}
               handleAddTask={handleAddTask}
-              handleKeyDown={handleKeyDown}
-              inputData={inputData}
               handleCancelClick={handleCancelClick}
               isEmptyError={isEmptyError}
+              toggleEmptyError={toggleEmptyError}
             />
           )}
           <TodoViews
