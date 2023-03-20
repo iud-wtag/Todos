@@ -4,12 +4,12 @@ import {
   HANDLE_EMPTY,
   DELETE_TODO,
 } from "actions/actionTypes";
-export const addTodo = (data) => {
+export const addTodo = (task) => {
   return {
     type: ADD_TODO,
     payload: {
       id: new Date().getTime().toString(),
-      data: data,
+      task: task,
       date: new Date().toLocaleDateString("de-DE"),
     },
   };
