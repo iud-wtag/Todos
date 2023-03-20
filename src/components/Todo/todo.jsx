@@ -27,8 +27,7 @@ const Todo = () => {
   const handleCreateClick = () => {
     dispatch(handleCreateBtn(isCreateBtnClicked));
   };
-  const handleCancelClick = (e) => {
-    e.preventDefault();
+  const handleCancelClick = () => {
     handleCreateClick();
     toggleEmptyError(false);
   };
