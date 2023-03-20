@@ -2,21 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
 import checkButton from "assets/images/check.png";
+import { COMPLETE_BUTTON, DELETE_BUTTON } from "common/constants";
 
 const EditButtons = ({
   handleEditTask,
-  editData,
+  editedTask,
   taskId,
   handleCompleteTask,
   startDate,
   task,
 }) => {
   const handleEdit = () => {
-    handleEditTask(taskId, editData);
+    handleEditTask(taskId, editedTask);
   };
   const handleComplete = () => {
     handleCompleteTask(taskId, startDate);
-    handleEditTask(taskId, editData);
+    handleEditTask(taskId, editedTask);
   };
   const handleCancel = () => {
     handleEditTask(taskId, task);
@@ -27,10 +28,10 @@ const EditButtons = ({
         Save
       </button>
       <button>
-        <img src={checkButton} alt="Complete Button" onClick={handleComplete} />
+        <img src={checkButton} alt={COMPLETE_BUTTON} onClick={handleComplete} />
       </button>
       <button className="todo-delete__btn">
-        <img src={deleteButton} alt="Delete Button" onClick={handleCancel} />
+        <img src={deleteButton} alt={DELETE_BUTTON} onClick={handleCancel} />
       </button>
     </div>
   );
@@ -38,7 +39,7 @@ const EditButtons = ({
 
 EditButtons.propTypes = {
   handleEditTask: PropTypes.func.isRequired,
-  editData: PropTypes.string.isRequired,
+  editedTask: PropTypes.string.isRequired,
   taskId: PropTypes.string.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
   startDate: PropTypes.object.isRequired,

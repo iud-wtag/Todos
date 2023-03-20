@@ -37,8 +37,8 @@ const Todo = () => {
     handleCreateClick();
     toggleEmptyError(false);
   };
-  const handleEditClick = (taskID) => {
-    dispatch(handleEditBtn(taskID, isEditBtnClicked));
+  const handleEditClick = (taskId) => {
+    dispatch(handleEditBtn(taskId, isEditBtnClicked));
   };
 
   const handleAddTask = (inputTask) => {
@@ -57,12 +57,12 @@ const Todo = () => {
   const handleCompleteTask = (taskId, startDate) => {
     dispatch(completeTodo(taskId, startDate));
   };
-  const handleEditTask = (taskID, editedInput) => {
-    const sanitizedData = sanitizeInput(editedInput);
-    if (sanitizedData.trim() === "") {
+  const handleEditTask = (taskId, editedInput) => {
+    const sanitizedTask = sanitizeInput(editedInput);
+    if (sanitizedTask.trim() === "") {
       return;
     }
-    dispatch(editTodo(taskID, sanitizedData));
+    dispatch(editTodo(taskId, sanitizedTask));
   };
 
   return (

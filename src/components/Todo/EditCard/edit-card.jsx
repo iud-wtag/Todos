@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import EditButtons from "components/Todo/EditCard/edit-buttons.component";
+import { ENTER } from "common/constants";
 
 const EditCard = ({
   handleEditTask,
@@ -9,9 +10,14 @@ const EditCard = ({
   handleCompleteTask,
   startDate,
 }) => {
-  const [editData, setEditData] = useState(task);
+  const [editedTask, setEditData] = useState(task);
   const handleChange = (e) => {
     setEditData(e.target.value);
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === ENTER) {
+      handleEditTask(taskId, editedTask);
+    }
   };
 
   return (
@@ -21,12 +27,13 @@ const EditCard = ({
         id="todo_input"
         className="todo-card__input"
         autoFocus
-        value={editData}
+        value={editedTask}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
       ></textarea>
       <EditButtons
         handleEditTask={handleEditTask}
-        editData={editData}
+        editedTask={editedTask}
         taskId={taskId}
         task={task}
         handleCompleteTask={handleCompleteTask}
