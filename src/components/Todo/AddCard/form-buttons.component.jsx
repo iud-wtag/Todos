@@ -2,10 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
 
-const FormButtons = ({ handleAddTask, isEmptyError }) => {
+const FormButtons = ({ handleAddTask, inputTask, isEmptyError }) => {
+  const handleAdd = () => {
+    handleAddTask(inputTask);
+  };
   return (
     <div className="add-card__btn-section">
-      <button onClick={handleAddTask} className="todo-add__btn">
+      <button onClick={handleAdd} className="todo-add__btn">
         Add Task
       </button>
       <button className="todo-delete__btn">
@@ -19,6 +22,7 @@ const FormButtons = ({ handleAddTask, isEmptyError }) => {
 FormButtons.propTypes = {
   handleAddTask: PropTypes.func.isRequired,
   isEmptyError: PropTypes.bool.isRequired,
+  inputTask: PropTypes.string.isRequired,
 };
 
 export default FormButtons;
