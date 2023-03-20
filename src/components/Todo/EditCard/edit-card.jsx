@@ -4,12 +4,12 @@ import EditButtons from "components/Todo/EditCard/edit-buttons.component";
 
 const EditCard = ({
   handleEditTask,
-  taskID,
-  taskData,
+  taskId,
+  task,
   handleCompleteTask,
   startDate,
 }) => {
-  const [editData, setEditData] = useState(taskData);
+  const [editData, setEditData] = useState(task);
   const handleChange = (e) => {
     setEditData(e.target.value);
   };
@@ -27,8 +27,8 @@ const EditCard = ({
       <EditButtons
         handleEditTask={handleEditTask}
         editData={editData}
-        taskID={taskID}
-        taskData={taskData}
+        taskId={taskId}
+        task={task}
         handleCompleteTask={handleCompleteTask}
         startDate={startDate}
       />
@@ -38,8 +38,8 @@ const EditCard = ({
 
 EditCard.propTypes = {
   handleEditTask: PropTypes.func.isRequired,
-  taskID: PropTypes.string.isRequired,
-  taskData: PropTypes.string.isRequired,
+  taskId: PropTypes.string.isRequired,
+  task: PropTypes.string.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
   startDate: PropTypes.object.isRequired,
 };

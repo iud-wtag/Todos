@@ -6,20 +6,20 @@ import checkButton from "assets/images/check.png";
 const EditButtons = ({
   handleEditTask,
   editData,
-  taskID,
+  taskId,
   handleCompleteTask,
   startDate,
-  taskData,
+  task,
 }) => {
   const handleEdit = () => {
-    handleEditTask(taskID, editData);
+    handleEditTask(taskId, editData);
   };
   const handleComplete = () => {
-    handleCompleteTask(taskID, startDate);
-    handleEditTask(taskID, editData);
+    handleCompleteTask(taskId, startDate);
+    handleEditTask(taskId, editData);
   };
   const handleCancel = () => {
-    handleEditTask(taskID, taskData);
+    handleEditTask(taskId, task);
   };
   return (
     <div className="edit-card__btn-section">
@@ -39,10 +39,10 @@ const EditButtons = ({
 EditButtons.propTypes = {
   handleEditTask: PropTypes.func.isRequired,
   editData: PropTypes.string.isRequired,
-  taskID: PropTypes.string.isRequired,
+  taskId: PropTypes.string.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
   startDate: PropTypes.object.isRequired,
-  taskData: PropTypes.string.isRequired,
+  task: PropTypes.string.isRequired,
 };
 
 export default EditButtons;

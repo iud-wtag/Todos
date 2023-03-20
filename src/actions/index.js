@@ -49,11 +49,11 @@ export const completeTodo = (id, date) => {
   };
 };
 
-export const editTodo = (id, editedData) => {
+export const editTodo = (id, editedTask) => {
   return {
     type: EDIT_TODO,
     id,
-    data: editedData,
+    task: editedTask,
     isEditBtnClicked: false,
   };
 };

@@ -18,8 +18,8 @@ const TodoViews = ({
         {list.isEditBtnClicked ? (
           <EditCard
             handleEditTask={handleEditTask}
-            taskID={list.id}
-            taskData={list.data}
+            taskId={list.id}
+            task={list.task}
             handleCompleteTask={handleCompleteTask}
             startDate={list.date}
           />
@@ -30,14 +30,14 @@ const TodoViews = ({
               <CompletedTask
                 handleDeleteTask={handleDeleteTask}
                 completeTime={list.completeTime}
-                taskID={list.id}
+                taskId={list.id}
               />
             ) : (
               <IncompleteTask
                 handleDeleteTask={handleDeleteTask}
                 handleCompleteTask={handleCompleteTask}
                 handleEditClick={handleEditClick}
-                taskID={list.id}
+                taskId={list.id}
                 startDate={list.date}
               />
             )}

@@ -66,7 +66,7 @@ const todoReducers = (state = initialData, action) => {
       );
       state.list[editTaskIndex] = {
         ...state.list[editTaskIndex],
-        data: action.data,
+        task: action.task,
         isEditBtnClicked: action.isEditBtnClicked,
       };
       return {

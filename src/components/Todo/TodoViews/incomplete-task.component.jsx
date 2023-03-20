@@ -8,17 +8,17 @@ const IncompleteTask = ({
   handleDeleteTask,
   handleCompleteTask,
   handleEditClick,
-  taskID,
+  taskId,
   startDate,
 }) => {
   const handleComplete = () => {
-    handleCompleteTask(taskID, startDate);
+    handleCompleteTask(taskId, startDate);
   };
   const handleDelete = () => {
-    handleDeleteTask(taskID);
+    handleDeleteTask(taskId);
   };
   const handleEdit = () => {
-    handleEditClick(taskID);
+    handleEditClick(taskId);
   };
 
   return (
@@ -40,7 +40,7 @@ IncompleteTask.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
   handleEditClick: PropTypes.func.isRequired,
-  taskID: PropTypes.string.isRequired,
+  taskId: PropTypes.string.isRequired,
   startDate: PropTypes.object.isRequired,
 };
 

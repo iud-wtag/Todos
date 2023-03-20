@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
 
-const CompletedTask = ({ handleDeleteTask, taskID, completeTime }) => {
+const CompletedTask = ({ handleDeleteTask, taskId, completeTime }) => {
   const handleDelete = () => {
-    handleDeleteTask(taskID);
+    handleDeleteTask(taskId);
   };
   return (
     <div className="todo-view__btns complete-btns">
@@ -20,7 +20,7 @@ const CompletedTask = ({ handleDeleteTask, taskID, completeTime }) => {
 
 CompletedTask.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
-  taskID: PropTypes.string.isRequired,
+  taskId: PropTypes.string.isRequired,
 };
 
 export default CompletedTask;
