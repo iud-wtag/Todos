@@ -5,9 +5,9 @@ import editButton from "assets/images/edit.png";
 import deleteButton from "assets/images/delete.png";
 import { COMPLETE_BUTTON, EDIT_BUTTON, DELETE_BUTTON } from "common/constants";
 
-const IncompleteTask = ({ handleDeleteTask, taskID }) => {
+const IncompleteTask = ({ handleDeleteTask, taskId }) => {
   const handleDelete = () => {
-    handleDeleteTask(taskID);
+    handleDeleteTask(taskId);
   };
 
   return (
@@ -27,7 +27,7 @@ const IncompleteTask = ({ handleDeleteTask, taskID }) => {
 
 IncompleteTask.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
-  taskID: PropTypes.string.isRequired,
+  taskId: PropTypes.string.isRequired,
 };
 
 export default IncompleteTask;
