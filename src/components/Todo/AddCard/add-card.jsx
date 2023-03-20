@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import FormButtons from "components/Todo/AddCard/form-buttons.component";
+import { ENTER } from "common/constants";
 
 const AddCard = ({ handleAddTask, isEmptyError, toggleEmptyError }) => {
   const [inputTask, setInputTask] = useState("");
@@ -10,7 +11,6 @@ const AddCard = ({ handleAddTask, isEmptyError, toggleEmptyError }) => {
     toggleEmptyError(false);
   };
   const handleKeyDown = (e) => {
-    const ENTER = "Enter";
     if (e.key === ENTER) {
       handleAddTask(inputTask);
     }

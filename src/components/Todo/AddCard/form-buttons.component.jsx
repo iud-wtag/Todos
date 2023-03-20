@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
+import { DELETE_BUTTON } from "common/constants";
 
 const FormButtons = ({ handleAddTask, inputTask, isEmptyError }) => {
   const handleAdd = () => {
@@ -12,7 +13,7 @@ const FormButtons = ({ handleAddTask, inputTask, isEmptyError }) => {
         Add Task
       </button>
       <button className="todo-delete__btn">
-        <img src={deleteButton} alt="Delete Btn" />
+        <img src={deleteButton} alt={DELETE_BUTTON} />
       </button>
       {isEmptyError && <p className="error">Title is required</p>}
     </div>
