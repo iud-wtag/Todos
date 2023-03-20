@@ -32,8 +32,11 @@ const todoReducers = (state = initialData, action) => {
       const completedTaskIndex = state.list.findIndex(
         (task) => task.id === action.id
       );
-      state.list[completedTaskIndex].completeTime = action.completeTime;
-      state.list[completedTaskIndex].isTaskComplete = action.isTaskComplete;
+      state.list[completedTaskIndex] = {
+        ...state.list[completedTaskIndex],
+        completeTime: action.completeTime,
+        isTaskComplete: action.isTaskComplete,
+      };
       return {
         ...state,
         list: [...state.list],
