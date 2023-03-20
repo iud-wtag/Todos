@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import createIcon from "assets/images/create.png";
+import { CREATE_ICON } from "common/constants";
 
 const CreateTodo = ({ handleCreateClick, isCreateBtnClicked }) => {
   return (
@@ -10,7 +11,7 @@ const CreateTodo = ({ handleCreateClick, isCreateBtnClicked }) => {
         onClick={handleCreateClick}
         disabled={isCreateBtnClicked}
       >
-        <img src={createIcon} alt="Create icon" />
+        <img src={createIcon} alt={CREATE_ICON} />
         Create
       </button>
     </div>
