@@ -9,12 +9,12 @@ import {
 } from "actions/actionTypes";
 import { getDays } from "helpers/getDays";
 
-export const addTodo = (data) => {
+export const addTodo = (task) => {
   return {
     type: ADD_TODO,
     payload: {
       id: new Date().getTime().toString(),
-      data: data,
+      task: task,
       date: new Date(),
       isTaskComplete: false,
       completeTime: null,

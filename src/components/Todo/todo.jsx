@@ -4,10 +4,7 @@ import {
   addTodo,
   handleCreateBtn,
   deleteTodo,
-  completeTodo,
-  handleEditBtn,
   handleEmptyError,
-  editTodo,
 } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
@@ -17,14 +14,12 @@ import { sanitizeInput } from "helpers/sanitizeInput";
 
 const Todo = () => {
   const dispatch = useDispatch();
-  const [inputData, setInputData] = useState("");
-  const todoList = useSelector((state) => state.todoReducers.list);
 
+  const [inputData, setInputData] = useState("");
+
+  const todoList = useSelector((state) => state.todoReducers.list);
   const isCreateBtnClicked = useSelector(
     (state) => state.handleButtonClick.isCreateBtnClicked
-  );
-  const isEditBtnClicked = useSelector(
-    (state) => state.handleButtonClick.isEditBtnClicked
   );
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
@@ -41,15 +36,11 @@ const Todo = () => {
     handleCreateClick();
     toggleEmptyError(false);
   };
-  const handleEditClick = (taskID) => {
-    dispatch(handleEditBtn(taskID, isEditBtnClicked));
-  };
 
   const handleInputChange = (e) => {
     setInputData(e.target.value);
     toggleEmptyError(false);
   };
-
   const handleAddTask = () => {
     const sanitizedData = sanitizeInput(inputData);
 
@@ -64,6 +55,7 @@ const Todo = () => {
   };
   const handleKeyDown = (e) => {
     const ENTER = "Enter";
+
     if (e.key === ENTER) {
       handleAddTask();
     }
@@ -71,18 +63,6 @@ const Todo = () => {
 
   const handleDeleteTask = (taskID) => {
     dispatch(deleteTodo(taskID));
-  };
-
-  const handleCompleteTask = (taskID, startDate) => {
-    dispatch(completeTodo(taskID, startDate));
-  };
-
-  const handleEditTask = (taskID, editedInput) => {
-    const sanitizedData = sanitizeInput(editedInput);
-    if (sanitizedData.trim() === "") {
-      return;
-    }
-    dispatch(editTodo(taskID, sanitizedData));
   };
 
   return (
@@ -104,13 +84,7 @@ const Todo = () => {
               isEmptyError={isEmptyError}
             />
           )}
-          <TodoViews
-            todoList={todoList}
-            handleDeleteTask={handleDeleteTask}
-            handleCompleteTask={handleCompleteTask}
-            handleEditClick={handleEditClick}
-            handleEditTask={handleEditTask}
-          />
+          <TodoViews todoList={todoList} handleDeleteTask={handleDeleteTask} />
         </div>
       </div>
     </div>

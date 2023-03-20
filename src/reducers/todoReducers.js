@@ -12,14 +12,14 @@ const initialData = {
 const todoReducers = (state = initialData, action) => {
   switch (action.type) {
     case ADD_TODO:
-      const { id, data, date, isTaskComplete, completeTime, isEditBtnClicked } =
+      const { id, task, date, isTaskComplete, completeTime, isEditBtnClicked } =
         action.payload;
       return {
         ...state,
         list: [
           {
             id: id,
-            data: data,
+            task: task,
             date: date,
             isTaskComplete: isTaskComplete,
             completeTime: completeTime,
