@@ -47,8 +47,8 @@ const Todo = () => {
     dispatch(deleteTodo(taskId));
   };
 
-  const handleCompleteTask = (taskID, startDate) => {
-    dispatch(completeTodo(taskID, startDate));
+  const handleCompleteTask = (taskId, startDate) => {
+    dispatch(completeTodo(taskId, startDate));
   };
 
   return (
