@@ -1,26 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import IncompleteTask from "components/Todo/TodoViews/incomplete-task.component";
+import TodoActionBar from "components/Todo/TodoViews/todo-action-bar.component";
 import CompletedTask from "components/Todo/TodoViews/completed-task.component";
 import TodoDetails from "components/Todo/TodoViews/todo-details.component";
 
 const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
-  return todoList.map((list) => {
+  return todoList.map((todo) => {
     return (
-      <div className="todo-card todo-view-card" key={list.id}>
-        <TodoDetails list={list} />
-        {list.isTaskComplete ? (
+      <div className="todo-card todo-view-card" key={todo.id}>
+        <TodoDetails todo={todo} />
+        {todo.isTaskComplete ? (
           <CompletedTask
             handleDeleteTask={handleDeleteTask}
-            taskId={list.id}
-            completeTime={list.completeTime}
+            taskId={todo.id}
+            completeTime={todo.completeTime}
           />
         ) : (
-          <IncompleteTask
+          <TodoActionBar
             handleDeleteTask={handleDeleteTask}
             handleCompleteTask={handleCompleteTask}
-            taskId={list.id}
-            startDate={list.date}
+            taskId={todo.id}
+            startDate={todo.date}
           />
         )}
       </div>
