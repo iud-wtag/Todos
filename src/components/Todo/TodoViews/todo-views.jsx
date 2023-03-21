@@ -4,10 +4,10 @@ import IncompleteTask from "components/Todo/TodoViews/incomplete-task.component"
 import TodoDetails from "components/Todo/TodoViews/todo-details.component";
 
 const TodoViews = ({ todoList }) => {
-  return todoList.map((list) => {
+  return todoList.map((todo) => {
     return (
-      <div className="todo-card todo-view-card" key={list.id}>
-        <TodoDetails list={list} />
+      <div className="todo-card todo-view-card" key={todo.id}>
+        <TodoDetails todo={todo} />
         <IncompleteTask />
       </div>
     );
