@@ -4,7 +4,7 @@ import editButton from "assets/images/edit.png";
 import deleteButton from "assets/images/delete.png";
 import { COMPLETE_BUTTON, EDIT_BUTTON, DELETE_BUTTON } from "common/constants";
 
-const IncompleteTask = () => {
+const TodoActionBar = () => {
   return (
     <div className="todo-view__btns">
       <button>
@@ -20,4 +20,4 @@ const IncompleteTask = () => {
   );
 };
 
-export default IncompleteTask;
+export default TodoActionBar;

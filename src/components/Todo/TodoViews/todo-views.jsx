@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import IncompleteTask from "components/Todo/TodoViews/incomplete-task.component";
+import TodoActionBar from "components/Todo/TodoViews/todo-action-bar.component";
 import TodoDetails from "components/Todo/TodoViews/todo-details.component";
 
 const TodoViews = ({ todoList }) => {
@@ -8,7 +8,7 @@ const TodoViews = ({ todoList }) => {
     return (
       <div className="todo-card todo-view-card" key={todo.id}>
         <TodoDetails todo={todo} />
-        <IncompleteTask />
+        <TodoActionBar />
       </div>
     );
   });
