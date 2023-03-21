@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import IncompleteTask from "components/Todo/TodoViews/incomplete-task.component";
+import TodoActionBar from "components/Todo/TodoViews/todo-action-bar.component";
 import TodoDetails from "components/Todo/TodoViews/todo-details.component";
 
 const TodoViews = ({ todoList, handleDeleteTask }) => {
-  return todoList.map((list) => {
+  return todoList.map((todo) => {
     return (
-      <div className="todo-card todo-view-card" key={list.id}>
-        <TodoDetails list={list} />
-        <IncompleteTask handleDeleteTask={handleDeleteTask} taskId={list.id} />
+      <div className="todo-card todo-view-card" key={todo.id}>
+        <TodoDetails todo={todo} />
+        <TodoActionBar handleDeleteTask={handleDeleteTask} taskId={todo.id} />
       </div>
     );
   });
