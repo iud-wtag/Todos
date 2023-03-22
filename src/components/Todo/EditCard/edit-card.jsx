@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import EditButtons from "components/Todo/EditCard/edit-buttons.component";
+import EditActionBar from "components/Todo/EditCard/edit-action-bar.component";
 import { ENTER } from "common/constants";
 
-const EditCard = ({
-  handleEditTask,
-  taskId,
-  task,
-  handleCompleteTask,
-  startDate,
-}) => {
+const EditCard = ({ todo, handleEditTask, handleCompleteTask }) => {
+  const { id, task } = todo;
+
   const [editedTask, setEditData] = useState(task);
   const handleChange = (e) => {
     setEditData(e.target.value);
   };
   const handleKeyDown = (e) => {
     if (e.key === ENTER) {
-      handleEditTask(taskId, editedTask);
+      handleEditTask(id, editedTask);
     }
   };
 
@@ -26,29 +22,26 @@ const EditCard = ({
         name="todo_input"
         id="todo_input"
         className="todo-card__input"
-        autoFocus
         value={editedTask}
+        autoFocus
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       ></textarea>
-      <EditButtons
-        handleEditTask={handleEditTask}
+
+      <EditActionBar
+        todo={todo}
         editedTask={editedTask}
-        taskId={taskId}
-        task={task}
+        handleEditTask={handleEditTask}
         handleCompleteTask={handleCompleteTask}
-        startDate={startDate}
       />
     </div>
   );
 };
 
 EditCard.propTypes = {
+  todo: PropTypes.object.isRequired,
   handleEditTask: PropTypes.func.isRequired,
-  taskId: PropTypes.string.isRequired,
-  task: PropTypes.string.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
-  startDate: PropTypes.object.isRequired,
 };
 
 export default EditCard;

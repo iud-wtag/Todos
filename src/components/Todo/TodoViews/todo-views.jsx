@@ -3,23 +3,28 @@ import PropTypes from "prop-types";
 import ViewCard from "components/Todo/ViewCard/view-card";
 import EditCard from "components/Todo/EditCard/edit-card";
 
-const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
+const TodoViews = ({
+  todoList,
+  handleDeleteTask,
+  handleCompleteTask,
+  handleEditClick,
+  handleEditTask,
+}) => {
   return todoList.map((todo) => {
     return (
       <div className="todo-card" key={todo.id}>
         {todo.isEditBtnClicked ? (
           <EditCard
+            todo={todo}
             handleEditTask={handleEditTask}
-            taskId={todo.id}
-            task={todo.task}
             handleCompleteTask={handleCompleteTask}
-            startDate={todo.date}
           />
         ) : (
           <ViewCard
             todo={todo}
             handleDeleteTask={handleDeleteTask}
             handleCompleteTask={handleCompleteTask}
+            handleEditClick={handleEditClick}
           />
         )}
       </div>

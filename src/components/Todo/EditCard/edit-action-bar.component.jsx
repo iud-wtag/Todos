@@ -4,46 +4,43 @@ import deleteButton from "assets/images/delete.png";
 import checkButton from "assets/images/check.png";
 import { COMPLETE_BUTTON, DELETE_BUTTON } from "common/constants";
 
-const EditButtons = ({
-  handleEditTask,
+const EditActionBar = ({
+  todo,
   editedTask,
-  taskId,
+  handleEditTask,
   handleCompleteTask,
-  startDate,
-  task,
 }) => {
+  const { id, task, date } = todo;
   const handleEdit = () => {
-    handleEditTask(taskId, editedTask);
+    handleEditTask(id, editedTask);
   };
   const handleComplete = () => {
-    handleCompleteTask(taskId, startDate);
-    handleEditTask(taskId, editedTask);
+    handleCompleteTask(id, date);
+    handleEditTask(id, editedTask);
   };
   const handleCancel = () => {
-    handleEditTask(taskId, task);
+    handleEditTask(id, task);
   };
   return (
     <div className="edit-card__btn-section">
       <button className="todo-save__btn" onClick={handleEdit}>
         Save
       </button>
-      <button>
-        <img src={checkButton} alt={COMPLETE_BUTTON} onClick={handleComplete} />
+      <button className="todo-complete__btn" onClick={handleComplete}>
+        <img src={checkButton} alt={COMPLETE_BUTTON} />
       </button>
-      <button className="todo-delete__btn">
-        <img src={deleteButton} alt={DELETE_BUTTON} onClick={handleCancel} />
+      <button className="todo-delete__btn" onClick={handleCancel}>
+        <img src={deleteButton} alt={DELETE_BUTTON} />
       </button>
     </div>
   );
 };
 
-EditButtons.propTypes = {
-  handleEditTask: PropTypes.func.isRequired,
+EditActionBar.propTypes = {
+  todo: PropTypes.object.isRequired,
   editedTask: PropTypes.string.isRequired,
-  taskId: PropTypes.string.isRequired,
+  handleEditTask: PropTypes.func.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
-  startDate: PropTypes.object.isRequired,
-  task: PropTypes.string.isRequired,
 };
 
-export default EditButtons;
+export default EditActionBar;
