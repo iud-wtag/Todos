@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
 import { DELETE_BUTTON } from "common/constants";
 
-const FormButtons = ({
+const AddActionBar = ({
   handleAddTask,
   inputTask,
   isEmptyError,
@@ -25,11 +25,11 @@ const FormButtons = ({
   );
 };
 
-FormButtons.propTypes = {
+AddActionBar.propTypes = {
   handleAddTask: PropTypes.func.isRequired,
   handleCancelClick: PropTypes.func.isRequired,
   isEmptyError: PropTypes.bool.isRequired,
   inputTask: PropTypes.string.isRequired,
 };
 
-export default FormButtons;
+export default AddActionBar;

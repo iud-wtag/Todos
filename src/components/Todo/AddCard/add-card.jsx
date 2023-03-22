@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import FormButtons from "components/Todo/AddCard/form-buttons.component";
+import AddActionBar from "components/Todo/AddCard/add-action-bar.component";
 import { ENTER } from "common/constants";
 
 const AddCard = ({
@@ -33,7 +33,7 @@ const AddCard = ({
         onKeyDown={handleKeyDown}
       ></textarea>
 
-      <FormButtons
+      <AddActionBar
         handleAddTask={handleAddTask}
         handleCancelClick={handleCancelClick}
         inputTask={inputTask}
