@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-const TodoDetails = ({ todo }) => {
+const ViewDetails = ({ todo }) => {
   const titleClasses = classNames("todo-view__title", {
     "task-complete": todo.isTaskComplete,
   });
@@ -16,8 +16,8 @@ const TodoDetails = ({ todo }) => {
   );
 };
 
-TodoDetails.propTypes = {
+ViewDetails.propTypes = {
   todo: PropTypes.object.isRequired,
 };
 
-export default TodoDetails;
+export default ViewDetails;
