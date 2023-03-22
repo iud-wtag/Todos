@@ -1,47 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import IncompleteTask from "components/Todo/TodoViews/incomplete-task.component";
-import CompletedTask from "components/Todo/TodoViews/completed-task.component";
-import TodoDetails from "components/Todo/TodoViews/todo-details.component";
+import ViewCard from "components/Todo/ViewCard/view-card";
 import EditCard from "components/Todo/EditCard/edit-card";
 
-const TodoViews = ({
-  todoList,
-  handleDeleteTask,
-  handleCompleteTask,
-  handleEditClick,
-  handleEditTask,
-}) => {
-  return todoList.map((list) => {
+const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
+  return todoList.map((todo) => {
     return (
-      <div className="todo-card todo-view-card" key={list.id}>
-        {list.isEditBtnClicked ? (
+      <div className="todo-card" key={todo.id}>
+        {todo.isEditBtnClicked ? (
           <EditCard
             handleEditTask={handleEditTask}
-            taskId={list.id}
-            task={list.task}
+            taskId={todo.id}
+            task={todo.task}
             handleCompleteTask={handleCompleteTask}
-            startDate={list.date}
+            startDate={todo.date}
           />
         ) : (
-          <>
-            <TodoDetails list={list} />
-            {list.isTaskComplete ? (
-              <CompletedTask
-                handleDeleteTask={handleDeleteTask}
-                completeTime={list.completeTime}
-                taskId={list.id}
-              />
-            ) : (
-              <IncompleteTask
-                handleDeleteTask={handleDeleteTask}
-                handleCompleteTask={handleCompleteTask}
-                handleEditClick={handleEditClick}
-                taskId={list.id}
-                startDate={list.date}
-              />
-            )}
-          </>
+          <ViewCard
+            todo={todo}
+            handleDeleteTask={handleDeleteTask}
+            handleCompleteTask={handleCompleteTask}
+          />
         )}
       </div>
     );

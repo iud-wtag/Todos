@@ -8,7 +8,6 @@ import { COMPLETE_BUTTON, EDIT_BUTTON, DELETE_BUTTON } from "common/constants";
 const IncompleteTask = ({
   handleDeleteTask,
   handleCompleteTask,
-  handleEditClick,
   taskId,
   startDate,
 }) => {
@@ -18,16 +17,13 @@ const IncompleteTask = ({
   const handleDelete = () => {
     handleDeleteTask(taskId);
   };
-  const handleEdit = () => {
-    handleEditClick(taskId);
-  };
 
   return (
     <div className="todo-view__btns incomplete-btns">
       <button onClick={handleComplete}>
         <img src={checkButton} alt={COMPLETE_BUTTON} />
       </button>
-      <button onClick={handleEdit}>
+      <button>
         <img src={editButton} alt={EDIT_BUTTON} />
       </button>
       <button onClick={handleDelete}>
@@ -40,9 +36,7 @@ const IncompleteTask = ({
 IncompleteTask.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
-  handleEditClick: PropTypes.func.isRequired,
   taskId: PropTypes.string.isRequired,
-  startDate: PropTypes.object.isRequired,
 };
 
 export default IncompleteTask;
