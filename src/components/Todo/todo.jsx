@@ -60,9 +60,10 @@ const Todo = () => {
   const handleEditTask = (taskId, editedInput) => {
     const sanitizedTask = sanitizeInput(editedInput);
     if (sanitizedTask.trim() === "") {
-      return;
+      return false;
     }
     dispatch(editTodo(taskId, sanitizedTask));
+    return true;
   };
 
   return (

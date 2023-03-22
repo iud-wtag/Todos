@@ -15,8 +15,9 @@ const EditActionBar = ({
     handleEditTask(id, editedTask);
   };
   const handleComplete = () => {
-    handleCompleteTask(id, date);
-    handleEditTask(id, editedTask);
+    if (handleEditTask(id, editedTask)) {
+      handleCompleteTask(id, date);
+    }
   };
   const handleCancel = () => {
     handleEditTask(id, task);
