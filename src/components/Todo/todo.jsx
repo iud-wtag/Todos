@@ -13,6 +13,7 @@ import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
 import AddCard from "components/Todo/AddCard/add-card";
 import TodoViews from "components/Todo/TodoViews/todo-views";
+import EmptyViews from "components/Todo/EmptyViews/empty-views";
 import { sanitizeInput } from "helpers/sanitizeInput";
 
 const Todo = () => {
@@ -83,13 +84,17 @@ const Todo = () => {
               toggleEmptyError={toggleEmptyError}
             />
           )}
-          <TodoViews
-            todoList={todoList}
-            handleDeleteTask={handleDeleteTask}
-            handleCompleteTask={handleCompleteTask}
-            handleEditClick={handleEditClick}
-            handleEditTask={handleEditTask}
-          />
+          {todoList.length ? (
+            <TodoViews
+              todoList={todoList}
+              handleDeleteTask={handleDeleteTask}
+              handleCompleteTask={handleCompleteTask}
+              handleEditClick={handleEditClick}
+              handleEditTask={handleEditTask}
+            />
+          ) : (
+            !isCreateBtnClicked && <EmptyViews />
+          )}
         </div>
       </div>
     </div>

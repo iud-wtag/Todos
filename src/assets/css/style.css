@@ -68,6 +68,10 @@ button {
 }
 
 .todo-top__title {
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 2.188rem;
+  color: var(--text-color);
 }
 
 .todo-top__btn-section {
@@ -200,4 +204,18 @@ button {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--error);
+}
+
+.empty__board {
+  margin: auto;
+  text-align: center;
+  padding-top: 8.125rem;
+}
+
+.empty__board-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  color: var(--text-color);
+  padding-top: 2rem;
 }

@@ -5,3 +5,4 @@ export const DELETE_BUTTON = "Delete Button";
 export const LOGO = "Logo";
 export const SEARCH_ICON = "Search Icon";
 export const ENTER = "Enter";
+export const TASK_LOGO = "Task Logo";
