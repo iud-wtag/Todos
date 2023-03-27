@@ -1,62 +1,81 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+@import url("assets/css/colors.css");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+
 body {
-  background: #f8f9ff;
+  background: var(--background-color);
 }
+
 a {
   text-decoration: none;
 }
+
 button {
   border: none;
   background: none;
+  cursor: pointer;
 }
+
 .todo {
 }
+
 .todo__container,
 .navbar__container {
   max-width: 1216px;
   margin: auto;
 }
+
 .todo__section {
   padding: 65px 0px;
 }
+
 .todo-logo {
   display: flex;
   align-items: center;
   gap: 15px;
 }
+
 .todo-logo__img {
 }
+
 .todo-logo__txt {
   font-weight: 700;
   font-size: 36px;
   line-height: 42px;
-  color: #7a8dfd;
+  color: var(--royal-blue);
 }
+
 .navbar-back__navbar {
   padding: 15px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .navbar-back {
-  background: #ffffff;
-  border: 1px solid #dde2ff;
+  background: var(--white);
+  border: 1px solid var(--border);
 }
+
 .todo-top {
 }
+
 .todo-top__title {
 }
+
 .todo-top__btn-section {
   display: flex;
   justify-content: space-between;
   padding: 30px 0px;
 }
+
 .btn {
   border-radius: 5px;
   padding: 10px;
@@ -64,87 +83,117 @@ button {
 .btn:hover {
   cursor: pointer;
 }
+
 .create-btn__btn {
-  background: #7a8dfd;
+  background: var(--royal-blue);
   padding: 10px 20px;
   border: none;
   display: flex;
   gap: 5px;
   align-items: center;
-  color: #ffffff;
+  color: var(--white);
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
 }
+
 .todo__board {
   display: flex;
   flex-wrap: wrap;
   gap: 34px;
 }
+
 .todo-card {
   min-width: 382px;
-  background: #ffffff;
-  border: 1px solid #dde2ff;
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: 5px;
   padding: 15px;
 }
+
 .todo-add-card {
 }
-.add-card__btn-section {
+
+.add-card__btn-section,
+.edit-card__btn-section {
   padding-top: 15px;
   display: flex;
   align-items: center;
   gap: 15px;
 }
-.todo-add__btn {
-  border: 1px solid #dde2ff;
+
+.todo-add__btn,
+.todo-save__btn {
+  border: 1px solid var(--border);
   border-radius: 5px;
   padding: 10px 15px;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
-  color: #32394b;
+  color: var(--text-color);
 }
+
 .todo-delete__btn {
 }
+
 .todo-card__input {
   min-width: 351px;
   min-height: 80px;
-  background: #ffffff;
-  border: 3px solid #d1d8ff;
+  background: var(--white);
+  border: 3px solid var(--input-border);
   border-radius: 5px;
 }
-.todo-view-card {
-}
+
 .todo-view__title {
   font-weight: 700;
   font-size: 24px;
   line-height: 28px;
-  color: #32394b;
+  color: var(--text-color);
   padding-bottom: 10px;
 }
+
+.todo-view__title.task-complete {
+  text-decoration-line: line-through;
+  color: var(--lime-green);
+}
+
 .todo-view__create-time {
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
-  color: #bbbdd0;
+  color: var(--gray);
   padding-bottom: 25px;
 }
+
 .todo-view__btns {
   display: flex;
   align-items: center;
   gap: 25px;
 }
-.todo-view__btns > button {
-  border: none;
+
+.todo-view__btns.incomplete-btns {
 }
+
+.todo-view__btns.complete-btns {
+  justify-content: space-between;
+}
+
+.complete-btns .complete-msg {
+  background: var(--royal-blue);
+  color: var(--white);
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
 .create-btn .btn:disabled {
-  background: #7a8dfd;
   opacity: 0.6;
   cursor: no-drop;
 }
+
 .error {
   font-size: 14px;
   font-weight: 500;
-  color: crimson;
+  color: var(--error);
 }
