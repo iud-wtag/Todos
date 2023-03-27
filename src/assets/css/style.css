@@ -80,6 +80,7 @@ button {
   border-radius: 0.313rem;
   padding: 0.625rem;
 }
+
 .btn:hover {
   cursor: pointer;
 }
