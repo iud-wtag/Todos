@@ -10,10 +10,7 @@ const TodoViews = ({
   handleEditClick,
   handleEditTask,
 }) => {
-  // let TaskCount = todoList.length;
-
   return todoList.map((todo) => {
-    // console.log(TaskCount++);
     return (
       <div className="todo-card" key={todo.id}>
         {todo.isEditBtnClicked ? (
