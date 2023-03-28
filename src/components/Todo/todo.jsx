@@ -121,7 +121,7 @@ const Todo = () => {
               handlePaginationClick={handlePaginationClick}
             />
           ) : (
-            todoList.length > TASK_PER_PAGE && (
+            todoList.length + isCreateBtnClicked > TASK_PER_PAGE && (
               <Pagination
                 buttonText={SHOW_LESS}
                 handlePaginationClick={handlePaginationClick}
