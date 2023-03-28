@@ -6,3 +6,6 @@ export const LOGO = "Logo";
 export const SEARCH_ICON = "Search Icon";
 export const ENTER = "Enter";
 export const TASK_LOGO = "Task Logo";
+export const TASK_PER_PAGE = 9;
+export const LOAD_MORE = "Load More";
+export const SHOW_LESS = "Show Less";

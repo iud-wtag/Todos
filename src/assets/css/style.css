@@ -219,3 +219,18 @@ button {
   color: var(--text-color);
   padding-top: 2rem;
 }
+
+.todo__pagination {
+  padding-top: 3.563rem;
+  text-align: center;
+}
+
+.todo__pagination-btn {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.188rem;
+  padding: 0.563rem 1.25rem;
+  color: var(--white);
+  background-color: var(--text-color);
+  border-radius: 0.313rem;
+}
