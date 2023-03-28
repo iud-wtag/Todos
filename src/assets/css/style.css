@@ -3,10 +3,10 @@
 @import url("assets/css/colors.css");
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -18,18 +18,15 @@ a {
 }
 
 button {
-  border: none;
   background: none;
+  border: none;
   cursor: pointer;
-}
-
-.todo {
 }
 
 .todo__container,
 .navbar__container {
-  max-width: 76rem;
   margin: auto;
+  max-width: 76rem;
 }
 
 .todo__section {
@@ -37,47 +34,41 @@ button {
 }
 
 .todo-logo {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 0.875rem;
 }
 
-.todo-logo__img {
-}
-
 .todo-logo__txt {
-  font-weight: 700;
-  font-size: 2.25rem;
-  line-height: 2.625rem;
   color: var(--royal-blue);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 2.625rem;
 }
 
 .navbar-back__navbar {
-  padding: 1rem 0rem;
-  display: flex;
   align-items: center;
+  display: flex;
+  padding: 1rem 0rem;
   justify-content: space-between;
 }
 
 .navbar-back {
   background: var(--white);
-  border: 1px solid var(--border);
-}
-
-.todo-top {
+  border: 0.063rem solid var(--border);
 }
 
 .todo-top__title {
-  font-weight: 700;
-  font-size: 1.875rem;
-  line-height: 2.188rem;
   color: var(--text-color);
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 2.188rem;
 }
 
 .todo-top__btn-section {
   display: flex;
   justify-content: space-between;
-  padding: 1.875rem 0px;
+  padding: 1.875rem 0rem;
 }
 
 .btn {
@@ -90,16 +81,16 @@ button {
 }
 
 .create-btn__btn {
+  align-items: center;
   background: var(--royal-blue);
-  padding: 0.625rem 1.25rem;
   border: none;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
   display: flex;
   gap: 0.313rem;
-  align-items: center;
-  color: var(--white);
-  font-weight: 500;
-  font-size: 1rem;
   line-height: 1.188rem;
+  padding: 0.625rem 1.25rem;
 }
 
 .todo__board {
@@ -109,77 +100,68 @@ button {
 }
 
 .todo-card {
-  min-width: 23.875rem;
   background: var(--white);
-  border: 1px solid var(--border);
+  border: 0.063rem solid var(--border);
   border-radius: 0.313rem;
-  padding: 1rem;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-}
-
-.todo-add-card {
+  min-width: 23.875rem;
+  padding: 1rem;
 }
 
 .add-card__btn-section,
 .edit-card__btn-section {
-  padding-top: 1rem;
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 0.938rem;
+  padding-top: 1rem;
 }
 
 .todo-add__btn,
 .todo-save__btn {
-  border: 1px solid var(--border);
+  border: 0.063rem solid var(--border);
   border-radius: 0.313rem;
-  padding: 0.625rem 0.938rem;
-  font-weight: 500;
+  color: var(--black);
   font-size: 1rem;
+  font-weight: 500;
   line-height: 1.188rem;
-  color: var(--text-color);
-}
-
-.todo-delete__btn {
+  padding: 0.625rem 0.938rem;
 }
 
 .todo-card__input {
-  min-width: 21.875rem;
-  min-height: 5rem;
   background: var(--white);
-  border: 3px solid var(--input-border);
+  border: 0.188rem solid var(--input-border);
   border-radius: 0.313rem;
+  min-height: 5rem;
+  min-width: 21.875rem;
 }
 
 .todo-view__title {
-  font-weight: 700;
+  color: var(--black);
   font-size: 1.5rem;
+  font-weight: 700;
   line-height: 1.75rem;
-  color: var(--text-color);
   padding-bottom: 0.625rem;
 }
 
 .todo-view__title.task-complete {
-  text-decoration-line: line-through;
   color: var(--lime-green);
+  text-decoration-line: line-through;
 }
 
 .todo-view__create-time {
-  font-weight: 700;
-  font-size: 0.875rem;
-  line-height: 1rem;
   color: var(--gray);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1rem;
   padding-bottom: 1.563rem;
 }
 
 .todo-view__btns {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 1.563rem;
-}
-
-.todo-view__btns.incomplete-btns {
 }
 
 .todo-view__btns.complete-btns {
@@ -188,22 +170,22 @@ button {
 
 .complete-btns .complete-msg {
   background: var(--royal-blue);
-  color: var(--white);
   border-radius: 0.313rem;
-  padding: 0.313rem 0.938rem;
+  color: var(--white);
   font-size: 0.75rem;
   line-height: 0.875rem;
+  padding: 0.313rem 0.938rem;
 }
 
 .create-btn .btn:disabled {
-  opacity: 0.6;
   cursor: no-drop;
+  opacity: 0.6;
 }
 
 .error {
+  color: var(--error);
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--error);
 }
 
 .empty__board {
