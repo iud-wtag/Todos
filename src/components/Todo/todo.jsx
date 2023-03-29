@@ -9,6 +9,7 @@ import {
   handleEmptyError,
   editTodo,
   handleCurrentPage,
+  filterTodo,
 } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
@@ -33,6 +34,9 @@ const Todo = () => {
 
   const currentPage = useSelector(
     (state) => state.handleCurrentPage.currentPage
+  );
+  const filterState = useSelector(
+    (state) => state.handleFilterState.filterState
   );
 
   const currentTask = TASK_PER_PAGE * currentPage - isCreateBtnClicked;
@@ -83,6 +87,10 @@ const Todo = () => {
     } else {
       dispatch(handleCurrentPage(1));
     }
+  };
+
+  const handleFilterClick = (filterState) => {
+    dispatch(filterTodo(filterState));
   };
 
   return (

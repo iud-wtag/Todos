@@ -7,6 +7,7 @@ import {
   EDIT_TODO,
   HANDLE_EDIT,
   HANDLE_CURRENT_PAGE,
+  HANDLE_FILTER,
 } from "actions/actionTypes";
 import { getDays } from "helpers/getDays";
 
@@ -80,5 +81,12 @@ export const handleCurrentPage = (currentPage) => {
   return {
     type: HANDLE_CURRENT_PAGE,
     currentPage,
+  };
+};
+
+export const filterTodo = (filterState) => {
+  return {
+    type: HANDLE_FILTER,
+    filterState,
   };
 };
