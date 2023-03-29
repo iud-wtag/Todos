@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
@@ -18,11 +18,18 @@ import TodoViews from "components/Todo/TodoViews/todo-views";
 import EmptyViews from "components/Todo/EmptyViews/empty-views";
 import Pagination from "components/Todo/Pagination/pagination";
 import { sanitizeInput } from "helpers/sanitizeInput";
-import { TASK_PER_PAGE, LOAD_MORE, SHOW_LESS } from "common/constants";
+import {
+  TASK_PER_PAGE,
+  LOAD_MORE,
+  SHOW_LESS,
+  INCOMPLETE,
+  COMPLETE,
+} from "common/constants";
 
 const Todo = () => {
   const dispatch = useDispatch();
   const todoList = useSelector((state) => state.todoReducers.list);
+  const [displayTodoList, setDisplayTodoList] = useState(todoList);
 
   const isCreateBtnClicked = useSelector(
     (state) => state.handleButtonClick.isCreateBtnClicked
@@ -40,7 +47,7 @@ const Todo = () => {
   );
 
   const currentTask = TASK_PER_PAGE * currentPage - isCreateBtnClicked;
-  const currentTodoList = todoList.slice(0, currentTask);
+  const currentTodoList = displayTodoList.slice(0, currentTask);
 
   const toggleEmptyError = (toggleValue) => {
     dispatch(handleEmptyError(toggleValue));
@@ -93,12 +100,30 @@ const Todo = () => {
     dispatch(filterTodo(filterState));
   };
 
+  useEffect(() => {
+    (() => {
+      console.log("asdasd");
+      if (filterState === INCOMPLETE) {
+        setDisplayTodoList(
+          todoList.filter((todo) => todo.isTaskComplete === false)
+        );
+      } else if (filterState === COMPLETE) {
+        setDisplayTodoList(
+          todoList.filter((todo) => todo.isTaskComplete === true)
+        );
+      } else {
+        setDisplayTodoList(todoList);
+      }
+    })();
+  }, [filterState, todoList]);
+
   return (
     <div className="todo">
       <Navbar />
       <div className="todo__container todo__section">
         <TopBar
           handleCreateClick={handleCreateClick}
+          handleFilterClick={handleFilterClick}
           isCreateBtnClicked={isCreateBtnClicked}
         />
         <div className="todo__board">
