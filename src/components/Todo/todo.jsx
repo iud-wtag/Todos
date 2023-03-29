@@ -48,6 +48,9 @@ const Todo = () => {
 
   const currentTask = TASK_PER_PAGE * currentPage - isCreateBtnClicked;
   const currentTodoList = displayTodoList.slice(0, currentTask);
+  const showLoadMoreButton = displayTodoList.length > currentTask;
+  const showSeeLessButton =
+    displayTodoList.length + isCreateBtnClicked > TASK_PER_PAGE;
 
   const toggleEmptyError = (toggleValue) => {
     dispatch(handleEmptyError(toggleValue));
@@ -148,13 +151,13 @@ const Todo = () => {
           )}
         </div>
         <div className="todo__pagination">
-          {todoList.length > currentTask ? (
+          {showLoadMoreButton ? (
             <Pagination
               buttonText={LOAD_MORE}
               handlePaginationClick={handlePaginationClick}
             />
           ) : (
-            todoList.length + isCreateBtnClicked > TASK_PER_PAGE && (
+            showSeeLessButton && (
               <Pagination
                 buttonText={SHOW_LESS}
                 handlePaginationClick={handlePaginationClick}
