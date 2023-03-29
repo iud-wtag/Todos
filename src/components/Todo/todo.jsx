@@ -105,7 +105,6 @@ const Todo = () => {
 
   useEffect(() => {
     (() => {
-      console.log("asdasd");
       if (filterState === INCOMPLETE) {
         setDisplayTodoList(
           todoList.filter((todo) => todo.isTaskComplete === false)
