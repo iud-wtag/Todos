@@ -21,6 +21,7 @@ const Todo = () => {
   const isCreateBtnClicked = useSelector(
     (state) => state.handleButtonClick.isCreateBtnClicked
   );
+
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
   const toggleEmptyError = (toggleValue) => {
@@ -30,6 +31,7 @@ const Todo = () => {
   const handleCreateClick = () => {
     dispatch(handleCreateBtn(isCreateBtnClicked));
   };
+
   const handleCancelClick = () => {
     handleCreateClick();
     toggleEmptyError(false);
