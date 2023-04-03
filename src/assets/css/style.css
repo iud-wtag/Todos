@@ -169,9 +169,6 @@ button {
 }
 
 .complete-btns .complete-msg {
-  background: var(--royal-blue);
-  border-radius: 0.313rem;
-  color: var(--white);
   font-size: 0.75rem;
   line-height: 0.875rem;
   padding: 0.313rem 0.938rem;
