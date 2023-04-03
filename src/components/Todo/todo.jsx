@@ -31,6 +31,7 @@ const Todo = () => {
   const dispatch = useDispatch();
 
   const todoList = useSelector((state) => state.todoReducers.list);
+
   const [displayTodoList, setDisplayTodoList] = useState(todoList);
 
   const isCreateBtnClicked = useSelector(
@@ -46,6 +47,7 @@ const Todo = () => {
   const currentPage = useSelector(
     (state) => state.handleCurrentPage.currentPage
   );
+
   const filterState = useSelector(
     (state) => state.handleFilterState.filterState
   );
