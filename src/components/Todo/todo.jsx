@@ -44,7 +44,6 @@ const Todo = () => {
     handleCreateClick();
     toggleEmptyError(false);
   };
-
   const handleDeleteTask = (taskId) => {
     dispatch(deleteTodo(taskId));
   };
