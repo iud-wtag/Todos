@@ -14,6 +14,7 @@ import { sanitizeInput } from "helpers/sanitizeInput";
 
 const Todo = () => {
   const dispatch = useDispatch();
+
   const todoList = useSelector((state) => state.todoReducers.list);
 
   const isCreateBtnClicked = useSelector(
@@ -24,6 +25,7 @@ const Todo = () => {
   const toggleEmptyError = (toggleValue) => {
     dispatch(handleEmptyError(toggleValue));
   };
+
   const handleCreateClick = () => {
     dispatch(handleCreateBtn(isCreateBtnClicked));
   };
