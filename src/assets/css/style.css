@@ -73,23 +73,37 @@ button {
 
 .btn {
   border-radius: 0.313rem;
-  padding: 0.625rem;
 }
 
 .btn:hover {
   cursor: pointer;
 }
 
-.create-btn__btn {
-  align-items: center;
+.white-back__btn {
+  background: var(--white);
+  border: 0.063rem solid var(--border);
+  border-radius: 0.313rem;
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.188rem;
+  padding: 0.625rem 0.938rem;
+}
+
+.purple-back__btn {
   background: var(--royal-blue);
   border: none;
+  border-radius: 0.313rem;
   color: var(--white);
   font-size: 1rem;
   font-weight: 500;
+  line-height: 1.188rem;
+}
+
+.create-btn__btn {
+  align-items: center;
   display: flex;
   gap: 0.313rem;
-  line-height: 1.188rem;
   padding: 0.625rem 1.25rem;
 }
 
@@ -120,13 +134,6 @@ button {
 
 .todo-add__btn,
 .todo-save__btn {
-  border: 0.063rem solid var(--border);
-  border-radius: 0.313rem;
-  color: var(--black);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.188rem;
-  padding: 0.625rem 0.938rem;
 }
 
 .todo-card__input {
@@ -169,9 +176,6 @@ button {
 }
 
 .complete-btns .complete-msg {
-  background: var(--royal-blue);
-  border-radius: 0.313rem;
-  color: var(--white);
   font-size: 0.75rem;
   line-height: 0.875rem;
   padding: 0.313rem 0.938rem;
@@ -215,4 +219,9 @@ button {
   color: var(--white);
   background-color: var(--black);
   border-radius: 0.313rem;
+}
+
+.filter-btn {
+  display: flex;
+  gap: 1.25rem;
 }

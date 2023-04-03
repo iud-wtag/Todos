@@ -24,7 +24,7 @@ const EditActionBar = ({
   };
   return (
     <div className="edit-card__btn-section">
-      <button className="todo-save__btn" onClick={handleEdit}>
+      <button className="todo-save__btn white-back__btn" onClick={handleEdit}>
         Save
       </button>
       <button className="todo-complete__btn" onClick={handleComplete}>

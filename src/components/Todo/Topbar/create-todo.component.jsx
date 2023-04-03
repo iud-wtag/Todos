@@ -7,7 +7,7 @@ const CreateTodo = ({ handleCreateClick, isCreateBtnClicked }) => {
   return (
     <div className="create-btn">
       <button
-        className="create-btn__btn btn"
+        className="create-btn__btn btn purple-back__btn"
         onClick={handleCreateClick}
         disabled={isCreateBtnClicked}
       >
