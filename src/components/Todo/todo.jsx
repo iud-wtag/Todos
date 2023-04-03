@@ -137,7 +137,7 @@ const Todo = () => {
               toggleEmptyError={toggleEmptyError}
             />
           )}
-          {todoList.length ? (
+          {currentTodoList.length ? (
             <TodoViews
               todoList={currentTodoList}
               handleDeleteTask={handleDeleteTask}
