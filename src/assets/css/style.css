@@ -100,6 +100,12 @@ button {
   line-height: 1.188rem;
 }
 
+.filter-btn__btn.active {
+  background: var(--royal-blue);
+  border: none;
+  color: var(--white);
+}
+
 .create-btn__btn {
   align-items: center;
   display: flex;
