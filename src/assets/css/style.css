@@ -86,6 +86,7 @@ button {
 .purple-back__btn {
   background: var(--royal-blue);
   border: none;
+  border-radius: 0.313rem;
   color: var(--white);
   font-size: 1rem;
   font-weight: 500;
