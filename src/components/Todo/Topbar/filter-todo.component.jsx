@@ -6,19 +6,19 @@ const FilterTodo = ({ handleFilterClick }) => {
   return (
     <div className="filter-btn">
       <button
-        className="filter-btn__btn btn"
+        className="filter-btn__btn btn white-back__btn"
         onClick={() => handleFilterClick(ALL)}
       >
         All
       </button>
       <button
-        className="filter-btn__btn btn"
+        className="filter-btn__btn btn white-back__btn"
         onClick={() => handleFilterClick(INCOMPLETE)}
       >
         Incomplete
       </button>
       <button
-        className="filter-btn__btn btn"
+        className="filter-btn__btn btn white-back__btn"
         onClick={() => handleFilterClick(COMPLETE)}
       >
         Complete

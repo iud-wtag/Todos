@@ -26,7 +26,7 @@ const ViewActionBar = ({
       <button onClick={handleDelete}>
         <img src={deleteButton} alt={DELETE_BUTTON} />
       </button>
-      <p className="complete-msg">
+      <p className="complete-msg purple-back__btn">
         Completed in {completeTime} {completeTime <= 1 ? "day" : "days"}
       </p>
     </div>
