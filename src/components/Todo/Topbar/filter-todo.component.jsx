@@ -3,12 +3,6 @@ import PropTypes from "prop-types";
 import { ALL, INCOMPLETE, COMPLETE } from "common/constants";
 
 const FilterTodo = ({ handleFilterClick }) => {
-  document.querySelectorAll(".filter-btn__btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      document.querySelector(".active").classList.remove("active");
-      btn.classList.add("active");
-    });
-  });
   return (
     <div className="filter-btn">
       <button

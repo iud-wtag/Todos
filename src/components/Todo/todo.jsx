@@ -24,6 +24,7 @@ import {
   SHOW_LESS,
   INCOMPLETE,
   COMPLETE,
+  ALL,
 } from "common/constants";
 
 const Todo = () => {
@@ -75,6 +76,7 @@ const Todo = () => {
     dispatch(addTodo(sanitizedTask));
     handleCreateClick();
     toggleEmptyError(false);
+    handleFilterClick(ALL);
   };
   const handleDeleteTask = (taskId) => {
     dispatch(deleteTodo(taskId));
@@ -101,20 +103,33 @@ const Todo = () => {
 
   const handleFilterClick = (filterState) => {
     dispatch(filterTodo(filterState));
+    dispatch(handleCurrentPage(1));
   };
 
   useEffect(() => {
     (() => {
-      if (filterState === INCOMPLETE) {
-        setDisplayTodoList(
-          todoList.filter((todo) => todo.isTaskComplete === false)
-        );
-      } else if (filterState === COMPLETE) {
-        setDisplayTodoList(
-          todoList.filter((todo) => todo.isTaskComplete === true)
-        );
-      } else {
-        setDisplayTodoList(todoList);
+      console.log("Caller");
+      document.querySelectorAll(".filter-btn__btn").forEach((btn) => {
+        if (filterState === ALL && btn.innerHTML === ALL) {
+          document.querySelector(".active").classList.remove("active");
+          btn.classList.add("active");
+          setDisplayTodoList(todoList);
+        } else if (filterState === INCOMPLETE && btn.innerHTML === INCOMPLETE) {
+          document.querySelector(".active").classList.remove("active");
+          btn.classList.add("active");
+          setDisplayTodoList(
+            todoList.filter((todo) => todo.isTaskComplete === false)
+          );
+        } else if (filterState === COMPLETE && btn.innerHTML === COMPLETE) {
+          document.querySelector(".active").classList.remove("active");
+          btn.classList.add("active");
+          setDisplayTodoList(
+            todoList.filter((todo) => todo.isTaskComplete === true)
+          );
+        }
+      });
+      if (isCreateBtnClicked) {
+        handleCreateClick();
       }
     })();
   }, [filterState, todoList]);
