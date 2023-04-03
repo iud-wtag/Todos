@@ -21,14 +21,17 @@ import { TASK_PER_PAGE, LOAD_MORE, SHOW_LESS } from "common/constants";
 
 const Todo = () => {
   const dispatch = useDispatch();
+
   const todoList = useSelector((state) => state.todoReducers.list);
 
   const isCreateBtnClicked = useSelector(
     (state) => state.handleButtonClick.isCreateBtnClicked
   );
+
   const isEditBtnClicked = useSelector(
     (state) => state.handleButtonClick.isEditBtnClicked
   );
+
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
   const currentPage = useSelector(
@@ -44,13 +47,16 @@ const Todo = () => {
   const toggleEmptyError = (toggleValue) => {
     dispatch(handleEmptyError(toggleValue));
   };
+
   const handleCreateClick = () => {
     dispatch(handleCreateBtn(isCreateBtnClicked));
   };
+
   const handleCancelClick = () => {
     handleCreateClick();
     toggleEmptyError(false);
   };
+
   const handleEditClick = (taskId) => {
     dispatch(handleEditBtn(taskId, isEditBtnClicked));
   };
@@ -65,12 +71,15 @@ const Todo = () => {
     handleCreateClick();
     toggleEmptyError(false);
   };
+
   const handleDeleteTask = (taskId) => {
     dispatch(deleteTodo(taskId));
   };
+
   const handleCompleteTask = (taskId, startDate) => {
     dispatch(completeTodo(taskId, startDate));
   };
+
   const handleEditTask = (taskId, editedInput) => {
     const sanitizedTask = sanitizeInput(editedInput);
     if (sanitizedTask.trim() === "") {
