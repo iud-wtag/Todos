@@ -43,6 +43,7 @@ const Todo = () => {
   const showLoadMoreButton = todoList.length > currentTask;
   const showSeeLessButton =
     todoList.length + isCreateBtnClicked > TASK_PER_PAGE;
+  const showPagination = showLoadMoreButton || showSeeLessButton;
 
   const toggleEmptyError = (toggleValue) => {
     dispatch(handleEmptyError(toggleValue));
@@ -126,21 +127,14 @@ const Todo = () => {
             !isCreateBtnClicked && <EmptyViews />
           )}
         </div>
-        <div className="todo__pagination">
-          {showLoadMoreButton ? (
+        {showPagination && (
+          <div className="todo__pagination">
             <Pagination
-              buttonText={LOAD_MORE}
+              buttonText={showLoadMoreButton ? LOAD_MORE : SHOW_LESS}
               handlePaginationClick={handlePaginationClick}
             />
-          ) : (
-            showSeeLessButton && (
-              <Pagination
-                buttonText={SHOW_LESS}
-                handlePaginationClick={handlePaginationClick}
-              />
-            )
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
