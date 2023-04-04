@@ -10,7 +10,7 @@ const ViewCard = ({
   handleEditClick,
 }) => {
   return (
-    <div className="todo-card">
+    <>
       <ViewDetails todo={todo} />
       <ViewActionBar
         handleDeleteTask={handleDeleteTask}
@@ -18,7 +18,7 @@ const ViewCard = ({
         handleEditClick={handleEditClick}
         todo={todo}
       />
-    </div>
+    </>
   );
 };
 
