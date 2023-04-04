@@ -227,3 +227,17 @@ button {
   display: flex;
   gap: 1.25rem;
 }
+
+.todo-search {
+  display: flex;
+  align-items: center;
+  gap: 1.063rem;
+}
+
+.todo_search_input {
+  display: none;
+}
+
+.todo_search_input.active {
+  display: block;
+}
