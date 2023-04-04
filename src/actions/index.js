@@ -10,7 +10,7 @@ export const addTodo = (task) => {
     payload: {
       id: new Date().getTime().toString(),
       task: task,
-      date: new Date().toLocaleDateString("de-DE"),
+      date: new Date(),
     },
   };
 };
