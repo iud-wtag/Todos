@@ -12,12 +12,13 @@ const TodoViews = ({
 }) => {
   return todoList.map((todo) => {
     return (
-      <div className="todo-card" key={todo.id}>
+      <>
         {todo.isEditBtnClicked ? (
           <EditCard
             todo={todo}
             handleEditTask={handleEditTask}
             handleCompleteTask={handleCompleteTask}
+            key={todo.id}
           />
         ) : (
           <ViewCard
@@ -25,9 +26,10 @@ const TodoViews = ({
             handleDeleteTask={handleDeleteTask}
             handleCompleteTask={handleCompleteTask}
             handleEditClick={handleEditClick}
+            key={todo.id}
           />
         )}
-      </div>
+      </>
     );
   });
 };
