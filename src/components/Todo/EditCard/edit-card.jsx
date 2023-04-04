@@ -28,7 +28,7 @@ const EditCard = ({ todo, handleEditTask, handleCompleteTask }) => {
   }, [task]);
 
   return (
-    <div className="todo-card__edit">
+    <>
       <textarea
         name="todo_input"
         id="todo_input"
@@ -45,7 +45,7 @@ const EditCard = ({ todo, handleEditTask, handleCompleteTask }) => {
         handleEditTask={handleEditTask}
         handleCompleteTask={handleCompleteTask}
       />
-    </div>
+    </>
   );
 };
 
