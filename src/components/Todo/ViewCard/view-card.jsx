@@ -5,14 +5,14 @@ import ViewActionBar from "components/Todo/ViewCard/view-action-bar.component";
 
 const ViewCard = ({ todo, handleDeleteTask, handleCompleteTask }) => {
   return (
-    <>
+    <div className="todo-card">
       <ViewDetails todo={todo} />
       <ViewActionBar
         handleDeleteTask={handleDeleteTask}
         handleCompleteTask={handleCompleteTask}
         todo={todo}
       />
-    </>
+    </div>
   );
 };
 

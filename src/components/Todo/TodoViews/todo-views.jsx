@@ -5,13 +5,12 @@ import ViewCard from "components/Todo/ViewCard/view-card";
 const TodoViews = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
   return todoList.map((todo) => {
     return (
-      <div className="todo-card" key={todo.id}>
-        <ViewCard
-          todo={todo}
-          handleDeleteTask={handleDeleteTask}
-          handleCompleteTask={handleCompleteTask}
-        />
-      </div>
+      <ViewCard
+        todo={todo}
+        handleDeleteTask={handleDeleteTask}
+        handleCompleteTask={handleCompleteTask}
+        key={todo.id}
+      />
     );
   });
 };
