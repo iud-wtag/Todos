@@ -5,7 +5,7 @@ import {
   handleCreateButton,
   deleteTodo,
   completeTodo,
-  handleEditBtn,
+  handleEditButton,
   handleEmptyError,
   editTodo,
 } from "actions";
@@ -24,10 +24,6 @@ const Todo = () => {
     (state) => state.handleButtonClick.isCreateButtonClicked
   );
 
-  const isEditBtnClicked = useSelector(
-    (state) => state.handleButtonClick.isEditBtnClicked
-  );
-
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
   const toggleEmptyError = (toggleValue) => {
@@ -44,7 +40,7 @@ const Todo = () => {
   };
 
   const handleEditClick = (taskId) => {
-    dispatch(handleEditBtn(taskId, isEditBtnClicked));
+    dispatch(handleEditButton(taskId));
   };
 
   const handleAddTask = (inputTask) => {
