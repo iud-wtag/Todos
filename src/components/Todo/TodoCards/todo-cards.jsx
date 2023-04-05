@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ViewCard from "components/Todo/ViewCard/view-card";
 import EditCard from "components/Todo/EditCard/edit-card";
 
-const TodoViews = ({
+const TodoCards = ({
   todoList,
   handleDeleteTask,
   handleCompleteTask,
@@ -13,7 +13,7 @@ const TodoViews = ({
   return todoList.map((todo) => {
     return (
       <div className="todo-card" key={todo.id}>
-        {todo.isEditBtnClicked ? (
+        {todo.isEditButtonClicked ? (
           <EditCard
             todo={todo}
             handleEditTask={handleEditTask}
@@ -32,7 +32,7 @@ const TodoViews = ({
   });
 };
 
-TodoViews.propTypes = {
+TodoCards.propTypes = {
   todoList: PropTypes.array.isRequired,
   handleDeleteTask: PropTypes.func.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
@@ -40,4 +40,4 @@ TodoViews.propTypes = {
   handleEditTask: PropTypes.func.isRequired,
 };
 
-export default TodoViews;
+export default TodoCards;

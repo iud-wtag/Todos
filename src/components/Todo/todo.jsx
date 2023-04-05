@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
-  handleCreateBtn,
+  handleCreateButton,
   deleteTodo,
   completeTodo,
-  handleEditBtn,
+  handleEditButton,
   handleEmptyError,
   editTodo,
   handleCurrentPage,
@@ -14,7 +14,7 @@ import {
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
 import AddCard from "components/Todo/AddCard/add-card";
-import TodoViews from "components/Todo/TodoViews/todo-views";
+import TodoCards from "components/Todo/TodoCards/todo-cards";
 import EmptyViews from "components/Todo/EmptyViews/empty-views";
 import Pagination from "components/Todo/Pagination/pagination";
 import { sanitizeInput } from "helpers/sanitizeInput";
@@ -34,12 +34,8 @@ const Todo = () => {
 
   const [displayTodoList, setDisplayTodoList] = useState(todoList);
 
-  const isCreateBtnClicked = useSelector(
-    (state) => state.handleButtonClick.isCreateBtnClicked
-  );
-
-  const isEditBtnClicked = useSelector(
-    (state) => state.handleButtonClick.isEditBtnClicked
+  const isCreateButtonClicked = useSelector(
+    (state) => state.handleButtonClick.isCreateButtonClicked
   );
 
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
@@ -52,18 +48,19 @@ const Todo = () => {
     (state) => state.handleFilterState.filterState
   );
 
-  const currentTask = TASK_PER_PAGE * currentPage - isCreateBtnClicked;
+  const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;
   const currentTodoList = displayTodoList.slice(0, currentTask);
   const showLoadMoreButton = displayTodoList.length > currentTask;
   const showSeeLessButton =
-    displayTodoList.length + isCreateBtnClicked > TASK_PER_PAGE;
+    displayTodoList.length + isCreateButtonClicked > TASK_PER_PAGE;
+  const showPagination = showLoadMoreButton || showSeeLessButton;
 
   const toggleEmptyError = (toggleValue) => {
     dispatch(handleEmptyError(toggleValue));
   };
 
   const handleCreateClick = () => {
-    dispatch(handleCreateBtn(isCreateBtnClicked));
+    dispatch(handleCreateButton(isCreateButtonClicked));
   };
 
   const handleCancelClick = () => {
@@ -72,7 +69,7 @@ const Todo = () => {
   };
 
   const handleEditClick = (taskId) => {
-    dispatch(handleEditBtn(taskId, isEditBtnClicked));
+    dispatch(handleEditButton(taskId));
   };
 
   const handleAddTask = (inputTask) => {
@@ -139,7 +136,7 @@ const Todo = () => {
           );
         }
       });
-      if (isCreateBtnClicked) {
+      if (isCreateButtonClicked) {
         handleCreateClick();
       }
     })();
@@ -152,10 +149,10 @@ const Todo = () => {
         <TopBar
           handleCreateClick={handleCreateClick}
           handleFilterClick={handleFilterClick}
-          isCreateBtnClicked={isCreateBtnClicked}
+          isCreateButtonClicked={isCreateButtonClicked}
         />
         <div className="todo__board">
-          {isCreateBtnClicked && (
+          {isCreateButtonClicked && (
             <AddCard
               handleAddTask={handleAddTask}
               handleCancelClick={handleCancelClick}
@@ -164,7 +161,7 @@ const Todo = () => {
             />
           )}
           {currentTodoList.length ? (
-            <TodoViews
+            <TodoCards
               todoList={currentTodoList}
               handleDeleteTask={handleDeleteTask}
               handleCompleteTask={handleCompleteTask}
@@ -172,24 +169,17 @@ const Todo = () => {
               handleEditTask={handleEditTask}
             />
           ) : (
-            !isCreateBtnClicked && <EmptyViews />
+            !isCreateButtonClicked && <EmptyViews />
           )}
         </div>
-        <div className="todo__pagination">
-          {showLoadMoreButton ? (
+        {showPagination && (
+          <div className="todo__pagination">
             <Pagination
-              buttonText={LOAD_MORE}
+              buttonText={showLoadMoreButton ? LOAD_MORE : SHOW_LESS}
               handlePaginationClick={handlePaginationClick}
             />
-          ) : (
-            showSeeLessButton && (
-              <Pagination
-                buttonText={SHOW_LESS}
-                handlePaginationClick={handlePaginationClick}
-              />
-            )
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
