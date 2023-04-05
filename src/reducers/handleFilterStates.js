@@ -1,5 +1,5 @@
 import { HANDLE_FILTER } from "actions/actionTypes";
-import { ALL, INCOMPLETE } from "common/constants";
+import { ALL } from "common/constants";
 
 const initialFilter = {
   filterState: ALL,
