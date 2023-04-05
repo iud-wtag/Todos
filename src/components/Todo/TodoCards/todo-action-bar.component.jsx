@@ -5,22 +5,26 @@ import editButton from "assets/images/edit.png";
 import deleteButton from "assets/images/delete.png";
 import { COMPLETE_BUTTON, EDIT_BUTTON, DELETE_BUTTON } from "common/constants";
 
-const ViewActionBar = ({
+const TodoActionBar = ({
   handleDeleteTask,
   handleCompleteTask,
   handleEditClick,
   todo,
 }) => {
   const { id, date, completeTime, isTaskComplete } = todo;
+
   const handleDelete = () => {
     handleDeleteTask(id);
   };
+
   const handleComplete = () => {
     handleCompleteTask(id, date);
   };
+
   const handleEdit = () => {
     handleEditClick(id);
   };
+
   return isTaskComplete ? (
     <div className="todo-view__btns complete-btns">
       <button onClick={handleDelete}>
@@ -45,11 +49,11 @@ const ViewActionBar = ({
   );
 };
 
-ViewActionBar.propTypes = {
+TodoActionBar.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
   handleEditClick: PropTypes.func.isRequired,
   todo: PropTypes.object.isRequired,
 };
 
-export default ViewActionBar;
+export default TodoActionBar;
