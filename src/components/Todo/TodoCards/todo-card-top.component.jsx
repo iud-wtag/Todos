@@ -1,16 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { formatDate } from "helpers/fortmatDate";
 
 const TodoCardTop = ({ todo }) => {
-  const today = todo.date;
-  const day = today.getDate();
-  const month = today.getMonth();
-  const year = today.getFullYear();
-  const formattedDate = `${day}.${month}.${year}`;
+  const { task, date } = todo;
+  const formattedDate = formatDate(date);
 
   return (
     <div className="todo-view__details">
-      <h3 className="todo-view__title">{todo.task}</h3>
+      <h3 className="todo-view__title">{task}</h3>
       <p className="todo-view__create-time">Created At: {formattedDate}</p>
     </div>
   );
