@@ -5,13 +5,9 @@ import editButton from "assets/images/edit.png";
 import deleteButton from "assets/images/delete.png";
 import { COMPLETE_BUTTON, EDIT_BUTTON, DELETE_BUTTON } from "common/constants";
 
-const TodoActionBar = ({ handleDeleteTask, handleCompleteTask, todo }) => {
-  const { id, date, completeTime, isTaskComplete } = todo;
+const TodoActionBar = ({ handleDeleteTask, taskId }) => {
   const handleDelete = () => {
-    handleDeleteTask(id);
-  };
-  const handleComplete = () => {
-    handleCompleteTask(id, date);
+    handleDeleteTask(taskId);
   };
   return isTaskComplete ? (
     <div className="todo-view__btns complete-btns">
@@ -39,8 +35,7 @@ const TodoActionBar = ({ handleDeleteTask, handleCompleteTask, todo }) => {
 
 TodoActionBar.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
-  handleCompleteTask: PropTypes.func.isRequired,
-  todo: PropTypes.object.isRequired,
+  taskId: PropTypes.string.isRequired,
 };
 
 export default TodoActionBar;
