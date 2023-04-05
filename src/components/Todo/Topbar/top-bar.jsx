@@ -5,7 +5,7 @@ import CreateTodo from "components/Todo/Topbar/create-todo.component";
 
 const TopBar = ({
   handleCreateClick,
-  isCreateBtnClicked,
+  isCreateButtonClicked,
   handleFilterClick,
 }) => {
   return (
@@ -14,7 +14,7 @@ const TopBar = ({
       <div className="todo-top__btn-section">
         <CreateTodo
           handleCreateClick={handleCreateClick}
-          isCreateBtnClicked={isCreateBtnClicked}
+          isCreateButtonClicked={isCreateButtonClicked}
         />
         <FilterTodo handleFilterClick={handleFilterClick} />
       </div>
@@ -25,7 +25,7 @@ const TopBar = ({
 TopBar.propTypes = {
   handleCreateClick: PropTypes.func.isRequired,
   handleFilterClick: PropTypes.func.isRequired,
-  isCreateBtnClicked: PropTypes.bool.isRequired,
+  isCreateButtonClicked: PropTypes.bool.isRequired,
 };
 
 export default TopBar;

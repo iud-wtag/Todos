@@ -1,16 +1,16 @@
 import { HANDLE_CREATE } from "actions/actionTypes";
 
 const initialButton = {
-  isCreateBtnClicked: false,
+  isCreateButtonClicked: false,
 };
 
 const handleButtonClick = (state = initialButton, action) => {
   switch (action.type) {
     case HANDLE_CREATE:
-      const { isCreateBtnClicked } = action.payload;
+      const { isCreateButtonClicked } = action.payload;
       return {
         ...state,
-        isCreateBtnClicked: isCreateBtnClicked,
+        isCreateButtonClicked: isCreateButtonClicked,
       };
 
     default:
