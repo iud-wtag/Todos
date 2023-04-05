@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, handleCreateBtn, handleEmptyError } from "actions";
+import { addTodo, handleCreateButton, handleEmptyError } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
 import AddCard from "components/Todo/AddCard/add-card";
@@ -22,7 +22,7 @@ const Todo = () => {
   };
 
   const handleCreateClick = () => {
-    dispatch(handleCreateBtn(isCreateButtonClicked));
+    dispatch(handleCreateButton(isCreateButtonClicked));
   };
 
   const handleAddTask = (inputTask) => {

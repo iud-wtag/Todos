@@ -10,7 +10,7 @@ export const addTodo = (task) => {
   };
 };
 
-export const handleCreateBtn = (isCreateButtonClicked) => {
+export const handleCreateButton = (isCreateButtonClicked) => {
   return {
     type: HANDLE_CREATE,
     payload: {
