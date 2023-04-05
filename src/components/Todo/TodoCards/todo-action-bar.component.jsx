@@ -5,9 +5,10 @@ import editButton from "assets/images/edit.png";
 import deleteButton from "assets/images/delete.png";
 import { COMPLETE_BUTTON, EDIT_BUTTON, DELETE_BUTTON } from "common/constants";
 
-const TodoActionBar = ({ handleDeleteTask, taskId }) => {
+const TodoActionBar = ({ handleDeleteTask, todo }) => {
+  const { id } = todo;
   const handleDelete = () => {
-    handleDeleteTask(taskId);
+    handleDeleteTask(id);
   };
 
   return (
@@ -27,7 +28,7 @@ const TodoActionBar = ({ handleDeleteTask, taskId }) => {
 
 TodoActionBar.propTypes = {
   handleDeleteTask: PropTypes.func.isRequired,
-  taskId: PropTypes.string.isRequired,
+  todo: PropTypes.object.isRequired,
 };
 
 export default TodoActionBar;

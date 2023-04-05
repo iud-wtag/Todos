@@ -8,7 +8,7 @@ const TodoCards = ({ todoList, handleDeleteTask }) => {
     return (
       <div className="todo-card todo-view-card" key={todo.id}>
         <TodoCardTop todo={todo} />
-        <TodoActionBar handleDeleteTask={handleDeleteTask} taskId={todo.id} />
+        <TodoActionBar handleDeleteTask={handleDeleteTask} todo={todo} />
       </div>
     );
   });
