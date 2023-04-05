@@ -13,7 +13,7 @@ import {
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
 import AddCard from "components/Todo/AddCard/add-card";
-import TodoViews from "components/Todo/TodoViews/todo-views";
+import TodoCards from "components/Todo/TodoCards/todo-cards";
 import EmptyViews from "components/Todo/EmptyViews/empty-views";
 import Pagination from "components/Todo/Pagination/pagination";
 import { sanitizeInput } from "helpers/sanitizeInput";
@@ -34,11 +34,11 @@ const Todo = () => {
     (state) => state.handleCurrentPage.currentPage
   );
 
-  const currentTask = TASK_PER_PAGE * currentPage - isCreateBtnClicked;
+  const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;
   const currentTodoList = todoList.slice(0, currentTask);
   const showLoadMoreButton = todoList.length > currentTask;
   const showSeeLessButton =
-    todoList.length + isCreateBtnClicked > TASK_PER_PAGE;
+    todoList.length + isCreateButtonClicked > TASK_PER_PAGE;
   const showPagination = showLoadMoreButton || showSeeLessButton;
 
   const toggleEmptyError = (toggleValue) => {
@@ -112,7 +112,7 @@ const Todo = () => {
             />
           )}
           {todoList.length ? (
-            <TodoViews
+            <TodoCards
               todoList={currentTodoList}
               handleDeleteTask={handleDeleteTask}
               handleCompleteTask={handleCompleteTask}
@@ -120,7 +120,7 @@ const Todo = () => {
               handleEditTask={handleEditTask}
             />
           ) : (
-            !isCreateBtnClicked && <EmptyViews />
+            !isCreateButtonClicked && <EmptyViews />
           )}
         </div>
         {showPagination && (
