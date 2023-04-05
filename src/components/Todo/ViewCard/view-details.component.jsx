@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { formatDate } from "helpers/fortmatDate";
 
-const TodoCardTop = ({ todo }) => {
+const ViewDetails = ({ todo }) => {
   const { task, date } = todo;
   const formattedDate = formatDate(date);
 
@@ -19,8 +19,8 @@ const TodoCardTop = ({ todo }) => {
   );
 };
 
-TodoCardTop.propTypes = {
+ViewDetails.propTypes = {
   todo: PropTypes.object.isRequired,
 };
 
-export default TodoCardTop;
+export default ViewDetails;

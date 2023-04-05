@@ -12,7 +12,7 @@ import {
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
 import AddCard from "components/Todo/AddCard/add-card";
-import TodoCards from "components/Todo/TodoCards/todo-cards";
+import TodoViews from "components/Todo/TodoViews/todo-views";
 import { sanitizeInput } from "helpers/sanitizeInput";
 
 const Todo = () => {
@@ -88,7 +88,7 @@ const Todo = () => {
               toggleEmptyError={toggleEmptyError}
             />
           )}
-          <TodoCards
+          <TodoViews
             todoList={todoList}
             handleDeleteTask={handleDeleteTask}
             handleCompleteTask={handleCompleteTask}
