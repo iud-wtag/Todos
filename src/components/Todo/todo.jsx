@@ -2,10 +2,10 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
-  handleCreateBtn,
+  handleCreateButton,
   deleteTodo,
   completeTodo,
-  handleEditBtn,
+  handleEditButton,
   handleEmptyError,
   editTodo,
   handleCurrentPage,
@@ -24,12 +24,8 @@ const Todo = () => {
 
   const todoList = useSelector((state) => state.todoReducers.list);
 
-  const isCreateBtnClicked = useSelector(
-    (state) => state.handleButtonClick.isCreateBtnClicked
-  );
-
-  const isEditBtnClicked = useSelector(
-    (state) => state.handleButtonClick.isEditBtnClicked
+  const isCreateButtonClicked = useSelector(
+    (state) => state.handleButtonClick.isCreateButtonClicked
   );
 
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
@@ -50,7 +46,7 @@ const Todo = () => {
   };
 
   const handleCreateClick = () => {
-    dispatch(handleCreateBtn(isCreateBtnClicked));
+    dispatch(handleCreateButton(isCreateButtonClicked));
   };
 
   const handleCancelClick = () => {
@@ -59,7 +55,7 @@ const Todo = () => {
   };
 
   const handleEditClick = (taskId) => {
-    dispatch(handleEditBtn(taskId, isEditBtnClicked));
+    dispatch(handleEditButton(taskId));
   };
 
   const handleAddTask = (inputTask) => {
@@ -104,10 +100,10 @@ const Todo = () => {
       <div className="todo__container todo__section">
         <TopBar
           handleCreateClick={handleCreateClick}
-          isCreateBtnClicked={isCreateBtnClicked}
+          isCreateButtonClicked={isCreateButtonClicked}
         />
         <div className="todo__board">
-          {isCreateBtnClicked && (
+          {isCreateButtonClicked && (
             <AddCard
               handleAddTask={handleAddTask}
               handleCancelClick={handleCancelClick}

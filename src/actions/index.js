@@ -19,16 +19,16 @@ export const addTodo = (task) => {
       date: new Date(),
       isTaskComplete: false,
       completeTime: null,
-      isEditBtnClicked: false,
+      isEditButtonClicked: false,
     },
   };
 };
 
-export const handleCreateBtn = (isCreateBtnClicked) => {
+export const handleCreateButton = (isCreateButtonClicked) => {
   return {
     type: HANDLE_CREATE,
     payload: {
-      isCreateBtnClicked: !isCreateBtnClicked,
+      isCreateButtonClicked: !isCreateButtonClicked,
     },
   };
 };
@@ -46,7 +46,7 @@ export const completeTodo = (id, date) => {
     id,
     isTaskComplete: true,
     completeTime: getDays(date.getTime(), new Date().getTime()),
-    isEditBtnClicked: false,
+    isEditButtonClicked: false,
   };
 };
 
@@ -55,15 +55,15 @@ export const editTodo = (id, editedTask) => {
     type: EDIT_TODO,
     id,
     task: editedTask,
-    isEditBtnClicked: false,
+    isEditButtonClicked: false,
   };
 };
 
-export const handleEditBtn = (id, isEditBtnClicked) => {
+export const handleEditButton = (id) => {
   return {
     type: HANDLE_EDIT,
     id,
-    isEditBtnClicked: !isEditBtnClicked,
+    isEditButtonClicked: true,
   };
 };
 

@@ -1,13 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { formatDate } from "helpers/fortmatDate";
 
 const ViewDetails = ({ todo }) => {
-  const today = todo.date;
-  const day = today.getDate();
-  const month = today.getMonth();
-  const year = today.getFullYear();
-  const formattedDate = `${day}.${month}.${year}`;
+  const { task, date } = todo;
+  const formattedDate = formatDate(date);
 
   const titleClasses = classNames("todo-view__title", {
     "task-complete": todo.isTaskComplete,
@@ -15,7 +13,7 @@ const ViewDetails = ({ todo }) => {
 
   return (
     <div className="todo-view__details">
-      <h3 className={titleClasses}>{todo.task}</h3>
+      <h3 className={titleClasses}>{task}</h3>
       <p className="todo-view__create-time">Created At: {formattedDate}</p>
     </div>
   );
