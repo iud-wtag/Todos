@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
 import { DELETE_BUTTON } from "common/constants";
 
-const AddActionBar = ({ handleAddTask, inputTask, isEmptyError }) => {
+const AddCardActionBar = ({ handleAddTask, inputTask, isEmptyError }) => {
   const handleAdd = () => {
     handleAddTask(inputTask);
   };
@@ -20,10 +20,10 @@ const AddActionBar = ({ handleAddTask, inputTask, isEmptyError }) => {
   );
 };
 
-AddActionBar.propTypes = {
+AddCardActionBar.propTypes = {
   handleAddTask: PropTypes.func.isRequired,
   isEmptyError: PropTypes.bool.isRequired,
   inputTask: PropTypes.string.isRequired,
 };
 
-export default AddActionBar;
+export default AddCardActionBar;

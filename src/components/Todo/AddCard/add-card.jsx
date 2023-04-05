@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import AddActionBar from "components/Todo/AddCard/add-action-bar.component";
+import AddCardActionBar from "components/Todo/AddCard/add-card-action-bar.component";
 import { ENTER } from "common/constants";
 
 const AddCard = ({ handleAddTask, isEmptyError, toggleEmptyError }) => {
@@ -28,7 +28,7 @@ const AddCard = ({ handleAddTask, isEmptyError, toggleEmptyError }) => {
         onKeyDown={handleKeyDown}
       ></textarea>
 
-      <AddActionBar
+      <AddCardActionBar
         handleAddTask={handleAddTask}
         inputTask={inputTask}
         isEmptyError={isEmptyError}
