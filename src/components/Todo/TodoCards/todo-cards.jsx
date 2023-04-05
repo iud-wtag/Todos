@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import TodoCardTop from "components/Todo/TodoCards/todo-card-top.component";
 import TodoActionBar from "components/Todo/TodoCards/todo-action-bar.component";
-import ViewCard from "components/Todo/ViewCard/view-card";
 
 const TodoCards = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
   return todoList.map((todo) => {
@@ -11,8 +10,8 @@ const TodoCards = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
         <TodoCardTop todo={todo} />
         <TodoActionBar
           handleDeleteTask={handleDeleteTask}
-          todo={todo}
           handleCompleteTask={handleCompleteTask}
+          todo={todo}
         />
       </div>
     );
