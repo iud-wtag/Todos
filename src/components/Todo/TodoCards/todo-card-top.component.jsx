@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TodoDetails = ({ todo }) => {
+const TodoCardTop = ({ todo }) => {
   const today = todo.date;
   const day = today.getDate();
   const month = today.getMonth();
@@ -16,8 +16,8 @@ const TodoDetails = ({ todo }) => {
   );
 };
 
-TodoDetails.propTypes = {
+TodoCardTop.propTypes = {
   todo: PropTypes.object.isRequired,
 };
 
-export default TodoDetails;
+export default TodoCardTop;
