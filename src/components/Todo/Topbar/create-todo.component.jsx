@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import createIcon from "assets/images/create.png";
 import { CREATE_ICON } from "common/constants";
 
-const CreateTodo = ({ handleCreateClick, isCreateBtnClicked }) => {
+const CreateTodo = ({ handleCreateClick, isCreateButtonClicked }) => {
   return (
     <div className="create-btn">
       <button
         className="create-btn__btn btn purple-back__btn"
         onClick={handleCreateClick}
-        disabled={isCreateBtnClicked}
+        disabled={isCreateButtonClicked}
       >
         <img src={createIcon} alt={CREATE_ICON} />
         Create
@@ -20,7 +20,7 @@ const CreateTodo = ({ handleCreateClick, isCreateBtnClicked }) => {
 
 CreateTodo.propTypes = {
   handleCreateClick: PropTypes.func.isRequired,
-  isCreateBtnClicked: PropTypes.bool.isRequired,
+  isCreateButtonClicked: PropTypes.bool.isRequired,
 };
 
 export default CreateTodo;

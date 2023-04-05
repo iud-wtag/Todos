@@ -12,8 +12,8 @@ const Todo = () => {
 
   const todoList = useSelector((state) => state.todoReducers.list);
 
-  const isCreateBtnClicked = useSelector(
-    (state) => state.handleButtonClick.isCreateBtnClicked
+  const isCreateButtonClicked = useSelector(
+    (state) => state.handleButtonClick.isCreateButtonClicked
   );
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
@@ -22,7 +22,7 @@ const Todo = () => {
   };
 
   const handleCreateClick = () => {
-    dispatch(handleCreateBtn(isCreateBtnClicked));
+    dispatch(handleCreateBtn(isCreateButtonClicked));
   };
 
   const handleAddTask = (inputTask) => {
@@ -42,10 +42,10 @@ const Todo = () => {
       <div className="todo__container todo__section">
         <TopBar
           handleCreateClick={handleCreateClick}
-          isCreateBtnClicked={isCreateBtnClicked}
+          isCreateButtonClicked={isCreateButtonClicked}
         />
         <div className="todo__board">
-          {isCreateBtnClicked && (
+          {isCreateButtonClicked && (
             <AddCard
               handleAddTask={handleAddTask}
               isEmptyError={isEmptyError}

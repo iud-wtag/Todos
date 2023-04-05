@@ -10,11 +10,11 @@ export const addTodo = (task) => {
   };
 };
 
-export const handleCreateBtn = (isCreateBtnClicked) => {
+export const handleCreateBtn = (isCreateButtonClicked) => {
   return {
     type: HANDLE_CREATE,
     payload: {
-      isCreateBtnClicked: !isCreateBtnClicked,
+      isCreateButtonClicked: !isCreateButtonClicked,
     },
   };
 };
