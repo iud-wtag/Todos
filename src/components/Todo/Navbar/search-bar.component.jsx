@@ -10,7 +10,7 @@ const SearchBar = () => {
   return (
     <div className="todo-search">
       <input
-        type="text"
+        type="search"
         id="todo-search_input"
         className="todo_search_input"
         onChange={handleSearchChange}
