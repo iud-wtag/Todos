@@ -13,6 +13,7 @@ const SearchBar = () => {
         type="search"
         id="todo-search_input"
         className="todo_search_input"
+        placeholder="Search here..."
         onChange={handleSearchChange}
       />
       <img src={searchIcon} alt={SEARCH_ICON} onClick={toggleSearchInput} />
