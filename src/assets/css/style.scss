@@ -242,14 +242,17 @@ textarea {
   display: flex;
   align-items: center;
   gap: 1.063rem;
-}
 
-.todo_search_input {
-  display: none;
-}
-
-.todo_search_input.active {
-  display: block;
+  &_input {
+    border: 0.188rem solid var(--input-border);
+    border-radius: 0.313rem;
+    padding: 0.313rem 0.625rem;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.188rem;
+    color: var(--black);
+    min-width: 500px;
+  }
 }
 
 .todo_disabled {

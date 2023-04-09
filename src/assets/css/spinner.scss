@@ -1,15 +1,18 @@
+@import url("assets/css/colors.scss");
+
 .spinner-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .loader-spinner {
-  width: 100px;
-  height: 100px;
-  border: 10px solid #7a8dfd;
-  border-top: 10px solid #f8f9ff;
-  border-radius: 100px;
+  width: 6.25rem;
+  height: 6.25rem;
+  border: 0.625rem solid var(--royal-blue);
+  border-top: 0.625rem solid var(--bg-color);
+  border-radius: 6.25rem;
   animation: spinner 1.5s linear infinite;
 }
 

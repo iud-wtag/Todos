@@ -1,15 +1,21 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import searchIcon from "assets/images/search.png";
 import { SEARCH_ICON } from "common/constants";
 import { debounce } from "helpers/debounce";
-import { setLoader } from "actions";
+import { setLoader, handleSearchButton } from "actions";
 
 const SearchBar = ({ handleSearchInput }) => {
   const dispatch = useDispatch();
 
+  const isSearchButtonClicked = useSelector(
+    (state) => state.handleButtonClick.isSearchButtonClicked
+  );
+
   const toggleSearchInput = () => {
-    document.querySelector("#todo-search_input").classList.toggle("active");
+    handleSearchInput("");
+    dispatch(setLoader(false));
+    dispatch(handleSearchButton(isSearchButtonClicked));
   };
 
   const handleSearchChange = (e) => {
@@ -26,13 +32,16 @@ const SearchBar = ({ handleSearchInput }) => {
 
   return (
     <div className="todo-search">
-      <input
-        type="search"
-        id="todo-search_input"
-        className="todo_search_input"
-        placeholder="Search here..."
-        onChange={handleSearchChange}
-      />
+      {isSearchButtonClicked && (
+        <input
+          type="search"
+          id="todo-search_input"
+          className="todo-search_input"
+          placeholder="Search here..."
+          onChange={handleSearchChange}
+          autoFocus
+        />
+      )}
       <img src={searchIcon} alt={SEARCH_ICON} onClick={toggleSearchInput} />
     </div>
   );

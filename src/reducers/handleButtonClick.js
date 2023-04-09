@@ -1,7 +1,8 @@
-import { HANDLE_CREATE } from "actions/actionTypes";
+import { HANDLE_CREATE, HANDLE_SEARCH } from "actions/actionTypes";
 
 const initialButton = {
   isCreateButtonClicked: false,
+  isSearchButtonClicked: false,
 };
 
 const handleButtonClick = (state = initialButton, action) => {
@@ -11,6 +12,13 @@ const handleButtonClick = (state = initialButton, action) => {
       return {
         ...state,
         isCreateButtonClicked: isCreateButtonClicked,
+      };
+
+    case HANDLE_SEARCH:
+      const { isSearchButtonClicked } = action.payload;
+      return {
+        ...state,
+        isSearchButtonClicked: isSearchButtonClicked,
       };
 
     default:

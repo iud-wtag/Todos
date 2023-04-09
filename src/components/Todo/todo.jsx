@@ -11,7 +11,7 @@ import {
   handleCurrentPage,
   filterTodo,
   searchTodo,
-  setLoader,
+  handleSearchButton,
 } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
@@ -41,6 +41,10 @@ const Todo = () => {
 
   const isCreateButtonClicked = useSelector(
     (state) => state.handleButtonClick.isCreateButtonClicked
+  );
+
+  const isSearchButtonClicked = useSelector(
+    (state) => state.handleButtonClick.isSearchButtonClicked
   );
 
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
@@ -82,6 +86,7 @@ const Todo = () => {
     handleCreateClick();
     toggleEmptyError(false);
     handleFilterClick(ALL);
+    handleSearchInput("");
   };
 
   const handleDeleteTask = (taskId) => {
@@ -121,6 +126,7 @@ const Todo = () => {
 
   const handleSearchInput = (input) => {
     dispatch(searchTodo(input));
+    dispatch(handleCurrentPage(1));
   };
 
   const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;

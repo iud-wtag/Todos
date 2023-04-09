@@ -10,6 +10,7 @@ import {
   HANDLE_FILTER,
   SEARCH_TODO,
   HANDLE_LOADER,
+  HANDLE_SEARCH,
 } from "actions/actionTypes";
 import { getDays } from "helpers/getDays";
 
@@ -104,5 +105,14 @@ export const setLoader = (loader) => {
   return {
     type: HANDLE_LOADER,
     loader,
+  };
+};
+
+export const handleSearchButton = (isSearchButtonClicked) => {
+  return {
+    type: HANDLE_SEARCH,
+    payload: {
+      isSearchButtonClicked: !isSearchButtonClicked,
+    },
   };
 };
