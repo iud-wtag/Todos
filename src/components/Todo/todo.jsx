@@ -11,7 +11,6 @@ import {
   handleCurrentPage,
   filterTodo,
   searchTodo,
-  handleSearchButton,
 } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
@@ -41,10 +40,6 @@ const Todo = () => {
 
   const isCreateButtonClicked = useSelector(
     (state) => state.handleButtonClick.isCreateButtonClicked
-  );
-
-  const isSearchButtonClicked = useSelector(
-    (state) => state.handleButtonClick.isSearchButtonClicked
   );
 
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
