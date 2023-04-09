@@ -11,6 +11,7 @@ import {
   handleCurrentPage,
   filterTodo,
   searchTodo,
+  setLoader,
 } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
@@ -18,6 +19,7 @@ import AddCard from "components/Todo/AddCard/add-card";
 import TodoCards from "components/Todo/TodoCards/todo-cards";
 import EmptyViews from "components/Todo/EmptyViews/empty-views";
 import Pagination from "components/Todo/Pagination/pagination";
+import LoaderSpinner from "components/Todo/LoaderSpinner/loader-spinner";
 import { sanitizeInput } from "helpers/sanitizeInput";
 import {
   TASK_PER_PAGE,
@@ -50,6 +52,8 @@ const Todo = () => {
   const filterState = useSelector(
     (state) => state.handleFilterState.filterState
   );
+
+  const loader = useSelector((state) => state.handleLoader.loader);
 
   const toggleEmptyError = (toggleValue) => {
     dispatch(handleEmptyError(toggleValue));
@@ -150,7 +154,9 @@ const Todo = () => {
   return (
     <div className="todo">
       <Navbar handleSearchInput={handleSearchInput} />
-      <div className="todo__container todo__section">
+      <div
+        className={`todo__container todo__section ${loader && "todo_disabled"}`}
+      >
         <TopBar
           handleCreateClick={handleCreateClick}
           handleFilterClick={handleFilterClick}
@@ -186,6 +192,7 @@ const Todo = () => {
           </div>
         )}
       </div>
+      {loader && <LoaderSpinner />}
     </div>
   );
 };

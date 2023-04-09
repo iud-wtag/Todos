@@ -56,6 +56,11 @@ textarea {
   line-height: 1.188rem;
 }
 
+.todo {
+  position: relative;
+  min-height: 100vh;
+}
+
 .filter-btn__btn.active {
   background: var(--royal-blue);
   border: none;
@@ -245,4 +250,9 @@ textarea {
 
 .todo_search_input.active {
   display: block;
+}
+
+.todo_disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
