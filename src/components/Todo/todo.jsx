@@ -10,6 +10,7 @@ import {
   editTodo,
   handleCurrentPage,
   filterTodo,
+  searchTodo,
 } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
@@ -32,6 +33,8 @@ const Todo = () => {
 
   const todoList = useSelector((state) => state.todoReducers.list);
 
+  const searchValue = useSelector((state) => state.todoReducers.searchValue);
+
   const [displayTodoList, setDisplayTodoList] = useState(todoList);
 
   const isCreateButtonClicked = useSelector(
@@ -47,13 +50,6 @@ const Todo = () => {
   const filterState = useSelector(
     (state) => state.handleFilterState.filterState
   );
-
-  const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;
-  const currentTodoList = displayTodoList.slice(0, currentTask);
-  const showLoadMoreButton = displayTodoList.length > currentTask;
-  const showSeeLessButton =
-    displayTodoList.length + isCreateButtonClicked > TASK_PER_PAGE;
-  const showPagination = showLoadMoreButton || showSeeLessButton;
 
   const toggleEmptyError = (toggleValue) => {
     dispatch(handleEmptyError(toggleValue));
@@ -119,6 +115,18 @@ const Todo = () => {
     btn.classList.add("active");
   };
 
+  const handleSearchInput = (input) => {
+    dispatch(searchTodo(input));
+  };
+
+  const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;
+  const currentTodoList = displayTodoList.slice(0, currentTask);
+
+  const showLoadMoreButton = displayTodoList.length > currentTask;
+  const showSeeLessButton =
+    displayTodoList.length + isCreateButtonClicked > TASK_PER_PAGE;
+  const showPagination = showLoadMoreButton || showSeeLessButton;
+
   useEffect(() => {
     let filteredTodos;
     document.querySelectorAll(".filter-btn__btn").forEach((btn) => {
@@ -133,12 +141,15 @@ const Todo = () => {
         filteredTodos = todoList.filter((todo) => todo.isTaskComplete);
       }
     });
-    setDisplayTodoList(filteredTodos);
-  }, [filterState, todoList]);
+    const searchedTodos = filteredTodos.filter((todo) =>
+      todo.task.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setDisplayTodoList(searchedTodos);
+  }, [filterState, todoList, searchValue]);
 
   return (
     <div className="todo">
-      <Navbar />
+      <Navbar handleSearchInput={handleSearchInput} />
       <div className="todo__container todo__section">
         <TopBar
           handleCreateClick={handleCreateClick}

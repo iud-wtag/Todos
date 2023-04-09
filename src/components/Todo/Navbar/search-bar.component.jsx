@@ -1,12 +1,23 @@
 import React from "react";
 import searchIcon from "assets/images/search.png";
 import { SEARCH_ICON } from "common/constants";
+import { debounce } from "helpers/debounce";
 
-const SearchBar = () => {
+const SearchBar = ({ handleSearchInput }) => {
   const toggleSearchInput = () => {
     document.querySelector("#todo-search_input").classList.toggle("active");
   };
-  const handleSearchChange = () => {};
+
+  const handleSearchChange = (e) => {
+    handleDebounce(e);
+  };
+
+  const handleSearch = (e) => {
+    handleSearchInput(e.target.value);
+  };
+
+  const handleDebounce = debounce(handleSearch);
+
   return (
     <div className="todo-search">
       <input

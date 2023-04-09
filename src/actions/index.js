@@ -8,6 +8,8 @@ import {
   HANDLE_EDIT,
   HANDLE_CURRENT_PAGE,
   HANDLE_FILTER,
+  SEARCH_TODO,
+  HANDLE_LOADER,
 } from "actions/actionTypes";
 import { getDays } from "helpers/getDays";
 
@@ -88,5 +90,19 @@ export const filterTodo = (filterState) => {
   return {
     type: HANDLE_FILTER,
     filterState,
+  };
+};
+
+export const searchTodo = (searchValue) => {
+  return {
+    type: SEARCH_TODO,
+    searchValue,
+  };
+};
+
+export const setLoader = (loader) => {
+  return {
+    type: HANDLE_LOADER,
+    loader,
   };
 };

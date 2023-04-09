@@ -4,9 +4,12 @@ import {
   COMPLETE_TODO,
   HANDLE_EDIT,
   EDIT_TODO,
+  SEARCH_TODO,
 } from "actions/actionTypes";
+
 const initialData = {
   list: [],
+  searchValue: "",
 };
 
 const todoReducers = (state = initialData, action) => {
@@ -79,6 +82,12 @@ const todoReducers = (state = initialData, action) => {
       return {
         ...state,
         list: [...state.list],
+      };
+
+    case SEARCH_TODO:
+      return {
+        ...state,
+        searchValue: action.searchValue,
       };
 
     default:
