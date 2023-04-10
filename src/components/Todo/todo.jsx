@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
@@ -11,6 +11,8 @@ import {
   handleCurrentPage,
   filterTodo,
   searchTodo,
+  setLoader,
+  handleSearchButton,
 } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
@@ -28,6 +30,7 @@ import {
   COMPLETE,
   ALL,
 } from "common/constants";
+import { debounce } from "helpers/debounce";
 
 const Todo = () => {
   const dispatch = useDispatch();
@@ -40,6 +43,10 @@ const Todo = () => {
 
   const isCreateButtonClicked = useSelector(
     (state) => state.handleButtonClick.isCreateButtonClicked
+  );
+
+  const isSearchButtonClicked = useSelector(
+    (state) => state.handleButtonClick.isSearchButtonClicked
   );
 
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
@@ -124,6 +131,24 @@ const Todo = () => {
     dispatch(handleCurrentPage(1));
   };
 
+  const handleSearchChange = (e) => {
+    dispatch(setLoader(true));
+    handleDebounce(e);
+  };
+
+  const handleSearch = (e) => {
+    handleSearchInput(e.target.value);
+    dispatch(setLoader(false));
+  };
+
+  const toggleSearchInput = () => {
+    handleSearchInput("");
+    dispatch(setLoader(false));
+    dispatch(handleSearchButton(isSearchButtonClicked));
+  };
+
+  const handleDebounce = useRef(debounce(handleSearch), []).current;
+
   const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;
   const currentTodoList = displayTodoList.slice(0, currentTask);
 
@@ -154,7 +179,11 @@ const Todo = () => {
 
   return (
     <div className="todo">
-      <Navbar handleSearchInput={handleSearchInput} />
+      <Navbar
+        handleSearchChange={handleSearchChange}
+        toggleSearchInput={toggleSearchInput}
+        isSearchButtonClicked={isSearchButtonClicked}
+      />
       <div
         className={`todo__container todo__section ${loader && "todo_disabled"}`}
       >
