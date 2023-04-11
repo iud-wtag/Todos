@@ -127,7 +127,8 @@ const Todo = () => {
   };
 
   const handleSearchInput = (input) => {
-    dispatch(searchTodo(input));
+    const sanitizedTask = sanitizeInput(input).trim();
+    dispatch(searchTodo(sanitizedTask));
     dispatch(handleCurrentPage(1));
   };
 
