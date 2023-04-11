@@ -88,6 +88,7 @@ const Todo = () => {
     handleCreateClick();
     toggleEmptyError(false);
     handleFilterClick(ALL);
+    handleSearchInput("");
     dispatch(handleSearchButton(true));
   };
 
