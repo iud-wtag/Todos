@@ -7,9 +7,6 @@ import { COMPLETE_BUTTON, EDIT_BUTTON, DELETE_BUTTON } from "common/constants";
 
 const TodoActionBar = ({ handleDeleteTask, todo }) => {
   const { id } = todo;
-  const handleDelete = () => {
-    handleDeleteTask(id);
-  };
 
   return (
     <div className="todo-view__btns">
@@ -19,7 +16,7 @@ const TodoActionBar = ({ handleDeleteTask, todo }) => {
       <button>
         <img src={editButton} alt={EDIT_BUTTON} />
       </button>
-      <button onClick={handleDelete}>
+      <button onClick={() => handleDeleteTask(id)}>
         <img src={deleteButton} alt={DELETE_BUTTON} />
       </button>
     </div>
