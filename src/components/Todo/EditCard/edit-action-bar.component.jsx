@@ -9,18 +9,17 @@ const EditActionBar = ({
   editedTask,
   handleEditTask,
   handleCompleteTask,
+  handleEditCancelTask,
 }) => {
   const { id, task, date } = todo;
   const handleEdit = () => {
     handleEditTask(id, editedTask);
   };
   const handleComplete = () => {
-    if (handleEditTask(id, editedTask)) {
-      handleCompleteTask(id, date);
-    }
+    handleCompleteTask(id, date, editedTask);
   };
   const handleCancel = () => {
-    handleEditTask(id, task);
+    handleEditCancelTask(id, task);
   };
   return (
     <div className="edit-card__btn-section">
@@ -42,6 +41,7 @@ EditActionBar.propTypes = {
   editedTask: PropTypes.string.isRequired,
   handleEditTask: PropTypes.func.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
+  handleEditCancelTask: PropTypes.func.isRequired,
 };
 
 export default EditActionBar;
