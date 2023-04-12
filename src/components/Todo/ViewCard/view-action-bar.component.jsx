@@ -11,12 +11,12 @@ const ViewActionBar = ({
   handleEditClick,
   todo,
 }) => {
-  const { id, date, completeTime, isTaskComplete } = todo;
+  const { id, task, date, completeTime, isTaskComplete } = todo;
   const handleDelete = () => {
     handleDeleteTask(id);
   };
   const handleComplete = () => {
-    handleCompleteTask(id, date);
+    handleCompleteTask(id, date, task);
   };
   const handleEdit = () => {
     handleEditClick(id);
