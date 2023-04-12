@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import EditActionBar from "components/Todo/EditCard/edit-action-bar.component";
 import { ENTER } from "common/constants";
 
-const EditCard = ({ todo, handleEditTask, handleCompleteTask }) => {
+const EditCard = ({
+  todo,
+  handleEditTask,
+  handleCompleteTask,
+  handleEditCancelTask,
+}) => {
   const { id, task } = todo;
   const textRef = useRef(null);
   const [editedTask, setEditData] = useState(task);
@@ -44,6 +49,7 @@ const EditCard = ({ todo, handleEditTask, handleCompleteTask }) => {
         editedTask={editedTask}
         handleEditTask={handleEditTask}
         handleCompleteTask={handleCompleteTask}
+        handleEditCancelTask={handleEditCancelTask}
       />
     </>
   );
@@ -53,6 +59,7 @@ EditCard.propTypes = {
   todo: PropTypes.object.isRequired,
   handleEditTask: PropTypes.func.isRequired,
   handleCompleteTask: PropTypes.func.isRequired,
+  handleEditCancelTask: PropTypes.func.isRequired,
 };
 
 export default EditCard;
