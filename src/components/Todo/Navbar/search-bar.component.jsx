@@ -20,7 +20,11 @@ const SearchBar = ({
           autoFocus
         />
       )}
-      <img src={searchIcon} alt={SEARCH_ICON} onClick={toggleSearchInput} />
+      <img
+        src={searchIcon}
+        alt={SEARCH_ICON}
+        onClick={() => toggleSearchInput()}
+      />
     </div>
   );
 };
