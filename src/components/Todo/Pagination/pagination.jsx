@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Pagination = ({ buttonText, handlePaginationClick }) => {
-  const handleClick = () => {
-    handlePaginationClick(buttonText);
-  };
   return (
-    <button className="todo__pagination-btn" onClick={handleClick}>
+    <button
+      className="todo__pagination-btn"
+      onClick={() => handlePaginationClick(buttonText)}
+    >
       {buttonText}
     </button>
   );
