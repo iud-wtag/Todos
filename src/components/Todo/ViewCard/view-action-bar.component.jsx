@@ -24,7 +24,7 @@ const ViewActionBar = ({
     </div>
   ) : (
     <div className="todo-view__btns incomplete-btns">
-      <button onClick={() => handleCompleteTask(id, date)}>
+      <button onClick={() => handleCompleteTask(id, date, task)}>
         <img src={checkButton} alt={COMPLETE_BUTTON} />
       </button>
       <button onClick={() => handleEditClick(id)}>
