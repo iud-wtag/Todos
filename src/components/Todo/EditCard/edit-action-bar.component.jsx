@@ -12,24 +12,25 @@ const EditActionBar = ({
   handleEditCancelTask,
 }) => {
   const { id, task, date } = todo;
-  const handleEdit = () => {
-    handleEditTask(id, editedTask);
-  };
-  const handleComplete = () => {
-    handleCompleteTask(id, date, editedTask);
-  };
-  const handleCancel = () => {
-    handleEditCancelTask(id, task);
-  };
+
   return (
     <div className="edit-card__btn-section">
-      <button className="todo-save__btn white-back__btn" onClick={handleEdit}>
+      <button
+        className="todo-save__btn white-back__btn"
+        onClick={() => handleEditTask(id, editedTask)}
+      >
         Save
       </button>
-      <button className="todo-complete__btn" onClick={handleComplete}>
+      <button
+        className="todo-complete__btn"
+        onClick={() => handleCompleteTask(id, date, editedTask)}
+      >
         <img src={checkButton} alt={COMPLETE_BUTTON} />
       </button>
-      <button className="todo-delete__btn" onClick={handleCancel}>
+      <button
+        className="todo-delete__btn"
+        onClick={() => handleEditCancelTask(id, task)}
+      >
         <img src={deleteButton} alt={DELETE_BUTTON} />
       </button>
     </div>
