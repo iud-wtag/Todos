@@ -30,6 +30,9 @@ import {
   INCOMPLETE,
   COMPLETE,
   ALL,
+  SHOW_SUCCESS_MESSAGE,
+  SHOW_ERROR_MESSAGE,
+  SHOW_REQUIRED_MESSAGE,
 } from "common/constants";
 import { debounce } from "helpers/debounce";
 
@@ -61,19 +64,19 @@ const Todo = () => {
   const loader = useSelector((state) => state.handleLoader.loader);
 
   const showSuccessToast = () => {
-    toast.success("Changes are saved successfully", {
+    toast.success(SHOW_SUCCESS_MESSAGE, {
       className: "toast-message success-message",
     });
   };
 
   const showErrorToast = () => {
-    toast.error("We couldn't save your changes", {
+    toast.error(SHOW_ERROR_MESSAGE, {
       className: "toast-message error-message",
     });
   };
 
   const showRequiredToast = () => {
-    toast.warn("Title is required", {
+    toast.warn(SHOW_REQUIRED_MESSAGE, {
       className: "toast-message warn-message",
     });
   };

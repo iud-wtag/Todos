@@ -12,3 +12,6 @@ export const SHOW_LESS = "Show Less";
 export const ALL = "All";
 export const INCOMPLETE = "Incomplete";
 export const COMPLETE = "Complete";
+export const SHOW_SUCCESS_MESSAGE = "Changes are saved successfully";
+export const SHOW_ERROR_MESSAGE = "We couldn't save your changes";
+export const SHOW_REQUIRED_MESSAGE = "Title is required!";
