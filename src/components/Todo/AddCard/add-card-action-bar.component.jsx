@@ -3,12 +3,7 @@ import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
 import { DELETE_BUTTON } from "common/constants";
 
-const AddCardActionBar = ({
-  handleAddTask,
-  inputTask,
-  isEmptyError,
-  handleCancelClick,
-}) => {
+const AddCardActionBar = ({ handleAddTask, inputTask, handleCancelClick }) => {
   const handleAdd = () => {
     handleAddTask(inputTask);
   };
@@ -20,7 +15,6 @@ const AddCardActionBar = ({
       <button className="todo-delete__btn" onClick={handleCancelClick}>
         <img src={deleteButton} alt={DELETE_BUTTON} />
       </button>
-      {isEmptyError && <p className="error">Title is required</p>}
     </div>
   );
 };
@@ -28,7 +22,6 @@ const AddCardActionBar = ({
 AddCardActionBar.propTypes = {
   handleAddTask: PropTypes.func.isRequired,
   handleCancelClick: PropTypes.func.isRequired,
-  isEmptyError: PropTypes.bool.isRequired,
   inputTask: PropTypes.string.isRequired,
 };
 

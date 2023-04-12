@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
@@ -6,7 +8,6 @@ import {
   deleteTodo,
   completeTodo,
   handleEditButton,
-  handleEmptyError,
   editTodo,
   handleCurrentPage,
   filterTodo,
@@ -49,8 +50,6 @@ const Todo = () => {
     (state) => state.handleButtonClick.isSearchButtonClicked
   );
 
-  const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
-
   const currentPage = useSelector(
     (state) => state.handleCurrentPage.currentPage
   );
@@ -61,8 +60,22 @@ const Todo = () => {
 
   const loader = useSelector((state) => state.handleLoader.loader);
 
-  const toggleEmptyError = (toggleValue) => {
-    dispatch(handleEmptyError(toggleValue));
+  const showSuccessToast = () => {
+    toast.success("Changes are saved successfully", {
+      className: "toast-message success-message",
+    });
+  };
+
+  const showErrorToast = () => {
+    toast.error("We couldn't save your changes", {
+      className: "toast-message error-message",
+    });
+  };
+
+  const showRequiredToast = () => {
+    toast.warn("Title is required", {
+      className: "toast-message warn-message",
+    });
   };
 
   const handleCreateClick = () => {
@@ -71,7 +84,7 @@ const Todo = () => {
 
   const handleCancelClick = () => {
     handleCreateClick();
-    toggleEmptyError(false);
+    showErrorToast();
   };
 
   const handleEditClick = (taskId) => {
@@ -81,39 +94,45 @@ const Todo = () => {
   const handleAddTask = (inputTask) => {
     const sanitizedTask = sanitizeInput(inputTask);
     if (sanitizedTask.trim() === "") {
-      toggleEmptyError(true);
+      showRequiredToast();
       return;
     }
     dispatch(addTodo(sanitizedTask));
     handleCreateClick();
-    toggleEmptyError(false);
     handleFilterClick(ALL);
     handleSearchInput("");
     dispatch(handleSearchButton(true));
+    showSuccessToast();
   };
 
   const handleDeleteTask = (taskId) => {
+    showSuccessToast();
     dispatch(deleteTodo(taskId));
   };
 
   const handleCompleteTask = (taskId, startDate, inputTask) => {
     const sanitizedTask = sanitizeInput(inputTask);
     if (sanitizedTask.trim() === "") {
+      showRequiredToast();
       return;
     }
     dispatch(editTodo(taskId, sanitizedTask));
     dispatch(completeTodo(taskId, startDate));
+    showSuccessToast();
   };
 
   const handleEditTask = (taskId, editedInput) => {
     const sanitizedTask = sanitizeInput(editedInput);
     if (sanitizedTask.trim() === "") {
+      showRequiredToast();
       return;
     }
     dispatch(editTodo(taskId, sanitizedTask));
+    showSuccessToast();
   };
 
   const handleEditCancelTask = (taskId, inputTask) => {
+    showErrorToast();
     dispatch(editTodo(taskId, inputTask));
   };
 
@@ -207,8 +226,6 @@ const Todo = () => {
             <AddCard
               handleAddTask={handleAddTask}
               handleCancelClick={handleCancelClick}
-              isEmptyError={isEmptyError}
-              toggleEmptyError={toggleEmptyError}
             />
           )}
           {currentTodoList.length ? (
@@ -234,6 +251,14 @@ const Todo = () => {
         )}
       </div>
       {loader && <LoaderSpinner />}
+
+      <ToastContainer
+        autoClose={2000}
+        hideProgressBar
+        position="top-center"
+        className="toast-container"
+        closeButton={false}
+      />
     </div>
   );
 };

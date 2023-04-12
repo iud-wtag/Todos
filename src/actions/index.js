@@ -1,7 +1,6 @@
 import {
   ADD_TODO,
   HANDLE_CREATE,
-  HANDLE_EMPTY,
   DELETE_TODO,
   COMPLETE_TODO,
   EDIT_TODO,
@@ -68,15 +67,6 @@ export const handleEditButton = (id) => {
     type: HANDLE_EDIT,
     id,
     isEditButtonClicked: true,
-  };
-};
-
-export const handleEmptyError = (isEmptyError) => {
-  return {
-    type: HANDLE_EMPTY,
-    payload: {
-      isEmptyError: isEmptyError,
-    },
   };
 };
 

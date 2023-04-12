@@ -27,6 +27,10 @@ textarea {
   resize: none;
 }
 
+svg {
+  fill: var(--white);
+}
+
 .btn {
   border-radius: 0.313rem;
 
@@ -165,7 +169,7 @@ textarea {
 }
 
 .todo-view__title.task-complete {
-  color: var(--lime-green);
+  color: var(--color-success);
   text-decoration-line: line-through;
 }
 
@@ -199,7 +203,7 @@ textarea {
 }
 
 .error {
-  color: var(--error);
+  color: var(--color-error);
   font-size: 0.875rem;
   font-weight: 500;
 }
@@ -258,4 +262,29 @@ textarea {
 .todo_disabled {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.toast-container {
+  width: fit-content;
+  text-align: center;
+}
+
+.toast-message {
+  color: var(--white);
+  font-size: 1.125rem;
+  line-height: 1.313rem;
+  padding: 1rem 3.125rem;
+}
+
+.success-message {
+  background: var(--color-success);
+}
+
+.error-message {
+  background-color: var(--color-error);
+  color: var(--white);
+}
+
+.warn-message {
+  background-color: var(--color-warning);
 }
