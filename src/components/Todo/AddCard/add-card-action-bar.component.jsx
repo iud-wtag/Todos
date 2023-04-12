@@ -9,12 +9,12 @@ const AddCardActionBar = ({
   isEmptyError,
   handleCancelClick,
 }) => {
-  const handleAdd = () => {
-    handleAddTask(inputTask);
-  };
   return (
     <div className="add-card__btn-section">
-      <button onClick={handleAdd} className="todo-add__btn white-back__btn">
+      <button
+        onClick={() => handleAddTask(inputTask)}
+        className="todo-add__btn white-back__btn"
+      >
         Add Task
       </button>
       <button className="todo-delete__btn" onClick={handleCancelClick}>
