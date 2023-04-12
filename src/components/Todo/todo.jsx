@@ -58,17 +58,25 @@ const Todo = () => {
     dispatch(deleteTodo(taskId));
   };
 
-  const handleCompleteTask = (taskId, startDate) => {
+  const handleCompleteTask = (taskId, startDate, inputTask) => {
+    const sanitizedTask = sanitizeInput(inputTask);
+    if (sanitizedTask.trim() === "") {
+      return;
+    }
+    dispatch(editTodo(taskId, sanitizedTask));
     dispatch(completeTodo(taskId, startDate));
   };
 
   const handleEditTask = (taskId, editedInput) => {
     const sanitizedTask = sanitizeInput(editedInput);
     if (sanitizedTask.trim() === "") {
-      return false;
+      return;
     }
     dispatch(editTodo(taskId, sanitizedTask));
-    return true;
+  };
+
+  const handleEditCancelTask = (taskId, inputTask) => {
+    dispatch(editTodo(taskId, inputTask));
   };
 
   return (
@@ -94,6 +102,7 @@ const Todo = () => {
             handleCompleteTask={handleCompleteTask}
             handleEditClick={handleEditClick}
             handleEditTask={handleEditTask}
+            handleEditCancelTask={handleEditCancelTask}
           />
         </div>
       </div>

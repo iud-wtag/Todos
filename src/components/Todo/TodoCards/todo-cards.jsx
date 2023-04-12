@@ -9,6 +9,7 @@ const TodoCards = ({
   handleCompleteTask,
   handleEditClick,
   handleEditTask,
+  handleEditCancelTask,
 }) => {
   return todoList.map((todo) => {
     return (
@@ -18,6 +19,7 @@ const TodoCards = ({
             todo={todo}
             handleEditTask={handleEditTask}
             handleCompleteTask={handleCompleteTask}
+            handleEditCancelTask={handleEditCancelTask}
           />
         ) : (
           <ViewCard
@@ -38,6 +40,7 @@ TodoCards.propTypes = {
   handleCompleteTask: PropTypes.func.isRequired,
   handleEditClick: PropTypes.func.isRequired,
   handleEditTask: PropTypes.func.isRequired,
+  handleEditCancelTask: PropTypes.func.isRequired,
 };
 
 export default TodoCards;
