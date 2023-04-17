@@ -30,9 +30,9 @@ import {
   INCOMPLETE,
   COMPLETE,
   ALL,
-  SHOW_SUCCESS_MESSAGE,
-  SHOW_ERROR_MESSAGE,
-  SHOW_REQUIRED_MESSAGE,
+  MESSAGE_SUCCESS,
+  MESSAGE_ERROR,
+  MESSAGE_REQUIRED,
 } from "common/constants";
 import { debounce } from "helpers/debounce";
 
@@ -64,19 +64,19 @@ const Todo = () => {
   const loader = useSelector((state) => state.handleLoader.loader);
 
   const showSuccessToast = () => {
-    toast.success(SHOW_SUCCESS_MESSAGE, {
+    toast.success(MESSAGE_SUCCESS, {
       className: "toast-message success-message",
     });
   };
 
   const showErrorToast = () => {
-    toast.error(SHOW_ERROR_MESSAGE, {
+    toast.error(MESSAGE_ERROR, {
       className: "toast-message error-message",
     });
   };
 
   const showRequiredToast = () => {
-    toast.warn(SHOW_REQUIRED_MESSAGE, {
+    toast.warn(MESSAGE_REQUIRED, {
       className: "toast-message warn-message",
     });
   };

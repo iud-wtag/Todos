@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import AddCardActionBar from "components/Todo/AddCard/add-card-action-bar.component";
-import { ENTER } from "common/constants";
+import { KEY_ENTER } from "common/constants";
 
 const AddCard = ({ handleAddTask, handleCancelClick }) => {
   const [inputTask, setInputTask] = useState("");
@@ -10,7 +10,7 @@ const AddCard = ({ handleAddTask, handleCancelClick }) => {
     setInputTask(e.target.value);
   };
   const handleKeyDown = (e) => {
-    if (e.key === ENTER) {
+    if (e.key === KEY_ENTER) {
       handleAddTask(inputTask);
     }
   };

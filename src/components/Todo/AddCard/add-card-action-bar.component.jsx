@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
-import { DELETE_BUTTON } from "common/constants";
+import { ALT_DELETE_BUTTON } from "common/constants";
 
 const AddCardActionBar = ({ handleAddTask, inputTask, handleCancelClick }) => {
   return (
@@ -13,7 +13,7 @@ const AddCardActionBar = ({ handleAddTask, inputTask, handleCancelClick }) => {
         Add Task
       </button>
       <button className="todo-delete__btn" onClick={handleCancelClick}>
-        <img src={deleteButton} alt={DELETE_BUTTON} />
+        <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
     </div>
   );
