@@ -22,9 +22,9 @@ const AddCard = ({
   };
 
   return (
-    <div className="todo-card todo-add-card">
+    <div className="todo__card-add">
       <textarea
-        className="todo-card__input"
+        className="todo__card-input"
         type="text"
         id="todo-input"
         onChange={handleInputChange}
