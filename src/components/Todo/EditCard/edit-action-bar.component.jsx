@@ -14,9 +14,9 @@ const EditActionBar = ({
   const { id, task, date } = todo;
 
   return (
-    <div className="edit-card__btn-section">
+    <div className="todo__card-edit-btns">
       <button
-        className="todo-save__btn white-back__btn"
+        className="todo-save__btn btn__bg-white"
         onClick={() => handleEditTask(id, editedTask)}
       >
         Save
