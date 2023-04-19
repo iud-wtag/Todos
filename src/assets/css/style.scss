@@ -197,6 +197,21 @@ textarea {
       }
     }
   }
+
+  &__pagination {
+    padding-top: 3.563rem;
+    text-align: center;
+
+    &-btn {
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 1.188rem;
+      padding: 0.563rem 1.25rem;
+      color: $white;
+      background-color: $black;
+      border-radius: 0.313rem;
+    }
+  }
 }
 
 .btn__bg {
@@ -311,27 +326,7 @@ textarea {
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 1.75rem;
-    color: var(--black);
+    color: $black;
     padding-top: 2rem;
   }
-}
-
-.todo__pagination {
-  padding-top: 3.563rem;
-  text-align: center;
-
-  &-btn {
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 1.188rem;
-    padding: 0.563rem 1.25rem;
-    color: var(--white);
-    background-color: var(--black);
-    border-radius: 0.313rem;
-  }
-}
-
-.filter-btn {
-  display: flex;
-  gap: 1.25rem;
 }
