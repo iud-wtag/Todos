@@ -6,7 +6,7 @@ import TodoCardTop from "components/Todo/TodoCards/todo-card-top.component";
 const TodoCards = ({ todoList, handleDeleteTask }) => {
   return todoList.map((todo) => {
     return (
-      <div className="todo-card todo-view-card" key={todo.id}>
+      <div className="todo__card-view todo-card todo-view-card" key={todo.id}>
         <TodoCardTop todo={todo} />
         <TodoActionBar handleDeleteTask={handleDeleteTask} todo={todo} />
       </div>

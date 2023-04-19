@@ -9,7 +9,7 @@ const TodoActionBar = ({ handleDeleteTask, todo }) => {
   const { id } = todo;
 
   return (
-    <div className="todo-view__btns">
+    <div className="todo__card-view-btns">
       <button>
         <img src={checkButton} alt={COMPLETE_BUTTON} />
       </button>
