@@ -27,10 +27,28 @@ textarea {
   resize: none;
 }
 
-.todo__container,
-.navbar__container {
-  margin: auto;
-  max-width: 76rem;
+.navbar {
+  background: var(--white);
+  border: 0.063rem solid var(--border);
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    padding: 1rem 0rem;
+    justify-content: space-between;
+  }
+}
+
+.todo {
+}
+
+.todo,
+.navbar {
+  &__container {
+    margin: auto;
+    max-width: 75rem;
+    padding: 1rem;
+  }
 }
 
 .todo__section {
@@ -48,18 +66,6 @@ textarea {
   font-size: 2.25rem;
   font-weight: 700;
   line-height: 2.625rem;
-}
-
-.navbar-back__navbar {
-  align-items: center;
-  display: flex;
-  padding: 1rem 0rem;
-  justify-content: space-between;
-}
-
-.navbar-back {
-  background: var(--white);
-  border: 0.063rem solid var(--border);
 }
 
 .todo-top__btn-section {
