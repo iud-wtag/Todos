@@ -39,20 +39,22 @@ const Todo = () => {
   return (
     <div className="todo">
       <Navbar />
-      <div className="todo__container todo__section">
-        <TopBar
-          handleCreateClick={handleCreateClick}
-          isCreateButtonClicked={isCreateButtonClicked}
-        />
-        <div className="todo__board">
-          {isCreateButtonClicked && (
-            <AddCard
-              handleAddTask={handleAddTask}
-              isEmptyError={isEmptyError}
-              toggleEmptyError={toggleEmptyError}
-            />
-          )}
-          <TodoCards todoList={todoList} />
+      <div className="todo__container">
+        <div className="todo__wrapper">
+          <TopBar
+            handleCreateClick={handleCreateClick}
+            isCreateButtonClicked={isCreateButtonClicked}
+          />
+          <div className="todo__card__wrapper">
+            {isCreateButtonClicked && (
+              <AddCard
+                handleAddTask={handleAddTask}
+                isEmptyError={isEmptyError}
+                toggleEmptyError={toggleEmptyError}
+              />
+            )}
+            <TodoCards todoList={todoList} />
+          </div>
         </div>
       </div>
     </div>

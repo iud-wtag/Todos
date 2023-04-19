@@ -2,12 +2,16 @@ import React from "react";
 
 const FilterTodo = () => {
   return (
-    <div className="filter-btn">
-      <button className="filter-btn__btn btn white-back__btn">All</button>
-      <button className="filter-btn__btn btn white-back__btn">
+    <div className="todo__top__btn-filter">
+      <button className="todo__top__btn-create__inner btn__bg-white">
+        All
+      </button>
+      <button className="todo__top__btn-create__inner btn__bg-white">
         Incomplete
       </button>
-      <button className="filter-btn__btn btn white-back__btn">Complete</button>
+      <button className="todo__top__btn-create__inner btn__bg-white">
+        Complete
+      </button>
     </div>
   );
 };

@@ -7,9 +7,11 @@ const TodoCardTop = ({ todo }) => {
   const formattedDate = formatDate(date);
 
   return (
-    <div className="todo-view__details">
-      <h3 className="todo-view__title">{task}</h3>
-      <p className="todo-view__create-time">Created At: {formattedDate}</p>
+    <div className="todo__card-view__details">
+      <h3 className="todo__card-view-title">{task}</h3>
+      <p className="todo__card-view-create__time">
+        Created At: {formattedDate}
+      </p>
     </div>
   );
 };

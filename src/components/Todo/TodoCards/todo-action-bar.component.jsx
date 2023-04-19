@@ -6,7 +6,7 @@ import { COMPLETE_BUTTON, EDIT_BUTTON, DELETE_BUTTON } from "common/constants";
 
 const TodoActionBar = () => {
   return (
-    <div className="todo-view__btns">
+    <div className="todo__card-view-btns">
       <button>
         <img src={checkButton} alt={COMPLETE_BUTTON} />
       </button>
