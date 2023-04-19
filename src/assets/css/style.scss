@@ -187,6 +187,15 @@ textarea {
         }
       }
     }
+
+    &-edit {
+      &-btns {
+        align-items: center;
+        display: flex;
+        gap: 0.938rem;
+        padding-top: 1rem;
+      }
+    }
   }
 }
 
