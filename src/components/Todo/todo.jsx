@@ -104,6 +104,24 @@ const Todo = () => {
             handleEditTask={handleEditTask}
             handleEditCancelTask={handleEditCancelTask}
           />
+          <div className="todo__card__wrapper">
+            {isCreateButtonClicked && (
+              <AddCard
+                handleAddTask={handleAddTask}
+                handleCancelClick={handleCancelClick}
+                isEmptyError={isEmptyError}
+                toggleEmptyError={toggleEmptyError}
+              />
+            )}
+            <TodoCards
+              todoList={todoList}
+              handleDeleteTask={handleDeleteTask}
+              handleCompleteTask={handleCompleteTask}
+              handleEditClick={handleEditClick}
+              handleEditTask={handleEditTask}
+              handleEditCancelTask={handleEditCancelTask}
+            />
+          </div>
         </div>
       </div>
     </div>

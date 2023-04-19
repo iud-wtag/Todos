@@ -13,7 +13,7 @@ const TodoCards = ({
 }) => {
   return todoList.map((todo) => {
     return (
-      <div className="todo-card" key={todo.id}>
+      <div className="todo__card-view" key={todo.id}>
         {todo.isEditButtonClicked ? (
           <EditCard
             todo={todo}
