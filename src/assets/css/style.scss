@@ -9,12 +9,12 @@
   padding: 0;
 }
 
-body {
-  background: $bg-color;
-}
-
 a {
   text-decoration: none;
+}
+
+body {
+  background: $bg-color;
 }
 
 button,
@@ -28,24 +28,57 @@ textarea {
   resize: none;
 }
 
+.btn__bg {
+  &-purple {
+    background: $royal-blue;
+    border: none;
+    border-radius: 0.313rem;
+    color: $white;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.188rem;
+  }
+
+  &-white {
+    background: $white;
+    border: 0.063rem solid $border;
+    border-radius: 0.313rem;
+    color: $black;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.188rem;
+    padding: 0.625rem 0.938rem;
+  }
+}
+
+.error {
+  color: $error;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.empty__board {
+  margin: auto;
+  padding-top: 8.125rem;
+  text-align: center;
+
+  &-title {
+    color: $black;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+    padding-top: 2rem;
+  }
+}
+
 .navbar {
   background: $white;
   border: 0.063rem solid $border;
-
-  &__wrapper {
-    align-items: center;
-    display: flex;
-    padding: 1rem 0rem;
-    justify-content: space-between;
-  }
 
   &__left {
     align-items: center;
     display: flex;
     gap: 0.875rem;
-
-    &-img {
-    }
 
     &-txt {
       color: $royal-blue;
@@ -55,7 +88,11 @@ textarea {
     }
   }
 
-  &__right {
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    padding: 1rem 0rem;
+    justify-content: space-between;
   }
 }
 
@@ -69,59 +106,6 @@ textarea {
 }
 
 .todo {
-  &__wrapper {
-    padding: 4.063rem 0rem;
-  }
-
-  &__top {
-    &-title {
-      font-weight: 700;
-      font-size: 1.875rem;
-      line-height: 2.188rem;
-      color: $black;
-    }
-
-    &__btn {
-      &-wrapper {
-        display: flex;
-        justify-content: space-between;
-        padding: 1.875rem 0rem;
-      }
-
-      &-create {
-        &__inner-btn {
-          align-items: center;
-          display: flex;
-          gap: 0.313rem;
-          padding: 0.625rem 1.25rem;
-          border-radius: 0.313rem;
-
-          &:disabled {
-            cursor: no-drop;
-            opacity: 0.6;
-          }
-        }
-      }
-
-      &-filter {
-        display: flex;
-        gap: 1.25rem;
-
-        &__inner.active {
-          background: $royal-blue;
-          border: none;
-          color: $white;
-        }
-      }
-    }
-  }
-
-  &__card__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2.125rem;
-  }
-
   &__card {
     &-add,
     &-view {
@@ -145,6 +129,15 @@ textarea {
       }
     }
 
+    &-edit {
+      &-btns {
+        align-items: center;
+        display: flex;
+        gap: 0.938rem;
+        padding-top: 1rem;
+      }
+    }
+
     &-input {
       border: 0.188rem solid $input-border;
       border-radius: 0.313rem;
@@ -153,27 +146,6 @@ textarea {
     }
 
     &-view {
-      &-title {
-        color: $black;
-        font-size: 1.5rem;
-        font-weight: 700;
-        line-height: 1.75rem;
-        padding-bottom: 0.625rem;
-
-        &.task-complete {
-          color: $lime-green;
-          text-decoration-line: line-through;
-        }
-      }
-
-      &-create__time {
-        color: $gray;
-        font-size: 0.875rem;
-        font-weight: 700;
-        line-height: 1rem;
-        padding-bottom: 1.563rem;
-      }
-
       &-btns {
         align-items: center;
         display: flex;
@@ -192,16 +164,34 @@ textarea {
           }
         }
       }
-    }
 
-    &-edit {
-      &-btns {
-        align-items: center;
-        display: flex;
-        gap: 0.938rem;
-        padding-top: 1rem;
+      &-create__time {
+        color: $gray;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1rem;
+        padding-bottom: 1.563rem;
+      }
+
+      &-title {
+        color: $black;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.75rem;
+        padding-bottom: 0.625rem;
+
+        &.task-complete {
+          color: $lime-green;
+          text-decoration-line: line-through;
+        }
       }
     }
+  }
+
+  &__card__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.125rem;
   }
 
   &__pagination {
@@ -209,56 +199,60 @@ textarea {
     text-align: center;
 
     &-btn {
-      font-weight: 500;
-      font-size: 1rem;
-      line-height: 1.188rem;
-      padding: 0.563rem 1.25rem;
-      color: $white;
       background-color: $black;
       border-radius: 0.313rem;
+      color: $white;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.188rem;
+      padding: 0.563rem 1.25rem;
     }
   }
-}
 
-.btn__bg {
-  &-white {
-    background: $white;
-    border: 0.063rem solid $border;
-    border-radius: 0.313rem;
-    color: $black;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.188rem;
-    padding: 0.625rem 0.938rem;
+  &__top {
+    &__btn {
+      &-create {
+        &__inner-btn {
+          align-items: center;
+          border-radius: 0.313rem;
+          display: flex;
+          gap: 0.313rem;
+          padding: 0.625rem 1.25rem;
+
+          &:disabled {
+            cursor: no-drop;
+            opacity: 0.6;
+          }
+        }
+      }
+
+      &-filter {
+        display: flex;
+        gap: 1.25rem;
+
+        &__inner.active {
+          background: $royal-blue;
+          border: none;
+          color: $white;
+        }
+      }
+
+      &-wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.875rem 0rem;
+      }
+    }
+
+    &-title {
+      color: $black;
+      font-weight: 700;
+      font-size: 1.875rem;
+      line-height: 2.188rem;
+    }
   }
 
-  &-purple {
-    background: $royal-blue;
-    border: none;
-    border-radius: 0.313rem;
-    color: $white;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.188rem;
-  }
-}
-
-.error {
-  color: $error;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.empty__board {
-  margin: auto;
-  text-align: center;
-  padding-top: 8.125rem;
-
-  &-title {
-    font-weight: 700;
-    font-size: 1.5rem;
-    line-height: 1.75rem;
-    color: $black;
-    padding-top: 2rem;
+  &__wrapper {
+    padding: 4.063rem 0rem;
   }
 }
