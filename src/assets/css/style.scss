@@ -55,12 +55,6 @@ textarea {
   }
 }
 
-.error {
-  color: $error;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
 .empty__board {
   margin: auto;
   padding-top: 8.125rem;
@@ -73,6 +67,17 @@ textarea {
     line-height: 1.75rem;
     padding-top: 2rem;
   }
+}
+
+.error {
+  color: $error;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.error-message {
+  background-color: $color-error;
+  color: $white;
 }
 
 .navbar {
@@ -98,6 +103,10 @@ textarea {
     padding: 1rem 0rem;
     justify-content: space-between;
   }
+}
+
+.success-message {
+  background: $color-success;
 }
 
 .todo,
@@ -206,7 +215,7 @@ textarea {
         padding-bottom: 0.625rem;
 
         &.task-complete {
-          color: $lime-green;
+          color: $color-success;
           text-decoration-line: line-through;
         }
       }
@@ -313,15 +322,6 @@ textarea {
   font-size: 1.125rem;
   line-height: 1.313rem;
   padding: 1rem 3.125rem;
-}
-
-.success-message {
-  background: $color-success;
-}
-
-.error-message {
-  background-color: $color-error;
-  color: $white;
 }
 
 .warn-message {

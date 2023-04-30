@@ -112,7 +112,7 @@ const Todo = () => {
   };
 
   const handleDeleteTask = (taskId) => {
-    showErrorToast(MESSAGE_DELETE_TASK);
+    showSuccessToast(MESSAGE_DELETE_TASK);
     dispatch(deleteTodo(taskId));
   };
 
