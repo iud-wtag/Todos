@@ -218,6 +218,28 @@ textarea {
       border-radius: 0.313rem;
     }
   }
+
+  &-search {
+    display: flex;
+    align-items: center;
+    gap: 1.063rem;
+
+    &_input {
+      border: 0.188rem solid $input-border;
+      border-radius: 0.313rem;
+      padding: 0.313rem 0.625rem;
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 1.188rem;
+      color: $black;
+      min-width: 31.25rem;
+    }
+  }
+
+  &_disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
 .btn__bg {
@@ -262,24 +284,3 @@ textarea {
     padding-top: 2rem;
   }
 }
-// .todo-search {
-//   display: flex;
-//   align-items: center;
-//   gap: 1.063rem;
-
-//   &_input {
-//     border: 0.188rem solid var(--input-border);
-//     border-radius: 0.313rem;
-//     padding: 0.313rem 0.625rem;
-//     font-weight: 500;
-//     font-size: 1rem;
-//     line-height: 1.188rem;
-//     color: var(--black);
-//     min-width: 31.25rem;
-//   }
-// }
-
-// .todo_disabled {
-//   opacity: 0.5;
-//   pointer-events: none;
-// }
