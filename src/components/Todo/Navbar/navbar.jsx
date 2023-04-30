@@ -9,9 +9,9 @@ const Navbar = ({
   isSearchButtonClicked,
 }) => {
   return (
-    <div className="navbar-back">
+    <div className="navbar">
       <div className="navbar__container">
-        <div className="navbar-back__navbar">
+        <div className="navbar__wrapper">
           <Logo />
           <SearchBar
             handleSearchChange={handleSearchChange}
