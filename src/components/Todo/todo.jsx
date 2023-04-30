@@ -30,9 +30,12 @@ import {
   INCOMPLETE,
   COMPLETE,
   ALL,
-  MESSAGE_SUCCESS,
   MESSAGE_ERROR,
   MESSAGE_REQUIRED,
+  MESSAGE_ADD_TASK,
+  MESSAGE_DELETE_TASK,
+  MESSAGE_COMPLETE_TASK,
+  MESSAGE_EDIT_TASK,
 } from "common/constants";
 import { debounce } from "helpers/debounce";
 
@@ -63,20 +66,20 @@ const Todo = () => {
 
   const loader = useSelector((state) => state.handleLoader.loader);
 
-  const showSuccessToast = () => {
-    toast.success(MESSAGE_SUCCESS, {
+  const showSuccessToast = (message) => {
+    toast.success(message, {
       className: "toast-message success-message",
     });
   };
 
-  const showErrorToast = () => {
-    toast.error(MESSAGE_ERROR, {
+  const showErrorToast = (message) => {
+    toast.error(message, {
       className: "toast-message error-message",
     });
   };
 
-  const showRequiredToast = () => {
-    toast.warn(MESSAGE_REQUIRED, {
+  const showRequiredToast = (message) => {
+    toast.warn(message, {
       className: "toast-message warn-message",
     });
   };
@@ -87,7 +90,7 @@ const Todo = () => {
 
   const handleCancelClick = () => {
     handleCreateClick();
-    showErrorToast();
+    showErrorToast(MESSAGE_ERROR);
   };
 
   const handleEditClick = (taskId) => {
@@ -97,7 +100,7 @@ const Todo = () => {
   const handleAddTask = (inputTask) => {
     const sanitizedTask = sanitizeInput(inputTask);
     if (sanitizedTask.trim() === "") {
-      showRequiredToast();
+      showRequiredToast(MESSAGE_REQUIRED);
       return;
     }
     dispatch(addTodo(sanitizedTask));
@@ -105,37 +108,37 @@ const Todo = () => {
     handleFilterClick(ALL);
     handleSearchInput("");
     dispatch(handleSearchButton(true));
-    showSuccessToast();
+    showSuccessToast(MESSAGE_ADD_TASK);
   };
 
   const handleDeleteTask = (taskId) => {
-    showSuccessToast();
+    showErrorToast(MESSAGE_DELETE_TASK);
     dispatch(deleteTodo(taskId));
   };
 
   const handleCompleteTask = (taskId, startDate, inputTask) => {
     const sanitizedTask = sanitizeInput(inputTask);
     if (sanitizedTask.trim() === "") {
-      showRequiredToast();
+      showRequiredToast(MESSAGE_REQUIRED);
       return;
     }
     dispatch(editTodo(taskId, sanitizedTask));
     dispatch(completeTodo(taskId, startDate));
-    showSuccessToast();
+    showSuccessToast(MESSAGE_COMPLETE_TASK);
   };
 
   const handleEditTask = (taskId, editedInput) => {
     const sanitizedTask = sanitizeInput(editedInput);
     if (sanitizedTask.trim() === "") {
-      showRequiredToast();
+      showRequiredToast(MESSAGE_REQUIRED);
       return;
     }
     dispatch(editTodo(taskId, sanitizedTask));
-    showSuccessToast();
+    showSuccessToast(MESSAGE_EDIT_TASK);
   };
 
   const handleEditCancelTask = (taskId, inputTask) => {
-    showErrorToast();
+    showErrorToast(MESSAGE_ERROR);
     dispatch(editTodo(taskId, inputTask));
   };
 
