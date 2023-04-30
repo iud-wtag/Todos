@@ -123,24 +123,26 @@ const Todo = () => {
   };
 
   const activeToggle = (btn) => {
-    document.querySelector(".active").classList.remove("active");
+    document.querySelector(".active")?.classList.remove("active");
     btn.classList.add("active");
   };
 
   useEffect(() => {
     let filteredTodos;
-    document.querySelectorAll(".filter-btn__btn").forEach((btn) => {
-      if (filterState === ALL && btn.innerHTML === ALL) {
-        activeToggle(btn);
-        filteredTodos = todoList;
-      } else if (filterState === INCOMPLETE && btn.innerHTML === INCOMPLETE) {
-        activeToggle(btn);
-        filteredTodos = todoList.filter((todo) => !todo.isTaskComplete);
-      } else if (filterState === COMPLETE && btn.innerHTML === COMPLETE) {
-        activeToggle(btn);
-        filteredTodos = todoList.filter((todo) => todo.isTaskComplete);
-      }
-    });
+    document
+      .querySelectorAll(".todo__top__btn-filter__inner")
+      .forEach((btn) => {
+        if (filterState === ALL && btn.innerHTML === ALL) {
+          activeToggle(btn);
+          filteredTodos = todoList;
+        } else if (filterState === INCOMPLETE && btn.innerHTML === INCOMPLETE) {
+          activeToggle(btn);
+          filteredTodos = todoList.filter((todo) => !todo.isTaskComplete);
+        } else if (filterState === COMPLETE && btn.innerHTML === COMPLETE) {
+          activeToggle(btn);
+          filteredTodos = todoList.filter((todo) => todo.isTaskComplete);
+        }
+      });
     setDisplayTodoList(filteredTodos);
   }, [filterState, todoList]);
 

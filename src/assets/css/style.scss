@@ -106,6 +106,12 @@ textarea {
       &-filter {
         display: flex;
         gap: 1.25rem;
+
+        &__inner.active {
+          background: $royal-blue;
+          border: none;
+          color: $white;
+        }
       }
     }
   }
@@ -256,9 +262,3 @@ textarea {
     padding-top: 2rem;
   }
 }
-
-// .filter-btn__btn.active {
-//   background: var(--royal-blue);
-//   border: none;
-//   color: var(--white);
-// }
