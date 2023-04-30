@@ -133,15 +133,15 @@ const Todo = () => {
               !isCreateButtonClicked && <EmptyViews />
             )}
           </div>
+          {showPagination && (
+            <div className="todo__pagination">
+              <Pagination
+                buttonText={showLoadMoreButton ? LOAD_MORE : SHOW_LESS}
+                handlePaginationClick={handlePaginationClick}
+              />
+            </div>
+          )}
         </div>
-        {showPagination && (
-          <div className="todo__pagination">
-            <Pagination
-              buttonText={showLoadMoreButton ? LOAD_MORE : SHOW_LESS}
-              handlePaginationClick={handlePaginationClick}
-            />
-          </div>
-        )}
       </div>
     </div>
   );
