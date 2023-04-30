@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
 import checkButton from "assets/images/check.png";
-import { COMPLETE_BUTTON, DELETE_BUTTON } from "common/constants";
+import { ALT_COMPLETE_BUTTON, ALT_DELETE_BUTTON } from "common/constants";
 
 const EditActionBar = ({
   todo,
@@ -25,13 +25,13 @@ const EditActionBar = ({
         className="todo-complete__btn"
         onClick={() => handleCompleteTask(id, date, editedTask)}
       >
-        <img src={checkButton} alt={COMPLETE_BUTTON} />
+        <img src={checkButton} alt={ALT_COMPLETE_BUTTON} />
       </button>
       <button
         className="todo-delete__btn"
         onClick={() => handleEditCancelTask(id, task)}
       >
-        <img src={deleteButton} alt={DELETE_BUTTON} />
+        <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
     </div>
   );

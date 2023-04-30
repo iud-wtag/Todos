@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import EditActionBar from "components/Todo/EditCard/edit-action-bar.component";
-import { ENTER } from "common/constants";
+import { KEY_ENTER } from "common/constants";
 
 const EditCard = ({
   todo,
@@ -17,7 +17,7 @@ const EditCard = ({
     setEditData(e.target.value);
   };
   const handleKeyDown = (e) => {
-    if (e.key === ENTER) {
+    if (e.key === KEY_ENTER) {
       handleEditTask(id, editedTask);
     }
   };
