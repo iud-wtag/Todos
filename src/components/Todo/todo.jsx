@@ -153,7 +153,7 @@ const Todo = () => {
   };
 
   const activeToggle = (btn) => {
-    document.querySelector(".active").classList.remove("active");
+    document.querySelector(".active")?.classList.remove("active");
     btn.classList.add("active");
   };
 
@@ -191,18 +191,20 @@ const Todo = () => {
 
   useEffect(() => {
     let filteredTodos;
-    document.querySelectorAll(".filter-btn__btn").forEach((btn) => {
-      if (filterState === ALL && btn.innerHTML === ALL) {
-        activeToggle(btn);
-        filteredTodos = todoList;
-      } else if (filterState === INCOMPLETE && btn.innerHTML === INCOMPLETE) {
-        activeToggle(btn);
-        filteredTodos = todoList.filter((todo) => !todo.isTaskComplete);
-      } else if (filterState === COMPLETE && btn.innerHTML === COMPLETE) {
-        activeToggle(btn);
-        filteredTodos = todoList.filter((todo) => todo.isTaskComplete);
-      }
-    });
+    document
+      .querySelectorAll(".todo__top__btn-filter__inner")
+      .forEach((btn) => {
+        if (filterState === ALL && btn.innerHTML === ALL) {
+          activeToggle(btn);
+          filteredTodos = todoList;
+        } else if (filterState === INCOMPLETE && btn.innerHTML === INCOMPLETE) {
+          activeToggle(btn);
+          filteredTodos = todoList.filter((todo) => !todo.isTaskComplete);
+        } else if (filterState === COMPLETE && btn.innerHTML === COMPLETE) {
+          activeToggle(btn);
+          filteredTodos = todoList.filter((todo) => todo.isTaskComplete);
+        }
+      });
     const searchedTodos = filteredTodos.filter((todo) =>
       todo.task.toLowerCase().includes(searchValue.toLowerCase())
     );
@@ -216,42 +218,42 @@ const Todo = () => {
         toggleSearchInput={toggleSearchInput}
         isSearchButtonClicked={isSearchButtonClicked}
       />
-      <div
-        className={`todo__container todo__section ${loader && "todo_disabled"}`}
-      >
-        <TopBar
-          handleCreateClick={handleCreateClick}
-          handleFilterClick={handleFilterClick}
-          isCreateButtonClicked={isCreateButtonClicked}
-        />
-        <div className="todo__board">
-          {isCreateButtonClicked && (
-            <AddCard
-              handleAddTask={handleAddTask}
-              handleCancelClick={handleCancelClick}
-            />
-          )}
-          {currentTodoList.length ? (
-            <TodoCards
-              todoList={currentTodoList}
-              handleDeleteTask={handleDeleteTask}
-              handleCompleteTask={handleCompleteTask}
-              handleEditClick={handleEditClick}
-              handleEditTask={handleEditTask}
-              handleEditCancelTask={handleEditCancelTask}
-            />
-          ) : (
-            !isCreateButtonClicked && <EmptyViews />
+      <div className={`todo__container ${loader && "todo_disabled"}`}>
+        <div className="todo__wrapper">
+          <TopBar
+            handleCreateClick={handleCreateClick}
+            handleFilterClick={handleFilterClick}
+            isCreateButtonClicked={isCreateButtonClicked}
+          />
+          <div className="todo__card__wrapper">
+            {isCreateButtonClicked && (
+              <AddCard
+                handleAddTask={handleAddTask}
+                handleCancelClick={handleCancelClick}
+              />
+            )}
+            {currentTodoList.length ? (
+              <TodoCards
+                todoList={currentTodoList}
+                handleDeleteTask={handleDeleteTask}
+                handleCompleteTask={handleCompleteTask}
+                handleEditClick={handleEditClick}
+                handleEditTask={handleEditTask}
+                handleEditCancelTask={handleEditCancelTask}
+              />
+            ) : (
+              !isCreateButtonClicked && <EmptyViews />
+            )}
+          </div>
+          {showPagination && (
+            <div className="todo__pagination">
+              <Pagination
+                buttonText={showLoadMoreButton ? LOAD_MORE : SHOW_LESS}
+                handlePaginationClick={handlePaginationClick}
+              />
+            </div>
           )}
         </div>
-        {showPagination && (
-          <div className="todo__pagination">
-            <Pagination
-              buttonText={showLoadMoreButton ? LOAD_MORE : SHOW_LESS}
-              handlePaginationClick={handlePaginationClick}
-            />
-          </div>
-        )}
       </div>
       {loader && <LoaderSpinner />}
 

@@ -9,7 +9,7 @@ const SearchBar = ({
   isSearchButtonClicked,
 }) => {
   return (
-    <div className="todo-search">
+    <div className="navbar__right todo-search">
       {isSearchButtonClicked && (
         <input
           type="search"

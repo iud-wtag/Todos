@@ -1,4 +1,4 @@
-@import url("assets/css/colors.scss");
+@import "assets/css/colors.scss";
 
 .spinner-container {
   position: absolute;
@@ -10,8 +10,8 @@
 .loader-spinner {
   width: 6.25rem;
   height: 6.25rem;
-  border: 0.625rem solid var(--royal-blue);
-  border-top: 0.625rem solid var(--bg-color);
+  border: 0.625rem solid $royal-blue;
+  border-top: 0.625rem solid $bg-color;
   border-radius: 6.25rem;
   animation: spinner 1.5s linear infinite;
 }
