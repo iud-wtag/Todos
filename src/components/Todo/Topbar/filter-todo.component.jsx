@@ -4,21 +4,21 @@ import { ALL, INCOMPLETE, COMPLETE } from "common/constants";
 
 const FilterTodo = ({ handleFilterClick }) => {
   return (
-    <div className="filter-btn">
+    <div className="todo__top__btn-filter">
       <button
-        className="filter-btn__btn btn white-back__btn active"
+        className="todo__top__btn-create__inner btn__bg-white"
         onClick={() => handleFilterClick(ALL)}
       >
         All
       </button>
       <button
-        className="filter-btn__btn btn white-back__btn"
+        className="todo__top__btn-create__inner btn__bg-white"
         onClick={() => handleFilterClick(INCOMPLETE)}
       >
         Incomplete
       </button>
       <button
-        className="filter-btn__btn btn white-back__btn"
+        className="todo__top__btn-create__inner btn__bg-white"
         onClick={() => handleFilterClick(COMPLETE)}
       >
         Complete

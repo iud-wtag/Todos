@@ -14,7 +14,7 @@ const ViewActionBar = ({
   const { id, task, date, completeTime, isTaskComplete } = todo;
 
   return isTaskComplete ? (
-    <div className="todo-view__btns complete-btns">
+    <div className="todo__card-view-btns complete-btns">
       <button onClick={() => handleDeleteTask(id)}>
         <img src={deleteButton} alt={DELETE_BUTTON} />
       </button>
@@ -23,7 +23,7 @@ const ViewActionBar = ({
       </p>
     </div>
   ) : (
-    <div className="todo-view__btns incomplete-btns">
+    <div className="todo__card-view-btns incomplete-btns">
       <button onClick={() => handleCompleteTask(id, date, task)}>
         <img src={checkButton} alt={COMPLETE_BUTTON} />
       </button>
