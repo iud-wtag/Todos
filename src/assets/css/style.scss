@@ -115,6 +115,15 @@ textarea {
       }
     }
 
+    &-edit {
+      &-btns {
+        align-items: center;
+        display: flex;
+        gap: 0.938rem;
+        padding-top: 1rem;
+      }
+    }
+
     &-input {
       border: 0.188rem solid $input-border;
       border-radius: 0.313rem;
@@ -161,15 +170,6 @@ textarea {
           color: $lime-green;
           text-decoration-line: line-through;
         }
-      }
-    }
-
-    &-edit {
-      &-btns {
-        align-items: center;
-        display: flex;
-        gap: 0.938rem;
-        padding-top: 1rem;
       }
     }
   }
