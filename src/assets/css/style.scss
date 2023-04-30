@@ -159,19 +159,6 @@ textarea {
     }
 
     &-view {
-      &-title {
-        color: $black;
-        font-size: 1.5rem;
-        font-weight: 700;
-        line-height: 1.75rem;
-        padding-bottom: 0.625rem;
-
-        &.task-complete {
-          color: $color-success;
-          text-decoration-line: line-through;
-        }
-      }
-
       &-create__time {
         color: $gray;
         font-size: 0.875rem;
