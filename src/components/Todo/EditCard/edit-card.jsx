@@ -32,7 +32,7 @@ const EditCard = ({ todo, onEditTask, onCompleteTask, onEditCancelTask }) => {
     <>
       <textarea
         name="todo_input"
-        id="todo_input"
+        id="todo-input"
         className="todo__card-input"
         value={editedTask}
         ref={textRef}
