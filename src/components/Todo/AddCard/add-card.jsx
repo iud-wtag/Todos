@@ -7,7 +7,7 @@ const AddCard = ({
   onAddTask,
   isEmptyError,
   toggleEmptyError,
-  handleCancelClick,
+  onCancelClick,
 }) => {
   const [inputTask, setInputTask] = useState("");
 
@@ -36,7 +36,7 @@ const AddCard = ({
       <AddCardActionBar
         inputTask={inputTask}
         onAddTask={onAddTask}
-        handleCancelClick={handleCancelClick}
+        onCancelClick={onCancelClick}
         isEmptyError={isEmptyError}
       />
     </div>
@@ -46,7 +46,7 @@ const AddCard = ({
 AddCard.propTypes = {
   isEmptyError: PropTypes.bool.isRequired,
   onAddTask: PropTypes.func.isRequired,
-  handleCancelClick: PropTypes.func.isRequired,
+  onCancelClick: PropTypes.func.isRequired,
   toggleEmptyError: PropTypes.func.isRequired,
 };
 

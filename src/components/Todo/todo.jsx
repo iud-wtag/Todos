@@ -65,14 +65,11 @@ const Todo = () => {
               <AddCard
                 isEmptyError={isEmptyError}
                 onAddTask={handleAddTask}
-                handleCancelClick={handleCancelClick}
+                onCancelClick={handleCancelClick}
                 toggleEmptyError={toggleEmptyError}
               />
             )}
-            <TodoCards
-              todoList={todoList}
-              handleDeleteTask={handleDeleteTask}
-            />
+            <TodoCards todoList={todoList} onDeleteTask={handleDeleteTask} />
           </div>
         </div>
       </div>

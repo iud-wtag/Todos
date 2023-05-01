@@ -9,7 +9,7 @@ import {
   ALT_DELETE_BUTTON,
 } from "common/constants";
 
-const TodoActionBar = ({ handleDeleteTask, todo }) => {
+const TodoActionBar = ({ onDeleteTask, todo }) => {
   const { id } = todo;
 
   return (
@@ -20,7 +20,7 @@ const TodoActionBar = ({ handleDeleteTask, todo }) => {
       <button>
         <img src={editButton} alt={ALT_EDIT_BUTTON} />
       </button>
-      <button onClick={() => handleDeleteTask(id)}>
+      <button onClick={() => onDeleteTask(id)}>
         <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
     </div>
@@ -28,7 +28,7 @@ const TodoActionBar = ({ handleDeleteTask, todo }) => {
 };
 
 TodoActionBar.propTypes = {
-  handleDeleteTask: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
   todo: PropTypes.object.isRequired,
 };
 

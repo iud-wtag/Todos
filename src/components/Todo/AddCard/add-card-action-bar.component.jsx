@@ -7,7 +7,7 @@ const AddCardActionBar = ({
   onAddTask,
   inputTask,
   isEmptyError,
-  handleCancelClick,
+  onCancelClick,
 }) => {
   return (
     <div className="todo__card-add-btns">
@@ -17,7 +17,7 @@ const AddCardActionBar = ({
       >
         Add Task
       </button>
-      <button className="todo-delete__btn" onClick={handleCancelClick}>
+      <button className="todo-delete__btn" onClick={onCancelClick}>
         <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
       {isEmptyError && <p className="error">Title is required</p>}
@@ -27,7 +27,7 @@ const AddCardActionBar = ({
 
 AddCardActionBar.propTypes = {
   onAddTask: PropTypes.func.isRequired,
-  handleCancelClick: PropTypes.func.isRequired,
+  onCancelClick: PropTypes.func.isRequired,
   isEmptyError: PropTypes.bool.isRequired,
   inputTask: PropTypes.string.isRequired,
 };
