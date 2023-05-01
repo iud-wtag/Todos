@@ -9,7 +9,7 @@ import {
   ALT_DELETE_BUTTON,
 } from "common/constants";
 
-const ViewActionBar = ({ onDeleteTask, onCompleteTask, onEditClick, todo }) => {
+const ViewActionBar = ({ todo, onDeleteTask, onCompleteTask, onEditClick }) => {
   const { id, task, date, completeTime, isTaskComplete } = todo;
 
   return isTaskComplete ? (
@@ -37,10 +37,10 @@ const ViewActionBar = ({ onDeleteTask, onCompleteTask, onEditClick, todo }) => {
 };
 
 ViewActionBar.propTypes = {
+  todo: PropTypes.object.isRequired,
   onDeleteTask: PropTypes.func.isRequired,
   onCompleteTask: PropTypes.func.isRequired,
   onEditClick: PropTypes.func.isRequired,
-  todo: PropTypes.object.isRequired,
 };
 
 export default ViewActionBar;
