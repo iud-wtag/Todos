@@ -9,7 +9,7 @@ const handleErrors = (state = initialError, action) => {
     case HANDLE_EMPTY:
       const { isEmptyError } = action.payload;
       return {
-        isEmptyError: isEmptyError,
+        isEmptyError,
       };
 
     default:
