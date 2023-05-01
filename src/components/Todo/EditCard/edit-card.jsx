@@ -19,8 +19,9 @@ const EditCard = ({ todo, onEditTask, onCompleteTask, onEditCancelTask }) => {
 
   const setFocusAndSelection = () => {
     textRef.current.focus();
-    textRef.current.selectionStart = textRef.current.value.length;
-    textRef.current.selectionEnd = textRef.current.value.length;
+    const { length } = textRef.current.value;
+    textRef.current.selectionStart = length;
+    textRef.current.selectionEnd = length;
   };
 
   useEffect(() => {
