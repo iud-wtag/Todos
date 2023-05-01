@@ -6,10 +6,10 @@ import { KEY_ENTER } from "common/constants";
 const EditCard = ({ todo, onEditTask, onCompleteTask, onEditCancelTask }) => {
   const { id, task } = todo;
   const textRef = useRef(null);
-  const [editedTask, setEditData] = useState(task);
+  const [editedTask, setEditedTask] = useState(task);
 
   const handleChange = (e) => {
-    setEditData(e.target.value);
+    setEditedTask(e.target.value);
   };
   const handleKeyDown = (e) => {
     if (e.key === KEY_ENTER) {
