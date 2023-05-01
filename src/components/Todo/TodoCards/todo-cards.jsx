@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import TodoCardTop from "components/Todo/TodoCards/todo-card-top.component";
 import TodoActionBar from "components/Todo/TodoCards/todo-action-bar.component";
 
-const TodoCards = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
+const TodoCards = ({ todoList, onDeleteTask, onCompleteTask }) => {
   return todoList.map((todo) => {
     return (
       <div className="todo__card-view todo-card todo-view-card" key={todo.id}>
         <TodoCardTop todo={todo} />
         <TodoActionBar
-          handleDeleteTask={handleDeleteTask}
-          handleCompleteTask={handleCompleteTask}
+          onDeleteTask={onDeleteTask}
+          onCompleteTask={onCompleteTask}
           todo={todo}
         />
       </div>
@@ -20,8 +20,8 @@ const TodoCards = ({ todoList, handleDeleteTask, handleCompleteTask }) => {
 
 TodoCards.propTypes = {
   todoList: PropTypes.array.isRequired,
-  handleDeleteTask: PropTypes.func.isRequired,
-  handleCompleteTask: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
+  onCompleteTask: PropTypes.func.isRequired,
 };
 
 export default TodoCards;

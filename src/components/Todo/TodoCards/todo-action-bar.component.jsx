@@ -9,12 +9,12 @@ import {
   ALT_DELETE_BUTTON,
 } from "common/constants";
 
-const TodoActionBar = ({ handleDeleteTask, handleCompleteTask, todo }) => {
+const TodoActionBar = ({ onDeleteTask, onCompleteTask, todo }) => {
   const { id, date, completeTime, isTaskComplete } = todo;
 
   return isTaskComplete ? (
     <div className="todo__card-view-btns complete-btns">
-      <button onClick={() => handleDeleteTask(id)}>
+      <button onClick={() => onDeleteTask(id)}>
         <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
       <p className="complete-msg purple-back__btn">
@@ -23,13 +23,13 @@ const TodoActionBar = ({ handleDeleteTask, handleCompleteTask, todo }) => {
     </div>
   ) : (
     <div className="todo__card-view-btns incomplete-btns">
-      <button onClick={() => handleCompleteTask(id, date)}>
+      <button onClick={() => onCompleteTask(id, date)}>
         <img src={checkButton} alt={ALT_COMPLETE_BUTTON} />
       </button>
       <button>
         <img src={editButton} alt={ALT_EDIT_BUTTON} />
       </button>
-      <button onClick={() => handleDeleteTask(id)}>
+      <button onClick={() => onDeleteTask(id)}>
         <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
     </div>
@@ -37,8 +37,8 @@ const TodoActionBar = ({ handleDeleteTask, handleCompleteTask, todo }) => {
 };
 
 TodoActionBar.propTypes = {
-  handleDeleteTask: PropTypes.func.isRequired,
-  handleCompleteTask: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
+  onCompleteTask: PropTypes.func.isRequired,
   todo: PropTypes.object.isRequired,
 };
 

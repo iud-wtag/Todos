@@ -22,7 +22,9 @@ const todoReducers = (state = initialData, action) => {
       };
 
     case DELETE_TODO:
-      const newList = state.list.filter((task) => task.id !== action.id);
+      const newList = state.list.filter(
+        (task) => task.id !== action.payload.id
+      );
       return {
         ...state,
         list: newList,
