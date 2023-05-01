@@ -26,7 +26,7 @@ const EditCard = ({ todo, onEditTask, onCompleteTask, onEditCancelTask }) => {
 
   useEffect(() => {
     setFocusAndSelection();
-  }, [task]);
+  }, []);
 
   return (
     <>
