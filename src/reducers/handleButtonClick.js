@@ -9,7 +9,7 @@ const handleButtonClick = (state = initialButton, action) => {
     case HANDLE_CREATE:
       const { isCreateButtonClicked } = action.payload;
       return {
-        isCreateButtonClicked: isCreateButtonClicked,
+        isCreateButtonClicked,
       };
 
     default:

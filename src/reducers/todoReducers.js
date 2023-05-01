@@ -11,9 +11,9 @@ const todoReducers = (state = initialData, action) => {
         ...state,
         list: [
           {
-            id: id,
-            task: task,
-            date: date,
+            id,
+            task,
+            date,
           },
           ...state.list,
         ],
