@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import deleteButton from "assets/images/delete.png";
 import { ALT_DELETE_BUTTON } from "common/constants";
 
-const AddCardActionBar = ({ handleAddTask, inputTask, isEmptyError }) => {
+const AddCardActionBar = ({ onAddTask, inputTask, isEmptyError }) => {
   return (
     <div className="todo__card-add-btns">
       <button
-        onClick={() => handleAddTask(inputTask)}
+        onClick={() => onAddTask(inputTask)}
         className="todo-add__btn btn__bg-white"
       >
         Add Task
@@ -21,7 +21,7 @@ const AddCardActionBar = ({ handleAddTask, inputTask, isEmptyError }) => {
 };
 
 AddCardActionBar.propTypes = {
-  handleAddTask: PropTypes.func.isRequired,
+  onAddTask: PropTypes.func.isRequired,
   isEmptyError: PropTypes.bool.isRequired,
   inputTask: PropTypes.string.isRequired,
 };

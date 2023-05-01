@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import AddCardActionBar from "components/Todo/AddCard/add-card-action-bar.component";
 import { KEY_ENTER } from "common/constants";
 
-const AddCard = ({ handleAddTask, isEmptyError, toggleEmptyError }) => {
+const AddCard = ({ isEmptyError, onAddTask, toggleEmptyError }) => {
   const [inputTask, setInputTask] = useState("");
 
   const handleInputChange = (e) => {
@@ -12,7 +12,7 @@ const AddCard = ({ handleAddTask, isEmptyError, toggleEmptyError }) => {
   };
   const handleKeyDown = (e) => {
     if (e.key === KEY_ENTER) {
-      handleAddTask(inputTask);
+      onAddTask(inputTask);
     }
   };
 
@@ -29,8 +29,8 @@ const AddCard = ({ handleAddTask, isEmptyError, toggleEmptyError }) => {
       ></textarea>
 
       <AddCardActionBar
-        handleAddTask={handleAddTask}
         inputTask={inputTask}
+        onAddTask={onAddTask}
         isEmptyError={isEmptyError}
       />
     </div>
@@ -38,8 +38,8 @@ const AddCard = ({ handleAddTask, isEmptyError, toggleEmptyError }) => {
 };
 
 AddCard.propTypes = {
-  handleAddTask: PropTypes.func.isRequired,
   isEmptyError: PropTypes.bool.isRequired,
+  onAddTask: PropTypes.func.isRequired,
   toggleEmptyError: PropTypes.func.isRequired,
 };
 
