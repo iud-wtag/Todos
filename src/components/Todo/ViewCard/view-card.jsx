@@ -3,19 +3,14 @@ import PropTypes from "prop-types";
 import ViewDetails from "components/Todo/ViewCard/view-details.component";
 import ViewActionBar from "components/Todo/ViewCard/view-action-bar.component";
 
-const ViewCard = ({
-  todo,
-  handleDeleteTask,
-  handleCompleteTask,
-  handleEditClick,
-}) => {
+const ViewCard = ({ todo, onDeleteTask, onCompleteTask, onEditClick }) => {
   return (
     <>
       <ViewDetails todo={todo} />
       <ViewActionBar
-        handleDeleteTask={handleDeleteTask}
-        handleCompleteTask={handleCompleteTask}
-        handleEditClick={handleEditClick}
+        onDeleteTask={onDeleteTask}
+        onCompleteTask={onCompleteTask}
+        onEditClick={onEditClick}
         todo={todo}
       />
     </>
@@ -24,9 +19,9 @@ const ViewCard = ({
 
 ViewCard.propTypes = {
   todo: PropTypes.object.isRequired,
-  handleDeleteTask: PropTypes.func.isRequired,
-  handleCompleteTask: PropTypes.func.isRequired,
-  handleEditClick: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
+  onCompleteTask: PropTypes.func.isRequired,
+  onEditClick: PropTypes.func.isRequired,
 };
 
 export default ViewCard;

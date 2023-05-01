@@ -7,9 +7,9 @@ import { ALT_COMPLETE_BUTTON, ALT_DELETE_BUTTON } from "common/constants";
 const EditActionBar = ({
   todo,
   editedTask,
-  handleEditTask,
-  handleCompleteTask,
-  handleEditCancelTask,
+  onEditTask,
+  onCompleteTask,
+  onEditCancelTask,
 }) => {
   const { id, task, date } = todo;
 
@@ -17,19 +17,19 @@ const EditActionBar = ({
     <div className="todo__card-edit-btns">
       <button
         className="todo-save__btn btn__bg-white"
-        onClick={() => handleEditTask(id, editedTask)}
+        onClick={() => onEditTask(id, editedTask)}
       >
         Save
       </button>
       <button
         className="todo-complete__btn"
-        onClick={() => handleCompleteTask(id, date, editedTask)}
+        onClick={() => onCompleteTask(id, date, editedTask)}
       >
         <img src={checkButton} alt={ALT_COMPLETE_BUTTON} />
       </button>
       <button
         className="todo-delete__btn"
-        onClick={() => handleEditCancelTask(id, task)}
+        onClick={() => onEditCancelTask(id, task)}
       >
         <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
@@ -40,9 +40,9 @@ const EditActionBar = ({
 EditActionBar.propTypes = {
   todo: PropTypes.object.isRequired,
   editedTask: PropTypes.string.isRequired,
-  handleEditTask: PropTypes.func.isRequired,
-  handleCompleteTask: PropTypes.func.isRequired,
-  handleEditCancelTask: PropTypes.func.isRequired,
+  onEditTask: PropTypes.func.isRequired,
+  onCompleteTask: PropTypes.func.isRequired,
+  onEditCancelTask: PropTypes.func.isRequired,
 };
 
 export default EditActionBar;
