@@ -11,11 +11,11 @@ const todoReducers = (state = initialData, action) => {
         ...state,
         list: [
           {
-            id: id,
-            task: task,
-            date: date,
-            isTaskComplete: isTaskComplete,
-            completeTime: completeTime,
+            id,
+            task,
+            date,
+            isTaskComplete,
+            completeTime,
           },
           ...state.list,
         ],

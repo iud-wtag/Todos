@@ -11,7 +11,7 @@ export const addTodo = (task) => {
   return {
     type: ADD_TODO,
     payload: {
-      id: new Date().getTime().toString(),
+      id: Date.now().toString(),
       task: task,
       date: new Date(),
       isTaskComplete: false,
@@ -50,7 +50,7 @@ export const handleEmptyError = (isEmptyError) => {
   return {
     type: HANDLE_EMPTY,
     payload: {
-      isEmptyError: isEmptyError,
+      isEmptyError,
     },
   };
 };
