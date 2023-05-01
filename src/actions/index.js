@@ -43,7 +43,7 @@ export const completeTodo = (id, date) => {
     type: COMPLETE_TODO,
     id,
     isTaskComplete: true,
-    completeTime: getDays(date.getTime(), new Date().getTime()),
+    completeTime: getDays(date.getTime(), Date.now()),
   };
 };
 export const handleEmptyError = (isEmptyError) => {
