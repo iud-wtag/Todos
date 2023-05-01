@@ -85,25 +85,25 @@ const Todo = () => {
       <div className="todo__container">
         <div className="todo__wrapper">
           <TopBar
-            handleCreateClick={handleCreateClick}
+            onCreateClick={handleCreateClick}
             isCreateButtonClicked={isCreateButtonClicked}
           />
           <div className="todo__card__wrapper">
             {isCreateButtonClicked && (
               <AddCard
-                handleAddTask={handleAddTask}
-                handleCancelClick={handleCancelClick}
                 isEmptyError={isEmptyError}
+                onAddTask={handleAddTask}
+                onCancelClick={handleCancelClick}
                 toggleEmptyError={toggleEmptyError}
               />
             )}
             <TodoCards
               todoList={todoList}
-              handleDeleteTask={handleDeleteTask}
-              handleCompleteTask={handleCompleteTask}
-              handleEditClick={handleEditClick}
-              handleEditTask={handleEditTask}
-              handleEditCancelTask={handleEditCancelTask}
+              onDeleteTask={handleDeleteTask}
+              onCompleteTask={handleCompleteTask}
+              onEditClick={handleEditClick}
+              onEditTask={handleEditTask}
+              onEditCancelTask={handleEditCancelTask}
             />
           </div>
         </div>

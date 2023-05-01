@@ -5,11 +5,11 @@ import EditCard from "components/Todo/EditCard/edit-card";
 
 const TodoCards = ({
   todoList,
-  handleDeleteTask,
-  handleCompleteTask,
-  handleEditClick,
-  handleEditTask,
-  handleEditCancelTask,
+  onDeleteTask,
+  onCompleteTask,
+  onEditClick,
+  onEditTask,
+  onEditCancelTask,
 }) => {
   return todoList.map((todo) => {
     return (
@@ -17,16 +17,16 @@ const TodoCards = ({
         {todo.isEditButtonClicked ? (
           <EditCard
             todo={todo}
-            handleEditTask={handleEditTask}
-            handleCompleteTask={handleCompleteTask}
-            handleEditCancelTask={handleEditCancelTask}
+            onEditTask={onEditTask}
+            onCompleteTask={onCompleteTask}
+            onEditCancelTask={onEditCancelTask}
           />
         ) : (
           <ViewCard
             todo={todo}
-            handleDeleteTask={handleDeleteTask}
-            handleCompleteTask={handleCompleteTask}
-            handleEditClick={handleEditClick}
+            onDeleteTask={onDeleteTask}
+            onCompleteTask={onCompleteTask}
+            onEditClick={onEditClick}
           />
         )}
       </div>
@@ -36,11 +36,11 @@ const TodoCards = ({
 
 TodoCards.propTypes = {
   todoList: PropTypes.array.isRequired,
-  handleDeleteTask: PropTypes.func.isRequired,
-  handleCompleteTask: PropTypes.func.isRequired,
-  handleEditClick: PropTypes.func.isRequired,
-  handleEditTask: PropTypes.func.isRequired,
-  handleEditCancelTask: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
+  onCompleteTask: PropTypes.func.isRequired,
+  onEditClick: PropTypes.func.isRequired,
+  onEditTask: PropTypes.func.isRequired,
+  onEditCancelTask: PropTypes.func.isRequired,
 };
 
 export default TodoCards;

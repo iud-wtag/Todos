@@ -35,7 +35,9 @@ export const handleCreateButton = (isCreateButtonClicked) => {
 export const deleteTodo = (id) => {
   return {
     type: DELETE_TODO,
-    id,
+    payload: {
+      id,
+    },
   };
 };
 

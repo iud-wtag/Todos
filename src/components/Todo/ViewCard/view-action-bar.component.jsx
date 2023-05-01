@@ -9,17 +9,12 @@ import {
   ALT_DELETE_BUTTON,
 } from "common/constants";
 
-const ViewActionBar = ({
-  handleDeleteTask,
-  handleCompleteTask,
-  handleEditClick,
-  todo,
-}) => {
+const ViewActionBar = ({ onDeleteTask, onCompleteTask, onEditClick, todo }) => {
   const { id, task, date, completeTime, isTaskComplete } = todo;
 
   return isTaskComplete ? (
     <div className="todo__card-view-btns complete-btns">
-      <button onClick={() => handleDeleteTask(id)}>
+      <button onClick={() => onDeleteTask(id)}>
         <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
       <p className="complete-msg purple-back__btn">
@@ -28,13 +23,13 @@ const ViewActionBar = ({
     </div>
   ) : (
     <div className="todo__card-view-btns incomplete-btns">
-      <button onClick={() => handleCompleteTask(id, date, task)}>
+      <button onClick={() => onCompleteTask(id, date, task)}>
         <img src={checkButton} alt={ALT_COMPLETE_BUTTON} />
       </button>
-      <button onClick={() => handleEditClick(id)}>
+      <button onClick={() => onEditClick(id)}>
         <img src={editButton} alt={ALT_EDIT_BUTTON} />
       </button>
-      <button onClick={() => handleDeleteTask(id)}>
+      <button onClick={() => onDeleteTask(id)}>
         <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
     </div>
@@ -42,9 +37,9 @@ const ViewActionBar = ({
 };
 
 ViewActionBar.propTypes = {
-  handleDeleteTask: PropTypes.func.isRequired,
-  handleCompleteTask: PropTypes.func.isRequired,
-  handleEditClick: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
+  onCompleteTask: PropTypes.func.isRequired,
+  onEditClick: PropTypes.func.isRequired,
   todo: PropTypes.object.isRequired,
 };
 
