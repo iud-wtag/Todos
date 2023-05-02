@@ -12,9 +12,17 @@ import {
 const TodoActionBar = ({ onDeleteTask, onCompleteTask, todo }) => {
   const { id, date, completeTime, isTaskComplete } = todo;
 
+  function handleDeleteTask() {
+    onDeleteTask(id);
+  }
+
+  function handleCompleteTask() {
+    onCompleteTask(id, date);
+  }
+
   return isTaskComplete ? (
     <div className="todo__card-view-btns complete-btns">
-      <button onClick={() => onDeleteTask(id)}>
+      <button onClick={handleDeleteTask}>
         <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
       <p className="complete-msg purple-back__btn">
@@ -23,13 +31,13 @@ const TodoActionBar = ({ onDeleteTask, onCompleteTask, todo }) => {
     </div>
   ) : (
     <div className="todo__card-view-btns incomplete-btns">
-      <button onClick={() => onCompleteTask(id, date)}>
+      <button onClick={handleCompleteTask}>
         <img src={checkButton} alt={ALT_COMPLETE_BUTTON} />
       </button>
       <button>
         <img src={editButton} alt={ALT_EDIT_BUTTON} />
       </button>
-      <button onClick={() => onDeleteTask(id)}>
+      <button onClick={handleDeleteTask}>
         <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
     </div>
