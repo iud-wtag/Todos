@@ -4,12 +4,13 @@ import deleteButton from "assets/images/delete.png";
 import { ALT_DELETE_BUTTON } from "common/constants";
 
 const AddCardActionBar = ({ onAddTask, inputTask, isEmptyError }) => {
+  function handleAddTask() {
+    onAddTask(inputTask);
+  }
+
   return (
     <div className="todo__card-add-btns">
-      <button
-        onClick={() => onAddTask(inputTask)}
-        className="todo-add__btn btn__bg-white"
-      >
+      <button onClick={handleAddTask} className="todo-add__btn btn__bg-white">
         Add Task
       </button>
       <button className="todo-delete__btn">

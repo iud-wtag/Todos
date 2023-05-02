@@ -17,15 +17,15 @@ const Todo = () => {
   );
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
-  const toggleEmptyError = (toggleValue) => {
+  function toggleEmptyError(toggleValue) {
     dispatch(handleEmptyError(toggleValue));
-  };
+  }
 
-  const handleCreateClick = () => {
+  function handleCreateClick() {
     dispatch(handleCreateButton(isCreateButtonClicked));
-  };
+  }
 
-  const handleAddTask = (inputTask) => {
+  function handleAddTask(inputTask) {
     const sanitizedData = sanitizeInput(inputTask);
     if (sanitizedData.trim() === "") {
       toggleEmptyError(true);
@@ -34,7 +34,7 @@ const Todo = () => {
     dispatch(addTodo(sanitizedData));
     handleCreateClick();
     toggleEmptyError(false);
-  };
+  }
 
   return (
     <div className="todo">
