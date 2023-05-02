@@ -41,7 +41,7 @@ const todoReducers = (state = initialData, action) => {
         completeTime,
         isTaskComplete,
       };
-      const completedList = [...state.list];
+      const completedList = state.list.map((todo) => ({ ...todo }));
       completedList[completedTaskIndex] = completedTask;
 
       return {
