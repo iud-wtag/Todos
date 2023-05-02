@@ -42,7 +42,7 @@ export const completeTodo = (id, date) => {
   return {
     type: COMPLETE_TODO,
     payload: {
-      id,
+      id: id,
       isTaskComplete: true,
       completeTime: getDays(date.getTime(), Date.now()),
     },
