@@ -26,24 +26,24 @@ const Todo = () => {
 
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
-  const toggleEmptyError = (toggleValue) => {
+  function toggleEmptyError(toggleValue) {
     dispatch(handleEmptyError(toggleValue));
-  };
+  }
 
-  const handleCreateClick = () => {
+  function handleCreateClick() {
     dispatch(handleCreateButton(isCreateButtonClicked));
-  };
+  }
 
-  const handleCancelClick = () => {
+  function handleCancelClick() {
     handleCreateClick();
     toggleEmptyError(false);
-  };
+  }
 
-  const handleEditClick = (taskId) => {
+  function handleEditClick(taskId) {
     dispatch(handleEditButton(taskId));
-  };
+  }
 
-  const handleAddTask = (inputTask) => {
+  function handleAddTask(inputTask) {
     const sanitizedTask = sanitizeInput(inputTask);
     if (sanitizedTask.trim() === "") {
       toggleEmptyError(true);
@@ -52,32 +52,32 @@ const Todo = () => {
     dispatch(addTodo(sanitizedTask));
     handleCreateClick();
     toggleEmptyError(false);
-  };
+  }
 
-  const handleDeleteTask = (taskId) => {
+  function handleDeleteTask(taskId) {
     dispatch(deleteTodo(taskId));
-  };
+  }
 
-  const handleCompleteTask = (taskId, startDate, inputTask) => {
+  function handleCompleteTask(taskId, startDate, inputTask) {
     const sanitizedTask = sanitizeInput(inputTask);
     if (sanitizedTask.trim() === "") {
       return;
     }
     dispatch(editTodo(taskId, sanitizedTask));
     dispatch(completeTodo(taskId, startDate));
-  };
+  }
 
-  const handleEditTask = (taskId, editedInput) => {
+  function handleEditTask(taskId, editedInput) {
     const sanitizedTask = sanitizeInput(editedInput);
     if (sanitizedTask.trim() === "") {
       return;
     }
     dispatch(editTodo(taskId, sanitizedTask));
-  };
+  }
 
-  const handleEditCancelTask = (taskId, inputTask) => {
+  function handleEditCancelTask(taskId, inputTask) {
     dispatch(editTodo(taskId, inputTask));
-  };
+  }
 
   return (
     <div className="todo">

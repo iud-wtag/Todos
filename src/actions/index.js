@@ -13,7 +13,7 @@ export const addTodo = (task) => {
   return {
     type: ADD_TODO,
     payload: {
-      id: new Date().getTime().toString(),
+      id: Date.now().toString(),
       task: task,
       date: new Date(),
       isTaskComplete: false,
@@ -44,10 +44,12 @@ export const deleteTodo = (id) => {
 export const completeTodo = (id, date) => {
   return {
     type: COMPLETE_TODO,
-    id,
-    isTaskComplete: true,
-    completeTime: getDays(date.getTime(), new Date().getTime()),
-    isEditButtonClicked: false,
+    payload: {
+      id: id,
+      isTaskComplete: true,
+      completeTime: getDays(date.getTime(), Date.now()),
+      isEditButtonClicked: false,
+    },
   };
 };
 
@@ -72,7 +74,7 @@ export const handleEmptyError = (isEmptyError) => {
   return {
     type: HANDLE_EMPTY,
     payload: {
-      isEmptyError: isEmptyError,
+      isEmptyError,
     },
   };
 };

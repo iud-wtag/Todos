@@ -11,15 +11,15 @@ const AddCard = ({
 }) => {
   const [inputTask, setInputTask] = useState("");
 
-  const handleInputChange = (e) => {
+  function handleInputChange(e) {
     setInputTask(e.target.value);
-    toggleEmptyError(false);
-  };
-  const handleKeyDown = (e) => {
+    isEmptyError && toggleEmptyError(false);
+  }
+  function handleKeyDown(e) {
     if (e.key === KEY_ENTER) {
       onAddTask(inputTask);
     }
-  };
+  }
 
   return (
     <div className="todo__card-add">
