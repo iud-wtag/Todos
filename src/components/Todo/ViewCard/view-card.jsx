@@ -8,10 +8,10 @@ const ViewCard = ({ todo, onDeleteTask, onCompleteTask, onEditClick }) => {
     <>
       <ViewDetails todo={todo} />
       <ViewActionBar
+        todo={todo}
+        onEditClick={onEditClick}
         onDeleteTask={onDeleteTask}
         onCompleteTask={onCompleteTask}
-        onEditClick={onEditClick}
-        todo={todo}
       />
     </>
   );
