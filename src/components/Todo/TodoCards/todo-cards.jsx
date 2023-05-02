@@ -8,7 +8,7 @@ const TodoCards = ({ todoList, onDeleteTask }) => {
     return (
       <div className="todo__card-view todo-card todo-view-card" key={todo.id}>
         <TodoCardTop todo={todo} />
-        <TodoActionBar onDeleteTask={onDeleteTask} todo={todo} />
+        <TodoActionBar todo={todo} onDeleteTask={onDeleteTask} />
       </div>
     );
   });
