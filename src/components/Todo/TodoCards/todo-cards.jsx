@@ -24,9 +24,9 @@ const TodoCards = ({
         ) : (
           <ViewCard
             todo={todo}
+            onEditClick={onEditClick}
             onDeleteTask={onDeleteTask}
             onCompleteTask={onCompleteTask}
-            onEditClick={onEditClick}
           />
         )}
       </div>
