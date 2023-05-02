@@ -13,7 +13,7 @@ const AddCard = ({
 
   const handleInputChange = (e) => {
     setInputTask(e.target.value);
-    toggleEmptyError(false);
+    isEmptyError && toggleEmptyError(false);
   };
   const handleKeyDown = (e) => {
     if (e.key === KEY_ENTER) {

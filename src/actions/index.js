@@ -41,11 +41,14 @@ export const deleteTodo = (id) => {
 export const completeTodo = (id, date) => {
   return {
     type: COMPLETE_TODO,
-    id,
-    isTaskComplete: true,
-    completeTime: getDays(date.getTime(), Date.now()),
+    payload: {
+      id,
+      isTaskComplete: true,
+      completeTime: getDays(date.getTime(), Date.now()),
+    },
   };
 };
+
 export const handleEmptyError = (isEmptyError) => {
   return {
     type: HANDLE_EMPTY,
