@@ -56,17 +56,21 @@ export const completeTodo = (id, date) => {
 export const editTodo = (id, editedTask) => {
   return {
     type: EDIT_TODO,
-    id,
-    task: editedTask,
-    isEditButtonClicked: false,
+    payload: {
+      id: id,
+      task: editedTask,
+      isEditButtonClicked: false,
+    },
   };
 };
 
 export const handleEditButton = (id) => {
   return {
     type: HANDLE_EDIT,
-    id,
-    isEditButtonClicked: true,
+    payload: {
+      id: id,
+      isEditButtonClicked: true,
+    },
   };
 };
 

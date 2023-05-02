@@ -64,30 +64,42 @@ const todoReducers = (state = initialData, action) => {
       };
     }
 
-    case HANDLE_EDIT:
-      const editButtonIndex = state.list.findIndex(
-        (task) => task.id === action.id
-      );
-      state.list[editButtonIndex].isEditButtonClicked =
-        action.isEditButtonClicked;
-      return {
-        ...state,
-        list: [...state.list],
+    case HANDLE_EDIT: {
+      const { id, isEditButtonClicked } = action.payload;
+      const editButtonIndex = state.list.findIndex((task) => task.id === id);
+
+      const editButtonClicked = {
+        ...state.list[editButtonIndex],
+        isEditButtonClicked,
       };
 
-    case EDIT_TODO:
-      const editTaskIndex = state.list.findIndex(
-        (task) => task.id === action.id
-      );
-      state.list[editTaskIndex] = {
-        ...state.list[editTaskIndex],
-        task: action.task,
-        isEditButtonClicked: action.isEditButtonClicked,
-      };
+      const updatedList = [...state.list];
+      updatedList[editButtonIndex] = editButtonClicked;
+
       return {
         ...state,
-        list: [...state.list],
+        list: updatedList,
       };
+    }
+
+    case EDIT_TODO: {
+      const { id, task, isEditButtonClicked } = action.payload;
+      const editTaskIndex = state.list.findIndex((task) => task.id === id);
+
+      const editedTask = {
+        ...state.list[editTaskIndex],
+        task,
+        isEditButtonClicked,
+      };
+
+      const editedList = [...state.list];
+      editedList[editTaskIndex] = editedTask;
+
+      return {
+        ...state,
+        list: editedList,
+      };
+    }
 
     default:
       return state;
