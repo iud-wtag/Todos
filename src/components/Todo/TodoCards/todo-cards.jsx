@@ -9,9 +9,9 @@ const TodoCards = ({ todoList, onDeleteTask, onCompleteTask }) => {
       <div className="todo__card-view todo-card todo-view-card" key={todo.id}>
         <TodoCardTop todo={todo} />
         <TodoActionBar
+          todo={todo}
           onDeleteTask={onDeleteTask}
           onCompleteTask={onCompleteTask}
-          todo={todo}
         />
       </div>
     );
