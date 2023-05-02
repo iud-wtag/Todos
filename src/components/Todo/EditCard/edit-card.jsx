@@ -3,26 +3,27 @@ import PropTypes from "prop-types";
 import EditActionBar from "components/Todo/EditCard/edit-action-bar.component";
 import { KEY_ENTER } from "common/constants";
 
-const EditCard = ({ todo, onEditTask, onCompleteTask, onEditCancelTask }) => {
+const EditCard = ({ todo, onEditTask, onCompleteTask, onCancelEditTask }) => {
   const { id, task } = todo;
   const textRef = useRef(null);
   const [editedTask, setEditedTask] = useState(task);
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     setEditedTask(e.target.value);
-  };
-  const handleKeyDown = (e) => {
+  }
+
+  function handleKeyDown(e) {
     if (e.key === KEY_ENTER) {
       onEditTask(id, editedTask);
     }
-  };
+  }
 
-  const setFocusAndSelection = () => {
+  function setFocusAndSelection() {
     textRef.current.focus();
     const { length } = textRef.current.value;
     textRef.current.selectionStart = length;
     textRef.current.selectionEnd = length;
-  };
+  }
 
   useEffect(() => {
     setFocusAndSelection();
@@ -45,7 +46,7 @@ const EditCard = ({ todo, onEditTask, onCompleteTask, onEditCancelTask }) => {
         editedTask={editedTask}
         onEditTask={onEditTask}
         onCompleteTask={onCompleteTask}
-        onEditCancelTask={onEditCancelTask}
+        onCancelEditTask={onCancelEditTask}
       />
     </>
   );
@@ -55,7 +56,7 @@ EditCard.propTypes = {
   todo: PropTypes.object.isRequired,
   onEditTask: PropTypes.func.isRequired,
   onCompleteTask: PropTypes.func.isRequired,
-  onEditCancelTask: PropTypes.func.isRequired,
+  onCancelEditTask: PropTypes.func.isRequired,
 };
 
 export default EditCard;

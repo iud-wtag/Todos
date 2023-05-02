@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import deleteButton from "assets/images/delete.png";
-import checkButton from "assets/images/check.png";
+import deleteIcon from "assets/images/delete.png";
+import checkIcon from "assets/images/check.png";
 import { ALT_COMPLETE_BUTTON, ALT_DELETE_BUTTON } from "common/constants";
 
 const EditActionBar = ({
@@ -9,29 +9,32 @@ const EditActionBar = ({
   editedTask,
   onEditTask,
   onCompleteTask,
-  onEditCancelTask,
+  onCancelEditTask,
 }) => {
   const { id, task, date } = todo;
 
+  function handleEditTask() {
+    onEditTask(id, editedTask);
+  }
+
+  function handleCompleteTask() {
+    onCompleteTask(id, date, editedTask);
+  }
+
+  function handleCancelEditTask(params) {
+    onCancelEditTask(id, task);
+  }
+
   return (
     <div className="todo__card-edit-btns">
-      <button
-        className="todo-save__btn btn__bg-white"
-        onClick={() => onEditTask(id, editedTask)}
-      >
+      <button className="todo-save__btn btn__bg-white" onClick={handleEditTask}>
         Save
       </button>
-      <button
-        className="todo-complete__btn"
-        onClick={() => onCompleteTask(id, date, editedTask)}
-      >
-        <img src={checkButton} alt={ALT_COMPLETE_BUTTON} />
+      <button className="todo-complete__btn" onClick={handleCompleteTask}>
+        <img src={checkIcon} alt={ALT_COMPLETE_BUTTON} />
       </button>
-      <button
-        className="todo-delete__btn"
-        onClick={() => onEditCancelTask(id, task)}
-      >
-        <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
+      <button className="todo-delete__btn" onClick={handleCancelEditTask}>
+        <img src={deleteIcon} alt={ALT_DELETE_BUTTON} />
       </button>
     </div>
   );
@@ -42,7 +45,7 @@ EditActionBar.propTypes = {
   editedTask: PropTypes.string.isRequired,
   onEditTask: PropTypes.func.isRequired,
   onCompleteTask: PropTypes.func.isRequired,
-  onEditCancelTask: PropTypes.func.isRequired,
+  onCancelEditTask: PropTypes.func.isRequired,
 };
 
 export default EditActionBar;

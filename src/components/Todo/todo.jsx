@@ -2,12 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
-  handleCreateButton,
   deleteTodo,
   completeTodo,
+  editTodo,
+  handleCreateButton,
   handleEditButton,
   handleEmptyError,
-  editTodo,
 } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
@@ -75,7 +75,7 @@ const Todo = () => {
     dispatch(editTodo(taskId, sanitizedTask));
   }
 
-  function handleEditCancelTask(taskId, inputTask) {
+  function handleCancelEditTask(taskId, inputTask) {
     dispatch(editTodo(taskId, inputTask));
   }
 
@@ -103,7 +103,7 @@ const Todo = () => {
               onCompleteTask={handleCompleteTask}
               onEditClick={handleEditClick}
               onEditTask={handleEditTask}
-              onEditCancelTask={handleEditCancelTask}
+              onCancelEditTask={handleCancelEditTask}
             />
           </div>
         </div>

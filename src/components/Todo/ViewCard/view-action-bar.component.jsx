@@ -20,6 +20,10 @@ const ViewActionBar = ({ todo, onDeleteTask, onCompleteTask, onEditClick }) => {
     onCompleteTask(id, date, task);
   }
 
+  function handleEditClick() {
+    onEditClick(id);
+  }
+
   return isTaskComplete ? (
     <div className="todo__card-view-btns complete-btns">
       <button onClick={handleDeleteTask}>
@@ -34,7 +38,7 @@ const ViewActionBar = ({ todo, onDeleteTask, onCompleteTask, onEditClick }) => {
       <button onClick={handleCompleteTask}>
         <img src={checkButton} alt={ALT_COMPLETE_BUTTON} />
       </button>
-      <button onClick={() => onEditClick(id)}>
+      <button onClick={handleEditClick}>
         <img src={editButton} alt={ALT_EDIT_BUTTON} />
       </button>
       <button onClick={handleDeleteTask}>
