@@ -23,29 +23,29 @@ const Todo = () => {
 
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
-  const toggleEmptyError = (toggleValue) => {
+  function toggleEmptyError(toggleValue) {
     dispatch(handleEmptyError(toggleValue));
-  };
+  }
 
-  const handleCreateClick = () => {
+  function handleCreateClick() {
     dispatch(handleCreateButton(isCreateButtonClicked));
-  };
+  }
 
-  const handleCancelClick = () => {
+  function handleCancelClick() {
     handleCreateClick();
     toggleEmptyError(false);
-  };
+  }
 
-  const handleAddTask = (inputTask) => {
-    const sanitizedTask = sanitizeInput(inputTask);
-    if (sanitizedTask.trim() === "") {
+  function handleAddTask(inputTask) {
+    const sanitizedData = sanitizeInput(inputTask);
+    if (sanitizedData.trim() === "") {
       toggleEmptyError(true);
       return;
     }
     dispatch(addTodo(sanitizedTask));
     handleCreateClick();
     toggleEmptyError(false);
-  };
+  }
 
   const handleDeleteTask = (taskId) => {
     dispatch(deleteTodo(taskId));
