@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import deleteIcon from "assets/images/delete.png";
 import checkIcon from "assets/images/check.png";
-import { ALT_COMPLETE_BUTTON, ALT_DELETE_BUTTON } from "common/constants";
+import { ALT_TEXT_COMPLETE_TODO, ALT_TEXT_DELETE_TODO } from "common/constants";
 
 const EditActionBar = ({
   todo,
@@ -31,10 +31,10 @@ const EditActionBar = ({
         Save
       </button>
       <button className="todo-complete__btn" onClick={handleCompleteTask}>
-        <img src={checkIcon} alt={ALT_COMPLETE_BUTTON} />
+        <img src={checkIcon} alt={ALT_TEXT_COMPLETE_TODO} />
       </button>
       <button className="todo-delete__btn" onClick={handleCancelEditTask}>
-        <img src={deleteIcon} alt={ALT_DELETE_BUTTON} />
+        <img src={deleteIcon} alt={ALT_TEXT_DELETE_TODO} />
       </button>
     </div>
   );
