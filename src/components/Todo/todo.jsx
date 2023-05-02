@@ -37,8 +37,8 @@ const Todo = () => {
   }
 
   function handleAddTask(inputTask) {
-    const sanitizedData = sanitizeInput(inputTask);
-    if (sanitizedData.trim() === "") {
+    const sanitizedTask = sanitizeInput(inputTask);
+    if (sanitizedTask.trim() === "") {
       toggleEmptyError(true);
       return;
     }
@@ -47,9 +47,9 @@ const Todo = () => {
     toggleEmptyError(false);
   }
 
-  const handleDeleteTask = (taskId) => {
+  function handleDeleteTask(taskId) {
     dispatch(deleteTodo(taskId));
-  };
+  }
 
   return (
     <div className="todo">

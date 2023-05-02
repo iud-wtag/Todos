@@ -12,6 +12,10 @@ import {
 const TodoActionBar = ({ onDeleteTask, todo }) => {
   const { id } = todo;
 
+  function handleDeleteTask() {
+    onDeleteTask(id);
+  }
+
   return (
     <div className="todo__card-view-btns">
       <button>
@@ -20,7 +24,7 @@ const TodoActionBar = ({ onDeleteTask, todo }) => {
       <button>
         <img src={editButton} alt={ALT_EDIT_BUTTON} />
       </button>
-      <button onClick={() => onDeleteTask(id)}>
+      <button onClick={handleDeleteTask}>
         <img src={deleteButton} alt={ALT_DELETE_BUTTON} />
       </button>
     </div>
