@@ -73,7 +73,7 @@ const todoReducers = (state = initialData, action) => {
         isEditButtonClicked,
       };
 
-      const updatedList = [...state.list];
+      const updatedList = state.list.map((todo) => ({ ...todo }));
       updatedList[editButtonIndex] = editButtonClicked;
 
       return {
@@ -92,7 +92,7 @@ const todoReducers = (state = initialData, action) => {
         isEditButtonClicked,
       };
 
-      const editedList = [...state.list];
+      const editedList = state.list.map((todo) => ({ ...todo }));
       editedList[editTaskIndex] = editedTask;
 
       return {
