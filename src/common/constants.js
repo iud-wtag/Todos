@@ -22,7 +22,8 @@ export const ALT_TEXT_DELETE_TODO = "Delete Button";
 export const ALT_TEXT_TASK_LOGO = "Task Logo";
 export const ALT_TEXT_LOGO = "Logo";
 
-export const KEY_ENTER = "Enter";
-export const TASK_PER_PAGE = 9;
 export const LABEL_LOAD_MORE = "Load More";
 export const LABEL_SHOW_LESS = "Show Less";
+
+export const KEY_ENTER = "Enter";
+export const TASK_PER_PAGE = 9;

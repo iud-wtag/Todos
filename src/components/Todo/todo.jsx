@@ -35,7 +35,7 @@ const Todo = () => {
   const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
 
   const currentPage = useSelector(
-    (state) => state.handleCurrentPage.currentPage
+    (state) => state.currentPageReducer.currentPage
   );
 
   const { length } = todoList;

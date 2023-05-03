@@ -87,6 +87,8 @@ export const handleEmptyError = (isEmptyError) => {
 export const handleCurrentPage = (currentPage) => {
   return {
     type: HANDLE_CURRENT_PAGE,
-    currentPage,
+    payload: {
+      currentPage,
+    },
   };
 };
