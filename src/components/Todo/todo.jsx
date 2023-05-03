@@ -29,10 +29,9 @@ const Todo = () => {
   const todoList = useSelector((state) => state.todoReducers.list);
 
   const isCreateButtonClicked = useSelector(
-    (state) => state.handleButtonClick.isCreateButtonClicked
+    (state) => state.buttonClickReducers.isCreateButtonClicked
   );
-
-  const isEmptyError = useSelector((state) => state.handleErrors.isEmptyError);
+  const isEmptyError = useSelector((state) => state.errorReducers.isEmptyError);
 
   const currentPage = useSelector(
     (state) => state.currentPageReducer.currentPage
