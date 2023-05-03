@@ -12,14 +12,8 @@ const initialData = {
 const todoReducers = (state = initialData, action) => {
   switch (action.type) {
     case ADD_TODO: {
-      const {
-        id,
-        task,
-        date,
-        isTaskComplete,
-        completeTime,
-        isEditButtonClicked,
-      } = action.payload;
+      const { id, task, date, isTaskComplete, completeTime, onEdit } =
+        action.payload;
       return {
         ...state,
         list: [
@@ -29,7 +23,7 @@ const todoReducers = (state = initialData, action) => {
             date,
             isTaskComplete,
             completeTime,
-            isEditButtonClicked,
+            onEdit,
           },
           ...state.list,
         ],
@@ -65,12 +59,12 @@ const todoReducers = (state = initialData, action) => {
     }
 
     case HANDLE_EDIT: {
-      const { id, isEditButtonClicked } = action.payload;
+      const { id, onEdit } = action.payload;
       const editButtonIndex = state.list.findIndex((task) => task.id === id);
 
       const editButtonClicked = {
         ...state.list[editButtonIndex],
-        isEditButtonClicked,
+        onEdit,
       };
 
       const updatedList = state.list.map((todo) => ({ ...todo }));
@@ -83,13 +77,13 @@ const todoReducers = (state = initialData, action) => {
     }
 
     case EDIT_TODO: {
-      const { id, task, isEditButtonClicked } = action.payload;
+      const { id, task, onEdit } = action.payload;
       const editTaskIndex = state.list.findIndex((task) => task.id === id);
 
       const editedTask = {
         ...state.list[editTaskIndex],
         task,
-        isEditButtonClicked,
+        onEdit,
       };
 
       const editedList = state.list.map((todo) => ({ ...todo }));

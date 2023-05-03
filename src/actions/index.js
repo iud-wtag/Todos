@@ -18,7 +18,7 @@ export const addTodo = (task) => {
       date: new Date(),
       isTaskComplete: false,
       completeTime: null,
-      isEditButtonClicked: false,
+      onEdit: false,
     },
   };
 };
@@ -48,7 +48,7 @@ export const completeTodo = (id, date) => {
       id: id,
       isTaskComplete: true,
       completeTime: getDays(date.getTime(), Date.now()),
-      isEditButtonClicked: false,
+      onEdit: false,
     },
   };
 };
@@ -59,7 +59,7 @@ export const editTodo = (id, editedTask) => {
     payload: {
       id: id,
       task: editedTask,
-      isEditButtonClicked: false,
+      onEdit: false,
     },
   };
 };
@@ -69,7 +69,7 @@ export const handleEditButton = (id) => {
     type: HANDLE_EDIT,
     payload: {
       id: id,
-      isEditButtonClicked: true,
+      onEdit: true,
     },
   };
 };

@@ -14,7 +14,7 @@ const TodoCards = ({
   return todoList.map((todo) => {
     return (
       <div className="todo__card-view" key={todo.id}>
-        {todo.isEditButtonClicked ? (
+        {todo.onEdit ? (
           <EditCard
             todo={todo}
             onEditTask={onEditTask}
