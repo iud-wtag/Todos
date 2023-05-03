@@ -9,15 +9,24 @@ import {
   ALT_TEXT_DELETE_TODO,
 } from "common/constants";
 
-const TaskIncomplete = ({ todo, onDeleteTask, onCompleteTask }) => {
-  const { id, date } = todo;
+const TaskIncomplete = ({
+  todo,
+  onEditClick,
+  onDeleteTask,
+  onCompleteTask,
+}) => {
+  const { id, date, task } = todo;
 
   function handleDeleteTask() {
     onDeleteTask(id);
   }
 
+  function handleEditClick() {
+    onEditClick(id);
+  }
+
   function handleCompleteTask() {
-    onCompleteTask(id, date);
+    onCompleteTask(id, date, task);
   }
 
   return (
@@ -25,7 +34,7 @@ const TaskIncomplete = ({ todo, onDeleteTask, onCompleteTask }) => {
       <button onClick={handleCompleteTask}>
         <img src={ICON_CHECK} alt={ALT_TEXT_COMPLETE_TODO} />
       </button>
-      <button>
+      <button onClick={handleEditClick}>
         <img src={ICON_EDIT} alt={ALT_TEXT_EDIT_TODO} />
       </button>
       <button onClick={handleDeleteTask}>
@@ -37,6 +46,7 @@ const TaskIncomplete = ({ todo, onDeleteTask, onCompleteTask }) => {
 
 TaskIncomplete.propTypes = {
   todo: PropTypes.object.isRequired,
+  onEditClick: PropTypes.func.isRequired,
   onDeleteTask: PropTypes.func.isRequired,
   onCompleteTask: PropTypes.func.isRequired,
 };
