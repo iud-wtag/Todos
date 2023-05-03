@@ -1,11 +1,10 @@
 import React from "react";
-import searchIcon from "assets/images/search.png";
-import { SEARCH_ICON } from "common/constants";
+import { ICON_SEARCH, ALT_TEXT_SEARCH_ICON } from "common/constants";
 
 const SearchBar = () => {
   return (
     <div className="navbar__right">
-      <img src={searchIcon} alt={SEARCH_ICON} />
+      <img src={ICON_SEARCH} alt={ALT_TEXT_SEARCH_ICON} />
     </div>
   );
 };
