@@ -38,11 +38,11 @@ const Todo = () => {
     (state) => state.handleCurrentPage.currentPage
   );
 
+  const { length } = todoList;
   const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;
   const currentTodoList = todoList.slice(0, currentTask);
-  const showLoadMoreButton = todoList.length > currentTask;
-  const showSeeLessButton =
-    todoList.length + isCreateButtonClicked > TASK_PER_PAGE;
+  const showLoadMoreButton = length > currentTask;
+  const showSeeLessButton = length + isCreateButtonClicked > TASK_PER_PAGE;
   const showPagination = showLoadMoreButton || showSeeLessButton;
 
   function toggleEmptyError(toggleValue) {
