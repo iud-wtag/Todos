@@ -17,7 +17,11 @@ import TodoCards from "components/Todo/TodoCards/todo-cards";
 import EmptyViews from "components/Todo/EmptyViews/empty-views";
 import Pagination from "components/Todo/Pagination/pagination";
 import { sanitizeInput } from "helpers/sanitizeInput";
-import { TASK_PER_PAGE, LOAD_MORE, SHOW_LESS } from "common/constants";
+import {
+  TASK_PER_PAGE,
+  LABEL_LOAD_MORE,
+  LABEL_SHOW_LESS,
+} from "common/constants";
 
 const Todo = () => {
   const dispatch = useDispatch();
@@ -94,13 +98,13 @@ const Todo = () => {
     dispatch(editTodo(taskId, inputTask));
   }
 
-  const handlePaginationClick = (buttonText) => {
-    if (buttonText === LOAD_MORE) {
+  function handlePaginationClick(buttonText) {
+    if (buttonText === LABEL_LOAD_MORE) {
       dispatch(handleCurrentPage(currentPage + 1));
     } else {
       dispatch(handleCurrentPage(1));
     }
-  };
+  }
 
   return (
     <div className="todo">
@@ -136,8 +140,10 @@ const Todo = () => {
           {showPagination && (
             <div className="todo__pagination">
               <Pagination
-                buttonText={showLoadMoreButton ? LOAD_MORE : SHOW_LESS}
-                handlePaginationClick={handlePaginationClick}
+                buttonText={
+                  showLoadMoreButton ? LABEL_LOAD_MORE : LABEL_SHOW_LESS
+                }
+                onPaginationClick={handlePaginationClick}
               />
             </div>
           )}

@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Pagination = ({ buttonText, handlePaginationClick }) => {
+const Pagination = ({ buttonText, onPaginationClick }) => {
+  function handleClick() {
+    onPaginationClick(buttonText);
+  }
+
   return (
-    <button
-      className="todo__pagination-btn"
-      onClick={() => handlePaginationClick(buttonText)}
-    >
+    <button className="todo__pagination-btn" onClick={handleClick}>
       {buttonText}
     </button>
   );
@@ -14,7 +15,7 @@ const Pagination = ({ buttonText, handlePaginationClick }) => {
 
 Pagination.propTypes = {
   buttonText: PropTypes.string.isRequired,
-  handlePaginationClick: PropTypes.func.isRequired,
+  onPaginationClick: PropTypes.func.isRequired,
 };
 
 export default Pagination;
