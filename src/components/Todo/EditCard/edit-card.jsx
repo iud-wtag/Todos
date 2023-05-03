@@ -8,12 +8,12 @@ const EditCard = ({ todo, onEditTask, onCompleteTask, onCancelEditTask }) => {
   const textRef = useRef(null);
   const [editedTask, setEditedTask] = useState(task);
 
-  function handleChange(e) {
-    setEditedTask(e.target.value);
+  function handleChange(event) {
+    setEditedTask(event.target.value);
   }
 
-  function handleKeyDown(e) {
-    if (e.key === KEY_ENTER) {
+  function handleKeyDown(event) {
+    if (event.key === KEY_ENTER) {
       onEditTask(id, editedTask);
     }
   }
