@@ -2,12 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
-  handleCreateButton,
   deleteTodo,
   completeTodo,
+  editTodo,
+  handleCreateButton,
   handleEditButton,
   handleEmptyError,
-  editTodo,
   handleCurrentPage,
 } from "actions";
 import Navbar from "components/Todo/Navbar/navbar";
@@ -41,24 +41,24 @@ const Todo = () => {
     todoList.length + isCreateButtonClicked > TASK_PER_PAGE;
   const showPagination = showLoadMoreButton || showSeeLessButton;
 
-  const toggleEmptyError = (toggleValue) => {
+  function toggleEmptyError(toggleValue) {
     dispatch(handleEmptyError(toggleValue));
-  };
+  }
 
-  const handleCreateClick = () => {
+  function handleCreateClick() {
     dispatch(handleCreateButton(isCreateButtonClicked));
-  };
+  }
 
-  const handleCancelClick = () => {
+  function handleCancelClick() {
     handleCreateClick();
     toggleEmptyError(false);
-  };
+  }
 
-  const handleEditClick = (taskId) => {
+  function handleEditClick(taskId) {
     dispatch(handleEditButton(taskId));
-  };
+  }
 
-  const handleAddTask = (inputTask) => {
+  function handleAddTask(inputTask) {
     const sanitizedTask = sanitizeInput(inputTask);
     if (sanitizedTask.trim() === "") {
       toggleEmptyError(true);
@@ -67,32 +67,32 @@ const Todo = () => {
     dispatch(addTodo(sanitizedTask));
     handleCreateClick();
     toggleEmptyError(false);
-  };
+  }
 
-  const handleDeleteTask = (taskId) => {
+  function handleDeleteTask(taskId) {
     dispatch(deleteTodo(taskId));
-  };
+  }
 
-  const handleCompleteTask = (taskId, startDate, inputTask) => {
+  function handleCompleteTask(taskId, startDate, inputTask) {
     const sanitizedTask = sanitizeInput(inputTask);
     if (sanitizedTask.trim() === "") {
       return;
     }
     dispatch(editTodo(taskId, sanitizedTask));
     dispatch(completeTodo(taskId, startDate));
-  };
+  }
 
-  const handleEditTask = (taskId, editedInput) => {
+  function handleEditTask(taskId, editedInput) {
     const sanitizedTask = sanitizeInput(editedInput);
     if (sanitizedTask.trim() === "") {
       return;
     }
     dispatch(editTodo(taskId, sanitizedTask));
-  };
+  }
 
-  const handleEditCancelTask = (taskId, inputTask) => {
+  function handleCancelEditTask(taskId, inputTask) {
     dispatch(editTodo(taskId, inputTask));
-  };
+  }
 
   const handlePaginationClick = (buttonText) => {
     if (buttonText === LOAD_MORE) {
@@ -108,26 +108,26 @@ const Todo = () => {
       <div className="todo__container">
         <div className="todo__wrapper">
           <TopBar
-            handleCreateClick={handleCreateClick}
+            onCreateClick={handleCreateClick}
             isCreateButtonClicked={isCreateButtonClicked}
           />
           <div className="todo__card__wrapper">
             {isCreateButtonClicked && (
               <AddCard
-                handleAddTask={handleAddTask}
-                handleCancelClick={handleCancelClick}
                 isEmptyError={isEmptyError}
+                onAddTask={handleAddTask}
+                onCancelClick={handleCancelClick}
                 toggleEmptyError={toggleEmptyError}
               />
             )}
             {todoList.length ? (
               <TodoCards
                 todoList={currentTodoList}
-                handleDeleteTask={handleDeleteTask}
-                handleCompleteTask={handleCompleteTask}
-                handleEditClick={handleEditClick}
-                handleEditTask={handleEditTask}
-                handleEditCancelTask={handleEditCancelTask}
+                onDeleteTask={handleDeleteTask}
+                onCompleteTask={handleCompleteTask}
+                onEditClick={handleEditClick}
+                onEditTask={handleEditTask}
+                onCancelEditTask={handleCancelEditTask}
               />
             ) : (
               !isCreateButtonClicked && <EmptyViews />

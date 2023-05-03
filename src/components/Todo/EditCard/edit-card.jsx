@@ -3,40 +3,37 @@ import PropTypes from "prop-types";
 import EditActionBar from "components/Todo/EditCard/edit-action-bar.component";
 import { KEY_ENTER } from "common/constants";
 
-const EditCard = ({
-  todo,
-  handleEditTask,
-  handleCompleteTask,
-  handleEditCancelTask,
-}) => {
+const EditCard = ({ todo, onEditTask, onCompleteTask, onCancelEditTask }) => {
   const { id, task } = todo;
   const textRef = useRef(null);
-  const [editedTask, setEditData] = useState(task);
+  const [editedTask, setEditedTask] = useState(task);
 
-  const handleChange = (e) => {
-    setEditData(e.target.value);
-  };
-  const handleKeyDown = (e) => {
-    if (e.key === KEY_ENTER) {
-      handleEditTask(id, editedTask);
+  function handleChange(event) {
+    setEditedTask(event.target.value);
+  }
+
+  function handleKeyDown(event) {
+    if (event.key === KEY_ENTER) {
+      onEditTask(id, editedTask);
     }
-  };
+  }
 
-  const setFocusAndSelection = () => {
+  function setFocusAndSelection() {
     textRef.current.focus();
-    textRef.current.selectionStart = textRef.current.value.length;
-    textRef.current.selectionEnd = textRef.current.value.length;
-  };
+    const { length } = textRef.current.value;
+    textRef.current.selectionStart = length;
+    textRef.current.selectionEnd = length;
+  }
 
   useEffect(() => {
     setFocusAndSelection();
-  }, [task]);
+  }, []);
 
   return (
     <>
       <textarea
         name="todo_input"
-        id="todo_input"
+        id="todo-input"
         className="todo__card-input"
         value={editedTask}
         ref={textRef}
@@ -47,9 +44,9 @@ const EditCard = ({
       <EditActionBar
         todo={todo}
         editedTask={editedTask}
-        handleEditTask={handleEditTask}
-        handleCompleteTask={handleCompleteTask}
-        handleEditCancelTask={handleEditCancelTask}
+        onEditTask={onEditTask}
+        onCompleteTask={onCompleteTask}
+        onCancelEditTask={onCancelEditTask}
       />
     </>
   );
@@ -57,9 +54,9 @@ const EditCard = ({
 
 EditCard.propTypes = {
   todo: PropTypes.object.isRequired,
-  handleEditTask: PropTypes.func.isRequired,
-  handleCompleteTask: PropTypes.func.isRequired,
-  handleEditCancelTask: PropTypes.func.isRequired,
+  onEditTask: PropTypes.func.isRequired,
+  onCompleteTask: PropTypes.func.isRequired,
+  onCancelEditTask: PropTypes.func.isRequired,
 };
 
 export default EditCard;

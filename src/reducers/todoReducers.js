@@ -11,75 +11,89 @@ const initialData = {
 
 const todoReducers = (state = initialData, action) => {
   switch (action.type) {
-    case ADD_TODO:
-      const {
-        id,
-        task,
-        date,
-        isTaskComplete,
-        completeTime,
-        isEditButtonClicked,
-      } = action.payload;
+    case ADD_TODO: {
+      const { id, task, date, isTaskComplete, completeTime, onEdit } =
+        action.payload;
       return {
         ...state,
         list: [
           {
-            id: id,
-            task: task,
-            date: date,
-            isTaskComplete: isTaskComplete,
-            completeTime: completeTime,
-            isEditButtonClicked: isEditButtonClicked,
+            id,
+            task,
+            date,
+            isTaskComplete,
+            completeTime,
+            onEdit,
           },
           ...state.list,
         ],
       };
+    }
 
-    case DELETE_TODO:
-      const newList = state.list.filter((task) => task.id !== action.id);
+    case DELETE_TODO: {
+      const newList = state.list.filter(
+        (task) => task.id !== action.payload.id
+      );
       return {
         ...state,
         list: newList,
       };
+    }
 
-    case COMPLETE_TODO:
-      const completedTaskIndex = state.list.findIndex(
-        (task) => task.id === action.id
-      );
-      state.list[completedTaskIndex] = {
+    case COMPLETE_TODO: {
+      const { id, completeTime, isTaskComplete } = action.payload;
+      const completedTaskIndex = state.list.findIndex((task) => task.id === id);
+
+      const completedTask = {
         ...state.list[completedTaskIndex],
-        completeTime: action.completeTime,
-        isTaskComplete: action.isTaskComplete,
+        completeTime,
+        isTaskComplete,
       };
+      const completedList = state.list.map((todo) => ({ ...todo }));
+      completedList[completedTaskIndex] = completedTask;
+
       return {
         ...state,
-        list: [...state.list],
+        list: completedList,
+      };
+    }
+
+    case HANDLE_EDIT: {
+      const { id, onEdit } = action.payload;
+      const editButtonIndex = state.list.findIndex((task) => task.id === id);
+
+      const editButtonClicked = {
+        ...state.list[editButtonIndex],
+        onEdit,
       };
 
-    case HANDLE_EDIT:
-      const editButtonIndex = state.list.findIndex(
-        (task) => task.id === action.id
-      );
-      state.list[editButtonIndex].isEditButtonClicked =
-        action.isEditButtonClicked;
+      const updatedList = state.list.map((todo) => ({ ...todo }));
+      updatedList[editButtonIndex] = editButtonClicked;
+
       return {
         ...state,
-        list: [...state.list],
+        list: updatedList,
       };
+    }
 
-    case EDIT_TODO:
-      const editTaskIndex = state.list.findIndex(
-        (task) => task.id === action.id
-      );
-      state.list[editTaskIndex] = {
+    case EDIT_TODO: {
+      const { id, task, onEdit } = action.payload;
+      const editTaskIndex = state.list.findIndex((task) => task.id === id);
+
+      const editedTask = {
         ...state.list[editTaskIndex],
-        task: action.task,
-        isEditButtonClicked: action.isEditButtonClicked,
+        task,
+        onEdit,
       };
+
+      const editedList = state.list.map((todo) => ({ ...todo }));
+      editedList[editTaskIndex] = editedTask;
+
       return {
         ...state,
-        list: [...state.list],
+        list: editedList,
       };
+    }
 
     default:
       return state;

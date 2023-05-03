@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import FilterTodo from "components/Todo/Topbar/filter-todo.component";
 import CreateTodo from "components/Todo/Topbar/create-todo.component";
 
-const TopBar = ({ handleCreateClick, isCreateButtonClicked }) => {
+const TopBar = ({ onCreateClick, isCreateButtonClicked }) => {
   return (
     <div className="todo__top">
       <h1 className="todo__top-title">Add Task</h1>
       <div className="todo__top__btn-wrapper">
         <CreateTodo
-          handleCreateClick={handleCreateClick}
+          onCreateClick={onCreateClick}
           isCreateButtonClicked={isCreateButtonClicked}
         />
         <FilterTodo />
@@ -19,7 +19,7 @@ const TopBar = ({ handleCreateClick, isCreateButtonClicked }) => {
 };
 
 TopBar.propTypes = {
-  handleCreateClick: PropTypes.func.isRequired,
+  onCreateClick: PropTypes.func.isRequired,
   isCreateButtonClicked: PropTypes.bool.isRequired,
 };
 
