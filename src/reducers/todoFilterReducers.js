@@ -1,8 +1,8 @@
 import { HANDLE_FILTER } from "actions/actionTypes";
-import { FILTER_STATE_ALL } from "common/constants";
+import { FILTER_LABEL_ALL } from "common/constants";
 
 const initialFilter = {
-  filterType: FILTER_STATE_ALL,
+  filterType: FILTER_LABEL_ALL,
 };
 
 const todoFilter = (state = initialFilter, action) => {

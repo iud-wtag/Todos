@@ -22,9 +22,9 @@ import {
   TASK_PER_PAGE,
   LABEL_LOAD_MORE,
   LABEL_SHOW_LESS,
-  FILTER_STATE_ALL,
-  FILTER_STATE_COMPLETE,
-  FILTER_STATE_INCOMPLETE,
+  FILTER_LABEL_ALL,
+  FILTER_LABEL_COMPLETE,
+  FILTER_LABEL_INCOMPLETE,
 } from "common/constants";
 
 const Todo = () => {
@@ -131,20 +131,20 @@ const Todo = () => {
       .querySelectorAll(".todo__top__btn-filter__inner")
       .forEach((btn) => {
         if (
-          filterType === FILTER_STATE_ALL &&
-          btn.innerHTML === FILTER_STATE_ALL
+          filterType === FILTER_LABEL_ALL &&
+          btn.innerHTML === FILTER_LABEL_ALL
         ) {
           activeToggle(btn);
           filteredTodos = todoList;
         } else if (
-          filterType === FILTER_STATE_INCOMPLETE &&
-          btn.innerHTML === FILTER_STATE_INCOMPLETE
+          filterType === FILTER_LABEL_INCOMPLETE &&
+          btn.innerHTML === FILTER_LABEL_INCOMPLETE
         ) {
           activeToggle(btn);
           filteredTodos = todoList.filter((todo) => !todo.isTaskComplete);
         } else if (
-          filterType === FILTER_STATE_COMPLETE &&
-          btn.innerHTML === FILTER_STATE_COMPLETE
+          filterType === FILTER_LABEL_COMPLETE &&
+          btn.innerHTML === FILTER_LABEL_COMPLETE
         ) {
           activeToggle(btn);
           filteredTodos = todoList.filter((todo) => todo.isTaskComplete);
