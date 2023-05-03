@@ -138,14 +138,12 @@ const Todo = () => {
             )}
           </div>
           {showPagination && (
-            <div className="todo__pagination">
-              <Pagination
-                buttonText={
-                  showLoadMoreButton ? LABEL_LOAD_MORE : LABEL_SHOW_LESS
-                }
-                onPaginationClick={handlePaginationClick}
-              />
-            </div>
+            <Pagination
+              buttonText={
+                showLoadMoreButton ? LABEL_LOAD_MORE : LABEL_SHOW_LESS
+              }
+              onPaginationClick={handlePaginationClick}
+            />
           )}
         </div>
       </div>

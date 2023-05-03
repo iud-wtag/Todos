@@ -7,9 +7,11 @@ const Pagination = ({ buttonText, onPaginationClick }) => {
   }
 
   return (
-    <button className="todo__pagination-btn" onClick={handleClick}>
-      {buttonText}
-    </button>
+    <div className="todo__pagination">
+      <button className="todo__pagination-btn" onClick={handleClick}>
+        {buttonText}
+      </button>
+    </div>
   );
 };
 
