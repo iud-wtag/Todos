@@ -4,7 +4,7 @@ const initialButton = {
   isCreateButtonClicked: false,
 };
 
-const handleButtonClick = (state = initialButton, action) => {
+const buttonClickReducers = (state = initialButton, action) => {
   switch (action.type) {
     case HANDLE_CREATE:
       const { isCreateButtonClicked } = action.payload;
@@ -17,4 +17,4 @@ const handleButtonClick = (state = initialButton, action) => {
       return state;
   }
 };
-export default handleButtonClick;
+export default buttonClickReducers;
