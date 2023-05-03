@@ -23,7 +23,7 @@ import {
   LABEL_LOAD_MORE,
   LABEL_SHOW_LESS,
   FILTER_STATE_ALL,
-  FILTET_STATE_COMPLETE,
+  FILTER_STATE_COMPLETE,
   FILTER_STATE_INCOMPLETE,
 } from "common/constants";
 
@@ -49,7 +49,7 @@ const Todo = () => {
 
   const { length } = displayTodoList;
   const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;
-  const currentTodoList = todoList.slice(0, currentTask);
+  const currentTodoList = displayTodoList.slice(0, currentTask);
   const showLoadMoreButton = length > currentTask;
   const showSeeLessButton = length + isCreateButtonClicked > TASK_PER_PAGE;
   const showPagination = showLoadMoreButton || showSeeLessButton;
@@ -115,28 +115,37 @@ const Todo = () => {
     }
   }
 
-  const handleFilterClick = (filterState) => {
+  function handleFilterClick(filterState) {
     dispatch(filterTodo(filterState));
     dispatch(handleCurrentPage(1));
-  };
+  }
 
-  const activeToggle = (btn) => {
+  function activeToggle(btn) {
     document.querySelector(".active")?.classList.remove("active");
     btn.classList.add("active");
-  };
+  }
 
   useEffect(() => {
     let filteredTodos;
     document
       .querySelectorAll(".todo__top__btn-filter__inner")
       .forEach((btn) => {
-        if (filterState === ALL && btn.innerHTML === ALL) {
+        if (
+          filterState === FILTER_STATE_ALL &&
+          btn.innerHTML === FILTER_STATE_ALL
+        ) {
           activeToggle(btn);
           filteredTodos = todoList;
-        } else if (filterState === INCOMPLETE && btn.innerHTML === INCOMPLETE) {
+        } else if (
+          filterState === FILTER_STATE_INCOMPLETE &&
+          btn.innerHTML === FILTER_STATE_INCOMPLETE
+        ) {
           activeToggle(btn);
           filteredTodos = todoList.filter((todo) => !todo.isTaskComplete);
-        } else if (filterState === COMPLETE && btn.innerHTML === COMPLETE) {
+        } else if (
+          filterState === FILTER_STATE_COMPLETE &&
+          btn.innerHTML === FILTER_STATE_COMPLETE
+        ) {
           activeToggle(btn);
           filteredTodos = todoList.filter((todo) => todo.isTaskComplete);
         }

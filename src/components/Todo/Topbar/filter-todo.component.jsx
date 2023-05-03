@@ -1,25 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ALL, INCOMPLETE, COMPLETE } from "common/constants";
+import {
+  FILTER_STATE_ALL,
+  FILTER_STATE_COMPLETE,
+  FILTER_STATE_INCOMPLETE,
+} from "common/constants";
 
-const FilterTodo = ({ handleFilterClick }) => {
+const FilterTodo = ({ onFilterClick }) => {
   return (
     <div className="todo__top__btn-filter">
       <button
         className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={() => handleFilterClick(ALL)}
+        onClick={() => onFilterClick(FILTER_STATE_ALL)}
       >
         All
       </button>
       <button
         className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={() => handleFilterClick(INCOMPLETE)}
+        onClick={() => onFilterClick(FILTER_STATE_INCOMPLETE)}
       >
         Incomplete
       </button>
       <button
         className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={() => handleFilterClick(COMPLETE)}
+        onClick={() => onFilterClick(FILTER_STATE_COMPLETE)}
       >
         Complete
       </button>
@@ -28,7 +32,7 @@ const FilterTodo = ({ handleFilterClick }) => {
 };
 
 FilterTodo.propTypes = {
-  handleFilterClick: PropTypes.func.isRequired,
+  onFilterClick: PropTypes.func.isRequired,
 };
 
 export default FilterTodo;
