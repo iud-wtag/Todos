@@ -15,12 +15,12 @@ export const addTodo = (task) => {
   return {
     type: ADD_TODO,
     payload: {
-      id: new Date().getTime().toString(),
+      id: Date.now().toString(),
       task: task,
       date: new Date(),
       isTaskComplete: false,
       completeTime: null,
-      isEditButtonClicked: false,
+      onEdit: false,
     },
   };
 };
@@ -37,34 +37,42 @@ export const handleCreateButton = (isCreateButtonClicked) => {
 export const deleteTodo = (id) => {
   return {
     type: DELETE_TODO,
-    id,
+    payload: {
+      id,
+    },
   };
 };
 
 export const completeTodo = (id, date) => {
   return {
     type: COMPLETE_TODO,
-    id,
-    isTaskComplete: true,
-    completeTime: getDays(date.getTime(), new Date().getTime()),
-    isEditButtonClicked: false,
+    payload: {
+      id: id,
+      isTaskComplete: true,
+      completeTime: getDays(date.getTime(), Date.now()),
+      onEdit: false,
+    },
   };
 };
 
 export const editTodo = (id, editedTask) => {
   return {
     type: EDIT_TODO,
-    id,
-    task: editedTask,
-    isEditButtonClicked: false,
+    payload: {
+      id: id,
+      task: editedTask,
+      onEdit: false,
+    },
   };
 };
 
 export const handleEditButton = (id) => {
   return {
     type: HANDLE_EDIT,
-    id,
-    isEditButtonClicked: true,
+    payload: {
+      id: id,
+      onEdit: true,
+    },
   };
 };
 
@@ -72,7 +80,7 @@ export const handleEmptyError = (isEmptyError) => {
   return {
     type: HANDLE_EMPTY,
     payload: {
-      isEmptyError: isEmptyError,
+      isEmptyError,
     },
   };
 };
@@ -80,7 +88,9 @@ export const handleEmptyError = (isEmptyError) => {
 export const handleCurrentPage = (currentPage) => {
   return {
     type: HANDLE_CURRENT_PAGE,
-    currentPage,
+    payload: {
+      currentPage,
+    },
   };
 };
 

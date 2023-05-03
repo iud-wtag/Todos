@@ -4,22 +4,25 @@ import AddCardActionBar from "components/Todo/AddCard/add-card-action-bar.compon
 import { KEY_ENTER } from "common/constants";
 
 const AddCard = ({
-  handleAddTask,
+  onAddTask,
   isEmptyError,
   toggleEmptyError,
-  handleCancelClick,
+  onCancelClick,
 }) => {
   const [inputTask, setInputTask] = useState("");
 
-  const handleInputChange = (e) => {
-    setInputTask(e.target.value);
-    toggleEmptyError(false);
-  };
-  const handleKeyDown = (e) => {
-    if (e.key === KEY_ENTER) {
-      handleAddTask(inputTask);
+  function handleInputChange(event) {
+    setInputTask(event.target.value);
+    if (isEmptyError) {
+      toggleEmptyError(false);
     }
-  };
+  }
+
+  function handleKeyDown(event) {
+    if (event.key === KEY_ENTER) {
+      onAddTask(inputTask);
+    }
+  }
 
   return (
     <div className="todo__card-add">
@@ -34,9 +37,9 @@ const AddCard = ({
       ></textarea>
 
       <AddCardActionBar
-        handleAddTask={handleAddTask}
-        handleCancelClick={handleCancelClick}
         inputTask={inputTask}
+        onAddTask={onAddTask}
+        onCancelClick={onCancelClick}
         isEmptyError={isEmptyError}
       />
     </div>
@@ -44,9 +47,9 @@ const AddCard = ({
 };
 
 AddCard.propTypes = {
-  handleAddTask: PropTypes.func.isRequired,
-  handleCancelClick: PropTypes.func.isRequired,
   isEmptyError: PropTypes.bool.isRequired,
+  onAddTask: PropTypes.func.isRequired,
+  onCancelClick: PropTypes.func.isRequired,
   toggleEmptyError: PropTypes.func.isRequired,
 };
 

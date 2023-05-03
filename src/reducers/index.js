@@ -1,15 +1,15 @@
 import todoReducers from "reducers/todoReducers";
-import handleButtonClick from "reducers/handleButtonClick";
-import handleErrors from "reducers/handleErrors";
-import handleCurrentPage from "reducers/handleCurrentPage";
+import buttonClickReducers from "reducers/buttonClickReducers";
+import errorReducers from "reducers/errorReducers";
+import currentPageReducer from "reducers/currentPageReducer";
 import handleFilterState from "reducers/handleFilterStates";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
   todoReducers,
-  handleButtonClick,
-  handleErrors,
-  handleCurrentPage,
+  errorReducers,
+  buttonClickReducers,
+  currentPageReducer,
   handleFilterState,
 });
 

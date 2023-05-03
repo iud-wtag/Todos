@@ -4,15 +4,18 @@ const initialPage = {
   currentPage: 1,
 };
 
-const handleCurrentPage = (state = initialPage, action) => {
+const currentPageReducer = (state = initialPage, action) => {
   switch (action.type) {
-    case HANDLE_CURRENT_PAGE:
+    case HANDLE_CURRENT_PAGE: {
+      const { currentPage } = action.payload;
       return {
         ...state,
-        currentPage: action.currentPage,
+        currentPage,
       };
+    }
+
     default:
       return state;
   }
 };
-export default handleCurrentPage;
+export default currentPageReducer;
