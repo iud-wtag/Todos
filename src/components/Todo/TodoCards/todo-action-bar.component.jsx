@@ -1,8 +1,8 @@
 import React from "react";
-import checkButton from "assets/images/check.png";
-import editButton from "assets/images/edit.png";
-import deleteButton from "assets/images/delete.png";
 import {
+  ICON_CHECK,
+  ICON_EDIT,
+  ICON_DELETE,
   ALT_TEXT_COMPLETE_TODO,
   ALT_TEXT_EDIT_TODO,
   ALT_TEXT_DELETE_TODO,
@@ -12,13 +12,13 @@ const TodoActionBar = () => {
   return (
     <div className="todo__card-view-btns">
       <button>
-        <img src={checkButton} alt={ALT_TEXT_COMPLETE_TODO} />
+        <img src={ICON_CHECK} alt={ALT_TEXT_COMPLETE_TODO} />
       </button>
       <button>
-        <img src={editButton} alt={ALT_TEXT_EDIT_TODO} />
+        <img src={ICON_EDIT} alt={ALT_TEXT_EDIT_TODO} />
       </button>
       <button>
-        <img src={deleteButton} alt={ALT_TEXT_DELETE_TODO} />
+        <img src={ICON_DELETE} alt={ALT_TEXT_DELETE_TODO} />
       </button>
     </div>
   );
