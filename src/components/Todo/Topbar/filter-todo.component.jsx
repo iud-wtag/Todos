@@ -7,23 +7,35 @@ import {
 } from "common/constants";
 
 const FilterTodo = ({ onFilter }) => {
+  function handleFilterAll() {
+    onFilter(LABEL_FILTER_ALL);
+  }
+
+  function handleFilterComplete() {
+    onFilter(LABEL_FILTER_COMPLETE);
+  }
+
+  function handleFilterIncomplete() {
+    onFilter(LABEL_FILTER_INCOMPLETE);
+  }
+
   return (
     <div className="todo__top__btn-filter">
       <button
         className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={() => onFilter(LABEL_FILTER_ALL)}
+        onClick={handleFilterAll}
       >
         All
       </button>
       <button
         className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={() => onFilter(LABEL_FILTER_INCOMPLETE)}
+        onClick={handleFilterIncomplete}
       >
         Incomplete
       </button>
       <button
         className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={() => onFilter(LABEL_FILTER_COMPLETE)}
+        onClick={handleFilterComplete}
       >
         Complete
       </button>
