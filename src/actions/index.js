@@ -94,9 +94,11 @@ export const handleCurrentPage = (currentPage) => {
   };
 };
 
-export const filterTodo = (filterState) => {
+export const filterTodo = (filterType) => {
   return {
     type: HANDLE_FILTER,
-    filterState,
+    payload: {
+      filterType,
+    },
   };
 };

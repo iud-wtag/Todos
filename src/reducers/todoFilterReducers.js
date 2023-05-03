@@ -2,20 +2,22 @@ import { HANDLE_FILTER } from "actions/actionTypes";
 import { FILTER_STATE_ALL } from "common/constants";
 
 const initialFilter = {
-  filterState: FILTER_STATE_ALL,
+  filterType: FILTER_STATE_ALL,
 };
 
-const handleFilterState = (state = initialFilter, action) => {
+const todoFilter = (state = initialFilter, action) => {
   switch (action.type) {
-    case HANDLE_FILTER:
+    case HANDLE_FILTER: {
+      const { filterType } = action.payload;
       return {
         ...state,
-        filterState: action.filterState,
+        filterType,
       };
+    }
 
     default:
       return state;
   }
 };
 
-export default handleFilterState;
+export default todoFilter;

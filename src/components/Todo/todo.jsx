@@ -43,8 +43,8 @@ const Todo = () => {
     (state) => state.currentPageReducer.currentPage
   );
 
-  const filterState = useSelector(
-    (state) => state.handleFilterState.filterState
+  const filterType = useSelector(
+    (state) => state.todoFilterReducers.filterType
   );
 
   const { length } = displayTodoList;
@@ -115,8 +115,8 @@ const Todo = () => {
     }
   }
 
-  function handleFilterClick(filterState) {
-    dispatch(filterTodo(filterState));
+  function handleFilter(filterType) {
+    dispatch(filterTodo(filterType));
     dispatch(handleCurrentPage(1));
   }
 
@@ -131,19 +131,19 @@ const Todo = () => {
       .querySelectorAll(".todo__top__btn-filter__inner")
       .forEach((btn) => {
         if (
-          filterState === FILTER_STATE_ALL &&
+          filterType === FILTER_STATE_ALL &&
           btn.innerHTML === FILTER_STATE_ALL
         ) {
           activeToggle(btn);
           filteredTodos = todoList;
         } else if (
-          filterState === FILTER_STATE_INCOMPLETE &&
+          filterType === FILTER_STATE_INCOMPLETE &&
           btn.innerHTML === FILTER_STATE_INCOMPLETE
         ) {
           activeToggle(btn);
           filteredTodos = todoList.filter((todo) => !todo.isTaskComplete);
         } else if (
-          filterState === FILTER_STATE_COMPLETE &&
+          filterType === FILTER_STATE_COMPLETE &&
           btn.innerHTML === FILTER_STATE_COMPLETE
         ) {
           activeToggle(btn);
@@ -151,7 +151,7 @@ const Todo = () => {
         }
       });
     setDisplayTodoList(filteredTodos);
-  }, [filterState, todoList]);
+  }, [filterType, todoList]);
 
   return (
     <div className="todo">
@@ -159,8 +159,8 @@ const Todo = () => {
       <div className="todo__container">
         <div className="todo__wrapper">
           <TopBar
+            onFilter={handleFilter}
             onCreateClick={handleCreateClick}
-            onFilterClick={handleFilterClick}
             isCreateButtonClicked={isCreateButtonClicked}
           />
           <div className="todo__card__wrapper">
