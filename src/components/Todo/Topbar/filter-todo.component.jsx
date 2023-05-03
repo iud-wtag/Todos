@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-  FILTER_LABEL_ALL,
-  FILTER_LABEL_COMPLETE,
-  FILTER_LABEL_INCOMPLETE,
+  LABEL_FILTER_ALL,
+  LABEL_FILTER_COMPLETE,
+  LABEL_FILTER_INCOMPLETE,
 } from "common/constants";
 
 const FilterTodo = ({ onFilter }) => {
@@ -11,19 +11,19 @@ const FilterTodo = ({ onFilter }) => {
     <div className="todo__top__btn-filter">
       <button
         className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={() => onFilter(FILTER_LABEL_ALL)}
+        onClick={() => onFilter(LABEL_FILTER_ALL)}
       >
         All
       </button>
       <button
         className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={() => onFilter(FILTER_LABEL_INCOMPLETE)}
+        onClick={() => onFilter(LABEL_FILTER_INCOMPLETE)}
       >
         Incomplete
       </button>
       <button
         className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={() => onFilter(FILTER_LABEL_COMPLETE)}
+        onClick={() => onFilter(LABEL_FILTER_COMPLETE)}
       >
         Complete
       </button>

@@ -24,9 +24,9 @@ export const ALT_TEXT_LOGO = "Logo";
 
 export const LABEL_LOAD_MORE = "Load More";
 export const LABEL_SHOW_LESS = "Show Less";
-export const FILTER_LABEL_ALL = "All";
-export const FILTER_LABEL_COMPLETE = "Complete";
-export const FILTER_LABEL_INCOMPLETE = "Incomplete";
+export const LABEL_FILTER_ALL = "All";
+export const LABEL_FILTER_COMPLETE = "Complete";
+export const LABEL_FILTER_INCOMPLETE = "Incomplete";
 
 export const KEY_ENTER = "Enter";
 export const TASK_PER_PAGE = 9;
