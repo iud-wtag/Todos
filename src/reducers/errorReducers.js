@@ -4,7 +4,7 @@ const initialError = {
   isEmptyError: false,
 };
 
-const handleErrors = (state = initialError, action) => {
+const errorReducers = (state = initialError, action) => {
   switch (action.type) {
     case HANDLE_EMPTY:
       const { isEmptyError } = action.payload;
@@ -17,4 +17,4 @@ const handleErrors = (state = initialError, action) => {
   }
 };
 
-export default handleErrors;
+export default errorReducers;
