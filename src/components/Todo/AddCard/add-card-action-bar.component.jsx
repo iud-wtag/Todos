@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import deleteButton from "assets/images/delete.png";
-import { ALT_TEXT_DELETE_TODO } from "common/constants";
+import { ICON_DELETE, ALT_TEXT_DELETE_TODO } from "common/constants";
 
 const AddCardActionBar = ({
   onAddTask,
@@ -18,7 +17,7 @@ const AddCardActionBar = ({
         Add Task
       </button>
       <button className="todo-delete__btn" onClick={onCancelClick}>
-        <img src={deleteButton} alt={ALT_TEXT_DELETE_TODO} />
+        <img src={ICON_DELETE} alt={ALT_TEXT_DELETE_TODO} />
       </button>
       {isEmptyError && <p className="error">Title is required</p>}
     </div>
