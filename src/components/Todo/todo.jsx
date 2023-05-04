@@ -26,7 +26,7 @@ const Todo = () => {
     dispatch(handleEmptyError(toggleValue));
   }
 
-  function handleCreateClick() {
+  function handleCreate() {
     dispatch(handleCreateButton(isCreateButtonClicked));
   }
 
@@ -42,7 +42,7 @@ const Todo = () => {
       return;
     }
     dispatch(addTodo(sanitizedTask));
-    handleCreateClick();
+    handleCreate();
     toggleEmptyError(false);
   }
 
@@ -56,7 +56,7 @@ const Todo = () => {
       <div className="todo__container">
         <div className="todo__wrapper">
           <TopBar
-            onCreateClick={handleCreateClick}
+            onCreate={handleCreate}
             isCreateButtonClicked={isCreateButtonClicked}
           />
           <div className="todo__card__wrapper">
