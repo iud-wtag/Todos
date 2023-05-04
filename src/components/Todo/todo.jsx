@@ -32,7 +32,7 @@ const Todo = () => {
 
   const todoList = useSelector((state) => state.todoReducers.list);
 
-  const [displayTodoList, setDisplayTodoList] = useState(todoList);
+  const [todos, setTodos] = useState(todoList);
   const [activeFilterType, setActiveFilterType] = useState(LABEL_FILTER_ALL);
 
   const isCreateButtonClicked = useSelector(
@@ -48,9 +48,10 @@ const Todo = () => {
     (state) => state.todoFilterReducers.filterType
   );
 
-  const { length } = displayTodoList;
   const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;
-  const currentTodoList = displayTodoList.slice(0, currentTask);
+  const currentTodoList = todos.slice(0, currentTask);
+
+  const { length } = todos;
   const showLoadMoreButton = length > currentTask;
   const showSeeLessButton = length + isCreateButtonClicked > TASK_PER_PAGE;
   const showPagination = showLoadMoreButton || showSeeLessButton;
@@ -136,7 +137,7 @@ const Todo = () => {
         filteredTodos = todoList;
     }
 
-    setDisplayTodoList(filteredTodos);
+    setTodos(filteredTodos);
   }, [filterType, todoList]);
 
   return (
