@@ -33,7 +33,7 @@ const Todo = () => {
   const todoList = useSelector((state) => state.todoReducers.list);
 
   const [displayTodoList, setDisplayTodoList] = useState(todoList);
-  const [activeFilterTypes, setActiveFilterTypes] = useState(LABEL_FILTER_ALL);
+  const [activeFilterType, setActiveFilterType] = useState(LABEL_FILTER_ALL);
 
   const isCreateButtonClicked = useSelector(
     (state) => state.buttonClickReducers.isCreateButtonClicked
@@ -120,31 +120,22 @@ const Todo = () => {
   function handleFilter(filterType) {
     dispatch(filterTodo(filterType));
     dispatch(handleCurrentPage(1));
-    setActiveFilterTypes(filterType);
+    setActiveFilterType(filterType);
   }
 
   useEffect(() => {
     let filteredTodos;
-    document
-      .querySelectorAll(".todo__top__btn-filter__inner")
-      .forEach((btn) => {
-        if (
-          filterType === LABEL_FILTER_ALL &&
-          btn.innerHTML === LABEL_FILTER_ALL
-        ) {
-          filteredTodos = todoList;
-        } else if (
-          filterType === LABEL_FILTER_INCOMPLETE &&
-          btn.innerHTML === LABEL_FILTER_INCOMPLETE
-        ) {
-          filteredTodos = todoList.filter((todo) => !todo.isTaskComplete);
-        } else if (
-          filterType === LABEL_FILTER_COMPLETE &&
-          btn.innerHTML === LABEL_FILTER_COMPLETE
-        ) {
-          filteredTodos = todoList.filter((todo) => todo.isTaskComplete);
-        }
-      });
+    switch (filterType) {
+      case LABEL_FILTER_COMPLETE:
+        filteredTodos = todoList.filter((todo) => todo.isTaskComplete);
+        break;
+      case LABEL_FILTER_INCOMPLETE:
+        filteredTodos = todoList.filter((todo) => !todo.isTaskComplete);
+        break;
+      default:
+        filteredTodos = todoList;
+    }
+
     setDisplayTodoList(filteredTodos);
   }, [filterType, todoList]);
 
@@ -156,7 +147,7 @@ const Todo = () => {
           <TopBar
             onFilter={handleFilter}
             onCreate={handleCreate}
-            activeFilterTypes={activeFilterTypes}
+            activeFilterType={activeFilterType}
             isCreateButtonClicked={isCreateButtonClicked}
           />
           <div className="todo__card__wrapper">

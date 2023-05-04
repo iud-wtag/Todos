@@ -6,7 +6,7 @@ import {
   LABEL_FILTER_INCOMPLETE,
 } from "common/constants";
 
-const FilterTodo = ({ onFilter, activeFilterTypes }) => {
+const FilterTodo = ({ onFilter, activeFilterType }) => {
   const filterButtons = [
     { label: LABEL_FILTER_ALL },
     { label: LABEL_FILTER_COMPLETE },
@@ -23,7 +23,7 @@ const FilterTodo = ({ onFilter, activeFilterTypes }) => {
         <button
           key={button.label}
           className={`todo__top__btn-filter__inner btn__bg-white ${
-            activeFilterTypes === button.label ? "active" : ""
+            activeFilterType === button.label ? "active" : ""
           }`}
           data-label={`${button.label}`}
           onClick={handleFilter}
@@ -37,7 +37,7 @@ const FilterTodo = ({ onFilter, activeFilterTypes }) => {
 
 FilterTodo.propTypes = {
   onFilter: PropTypes.func.isRequired,
-  activeFilterTypes: PropTypes.string.isRequired,
+  activeFilterType: PropTypes.string.isRequired,
 };
 
 export default FilterTodo;
