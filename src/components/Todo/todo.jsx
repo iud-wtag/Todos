@@ -33,6 +33,7 @@ const Todo = () => {
   const todoList = useSelector((state) => state.todoReducers.list);
 
   const [displayTodoList, setDisplayTodoList] = useState(todoList);
+  const [activeFilterTypes, setActiveFilterTypes] = useState(LABEL_FILTER_ALL);
 
   const isCreateButtonClicked = useSelector(
     (state) => state.buttonClickReducers.isCreateButtonClicked
@@ -80,6 +81,7 @@ const Todo = () => {
     dispatch(addTodo(sanitizedTask));
     handleCreate();
     toggleEmptyError(false);
+    handleFilter(LABEL_FILTER_ALL);
   }
 
   function handleDeleteTask(taskId) {
@@ -118,11 +120,7 @@ const Todo = () => {
   function handleFilter(filterType) {
     dispatch(filterTodo(filterType));
     dispatch(handleCurrentPage(1));
-  }
-
-  function activeToggle(btn) {
-    document.querySelector(".active")?.classList.remove("active");
-    btn.classList.add("active");
+    setActiveFilterTypes(filterType);
   }
 
   useEffect(() => {
@@ -134,19 +132,16 @@ const Todo = () => {
           filterType === LABEL_FILTER_ALL &&
           btn.innerHTML === LABEL_FILTER_ALL
         ) {
-          activeToggle(btn);
           filteredTodos = todoList;
         } else if (
           filterType === LABEL_FILTER_INCOMPLETE &&
           btn.innerHTML === LABEL_FILTER_INCOMPLETE
         ) {
-          activeToggle(btn);
           filteredTodos = todoList.filter((todo) => !todo.isTaskComplete);
         } else if (
           filterType === LABEL_FILTER_COMPLETE &&
           btn.innerHTML === LABEL_FILTER_COMPLETE
         ) {
-          activeToggle(btn);
           filteredTodos = todoList.filter((todo) => todo.isTaskComplete);
         }
       });
@@ -161,6 +156,7 @@ const Todo = () => {
           <TopBar
             onFilter={handleFilter}
             onCreate={handleCreate}
+            activeFilterTypes={activeFilterTypes}
             isCreateButtonClicked={isCreateButtonClicked}
           />
           <div className="todo__card__wrapper">

@@ -6,45 +6,38 @@ import {
   LABEL_FILTER_INCOMPLETE,
 } from "common/constants";
 
-const FilterTodo = ({ onFilter }) => {
-  function handleFilterAll() {
-    onFilter(LABEL_FILTER_ALL);
-  }
+const FilterTodo = ({ onFilter, activeFilterTypes }) => {
+  const filterButtons = [
+    { label: LABEL_FILTER_ALL },
+    { label: LABEL_FILTER_COMPLETE },
+    { label: LABEL_FILTER_INCOMPLETE },
+  ];
 
-  function handleFilterComplete() {
-    onFilter(LABEL_FILTER_COMPLETE);
-  }
-
-  function handleFilterIncomplete() {
-    onFilter(LABEL_FILTER_INCOMPLETE);
+  function handleFilter(event) {
+    onFilter(event.target.dataset.label);
   }
 
   return (
     <div className="todo__top__btn-filter">
-      <button
-        className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={handleFilterAll}
-      >
-        All
-      </button>
-      <button
-        className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={handleFilterIncomplete}
-      >
-        Incomplete
-      </button>
-      <button
-        className="todo__top__btn-filter__inner btn__bg-white"
-        onClick={handleFilterComplete}
-      >
-        Complete
-      </button>
+      {filterButtons.map((button) => (
+        <button
+          key={button.label}
+          className={`todo__top__btn-filter__inner btn__bg-white ${
+            activeFilterTypes === button.label ? "active" : ""
+          }`}
+          data-label={`${button.label}`}
+          onClick={handleFilter}
+        >
+          {button.label}
+        </button>
+      ))}
     </div>
   );
 };
 
 FilterTodo.propTypes = {
   onFilter: PropTypes.func.isRequired,
+  activeFilterTypes: PropTypes.string.isRequired,
 };
 
 export default FilterTodo;
