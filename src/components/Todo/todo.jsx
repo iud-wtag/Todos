@@ -31,7 +31,7 @@ const Todo = () => {
   }
 
   function handleCancelClick() {
-    handleCreateClick();
+    handleCreate();
     toggleEmptyError(false);
   }
 
