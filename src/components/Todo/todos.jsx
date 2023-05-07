@@ -7,7 +7,7 @@ import AddCard from "components/Todo/AddCard/add-card";
 import TodoCards from "components/Todo/TodoCards/todo-cards";
 import { sanitizeInput } from "helpers/sanitizeInput";
 
-const Todo = () => {
+const Todos = () => {
   const dispatch = useDispatch();
 
   const todoList = useSelector((state) => state.todoReducers.list);
@@ -61,4 +61,4 @@ const Todo = () => {
   );
 };
 
-export default Todo;
+export default Todos;
