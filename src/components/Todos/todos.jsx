@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleCreateButton, handleEmptyError } from "actions";
 import Navbar from "components/Todos/Navbar/navbar";
@@ -11,6 +11,9 @@ import {
   TASK_PER_PAGE,
   LABEL_LOAD_MORE,
   LABEL_SHOW_LESS,
+  LABEL_FILTER_ALL,
+  LABEL_FILTER_COMPLETE,
+  LABEL_FILTER_INCOMPLETE,
 } from "common/constants";
 
 const Todos = () => {
@@ -27,9 +30,17 @@ const Todos = () => {
     (state) => state.currentPageReducer.currentPage
   );
 
-  const { length } = todoList;
+  const filterType = useSelector(
+    (state) => state.todoFilterReducers.filterType
+  );
+
+  const [todos, setTodos] = useState(todoList);
+  const [activeFilterType, setActiveFilterType] = useState(LABEL_FILTER_ALL);
+
   const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;
-  const currentTodoList = todoList.slice(0, currentTask);
+  const currentTodoList = todos.slice(0, currentTask);
+
+  const { length } = todos;
   const showLoadMoreButton = length > currentTask;
   const showSeeLessButton = length + isCreateButtonClicked > TASK_PER_PAGE;
   const showPagination = showLoadMoreButton || showSeeLessButton;
@@ -42,6 +53,22 @@ const Todos = () => {
     dispatch(handleCreateButton(isCreateButtonClicked));
   }
 
+  useEffect(() => {
+    let filteredTodos;
+    switch (filterType) {
+      case LABEL_FILTER_COMPLETE:
+        filteredTodos = todoList.filter((todo) => todo.isTaskComplete);
+        break;
+      case LABEL_FILTER_INCOMPLETE:
+        filteredTodos = todoList.filter((todo) => !todo.isTaskComplete);
+        break;
+      default:
+        filteredTodos = todoList;
+    }
+
+    setTodos(filteredTodos);
+  }, [filterType, todoList]);
+
   return (
     <div className="todo">
       <Navbar />
@@ -49,6 +76,8 @@ const Todos = () => {
         <div className="todo__wrapper">
           <TopBar
             onCreate={handleCreate}
+            setActiveFilterType={setActiveFilterType}
+            activeFilterType={activeFilterType}
             isCreateButtonClicked={isCreateButtonClicked}
           />
           <div className="todo__card__wrapper">
@@ -57,6 +86,7 @@ const Todos = () => {
                 isEmptyError={isEmptyError}
                 onCreate={handleCreate}
                 toggleEmptyError={toggleEmptyError}
+                setActiveFilterType={setActiveFilterType}
               />
             )}
             {currentTodoList.length

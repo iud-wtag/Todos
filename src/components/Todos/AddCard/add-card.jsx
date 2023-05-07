@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { KEY_ENTER } from "common/constants";
+import { KEY_ENTER, LABEL_FILTER_ALL } from "common/constants";
 import { sanitizeInput } from "helpers/sanitizeInput";
-import { addTodo } from "actions";
+import { addTodo, filterTodo, handleCurrentPage } from "actions";
 import AddCardActionBar from "components/Todos/AddCard/add-card-action-bar.component";
 
-const AddCard = ({ isEmptyError, onCreate, toggleEmptyError }) => {
+const AddCard = ({
+  isEmptyError,
+  onCreate,
+  toggleEmptyError,
+  setActiveFilterType,
+}) => {
   const dispatch = useDispatch();
 
   const [inputTask, setInputTask] = useState("");
@@ -20,6 +25,13 @@ const AddCard = ({ isEmptyError, onCreate, toggleEmptyError }) => {
     dispatch(addTodo(sanitizedTask));
     toggleEmptyError(false);
     onCreate();
+    handleFilter(LABEL_FILTER_ALL);
+  }
+
+  function handleFilter(filterType) {
+    dispatch(filterTodo(filterType));
+    dispatch(handleCurrentPage(1));
+    setActiveFilterType(filterType);
   }
 
   function handleCancelClick() {
@@ -66,6 +78,7 @@ AddCard.propTypes = {
   isEmptyError: PropTypes.bool.isRequired,
   onCreate: PropTypes.func.isRequired,
   toggleEmptyError: PropTypes.func.isRequired,
+  setActiveFilterType: PropTypes.func.isRequired,
 };
 
 export default AddCard;

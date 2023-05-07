@@ -5,9 +5,9 @@ import CreateTodo from "components/Todos/Topbar/create-todo.component";
 
 const TopBar = ({
   onCreate,
-  onFilter,
   activeFilterType,
   isCreateButtonClicked,
+  setActiveFilterType,
 }) => {
   return (
     <div className="todo__top">
@@ -17,7 +17,10 @@ const TopBar = ({
           onCreate={onCreate}
           isCreateButtonClicked={isCreateButtonClicked}
         />
-        <FilterTodo onFilter={onFilter} activeFilterType={activeFilterType} />
+        <FilterTodo
+          activeFilterType={activeFilterType}
+          setActiveFilterType={setActiveFilterType}
+        />
       </div>
     </div>
   );
@@ -25,7 +28,7 @@ const TopBar = ({
 
 TopBar.propTypes = {
   onCreate: PropTypes.func.isRequired,
-  onFilter: PropTypes.func.isRequired,
+  setActiveFilterType: PropTypes.func.isRequired,
   activeFilterType: PropTypes.string.isRequired,
   isCreateButtonClicked: PropTypes.bool.isRequired,
 };

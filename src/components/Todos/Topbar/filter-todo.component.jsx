@@ -5,8 +5,12 @@ import {
   LABEL_FILTER_COMPLETE,
   LABEL_FILTER_INCOMPLETE,
 } from "common/constants";
+import { useDispatch } from "react-redux";
+import { filterTodo, handleCurrentPage } from "actions";
 
-const FilterTodo = ({ onFilter, activeFilterType }) => {
+const FilterTodo = ({ activeFilterType, setActiveFilterType }) => {
+  const dispatch = useDispatch();
+
   const filterButtons = [
     { label: LABEL_FILTER_ALL },
     { label: LABEL_FILTER_COMPLETE },
@@ -14,7 +18,10 @@ const FilterTodo = ({ onFilter, activeFilterType }) => {
   ];
 
   function handleFilter(event) {
-    onFilter(event.target.dataset.label);
+    const { label } = event.target.dataset;
+    dispatch(handleCurrentPage(1));
+    dispatch(filterTodo(label));
+    setActiveFilterType(label);
   }
 
   return (
@@ -36,8 +43,8 @@ const FilterTodo = ({ onFilter, activeFilterType }) => {
 };
 
 FilterTodo.propTypes = {
-  onFilter: PropTypes.func.isRequired,
   activeFilterType: PropTypes.string.isRequired,
+  setActiveFilterType: PropTypes.func.isRequired,
 };
 
 export default FilterTodo;
