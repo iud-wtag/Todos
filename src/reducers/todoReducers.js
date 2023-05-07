@@ -2,7 +2,6 @@ import {
   ADD_TODO,
   DELETE_TODO,
   COMPLETE_TODO,
-  HANDLE_EDIT,
   EDIT_TODO,
 } from "actions/actionTypes";
 const initialData = {
@@ -12,8 +11,7 @@ const initialData = {
 const todoReducers = (state = initialData, action) => {
   switch (action.type) {
     case ADD_TODO: {
-      const { id, task, date, isTaskComplete, completeTime, onEdit } =
-        action.payload;
+      const { id, task, date, isTaskComplete, completeTime } = action.payload;
       return {
         ...state,
         list: [
@@ -23,7 +21,6 @@ const todoReducers = (state = initialData, action) => {
             date,
             isTaskComplete,
             completeTime,
-            onEdit,
           },
           ...state.list,
         ],
@@ -58,32 +55,13 @@ const todoReducers = (state = initialData, action) => {
       };
     }
 
-    case HANDLE_EDIT: {
-      const { id, onEdit } = action.payload;
-      const editButtonIndex = state.list.findIndex((task) => task.id === id);
-
-      const editButtonClicked = {
-        ...state.list[editButtonIndex],
-        onEdit,
-      };
-
-      const updatedList = state.list.map((todo) => ({ ...todo }));
-      updatedList[editButtonIndex] = editButtonClicked;
-
-      return {
-        ...state,
-        list: updatedList,
-      };
-    }
-
     case EDIT_TODO: {
-      const { id, task, onEdit } = action.payload;
+      const { id, task } = action.payload;
       const editTaskIndex = state.list.findIndex((task) => task.id === id);
 
       const editedTask = {
         ...state.list[editTaskIndex],
         task,
-        onEdit,
       };
 
       const editedList = state.list.map((todo) => ({ ...todo }));

@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { deleteTodo, completeTodo } from "actions";
 import {
   ICON_CHECK,
   ICON_EDIT,
@@ -9,24 +11,22 @@ import {
   ALT_TEXT_DELETE_TODO,
 } from "common/constants";
 
-const TaskIncomplete = ({
-  todo,
-  onEditClick,
-  onDeleteTask,
-  onCompleteTask,
-}) => {
+const TaskIncomplete = ({ todo, setIsEdit }) => {
+  const dispatch = useDispatch();
+
   const { id, date, task } = todo;
 
   function handleDeleteTask() {
-    onDeleteTask(id);
-  }
-
-  function handleEditClick() {
-    onEditClick(id);
+    dispatch(deleteTodo(id));
   }
 
   function handleCompleteTask() {
-    onCompleteTask(id, date, task);
+    dispatch(completeTodo(id, date, task));
+    setIsEdit(false);
+  }
+
+  function handleEditClick() {
+    setIsEdit(true);
   }
 
   return (
@@ -46,9 +46,7 @@ const TaskIncomplete = ({
 
 TaskIncomplete.propTypes = {
   todo: PropTypes.object.isRequired,
-  onEditClick: PropTypes.func.isRequired,
-  onDeleteTask: PropTypes.func.isRequired,
-  onCompleteTask: PropTypes.func.isRequired,
+  setIsEdit: PropTypes.func.isRequired,
 };
 
 export default TaskIncomplete;
