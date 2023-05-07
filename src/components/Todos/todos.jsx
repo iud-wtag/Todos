@@ -1,20 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addTodo,
-  deleteTodo,
-  completeTodo,
-  editTodo,
-  handleCreateButton,
-  handleEditButton,
-  handleEmptyError,
-} from "actions";
-import Navbar from "components/Todo/Navbar/navbar";
-import TopBar from "components/Todo/Topbar/top-bar";
-import AddCard from "components/Todo/AddCard/add-card";
-import TodoCards from "components/Todo/TodoCards/todo-cards";
-import Todo from "components/Todo/TodoCards/todo";
-import { sanitizeInput } from "helpers/sanitizeInput";
+import { handleCreateButton, handleEmptyError } from "actions";
+import Navbar from "components/Todos/Navbar/navbar";
+import TopBar from "components/Todos/Topbar/top-bar";
+import AddCard from "components/Todos/AddCard/add-card";
+import Todo from "components/Todos/Todo/todo";
 
 const Todos = () => {
   const dispatch = useDispatch();
@@ -34,28 +24,8 @@ const Todos = () => {
     dispatch(handleCreateButton(isCreateButtonClicked));
   }
 
-  function handleCancelClick() {
-    handleCreate();
-    toggleEmptyError(false);
-  }
-
   // function handleEditClick(taskId) {
   //   dispatch(handleEditButton(taskId));
-  // }
-
-  function handleAddTask(inputTask) {
-    const sanitizedTask = sanitizeInput(inputTask);
-    if (sanitizedTask.trim() === "") {
-      toggleEmptyError(true);
-      return;
-    }
-    dispatch(addTodo(sanitizedTask));
-    handleCreate();
-    toggleEmptyError(false);
-  }
-
-  // function handleDeleteTask(taskId) {
-  //   dispatch(deleteTodo(taskId));
   // }
 
   // function handleCompleteTask(taskId, startDate, inputTask) {
@@ -92,22 +62,13 @@ const Todos = () => {
             {isCreateButtonClicked && (
               <AddCard
                 isEmptyError={isEmptyError}
-                onAddTask={handleAddTask}
-                onCancelClick={handleCancelClick}
+                onCreate={handleCreate}
                 toggleEmptyError={toggleEmptyError}
               />
             )}
             {todoList.map((todo) => {
               return <Todo key={todo.id} todo={todo} />;
             })}
-            {/* <TodoCards
-              todoList={todoList}
-              // onDeleteTask={handleDeleteTask}
-              // onCompleteTask={handleCompleteTask}
-              // onEditClick={handleEditClick}
-              // onEditTask={handleEditTask}
-              // onCancelEditTask={handleCancelEditTask}
-            /> */}
           </div>
         </div>
       </div>
