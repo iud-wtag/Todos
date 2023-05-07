@@ -13,9 +13,10 @@ import Navbar from "components/Todo/Navbar/navbar";
 import TopBar from "components/Todo/Topbar/top-bar";
 import AddCard from "components/Todo/AddCard/add-card";
 import TodoCards from "components/Todo/TodoCards/todo-cards";
+import Todo from "components/Todo/TodoCards/todo";
 import { sanitizeInput } from "helpers/sanitizeInput";
 
-const Todo = () => {
+const Todos = () => {
   const dispatch = useDispatch();
 
   const todoList = useSelector((state) => state.todoReducers.list);
@@ -38,9 +39,9 @@ const Todo = () => {
     toggleEmptyError(false);
   }
 
-  function handleEditClick(taskId) {
-    dispatch(handleEditButton(taskId));
-  }
+  // function handleEditClick(taskId) {
+  //   dispatch(handleEditButton(taskId));
+  // }
 
   function handleAddTask(inputTask) {
     const sanitizedTask = sanitizeInput(inputTask);
@@ -53,30 +54,30 @@ const Todo = () => {
     toggleEmptyError(false);
   }
 
-  function handleDeleteTask(taskId) {
-    dispatch(deleteTodo(taskId));
-  }
+  // function handleDeleteTask(taskId) {
+  //   dispatch(deleteTodo(taskId));
+  // }
 
-  function handleCompleteTask(taskId, startDate, inputTask) {
-    const sanitizedTask = sanitizeInput(inputTask);
-    if (sanitizedTask.trim() === "") {
-      return;
-    }
-    dispatch(editTodo(taskId, sanitizedTask));
-    dispatch(completeTodo(taskId, startDate));
-  }
+  // function handleCompleteTask(taskId, startDate, inputTask) {
+  //   const sanitizedTask = sanitizeInput(inputTask);
+  //   if (sanitizedTask.trim() === "") {
+  //     return;
+  //   }
+  //   dispatch(editTodo(taskId, sanitizedTask));
+  //   dispatch(completeTodo(taskId, startDate));
+  // }
 
-  function handleEditTask(taskId, editedInput) {
-    const sanitizedTask = sanitizeInput(editedInput);
-    if (sanitizedTask.trim() === "") {
-      return;
-    }
-    dispatch(editTodo(taskId, sanitizedTask));
-  }
+  // function handleEditTask(taskId, editedInput) {
+  //   const sanitizedTask = sanitizeInput(editedInput);
+  //   if (sanitizedTask.trim() === "") {
+  //     return;
+  //   }
+  //   dispatch(editTodo(taskId, sanitizedTask));
+  // }
 
-  function handleCancelEditTask(taskId, inputTask) {
-    dispatch(editTodo(taskId, inputTask));
-  }
+  // function handleCancelEditTask(taskId, inputTask) {
+  //   dispatch(editTodo(taskId, inputTask));
+  // }
 
   return (
     <div className="todo">
@@ -96,14 +97,17 @@ const Todo = () => {
                 toggleEmptyError={toggleEmptyError}
               />
             )}
-            <TodoCards
+            {todoList.map((todo) => {
+              return <Todo key={todo.id} todo={todo} />;
+            })}
+            {/* <TodoCards
               todoList={todoList}
-              onDeleteTask={handleDeleteTask}
-              onCompleteTask={handleCompleteTask}
-              onEditClick={handleEditClick}
-              onEditTask={handleEditTask}
-              onCancelEditTask={handleCancelEditTask}
-            />
+              // onDeleteTask={handleDeleteTask}
+              // onCompleteTask={handleCompleteTask}
+              // onEditClick={handleEditClick}
+              // onEditTask={handleEditTask}
+              // onCancelEditTask={handleCancelEditTask}
+            /> */}
           </div>
         </div>
       </div>
@@ -111,4 +115,4 @@ const Todo = () => {
   );
 };
 
-export default Todo;
+export default Todos;
