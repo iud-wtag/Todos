@@ -24,31 +24,6 @@ const Todos = () => {
     dispatch(handleCreateButton(isCreateButtonClicked));
   }
 
-  // function handleEditClick(taskId) {
-  //   dispatch(handleEditButton(taskId));
-  // }
-
-  // function handleCompleteTask(taskId, startDate, inputTask) {
-  //   const sanitizedTask = sanitizeInput(inputTask);
-  //   if (sanitizedTask.trim() === "") {
-  //     return;
-  //   }
-  //   dispatch(editTodo(taskId, sanitizedTask));
-  //   dispatch(completeTodo(taskId, startDate));
-  // }
-
-  // function handleEditTask(taskId, editedInput) {
-  //   const sanitizedTask = sanitizeInput(editedInput);
-  //   if (sanitizedTask.trim() === "") {
-  //     return;
-  //   }
-  //   dispatch(editTodo(taskId, sanitizedTask));
-  // }
-
-  // function handleCancelEditTask(taskId, inputTask) {
-  //   dispatch(editTodo(taskId, inputTask));
-  // }
-
   return (
     <div className="todo">
       <Navbar />

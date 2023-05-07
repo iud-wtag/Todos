@@ -5,7 +5,6 @@ import {
   DELETE_TODO,
   COMPLETE_TODO,
   EDIT_TODO,
-  HANDLE_EDIT,
 } from "actions/actionTypes";
 import { getDays } from "helpers/getDays";
 
@@ -60,16 +59,6 @@ export const editTodo = (id, editedTask) => {
       id: id,
       task: editedTask,
       onEdit: false,
-    },
-  };
-};
-
-export const handleEditButton = (id) => {
-  return {
-    type: HANDLE_EDIT,
-    payload: {
-      id: id,
-      onEdit: true,
     },
   };
 };

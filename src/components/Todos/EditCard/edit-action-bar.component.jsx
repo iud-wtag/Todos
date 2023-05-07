@@ -6,26 +6,36 @@ import {
   ALT_TEXT_COMPLETE_TODO,
   ALT_TEXT_DELETE_TODO,
 } from "common/constants";
+import { editTodo, completeTodo } from "actions";
+import { useDispatch } from "react-redux";
+import { sanitizeInput } from "helpers/sanitizeInput";
 
-const EditActionBar = ({
-  todo,
-  editedTask,
-  onEditTask,
-  onCompleteTask,
-  onCancelEditTask,
-}) => {
+const EditActionBar = ({ todo, editedTask, setIsEdit }) => {
+  const dispatch = useDispatch();
   const { id, task, date } = todo;
 
   function handleEditTask() {
-    onEditTask(id, editedTask);
+    const sanitizedTask = sanitizeInput(editedTask);
+    if (sanitizedTask.trim() === "") {
+      return;
+    }
+    dispatch(editTodo(id, sanitizedTask));
+    setIsEdit(false);
   }
 
   function handleCompleteTask() {
-    onCompleteTask(id, date, editedTask);
+    const sanitizedTask = sanitizeInput(editedTask);
+    if (sanitizedTask.trim() === "") {
+      return;
+    }
+    dispatch(editTodo(id, sanitizedTask));
+    dispatch(completeTodo(id, date, sanitizedTask));
+    setIsEdit(false);
   }
 
   function handleCancelEditTask() {
-    onCancelEditTask(id, task);
+    dispatch(editTodo(id, task));
+    setIsEdit(false);
   }
 
   return (
@@ -46,9 +56,7 @@ const EditActionBar = ({
 EditActionBar.propTypes = {
   todo: PropTypes.object.isRequired,
   editedTask: PropTypes.string.isRequired,
-  onEditTask: PropTypes.func.isRequired,
-  onCompleteTask: PropTypes.func.isRequired,
-  onCancelEditTask: PropTypes.func.isRequired,
+  setIsEdit: PropTypes.func.isRequired,
 };
 
 export default EditActionBar;

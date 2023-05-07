@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import EditActionBar from "components/Todo/EditCard/edit-action-bar.component";
+import { editTodo } from "actions";
+import { sanitizeInput } from "helpers/sanitizeInput";
 import { KEY_ENTER } from "common/constants";
+import { useDispatch } from "react-redux";
+import EditActionBar from "components/Todos/EditCard/edit-action-bar.component";
 
-const EditCard = ({ todo, onEditTask, onCompleteTask, onCancelEditTask }) => {
+const EditCard = ({ todo, setIsEdit }) => {
+  const dispatch = useDispatch();
   const { id, task } = todo;
   const textRef = useRef(null);
   const [editedTask, setEditedTask] = useState(task);
@@ -14,8 +18,17 @@ const EditCard = ({ todo, onEditTask, onCompleteTask, onCancelEditTask }) => {
 
   function handleKeyDown(event) {
     if (event.key === KEY_ENTER) {
-      onEditTask(id, editedTask);
+      handleEditTask();
     }
+  }
+
+  function handleEditTask() {
+    const sanitizedTask = sanitizeInput(editedTask);
+    if (sanitizedTask.trim() === "") {
+      return;
+    }
+    dispatch(editTodo(id, sanitizedTask));
+    setIsEdit(false);
   }
 
   function setFocusAndSelection() {
@@ -44,9 +57,7 @@ const EditCard = ({ todo, onEditTask, onCompleteTask, onCancelEditTask }) => {
       <EditActionBar
         todo={todo}
         editedTask={editedTask}
-        onEditTask={onEditTask}
-        onCompleteTask={onCompleteTask}
-        onCancelEditTask={onCancelEditTask}
+        setIsEdit={setIsEdit}
       />
     </>
   );
@@ -54,9 +65,7 @@ const EditCard = ({ todo, onEditTask, onCompleteTask, onCancelEditTask }) => {
 
 EditCard.propTypes = {
   todo: PropTypes.object.isRequired,
-  onEditTask: PropTypes.func.isRequired,
-  onCompleteTask: PropTypes.func.isRequired,
-  onCancelEditTask: PropTypes.func.isRequired,
+  setIsEdit: PropTypes.func.isRequired,
 };
 
 export default EditCard;
