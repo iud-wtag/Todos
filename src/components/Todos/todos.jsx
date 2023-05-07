@@ -24,15 +24,6 @@ const Todos = () => {
     dispatch(handleCreateButton(isCreateButtonClicked));
   }
 
-  function handleCancelClick() {
-    handleCreate();
-    toggleEmptyError(false);
-  }
-
-  function handleDeleteTask(taskId) {
-    dispatch(deleteTodo(taskId));
-  }
-
   return (
     <div className="todo">
       <Navbar />
@@ -46,7 +37,7 @@ const Todos = () => {
             {isCreateButtonClicked && (
               <AddCard
                 isEmptyError={isEmptyError}
-                onCancelClick={handleCancelClick}
+                onCreate={handleCreate}
                 toggleEmptyError={toggleEmptyError}
               />
             )}

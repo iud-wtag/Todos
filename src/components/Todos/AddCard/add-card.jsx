@@ -6,12 +6,7 @@ import { sanitizeInput } from "helpers/sanitizeInput";
 import { addTodo } from "actions";
 import AddCardActionBar from "components/Todos/AddCard/add-card-action-bar.component";
 
-const AddCard = ({
-  onCreate,
-  isEmptyError,
-  toggleEmptyError,
-  onCancelClick,
-}) => {
+const AddCard = ({ isEmptyError, onCreate, toggleEmptyError }) => {
   const dispatch = useDispatch();
 
   const [inputTask, setInputTask] = useState("");
@@ -25,6 +20,11 @@ const AddCard = ({
     dispatch(addTodo(sanitizedTask));
     toggleEmptyError(false);
     onCreate();
+  }
+
+  function handleCancelClick() {
+    onCreate();
+    toggleEmptyError(false);
   }
 
   function handleInputChange(event) {
@@ -53,10 +53,10 @@ const AddCard = ({
       ></textarea>
 
       <AddCardActionBar
-        onAddTask={handleAddTask}
         inputTask={inputTask}
-        onCancelClick={onCancelClick}
         isEmptyError={isEmptyError}
+        onAddTask={handleAddTask}
+        onCancelClick={handleCancelClick}
       />
     </div>
   );
@@ -64,7 +64,7 @@ const AddCard = ({
 
 AddCard.propTypes = {
   isEmptyError: PropTypes.bool.isRequired,
-  onCancelClick: PropTypes.func.isRequired,
+  onCreate: PropTypes.func.isRequired,
   toggleEmptyError: PropTypes.func.isRequired,
 };
 

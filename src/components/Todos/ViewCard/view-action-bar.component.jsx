@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { deleteTodo } from "actions";
 import {
   ICON_CHECK,
   ICON_EDIT,
@@ -9,12 +11,13 @@ import {
   ALT_TEXT_DELETE_TODO,
 } from "common/constants";
 
-const ViewActionBar = ({ onDeleteTask, todo }) => {
-  const { id } = todo;
+const ViewActionBar = ({ todo }) => {
+  const dispatch = useDispatch();
 
   function handleDeleteTask() {
-    onDeleteTask(id);
+    dispatch(deleteTodo(todo.id));
   }
+
   return (
     <div className="todo__card-view-btns">
       <button>
@@ -31,7 +34,6 @@ const ViewActionBar = ({ onDeleteTask, todo }) => {
 };
 
 ViewActionBar.propTypes = {
-  onDeleteTask: PropTypes.func.isRequired,
   todo: PropTypes.object.isRequired,
 };
 
