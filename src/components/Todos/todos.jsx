@@ -5,6 +5,13 @@ import Navbar from "components/Todos/Navbar/navbar";
 import TopBar from "components/Todos/Topbar/top-bar";
 import AddCard from "components/Todos/AddCard/add-card";
 import Todo from "components/Todos/Todo/todo";
+import EmptyViews from "components/Todos/EmptyViews/empty-views";
+import Pagination from "components/Todos/Pagination/pagination";
+import {
+  TASK_PER_PAGE,
+  LABEL_LOAD_MORE,
+  LABEL_SHOW_LESS,
+} from "common/constants";
 
 const Todos = () => {
   const dispatch = useDispatch();
@@ -15,6 +22,17 @@ const Todos = () => {
     (state) => state.buttonClickReducers.isCreateButtonClicked
   );
   const isEmptyError = useSelector((state) => state.errorReducers.isEmptyError);
+
+  const currentPage = useSelector(
+    (state) => state.currentPageReducer.currentPage
+  );
+
+  const { length } = todoList;
+  const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;
+  const currentTodoList = todoList.slice(0, currentTask);
+  const showLoadMoreButton = length > currentTask;
+  const showSeeLessButton = length + isCreateButtonClicked > TASK_PER_PAGE;
+  const showPagination = showLoadMoreButton || showSeeLessButton;
 
   function toggleEmptyError(toggleValue) {
     dispatch(handleEmptyError(toggleValue));
@@ -41,10 +59,19 @@ const Todos = () => {
                 toggleEmptyError={toggleEmptyError}
               />
             )}
-            {todoList.map((todo) => {
-              return <Todo key={todo.id} todo={todo} />;
-            })}
+            {todoList.length
+              ? currentTodoList.map((todo) => {
+                  return <Todo key={todo.id} todo={todo} />;
+                })
+              : !isCreateButtonClicked && <EmptyViews />}
           </div>
+          {showPagination && (
+            <Pagination
+              buttonText={
+                showLoadMoreButton ? LABEL_LOAD_MORE : LABEL_SHOW_LESS
+              }
+            />
+          )}
         </div>
       </div>
     </div>
