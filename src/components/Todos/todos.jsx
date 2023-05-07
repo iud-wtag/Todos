@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, handleCreateButton, handleEmptyError } from "actions";
-import Navbar from "components/Todo/Navbar/navbar";
-import TopBar from "components/Todo/Topbar/top-bar";
-import AddCard from "components/Todo/AddCard/add-card";
-import TodoCards from "components/Todo/TodoCards/todo-cards";
+import Navbar from "components/Todos/Navbar/navbar";
+import TopBar from "components/Todos/Topbar/top-bar";
+import AddCard from "components/Todos/AddCard/add-card";
+import TodoCards from "components/Todos/TodoCards/todo-cards";
 import { sanitizeInput } from "helpers/sanitizeInput";
 
 const Todos = () => {

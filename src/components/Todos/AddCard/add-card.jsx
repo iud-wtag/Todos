@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import AddCardActionBar from "components/Todo/AddCard/add-card-action-bar.component";
+import AddCardActionBar from "components/Todos/AddCard/add-card-action-bar.component";
 import { KEY_ENTER } from "common/constants";
 
 const AddCard = ({ isEmptyError, onAddTask, toggleEmptyError }) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TodoActionBar from "components/Todo/TodoCards/todo-action-bar.component";
-import TodoCardTop from "components/Todo/TodoCards/todo-card-top.component";
+import TodoActionBar from "components/Todos/TodoCards/todo-action-bar.component";
+import TodoCardTop from "components/Todos/TodoCards/todo-card-top.component";
 
 const TodoCards = ({ todoList }) => {
   return todoList.map((todo) => {
