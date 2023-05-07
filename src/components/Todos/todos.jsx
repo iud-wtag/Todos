@@ -59,7 +59,7 @@ const Todos = () => {
                 toggleEmptyError={toggleEmptyError}
               />
             )}
-            {todoList.length
+            {currentTodoList.length
               ? currentTodoList.map((todo) => {
                   return <Todo key={todo.id} todo={todo} />;
                 })
