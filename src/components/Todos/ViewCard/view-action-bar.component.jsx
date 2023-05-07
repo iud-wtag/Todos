@@ -9,13 +9,12 @@ import {
   ALT_TEXT_DELETE_TODO,
 } from "common/constants";
 
-const TodoActionBar = ({ onDeleteTask, todo }) => {
+const ViewActionBar = ({ onDeleteTask, todo }) => {
   const { id } = todo;
 
   function handleDeleteTask() {
     onDeleteTask(id);
   }
-
   return (
     <div className="todo__card-view-btns">
       <button>
@@ -31,9 +30,9 @@ const TodoActionBar = ({ onDeleteTask, todo }) => {
   );
 };
 
-TodoActionBar.propTypes = {
+ViewActionBar.propTypes = {
   onDeleteTask: PropTypes.func.isRequired,
   todo: PropTypes.object.isRequired,
 };
 
-export default TodoActionBar;
+export default ViewActionBar;

@@ -1,15 +1,31 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import AddCardActionBar from "components/Todo/AddCard/add-card-action-bar.component";
+import { useDispatch } from "react-redux";
 import { KEY_ENTER } from "common/constants";
+import { sanitizeInput } from "helpers/sanitizeInput";
+import { addTodo } from "actions";
+import AddCardActionBar from "components/Todos/AddCard/add-card-action-bar.component";
 
 const AddCard = ({
-  onAddTask,
+  onCreate,
   isEmptyError,
   toggleEmptyError,
   onCancelClick,
 }) => {
+  const dispatch = useDispatch();
+
   const [inputTask, setInputTask] = useState("");
+
+  function handleAddTask(inputTask) {
+    const sanitizedTask = sanitizeInput(inputTask);
+    if (sanitizedTask.trim() === "") {
+      toggleEmptyError(true);
+      return;
+    }
+    dispatch(addTodo(sanitizedTask));
+    toggleEmptyError(false);
+    onCreate();
+  }
 
   function handleInputChange(event) {
     setInputTask(event.target.value);
@@ -20,7 +36,7 @@ const AddCard = ({
 
   function handleKeyDown(event) {
     if (event.key === KEY_ENTER) {
-      onAddTask(inputTask);
+      handleAddTask(inputTask);
     }
   }
 
@@ -30,15 +46,15 @@ const AddCard = ({
         className="todo__card-input"
         type="text"
         id="todo-input"
-        onChange={handleInputChange}
-        value={inputTask}
         autoFocus
+        value={inputTask}
+        onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       ></textarea>
 
       <AddCardActionBar
+        onAddTask={handleAddTask}
         inputTask={inputTask}
-        onAddTask={onAddTask}
         onCancelClick={onCancelClick}
         isEmptyError={isEmptyError}
       />
@@ -48,7 +64,6 @@ const AddCard = ({
 
 AddCard.propTypes = {
   isEmptyError: PropTypes.bool.isRequired,
-  onAddTask: PropTypes.func.isRequired,
   onCancelClick: PropTypes.func.isRequired,
   toggleEmptyError: PropTypes.func.isRequired,
 };

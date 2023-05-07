@@ -1,5 +1,5 @@
 import React from "react";
-import Todo from "components/Todo/todo";
+import Todo from "components/Todos/todos";
 import "assets/css/style.scss";
 
 const App = () => {

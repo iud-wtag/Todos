@@ -1,18 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addTodo,
-  handleCreateButton,
-  deleteTodo,
-  handleEmptyError,
-} from "actions";
-import Navbar from "components/Todo/Navbar/navbar";
-import TopBar from "components/Todo/Topbar/top-bar";
-import AddCard from "components/Todo/AddCard/add-card";
-import TodoCards from "components/Todo/TodoCards/todo-cards";
-import { sanitizeInput } from "helpers/sanitizeInput";
+import { handleCreateButton, handleEmptyError } from "actions";
+import Navbar from "components/Todos/Navbar/navbar";
+import TopBar from "components/Todos/Topbar/top-bar";
+import AddCard from "components/Todos/AddCard/add-card";
+import Todo from "components/Todos/Todo/todo";
 
-const Todo = () => {
+const Todos = () => {
   const dispatch = useDispatch();
 
   const todoList = useSelector((state) => state.todoReducers.list);
@@ -35,17 +29,6 @@ const Todo = () => {
     toggleEmptyError(false);
   }
 
-  function handleAddTask(inputTask) {
-    const sanitizedTask = sanitizeInput(inputTask);
-    if (sanitizedTask.trim() === "") {
-      toggleEmptyError(true);
-      return;
-    }
-    dispatch(addTodo(sanitizedTask));
-    handleCreate();
-    toggleEmptyError(false);
-  }
-
   function handleDeleteTask(taskId) {
     dispatch(deleteTodo(taskId));
   }
@@ -63,12 +46,13 @@ const Todo = () => {
             {isCreateButtonClicked && (
               <AddCard
                 isEmptyError={isEmptyError}
-                onAddTask={handleAddTask}
                 onCancelClick={handleCancelClick}
                 toggleEmptyError={toggleEmptyError}
               />
             )}
-            <TodoCards todoList={todoList} onDeleteTask={handleDeleteTask} />
+            {todoList.map((todo) => {
+              return <Todo key={todo.id} todo={todo} />;
+            })}
           </div>
         </div>
       </div>
@@ -76,4 +60,4 @@ const Todo = () => {
   );
 };
 
-export default Todo;
+export default Todos;
