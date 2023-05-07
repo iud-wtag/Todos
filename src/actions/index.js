@@ -17,7 +17,6 @@ export const addTodo = (task) => {
       date: new Date(),
       isTaskComplete: false,
       completeTime: null,
-      onEdit: false,
     },
   };
 };
@@ -47,7 +46,6 @@ export const completeTodo = (id, date) => {
       id: id,
       isTaskComplete: true,
       completeTime: getDays(date.getTime(), Date.now()),
-      onEdit: false,
     },
   };
 };
@@ -58,7 +56,6 @@ export const editTodo = (id, editedTask) => {
     payload: {
       id: id,
       task: editedTask,
-      onEdit: false,
     },
   };
 };
