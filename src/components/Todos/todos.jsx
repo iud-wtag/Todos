@@ -1,11 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, handleCreateButton, handleEmptyError } from "actions";
+import { handleCreateButton, handleEmptyError } from "actions";
 import Navbar from "components/Todos/Navbar/navbar";
 import TopBar from "components/Todos/Topbar/top-bar";
 import AddCard from "components/Todos/AddCard/add-card";
 import Todo from "components/Todos/Todo/todo";
-import { sanitizeInput } from "helpers/sanitizeInput";
 
 const Todos = () => {
   const dispatch = useDispatch();
@@ -25,17 +24,6 @@ const Todos = () => {
     dispatch(handleCreateButton(isCreateButtonClicked));
   }
 
-  function handleAddTask(inputTask) {
-    const sanitizedData = sanitizeInput(inputTask);
-    if (sanitizedData.trim() === "") {
-      toggleEmptyError(true);
-      return;
-    }
-    dispatch(addTodo(sanitizedData));
-    handleCreate();
-    toggleEmptyError(false);
-  }
-
   return (
     <div className="todo">
       <Navbar />
@@ -49,7 +37,8 @@ const Todos = () => {
             {isCreateButtonClicked && (
               <AddCard
                 isEmptyError={isEmptyError}
-                onAddTask={handleAddTask}
+                isCreateButtonClicked={isCreateButtonClicked}
+                onCreate={handleCreate}
                 toggleEmptyError={toggleEmptyError}
               />
             )}

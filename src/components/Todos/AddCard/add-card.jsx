@@ -1,10 +1,26 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import AddCardActionBar from "components/Todos/AddCard/add-card-action-bar.component";
+import { useDispatch } from "react-redux";
 import { KEY_ENTER } from "common/constants";
+import { sanitizeInput } from "helpers/sanitizeInput";
+import { addTodo } from "actions";
+import AddCardActionBar from "components/Todos/AddCard/add-card-action-bar.component";
 
-const AddCard = ({ isEmptyError, onAddTask, toggleEmptyError }) => {
+const AddCard = ({ isEmptyError, onCreate, toggleEmptyError }) => {
+  const dispatch = useDispatch();
+
   const [inputTask, setInputTask] = useState("");
+
+  function handleAddTask(inputTask) {
+    const sanitizedTask = sanitizeInput(inputTask);
+    if (sanitizedTask.trim() === "") {
+      toggleEmptyError(true);
+      return;
+    }
+    dispatch(addTodo(sanitizedTask));
+    toggleEmptyError(false);
+    onCreate();
+  }
 
   function handleInputChange(event) {
     setInputTask(event.target.value);
@@ -15,7 +31,7 @@ const AddCard = ({ isEmptyError, onAddTask, toggleEmptyError }) => {
 
   function handleKeyDown(event) {
     if (event.key === KEY_ENTER) {
-      onAddTask(inputTask);
+      handleAddTask(inputTask);
     }
   }
 
@@ -25,15 +41,15 @@ const AddCard = ({ isEmptyError, onAddTask, toggleEmptyError }) => {
         className="todo__card-input"
         type="text"
         id="todo-input"
-        onChange={handleInputChange}
-        value={inputTask}
         autoFocus
+        value={inputTask}
+        onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       ></textarea>
 
       <AddCardActionBar
+        onAddTask={handleAddTask}
         inputTask={inputTask}
-        onAddTask={onAddTask}
         isEmptyError={isEmptyError}
       />
     </div>
@@ -42,7 +58,7 @@ const AddCard = ({ isEmptyError, onAddTask, toggleEmptyError }) => {
 
 AddCard.propTypes = {
   isEmptyError: PropTypes.bool.isRequired,
-  onAddTask: PropTypes.func.isRequired,
+  onCreate: PropTypes.func.isRequired,
   toggleEmptyError: PropTypes.func.isRequired,
 };
 
