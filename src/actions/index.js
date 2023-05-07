@@ -5,7 +5,6 @@ import {
   DELETE_TODO,
   COMPLETE_TODO,
   EDIT_TODO,
-  HANDLE_EDIT,
   HANDLE_CURRENT_PAGE,
 } from "actions/actionTypes";
 import { getDays } from "helpers/getDays";
@@ -19,7 +18,6 @@ export const addTodo = (task) => {
       date: new Date(),
       isTaskComplete: false,
       completeTime: null,
-      onEdit: false,
     },
   };
 };
@@ -49,7 +47,6 @@ export const completeTodo = (id, date) => {
       id: id,
       isTaskComplete: true,
       completeTime: getDays(date.getTime(), Date.now()),
-      onEdit: false,
     },
   };
 };
@@ -60,17 +57,6 @@ export const editTodo = (id, editedTask) => {
     payload: {
       id: id,
       task: editedTask,
-      onEdit: false,
-    },
-  };
-};
-
-export const handleEditButton = (id) => {
-  return {
-    type: HANDLE_EDIT,
-    payload: {
-      id: id,
-      onEdit: true,
     },
   };
 };
