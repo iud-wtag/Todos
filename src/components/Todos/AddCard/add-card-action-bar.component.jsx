@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { ICON_DELETE, ALT_TEXT_DELETE_TODO } from "common/constants";
 
 const AddCardActionBar = ({
-  onAddTask,
   inputTask,
   isEmptyError,
+  onAddTask,
   onCancelClick,
 }) => {
   function handleAddTask() {
@@ -25,10 +25,10 @@ const AddCardActionBar = ({
 };
 
 AddCardActionBar.propTypes = {
-  onAddTask: PropTypes.func.isRequired,
-  onCancelClick: PropTypes.func.isRequired,
   isEmptyError: PropTypes.bool.isRequired,
   inputTask: PropTypes.string.isRequired,
+  onAddTask: PropTypes.func.isRequired,
+  onCancelClick: PropTypes.func.isRequired,
 };
 
 export default AddCardActionBar;
