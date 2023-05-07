@@ -1,9 +1,9 @@
 import React from "react";
-import Todo from "components/Todos/todos";
+import Todos from "components/Todos/todos";
 import "assets/css/style.scss";
 
 const App = () => {
-  return <Todo />;
+  return <Todos />;
 };
 
 export default App;
