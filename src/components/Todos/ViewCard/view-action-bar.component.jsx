@@ -3,26 +3,16 @@ import PropTypes from "prop-types";
 import TaskComplete from "components/Todos/ViewCard/task-complete.component";
 import TaskIncomplete from "components/Todos/ViewCard/task-incomplete.component";
 
-const ViewActionBar = ({ todo, onDeleteTask, onCompleteTask }) => {
-  function handleDeleteTask() {
-    dispatch(deleteTodo(todo.id));
-  }
-
+const ViewActionBar = ({ todo }) => {
   return todo.isTaskComplete ? (
-    <TaskComplete todo={todo} onDeleteTask={onDeleteTask} />
+    <TaskComplete todo={todo} />
   ) : (
-    <TaskIncomplete
-      todo={todo}
-      onDeleteTask={onDeleteTask}
-      onCompleteTask={onCompleteTask}
-    />
+    <TaskIncomplete todo={todo} />
   );
 };
 
 ViewActionBar.propTypes = {
   todo: PropTypes.object.isRequired,
-  onDeleteTask: PropTypes.func.isRequired,
-  onCompleteTask: PropTypes.func.isRequired,
 };
 
 export default ViewActionBar;

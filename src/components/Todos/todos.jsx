@@ -24,10 +24,6 @@ const Todos = () => {
     dispatch(handleCreateButton(isCreateButtonClicked));
   }
 
-  function handleCompleteTask(taskId, startDate) {
-    dispatch(completeTodo(taskId, startDate));
-  }
-
   return (
     <div className="todo">
       <Navbar />
