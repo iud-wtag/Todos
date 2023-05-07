@@ -4,7 +4,7 @@ import { addTodo, handleCreateButton, handleEmptyError } from "actions";
 import Navbar from "components/Todos/Navbar/navbar";
 import TopBar from "components/Todos/Topbar/top-bar";
 import AddCard from "components/Todos/AddCard/add-card";
-import TodoCards from "components/Todos/TodoCards/todo-cards";
+import Todo from "components/Todos/Todo/todo";
 import { sanitizeInput } from "helpers/sanitizeInput";
 
 const Todos = () => {
@@ -53,7 +53,9 @@ const Todos = () => {
                 toggleEmptyError={toggleEmptyError}
               />
             )}
-            <TodoCards todoList={todoList} />
+            {todoList.map((todo) => {
+              return <Todo key={todo.id} todo={todo} />;
+            })}
           </div>
         </div>
       </div>

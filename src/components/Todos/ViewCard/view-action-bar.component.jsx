@@ -8,7 +8,7 @@ import {
   ALT_TEXT_DELETE_TODO,
 } from "common/constants";
 
-const TodoActionBar = () => {
+const ViewActionBar = () => {
   return (
     <div className="todo__card-view-btns">
       <button>
@@ -24,4 +24,4 @@ const TodoActionBar = () => {
   );
 };
 
-export default TodoActionBar;
+export default ViewActionBar;
