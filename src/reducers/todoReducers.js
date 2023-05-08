@@ -79,7 +79,7 @@ const todoReducers = (state = initialData, action) => {
     case SEARCH_TODO:
       return {
         ...state,
-        searchValue: action.searchValue,
+        searchValue: action.payload.searchValue,
       };
 
     default:

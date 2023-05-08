@@ -95,14 +95,18 @@ export const filterTodo = (filterType) => {
 export const searchTodo = (searchValue) => {
   return {
     type: SEARCH_TODO,
-    searchValue,
+    payload: {
+      searchValue,
+    },
   };
 };
 
 export const setLoader = (loader) => {
   return {
     type: HANDLE_LOADER,
-    loader,
+    payload: {
+      loader,
+    },
   };
 };
 

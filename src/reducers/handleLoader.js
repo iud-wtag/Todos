@@ -8,7 +8,7 @@ const handleLoader = (state = initialLoader, action) => {
     case HANDLE_LOADER:
       return {
         ...state,
-        loader: action.loader,
+        loader: action.payload.loader,
       };
     default:
       return state;
