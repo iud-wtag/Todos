@@ -28,11 +28,11 @@ const AddCard = ({
       toggleEmptyError(true);
       return;
     }
-    dispatch(addTodo(sanitizedTask));
-    toggleEmptyError(false);
     onCreate();
+    toggleEmptyError(false);
     handleFilter(LABEL_FILTER_ALL);
     dispatch(searchTodo(""));
+    dispatch(addTodo(sanitizedTask));
     dispatch(handleSearchButton(true));
   }
 
