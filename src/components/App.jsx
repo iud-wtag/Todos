@@ -11,7 +11,7 @@ const App = () => {
         autoClose={2000}
         hideProgressBar
         position="top-center"
-        className="toast-container"
+        className="toast__container"
         closeButton={false}
       />
     </>
