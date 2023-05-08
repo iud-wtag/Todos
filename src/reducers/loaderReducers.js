@@ -3,7 +3,7 @@ const initialLoader = {
   loader: false,
 };
 
-const handleLoader = (state = initialLoader, action) => {
+const loaderReducers = (state = initialLoader, action) => {
   switch (action.type) {
     case HANDLE_LOADER:
       return {
@@ -15,4 +15,4 @@ const handleLoader = (state = initialLoader, action) => {
   }
 };
 
-export default handleLoader;
+export default loaderReducers;

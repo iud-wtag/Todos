@@ -36,7 +36,7 @@ const Todos = () => {
     (state) => state.todoFilterReducers.filterType
   );
 
-  const loader = useSelector((state) => state.handleLoader.loader);
+  const loader = useSelector((state) => state.loaderReducers.loader);
 
   const [todos, setTodos] = useState(todoList);
   const [activeFilterType, setActiveFilterType] = useState(LABEL_FILTER_ALL);

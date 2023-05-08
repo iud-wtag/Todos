@@ -3,7 +3,7 @@ import buttonClickReducers from "reducers/buttonClickReducers";
 import errorReducers from "reducers/errorReducers";
 import currentPageReducer from "reducers/currentPageReducer";
 import todoFilterReducers from "reducers/todoFilterReducers";
-import handleLoader from "reducers/handleLoader";
+import loaderReducers from "reducers/loaderReducers";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   buttonClickReducers,
   currentPageReducer,
   todoFilterReducers,
-  handleLoader,
+  loaderReducers,
 });
 
 export default rootReducer;
