@@ -6,7 +6,7 @@ import { KEY_ENTER } from "common/constants";
 import { useDispatch } from "react-redux";
 import EditActionBar from "components/Todos/EditCard/edit-action-bar.component";
 
-const EditCard = ({ todo, setIsEdit }) => {
+const EditCard = ({ todo, onSetEdit }) => {
   const dispatch = useDispatch();
   const { id, task } = todo;
   const textRef = useRef(null);
@@ -28,7 +28,7 @@ const EditCard = ({ todo, setIsEdit }) => {
       return;
     }
     dispatch(editTodo(id, sanitizedTask));
-    setIsEdit(false);
+    onSetEdit(false);
   }
 
   function setFocusAndSelection() {
@@ -57,7 +57,7 @@ const EditCard = ({ todo, setIsEdit }) => {
       <EditActionBar
         todo={todo}
         editedTask={editedTask}
-        setIsEdit={setIsEdit}
+        onSetEdit={onSetEdit}
       />
     </>
   );
@@ -65,7 +65,7 @@ const EditCard = ({ todo, setIsEdit }) => {
 
 EditCard.propTypes = {
   todo: PropTypes.object.isRequired,
-  setIsEdit: PropTypes.func.isRequired,
+  onSetEdit: PropTypes.func.isRequired,
 };
 
 export default EditCard;
