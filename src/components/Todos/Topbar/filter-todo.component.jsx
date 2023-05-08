@@ -8,7 +8,7 @@ import {
 import { useDispatch } from "react-redux";
 import { filterTodo, handleCurrentPage } from "actions";
 
-const FilterTodo = ({ activeFilterType, setActiveFilterType }) => {
+const FilterTodo = ({ activeFilterType, onActiveFilterType }) => {
   const dispatch = useDispatch();
 
   const filterButtons = [
@@ -21,7 +21,7 @@ const FilterTodo = ({ activeFilterType, setActiveFilterType }) => {
     const { label } = event.target.dataset;
     dispatch(handleCurrentPage(1));
     dispatch(filterTodo(label));
-    setActiveFilterType(label);
+    onActiveFilterType(label);
   }
 
   return (
@@ -44,7 +44,7 @@ const FilterTodo = ({ activeFilterType, setActiveFilterType }) => {
 
 FilterTodo.propTypes = {
   activeFilterType: PropTypes.string.isRequired,
-  setActiveFilterType: PropTypes.func.isRequired,
+  onActiveFilterType: PropTypes.func.isRequired,
 };
 
 export default FilterTodo;

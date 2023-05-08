@@ -7,7 +7,7 @@ const TopBar = ({
   onCreate,
   activeFilterType,
   isCreateButtonClicked,
-  setActiveFilterType,
+  onActiveFilterType,
 }) => {
   return (
     <div className="todo__top">
@@ -19,7 +19,7 @@ const TopBar = ({
         />
         <FilterTodo
           activeFilterType={activeFilterType}
-          setActiveFilterType={setActiveFilterType}
+          onActiveFilterType={onActiveFilterType}
         />
       </div>
     </div>
@@ -28,7 +28,7 @@ const TopBar = ({
 
 TopBar.propTypes = {
   onCreate: PropTypes.func.isRequired,
-  setActiveFilterType: PropTypes.func.isRequired,
+  onActiveFilterType: PropTypes.func.isRequired,
   activeFilterType: PropTypes.string.isRequired,
   isCreateButtonClicked: PropTypes.bool.isRequired,
 };

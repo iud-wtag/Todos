@@ -76,7 +76,7 @@ const Todos = () => {
         <div className="todo__wrapper">
           <TopBar
             onCreate={handleCreate}
-            setActiveFilterType={setActiveFilterType}
+            onActiveFilterType={setActiveFilterType}
             activeFilterType={activeFilterType}
             isCreateButtonClicked={isCreateButtonClicked}
           />
@@ -86,7 +86,7 @@ const Todos = () => {
                 isEmptyError={isEmptyError}
                 onCreate={handleCreate}
                 toggleEmptyError={toggleEmptyError}
-                setActiveFilterType={setActiveFilterType}
+                onActiveFilterType={setActiveFilterType}
               />
             )}
             {currentTodoList.length

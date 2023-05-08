@@ -10,7 +10,7 @@ const AddCard = ({
   isEmptyError,
   onCreate,
   toggleEmptyError,
-  setActiveFilterType,
+  onActiveFilterType,
 }) => {
   const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ const AddCard = ({
   function handleFilter(filterType) {
     dispatch(filterTodo(filterType));
     dispatch(handleCurrentPage(1));
-    setActiveFilterType(filterType);
+    onActiveFilterType(filterType);
   }
 
   function handleCancelClick() {
@@ -78,7 +78,7 @@ AddCard.propTypes = {
   isEmptyError: PropTypes.bool.isRequired,
   onCreate: PropTypes.func.isRequired,
   toggleEmptyError: PropTypes.func.isRequired,
-  setActiveFilterType: PropTypes.func.isRequired,
+  onActiveFilterType: PropTypes.func.isRequired,
 };
 
 export default AddCard;
