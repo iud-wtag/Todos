@@ -11,7 +11,7 @@ import {
   ALT_TEXT_DELETE_TODO,
 } from "common/constants";
 
-const TaskIncomplete = ({ todo, setIsEdit }) => {
+const TaskIncomplete = ({ todo, onSetEdit }) => {
   const dispatch = useDispatch();
 
   const { id, date, task } = todo;
@@ -22,11 +22,11 @@ const TaskIncomplete = ({ todo, setIsEdit }) => {
 
   function handleCompleteTask() {
     dispatch(completeTodo(id, date, task));
-    setIsEdit(false);
+    onSetEdit(false);
   }
 
   function handleEditClick() {
-    setIsEdit(true);
+    onSetEdit(true);
   }
 
   return (
@@ -46,7 +46,7 @@ const TaskIncomplete = ({ todo, setIsEdit }) => {
 
 TaskIncomplete.propTypes = {
   todo: PropTypes.object.isRequired,
-  setIsEdit: PropTypes.func.isRequired,
+  onSetEdit: PropTypes.func.isRequired,
 };
 
 export default TaskIncomplete;

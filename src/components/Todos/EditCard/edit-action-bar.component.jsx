@@ -10,7 +10,7 @@ import { editTodo, completeTodo } from "actions";
 import { useDispatch } from "react-redux";
 import { sanitizeInput } from "helpers/sanitizeInput";
 
-const EditActionBar = ({ todo, editedTask, setIsEdit }) => {
+const EditActionBar = ({ todo, editedTask, onSetEdit }) => {
   const dispatch = useDispatch();
   const { id, task, date } = todo;
 
@@ -20,7 +20,7 @@ const EditActionBar = ({ todo, editedTask, setIsEdit }) => {
       return;
     }
     dispatch(editTodo(id, sanitizedTask));
-    setIsEdit(false);
+    onSetEdit(false);
   }
 
   function handleCompleteTask() {
@@ -30,12 +30,12 @@ const EditActionBar = ({ todo, editedTask, setIsEdit }) => {
     }
     dispatch(editTodo(id, sanitizedTask));
     dispatch(completeTodo(id, date, sanitizedTask));
-    setIsEdit(false);
+    onSetEdit(false);
   }
 
   function handleCancelEditTask() {
     dispatch(editTodo(id, task));
-    setIsEdit(false);
+    onSetEdit(false);
   }
 
   return (
@@ -56,7 +56,7 @@ const EditActionBar = ({ todo, editedTask, setIsEdit }) => {
 EditActionBar.propTypes = {
   todo: PropTypes.object.isRequired,
   editedTask: PropTypes.string.isRequired,
-  setIsEdit: PropTypes.func.isRequired,
+  onSetEdit: PropTypes.func.isRequired,
 };
 
 export default EditActionBar;
