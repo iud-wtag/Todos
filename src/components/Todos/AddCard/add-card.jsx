@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { KEY_ENTER, LABEL_FILTER_ALL } from "common/constants";
 import { sanitizeInput } from "helpers/sanitizeInput";
-import { addTodo, filterTodo, handleCurrentPage } from "actions";
+import {
+  addTodo,
+  filterTodo,
+  searchTodo,
+  handleCurrentPage,
+  handleSearchButton,
+} from "actions";
 import AddCardActionBar from "components/Todos/AddCard/add-card-action-bar.component";
 
 const AddCard = ({
@@ -26,6 +32,8 @@ const AddCard = ({
     toggleEmptyError(false);
     onCreate();
     handleFilter(LABEL_FILTER_ALL);
+    dispatch(searchTodo(""));
+    dispatch(handleSearchButton(true));
   }
 
   function handleFilter(filterType) {

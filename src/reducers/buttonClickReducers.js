@@ -18,7 +18,7 @@ const buttonClickReducers = (state = initialButton, action) => {
       const { isSearchButtonClicked } = action.payload;
       return {
         ...state,
-        isSearchButtonClicked: isSearchButtonClicked,
+        isSearchButtonClicked,
       };
 
     default:

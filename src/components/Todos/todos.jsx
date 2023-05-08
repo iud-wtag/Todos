@@ -7,6 +7,7 @@ import AddCard from "components/Todos/AddCard/add-card";
 import Todo from "components/Todos/Todo/todo";
 import EmptyViews from "components/Todos/EmptyViews/empty-views";
 import Pagination from "components/Todos/Pagination/pagination";
+import LoaderSpinner from "components/Todos/LoaderSpinner/loader-spinner";
 import {
   TASK_PER_PAGE,
   LABEL_LOAD_MORE,
@@ -20,6 +21,7 @@ const Todos = () => {
   const dispatch = useDispatch();
 
   const todoList = useSelector((state) => state.todoReducers.list);
+  const searchValue = useSelector((state) => state.todoReducers.searchValue);
 
   const isCreateButtonClicked = useSelector(
     (state) => state.buttonClickReducers.isCreateButtonClicked
@@ -33,6 +35,8 @@ const Todos = () => {
   const filterType = useSelector(
     (state) => state.todoFilterReducers.filterType
   );
+
+  const loader = useSelector((state) => state.handleLoader.loader);
 
   const [todos, setTodos] = useState(todoList);
   const [activeFilterType, setActiveFilterType] = useState(LABEL_FILTER_ALL);
@@ -66,13 +70,17 @@ const Todos = () => {
         filteredTodos = todoList;
     }
 
-    setTodos(filteredTodos);
-  }, [filterType, todoList]);
+    const searchedTodos = filteredTodos.filter((todo) =>
+      todo.task.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
+    setTodos(searchedTodos);
+  }, [filterType, todoList, searchValue]);
 
   return (
     <div className="todo">
       <Navbar />
-      <div className="todo__container">
+      <div className={`todo__container ${loader && "todo_disabled"}`}>
         <div className="todo__wrapper">
           <TopBar
             onCreate={handleCreate}
@@ -104,6 +112,7 @@ const Todos = () => {
           )}
         </div>
       </div>
+      {loader && <LoaderSpinner />}
     </div>
   );
 };
