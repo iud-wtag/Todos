@@ -1,6 +1,10 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ICON_SEARCH, ALT_TEXT_SEARCH_ICON } from "common/constants";
+import {
+  ICON_SEARCH,
+  ALT_TEXT_SEARCH_ICON,
+  PLACEHOLDER_INPUT_SEARCH,
+} from "common/constants";
 import {
   setLoader,
   searchTodo,
@@ -48,7 +52,7 @@ const SearchBar = () => {
           type="search"
           id="todo-search-input"
           className="todo-search-input"
-          placeholder="Search here..."
+          placeholder={PLACEHOLDER_INPUT_SEARCH}
           onChange={handleSearchChange}
           autoFocus
         />

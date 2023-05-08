@@ -30,3 +30,5 @@ export const LABEL_FILTER_INCOMPLETE = "Incomplete";
 
 export const KEY_ENTER = "Enter";
 export const TASK_PER_PAGE = 9;
+
+export const PLACEHOLDER_INPUT_SEARCH = "Search here...";
