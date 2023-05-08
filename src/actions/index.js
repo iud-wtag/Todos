@@ -64,15 +64,6 @@ export const editTodo = (id, editedTask) => {
   };
 };
 
-export const handleEmptyError = (isEmptyError) => {
-  return {
-    type: HANDLE_EMPTY,
-    payload: {
-      isEmptyError,
-    },
-  };
-};
-
 export const handleCurrentPage = (currentPage) => {
   return {
     type: HANDLE_CURRENT_PAGE,

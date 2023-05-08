@@ -9,7 +9,10 @@ import {
   ALT_TEXT_COMPLETE_TODO,
   ALT_TEXT_EDIT_TODO,
   ALT_TEXT_DELETE_TODO,
+  MESSAGE_DELETE_TASK,
+  MESSAGE_COMPLETE_TASK,
 } from "common/constants";
+import { showSuccessToast } from "common/notification";
 
 const TaskIncomplete = ({ todo, onSetEdit }) => {
   const dispatch = useDispatch();
@@ -18,11 +21,13 @@ const TaskIncomplete = ({ todo, onSetEdit }) => {
 
   function handleDeleteTask() {
     dispatch(deleteTodo(id));
+    showSuccessToast(MESSAGE_DELETE_TASK);
   }
 
   function handleCompleteTask() {
     dispatch(completeTodo(id, date, task));
     onSetEdit(false);
+    showSuccessToast(MESSAGE_COMPLETE_TASK);
   }
 
   function handleEditClick() {

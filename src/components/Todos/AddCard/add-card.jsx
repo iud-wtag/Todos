@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { KEY_ENTER, LABEL_FILTER_ALL } from "common/constants";
-import { sanitizeInput } from "helpers/sanitizeInput";
+import {
+  KEY_ENTER,
+  LABEL_FILTER_ALL,
+  MESSAGE_ADD_TASK,
+  MESSAGE_REQUIRED,
+  MESSAGE_ERROR,
+} from "common/constants";
+import {
+  showSuccessToast,
+  showRequiredToast,
+  showErrorToast,
+} from "common/notification";
 import {
   addTodo,
   filterTodo,
@@ -10,14 +20,10 @@ import {
   handleCurrentPage,
   handleSearchButton,
 } from "actions";
+import { sanitizeInput } from "helpers/sanitizeInput";
 import AddCardActionBar from "components/Todos/AddCard/add-card-action-bar.component";
 
-const AddCard = ({
-  isEmptyError,
-  onCreate,
-  toggleEmptyError,
-  onActiveFilterType,
-}) => {
+const AddCard = ({ onCreate, onActiveFilterType }) => {
   const dispatch = useDispatch();
 
   const [inputTask, setInputTask] = useState("");
@@ -25,15 +31,15 @@ const AddCard = ({
   function handleAddTask(inputTask) {
     const sanitizedTask = sanitizeInput(inputTask);
     if (sanitizedTask.trim() === "") {
-      toggleEmptyError(true);
+      showRequiredToast(MESSAGE_REQUIRED);
       return;
     }
     onCreate();
-    toggleEmptyError(false);
     handleFilter(LABEL_FILTER_ALL);
     dispatch(searchTodo(""));
     dispatch(addTodo(sanitizedTask));
     dispatch(handleSearchButton(true));
+    showSuccessToast(MESSAGE_ADD_TASK);
   }
 
   function handleFilter(filterType) {
@@ -44,14 +50,11 @@ const AddCard = ({
 
   function handleCancelClick() {
     onCreate();
-    toggleEmptyError(false);
+    showErrorToast(MESSAGE_ERROR);
   }
 
   function handleInputChange(event) {
     setInputTask(event.target.value);
-    if (isEmptyError) {
-      toggleEmptyError(false);
-    }
   }
 
   function handleKeyDown(event) {
@@ -74,7 +77,6 @@ const AddCard = ({
 
       <AddCardActionBar
         inputTask={inputTask}
-        isEmptyError={isEmptyError}
         onAddTask={handleAddTask}
         onCancelClick={handleCancelClick}
       />
@@ -83,9 +85,7 @@ const AddCard = ({
 };
 
 AddCard.propTypes = {
-  isEmptyError: PropTypes.bool.isRequired,
   onCreate: PropTypes.func.isRequired,
-  toggleEmptyError: PropTypes.func.isRequired,
   onActiveFilterType: PropTypes.func.isRequired,
 };
 
