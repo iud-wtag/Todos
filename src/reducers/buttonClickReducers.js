@@ -5,24 +5,24 @@ const initialButton = {
   isSearchButtonClicked: false,
 };
 
-const handleButtonClick = (state = initialButton, action) => {
+const buttonClickReducers = (state = initialButton, action) => {
   switch (action.type) {
     case HANDLE_CREATE:
       const { isCreateButtonClicked } = action.payload;
       return {
         ...state,
-        isCreateButtonClicked: isCreateButtonClicked,
+        isCreateButtonClicked,
       };
 
     case HANDLE_SEARCH:
       const { isSearchButtonClicked } = action.payload;
       return {
         ...state,
-        isSearchButtonClicked: isSearchButtonClicked,
+        isSearchButtonClicked,
       };
 
     default:
       return state;
   }
 };
-export default handleButtonClick;
+export default buttonClickReducers;
