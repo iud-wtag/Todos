@@ -69,15 +69,19 @@ textarea {
   }
 }
 
-.error {
-  color: $error;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.error-message {
-  background-color: $color-error;
+.message {
   color: $white;
+  &__error {
+    background: $color-error;
+  }
+
+  &__success {
+    background: $color-success;
+  }
+
+  &__warn {
+    background: $color-warning;
+  }
 }
 
 .navbar {
@@ -105,8 +109,18 @@ textarea {
   }
 }
 
-.success-message {
-  background: $color-success;
+.toast {
+  &__container {
+    width: fit-content;
+    text-align: center;
+  }
+
+  &__message {
+    color: $white;
+    font-size: 1.125rem;
+    line-height: 1.313rem;
+    padding: 1rem 3.125rem;
+  }
 }
 
 .todo,
@@ -232,7 +246,7 @@ textarea {
     align-items: center;
     gap: 1.063rem;
 
-    &_input {
+    &-input {
       border: 0.188rem solid $input-border;
       border-radius: 0.313rem;
       color: $black;
@@ -290,20 +304,4 @@ textarea {
   &__wrapper {
     padding: 4.063rem 0rem;
   }
-}
-
-.toast-container {
-  width: fit-content;
-  text-align: center;
-}
-
-.toast-message {
-  color: $white;
-  font-size: 1.125rem;
-  line-height: 1.313rem;
-  padding: 1rem 3.125rem;
-}
-
-.warn-message {
-  background-color: $color-warning;
 }
