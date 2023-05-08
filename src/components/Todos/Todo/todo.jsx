@@ -9,9 +9,9 @@ const Todo = ({ todo }) => {
   return (
     <div className="todo__card-view" key={todo.id}>
       {isEdit ? (
-        <EditCard todo={todo} setIsEdit={setIsEdit} />
+        <EditCard todo={todo} onSetEdit={setIsEdit} />
       ) : (
-        <ViewCard todo={todo} setIsEdit={setIsEdit} />
+        <ViewCard todo={todo} onSetEdit={setIsEdit} />
       )}
     </div>
   );
