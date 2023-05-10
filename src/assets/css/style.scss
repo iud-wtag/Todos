@@ -56,8 +56,10 @@ textarea {
 }
 
 .empty__board {
-  margin: auto;
-  padding-top: 8.125rem;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -70%);
   text-align: center;
 
   &-title {
@@ -144,7 +146,6 @@ textarea {
       justify-content: space-between;
       padding: 1rem;
       word-break: break-all;
-      width: 23.875rem;
     }
 
     &-add {
@@ -169,7 +170,6 @@ textarea {
       border: 0.188rem solid $input-border;
       border-radius: 0.313rem;
       min-height: 5rem;
-      min-width: 21.875rem;
     }
 
     &-view {
@@ -213,12 +213,12 @@ textarea {
         }
       }
     }
-  }
 
-  &__card__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2.125rem;
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.125rem;
+    }
   }
 
   &_disabled {
@@ -286,6 +286,10 @@ textarea {
         }
       }
 
+      &-filter-select {
+        display: none;
+      }
+
       &-wrapper {
         display: flex;
         justify-content: space-between;
@@ -303,5 +307,51 @@ textarea {
 
   &__wrapper {
     padding: 4.063rem 0rem;
+  }
+}
+
+@media screen and (max-width: 62rem) {
+  .todo,
+  .navbar {
+    &__container {
+      max-width: 55rem;
+    }
+  }
+
+  .todo {
+    &__card {
+      &__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 36rem) {
+  .todo,
+  .navbar {
+    &__container {
+      max-width: 100%;
+    }
+  }
+
+  .todo {
+    &__card {
+      &__wrapper {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    &__top {
+      &__btn {
+        &-filter {
+          display: none;
+        }
+
+        &-filter-select {
+          display: block;
+        }
+      }
+    }
   }
 }
