@@ -8,7 +8,7 @@ const Logo = () => {
         <img src={ICON_LOGO} alt={ALT_TEXT_LOGO} />
       </div>
       <div className="navbar__left-txt">
-        <h3>Todos</h3>
+        <h1>Todos</h1>
       </div>
     </div>
   );

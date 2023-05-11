@@ -24,6 +24,38 @@ img {
   cursor: pointer;
 }
 
+button,
+input,
+textarea {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.188rem;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 2.625rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 2.188rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+}
+
+p {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1rem;
+}
+
 svg {
   fill: $white;
 }
@@ -38,9 +70,6 @@ textarea {
     border: none;
     border-radius: 0.313rem;
     color: $white;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.188rem;
   }
 
   &-white {
@@ -48,9 +77,6 @@ textarea {
     border: 0.063rem solid $border;
     border-radius: 0.313rem;
     color: $black;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.188rem;
     padding: 0.625rem 0.938rem;
   }
 }
@@ -64,9 +90,6 @@ textarea {
 
   &-title {
     color: $black;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.75rem;
     padding-top: 2rem;
   }
 }
@@ -97,9 +120,6 @@ textarea {
 
     &-txt {
       color: $royal-blue;
-      font-size: 2.25rem;
-      font-weight: 700;
-      line-height: 2.625rem;
     }
   }
 
@@ -195,17 +215,11 @@ textarea {
 
       &-create__time {
         color: $gray;
-        font-size: 0.875rem;
-        font-weight: 700;
-        line-height: 1rem;
         padding-bottom: 1.563rem;
       }
 
       &-title {
         color: $black;
-        font-size: 1.5rem;
-        font-weight: 700;
-        line-height: 1.75rem;
         padding-bottom: 0.625rem;
 
         &.task-complete {
@@ -235,9 +249,6 @@ textarea {
       background-color: $black;
       border-radius: 0.313rem;
       color: $white;
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.188rem;
       padding: 0.563rem 1.25rem;
     }
   }
@@ -251,9 +262,6 @@ textarea {
       border: 0.188rem solid $input-border;
       border-radius: 0.313rem;
       color: $black;
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.188rem;
       min-width: 31.25rem;
       padding: 0.313rem 0.625rem;
     }
@@ -320,9 +328,6 @@ textarea {
 
     &-title {
       color: $black;
-      font-weight: 700;
-      font-size: 1.875rem;
-      line-height: 2.188rem;
     }
   }
 

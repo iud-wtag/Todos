@@ -11,7 +11,7 @@ const TopBar = ({
 }) => {
   return (
     <div className="todo__top">
-      <h1 className="todo__top-title">Add Task</h1>
+      <h2 className="todo__top-title">Add Task</h2>
       <div className="todo__top__btn-wrapper">
         <CreateTodo
           onCreate={onCreate}
