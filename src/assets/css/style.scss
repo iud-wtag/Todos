@@ -56,11 +56,11 @@ textarea {
 }
 
 .empty__board {
-  position: absolute;
-  top: 70%;
   left: 50%;
-  transform: translate(-50%, -70%);
+  position: absolute;
   text-align: center;
+  top: 70%;
+  transform: translate(-50%, -70%);
 
   &-title {
     color: $black;
@@ -217,8 +217,8 @@ textarea {
 
     &__wrapper {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 2.125rem;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -292,17 +292,14 @@ textarea {
         position: relative;
 
         &:before {
-          position: absolute;
-          top: 0.938rem;
-          right: 0.625rem;
-          content: " ";
+          border-color: $white transparent transparent transparent;
           border-style: solid;
           border-width: 0.5rem 0.313rem 0 0.313rem;
-          border-color: $white transparent transparent transparent;
+          content: " ";
           pointer-events: none;
-        }
-
-        &__inner {
+          position: absolute;
+          right: 0.625rem;
+          top: 0.938rem;
         }
 
         &__wrapper {
@@ -392,11 +389,11 @@ textarea {
 
     &-search {
       &-input {
-        position: absolute;
-        left: 0;
-        top: 100%;
-        min-width: 100%;
         box-shadow: 0rem 0.071rem 0.357rem 0.071rem #d1d8ff;
+        left: 0;
+        min-width: 100%;
+        position: absolute;
+        top: 100%;
       }
     }
 
