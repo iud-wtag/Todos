@@ -52,13 +52,14 @@ const FilterTodo = ({ activeFilterType, onActiveFilterType }) => {
           name={activeFilterType}
           value={activeFilterType}
           onChange={handleSelectFilter}
-          className="todo__top__btn-filter__inner"
+          className="todo__top__btn-filter-select__wrapper btn__bg-purple"
         >
           {filterButtons.map((button) => (
             <option
               key={button.label}
               value={button.label}
               data-label={button.label}
+              className="todo__top__btn-filter-select__inner btn__bg-white"
             >
               {button.label}
             </option>
