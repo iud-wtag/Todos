@@ -190,7 +190,7 @@ textarea {
     &-input {
       border: 0.188rem solid $input-border;
       border-radius: 0.313rem;
-      min-height: 5rem;
+      height: 100%;
     }
 
     &-view {
