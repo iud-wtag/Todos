@@ -14,7 +14,7 @@ a {
 }
 
 body {
-  background: $bg-color;
+  background: $color-background;
 }
 
 button,
@@ -34,20 +34,20 @@ textarea {
 
 .btn__bg {
   &-purple {
-    background: $royal-blue;
+    background: $color-royal-blue;
     border: none;
     border-radius: 0.313rem;
-    color: $white;
+    color: $color-white;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.188rem;
   }
 
   &-white {
-    background: $white;
-    border: 0.063rem solid $border;
+    background: $color-white;
+    border: 0.063rem solid $color-border;
     border-radius: 0.313rem;
-    color: $black;
+    color: $color-black;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.188rem;
@@ -61,7 +61,7 @@ textarea {
   text-align: center;
 
   &-title {
-    color: $black;
+    color: $color-black;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.75rem;
@@ -85,8 +85,8 @@ textarea {
 }
 
 .navbar {
-  background: $white;
-  border: 0.063rem solid $border;
+  background: $color-white;
+  border: 0.063rem solid $color-border;
 
   &__left {
     align-items: center;
@@ -94,7 +94,7 @@ textarea {
     gap: 0.875rem;
 
     &-txt {
-      color: $royal-blue;
+      color: $color-royal-blue;
       font-size: 2.25rem;
       font-weight: 700;
       line-height: 2.625rem;
@@ -136,8 +136,8 @@ textarea {
   &__card {
     &-add,
     &-view {
-      background: $white;
-      border: 0.063rem solid $border;
+      background: $color-white;
+      border: 0.063rem solid $color-border;
       border-radius: 0.313rem;
       display: flex;
       flex-flow: column;
@@ -166,7 +166,7 @@ textarea {
     }
 
     &-input {
-      border: 0.188rem solid $input-border;
+      border: 0.188rem solid $color-input-border;
       border-radius: 0.313rem;
       min-height: 5rem;
       min-width: 21.875rem;
@@ -182,9 +182,9 @@ textarea {
           justify-content: space-between;
 
           & .complete-msg {
-            background: $royal-blue;
+            background: $color-royal-blue;
             border-radius: 0.313rem;
-            color: $white;
+            color: $color-white;
             font-size: 0.75rem;
             line-height: 0.875rem;
             padding: 0.313rem 0.938rem;
@@ -193,7 +193,7 @@ textarea {
       }
 
       &-create__time {
-        color: $gray;
+        color: $color-gray;
         font-size: 0.875rem;
         font-weight: 700;
         line-height: 1rem;
@@ -201,7 +201,7 @@ textarea {
       }
 
       &-title {
-        color: $black;
+        color: $color-black;
         font-size: 1.5rem;
         font-weight: 700;
         line-height: 1.75rem;
@@ -231,9 +231,9 @@ textarea {
     text-align: center;
 
     &-btn {
-      background-color: $black;
+      background-color: $color-black;
       border-radius: 0.313rem;
-      color: $white;
+      color: $color-white;
       font-size: 1rem;
       font-weight: 500;
       line-height: 1.188rem;
@@ -247,9 +247,9 @@ textarea {
     gap: 1.063rem;
 
     &-input {
-      border: 0.188rem solid $input-border;
+      border: 0.188rem solid $color-input-border;
       border-radius: 0.313rem;
-      color: $black;
+      color: $color-black;
       font-size: 1rem;
       font-weight: 500;
       line-height: 1.188rem;
@@ -280,9 +280,9 @@ textarea {
         gap: 1.25rem;
 
         &__inner.active {
-          background: $royal-blue;
+          background: $color-royal-blue;
           border: none;
-          color: $white;
+          color: $color-white;
         }
       }
 
@@ -294,7 +294,7 @@ textarea {
     }
 
     &-title {
-      color: $black;
+      color: $color-black;
       font-weight: 700;
       font-size: 1.875rem;
       line-height: 2.188rem;
