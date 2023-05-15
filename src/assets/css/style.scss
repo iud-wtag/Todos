@@ -63,7 +63,7 @@ textarea {
   text-align: center;
 
   &-title {
-    color: $black;
+    color: $color-black;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.75rem;
@@ -199,9 +199,9 @@ textarea {
     text-align: center;
 
     &-btn {
-      background-color: $black;
+      background-color: $color-black;
       border-radius: 0.313rem;
-      color: $white;
+      color: $color-white;
       font-size: 1rem;
       font-weight: 500;
       line-height: 1.188rem;
