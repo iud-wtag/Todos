@@ -32,9 +32,7 @@ const Todos = () => {
     (state) => state.currentPageReducer.currentPage
   );
 
-  const filterType = useSelector(
-    (state) => state.todoFilterReducers.filterType
-  );
+  const filterType = useSelector((state) => state.filterReducers.filterType);
 
   const loader = useSelector((state) => state.loaderReducers.loader);
 
