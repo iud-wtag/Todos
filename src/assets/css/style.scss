@@ -220,9 +220,9 @@ textarea {
     gap: 1.063rem;
 
     &-input {
-      border: 0.188rem solid $input-border;
+      border: 0.188rem solid $color-input-border;
       border-radius: 0.313rem;
-      color: $black;
+      color: $color-black;
       font-size: 1rem;
       font-weight: 500;
       line-height: 1.188rem;
