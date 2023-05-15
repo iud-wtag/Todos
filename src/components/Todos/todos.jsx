@@ -30,9 +30,7 @@ const Todos = () => {
     (state) => state.currentPageReducer.currentPage
   );
 
-  const filterType = useSelector(
-    (state) => state.todoFilterReducers.filterType
-  );
+  const filterType = useSelector((state) => state.filterReducers.filterType);
 
   const [todos, setTodos] = useState(todoList);
   const [activeFilterType, setActiveFilterType] = useState(LABEL_FILTER_ALL);
