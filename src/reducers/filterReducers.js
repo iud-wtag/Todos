@@ -5,7 +5,7 @@ const initialFilter = {
   filterType: LABEL_FILTER_ALL,
 };
 
-const todoFilter = (state = initialFilter, action) => {
+const filterReducers = (state = initialFilter, action) => {
   switch (action.type) {
     case HANDLE_FILTER: {
       const { filterType } = action.payload;
@@ -20,4 +20,4 @@ const todoFilter = (state = initialFilter, action) => {
   }
 };
 
-export default todoFilter;
+export default filterReducers;
