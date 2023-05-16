@@ -23,7 +23,7 @@ import {
 import { sanitizeInput } from "helpers/sanitizeInput";
 import AddCardActionBar from "components/Todos/AddCard/add-card-action-bar.component";
 
-const AddCard = ({ onCreate, onActiveFilterType }) => {
+const AddCard = ({ onCreate }) => {
   const dispatch = useDispatch();
 
   const [inputTask, setInputTask] = useState("");
@@ -45,7 +45,6 @@ const AddCard = ({ onCreate, onActiveFilterType }) => {
   function handleFilter(filterType) {
     dispatch(filterTodo(filterType));
     dispatch(handleCurrentPage(1));
-    onActiveFilterType(filterType);
   }
 
   function handleCancelTask() {
@@ -86,7 +85,6 @@ const AddCard = ({ onCreate, onActiveFilterType }) => {
 
 AddCard.propTypes = {
   onCreate: PropTypes.func.isRequired,
-  onActiveFilterType: PropTypes.func.isRequired,
 };
 
 export default AddCard;
