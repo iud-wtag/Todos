@@ -28,8 +28,10 @@ const FilterTodo = ({ activeFilterType, onActiveFilterType }) => {
 
   function handleSelectFilter(event) {
     const label = event.target.value;
+
     dispatch(handleCurrentPage(1));
     dispatch(filterTodo(label));
+
     onActiveFilterType(label);
   }
 
