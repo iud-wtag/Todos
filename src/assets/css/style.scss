@@ -27,6 +27,7 @@ img {
 button,
 input,
 textarea {
+  outline: none;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.188rem;
@@ -190,6 +191,7 @@ textarea {
     &-input {
       border: 0.188rem solid $color-input-border;
       border-radius: 0.313rem;
+      min-height: 3.125rem;
       height: 100%;
     }
 
@@ -262,7 +264,7 @@ textarea {
       border: 0.188rem solid $color-input-border;
       border-radius: 0.313rem;
       color: $color-black;
-      min-width: 31.25rem;
+      min-width: 32.375rem;
       padding: 0.313rem 0.625rem;
     }
   }
@@ -340,6 +342,7 @@ textarea {
   html {
     font-size: 15px;
   }
+
   .todo,
   .navbar {
     &__container {
@@ -367,6 +370,7 @@ textarea {
   html {
     font-size: 14px;
   }
+
   .toast {
     &__container {
       width: 100%;
@@ -387,6 +391,10 @@ textarea {
 
   .todo {
     &__card {
+      &-input {
+        min-height: 5rem;
+      }
+
       &__wrapper {
         grid-template-columns: repeat(1, 1fr);
       }
