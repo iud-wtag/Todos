@@ -48,7 +48,7 @@ const AddCard = ({ onCreate, onActiveFilterType }) => {
     onActiveFilterType(filterType);
   }
 
-  function handleCancelClick() {
+  function handleCancelTask() {
     onCreate();
     showErrorToast(MESSAGE_ERROR);
   }
@@ -78,7 +78,7 @@ const AddCard = ({ onCreate, onActiveFilterType }) => {
       <AddCardActionBar
         inputTask={inputTask}
         onAddTask={handleAddTask}
-        onCancelClick={handleCancelClick}
+        onCancelTask={handleCancelTask}
       />
     </div>
   );
