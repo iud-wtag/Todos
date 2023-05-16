@@ -13,8 +13,9 @@ import { showRequiredToast, showSuccessToast } from "common/notification";
 
 const EditCard = ({ todo, onSetEdit }) => {
   const dispatch = useDispatch();
-  const { id, task } = todo;
   const textRef = useRef(null);
+
+  const { id, task } = todo;
   const [editedTask, setEditedTask] = useState(task);
 
   function handleChange(event) {

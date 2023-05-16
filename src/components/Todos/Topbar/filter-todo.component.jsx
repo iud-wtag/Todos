@@ -19,8 +19,10 @@ const FilterTodo = ({ activeFilterType, onActiveFilterType }) => {
 
   function handleFilter(event) {
     const { label } = event.target.dataset;
+
     dispatch(handleCurrentPage(1));
     dispatch(filterTodo(label));
+
     onActiveFilterType(label);
   }
 
