@@ -22,7 +22,7 @@ const AddCard = ({ isEmptyError, onCreate, toggleEmptyError }) => {
     onCreate();
   }
 
-  function handleCancelClick() {
+  function handleCancelTask() {
     onCreate();
     toggleEmptyError(false);
   }
@@ -56,7 +56,7 @@ const AddCard = ({ isEmptyError, onCreate, toggleEmptyError }) => {
         inputTask={inputTask}
         isEmptyError={isEmptyError}
         onAddTask={handleAddTask}
-        onCancelClick={handleCancelClick}
+        onCancelTask={handleCancelTask}
       />
     </div>
   );
