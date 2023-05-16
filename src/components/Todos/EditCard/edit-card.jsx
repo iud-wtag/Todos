@@ -8,8 +8,9 @@ import EditActionBar from "components/Todos/EditCard/edit-action-bar.component";
 
 const EditCard = ({ todo, onSetEdit }) => {
   const dispatch = useDispatch();
-  const { id, task } = todo;
   const textRef = useRef(null);
+
+  const { id, task } = todo;
   const [editedTask, setEditedTask] = useState(task);
 
   function handleChange(event) {
