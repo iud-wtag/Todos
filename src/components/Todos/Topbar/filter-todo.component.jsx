@@ -1,8 +1,12 @@
 import React from "react";
+import Select from "react-select";
 import {
   LABEL_FILTER_ALL,
   LABEL_FILTER_COMPLETE,
   LABEL_FILTER_INCOMPLETE,
+  COLOR_WHITE,
+  COLOR_BLACK,
+  COLOR_ROYAL_BLUE,
 } from "common/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { filterTodo, handleCurrentPage } from "actions";
@@ -15,10 +19,26 @@ const FilterTodo = () => {
   );
 
   const filterButtons = [
-    { label: LABEL_FILTER_ALL },
-    { label: LABEL_FILTER_COMPLETE },
-    { label: LABEL_FILTER_INCOMPLETE },
+    { value: LABEL_FILTER_ALL, label: LABEL_FILTER_ALL },
+    { value: LABEL_FILTER_COMPLETE, label: LABEL_FILTER_COMPLETE },
+    { value: LABEL_FILTER_INCOMPLETE, label: LABEL_FILTER_INCOMPLETE },
   ];
+
+  const customStyles = {
+    option: (defaultStyles, state) => ({
+      ...defaultStyles,
+      color: state.isSelected ? COLOR_WHITE : COLOR_BLACK,
+      backgroundColor: state.isSelected ? COLOR_ROYAL_BLUE : COLOR_WHITE,
+    }),
+
+    control: (defaultStyles) => ({
+      ...defaultStyles,
+      backgroundColor: COLOR_ROYAL_BLUE,
+      border: "none",
+      boxShadow: "none",
+    }),
+    singleValue: (defaultStyles) => ({ ...defaultStyles, color: COLOR_WHITE }),
+  };
 
   function handleFilter(event) {
     dispatch(handleCurrentPage(1));
@@ -27,7 +47,7 @@ const FilterTodo = () => {
 
   function handleSelectFilter(event) {
     dispatch(handleCurrentPage(1));
-    dispatch(filterTodo(event.target.value.label));
+    dispatch(filterTodo(event.value));
   }
 
   return (
@@ -47,23 +67,12 @@ const FilterTodo = () => {
         ))}
       </div>
       <div className="todo__top__btn-filter-select">
-        <select
-          name={activeFilterType}
-          value={activeFilterType}
+        <Select
+          value={{ label: activeFilterType, value: activeFilterType }}
           onChange={handleSelectFilter}
-          className="todo__top__btn-filter-select__wrapper btn__bg-purple"
-        >
-          {filterButtons.map((button) => (
-            <option
-              key={button.label}
-              value={button.label}
-              data-label={button.label}
-              className="todo__top__btn-filter-select__inner btn__bg-white"
-            >
-              {button.label}
-            </option>
-          ))}
-        </select>
+          options={filterButtons}
+          styles={customStyles}
+        />
       </div>
     </>
   );

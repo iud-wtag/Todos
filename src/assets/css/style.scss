@@ -300,25 +300,6 @@ textarea {
       &-filter-select {
         display: none;
         position: relative;
-
-        &:before {
-          border-color: $color-white transparent transparent transparent;
-          border-style: solid;
-          border-width: 0.5rem 0.313rem 0 0.313rem;
-          content: " ";
-          pointer-events: none;
-          position: absolute;
-          right: 0.625rem;
-          top: 0.938rem;
-        }
-
-        &__wrapper {
-          appearance: none;
-          padding: 0.625rem 1.5rem 0.625rem 1rem;
-          text-align: center;
-          -moz-appearance: none;
-          -webkit-appearance: none;
-        }
       }
 
       &-wrapper {
@@ -418,6 +399,7 @@ textarea {
 
         &-filter-select {
           display: block;
+          min-width: 7rem;
         }
       }
     }

@@ -47,3 +47,7 @@ export const MESSAGE_COMPLETE_TASK = "Task Completed";
 export const MESSAGE_EDIT_TASK = "Task Edited Successfully";
 
 export const PLACEHOLDER_INPUT_SEARCH = "Search here...";
+
+export const COLOR_WHITE = "#ffffff";
+export const COLOR_BLACK = "#32394b";
+export const COLOR_ROYAL_BLUE = "#7a8dfd";
