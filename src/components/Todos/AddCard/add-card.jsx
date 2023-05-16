@@ -42,7 +42,7 @@ const AddCard = ({
     onActiveFilterType(filterType);
   }
 
-  function handleCancelClick() {
+  function handleCancelTask() {
     onCreate();
     toggleEmptyError(false);
   }
@@ -76,7 +76,7 @@ const AddCard = ({
         inputTask={inputTask}
         isEmptyError={isEmptyError}
         onAddTask={handleAddTask}
-        onCancelClick={handleCancelClick}
+        onCancelTask={handleCancelTask}
       />
     </div>
   );
