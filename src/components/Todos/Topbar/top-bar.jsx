@@ -3,12 +3,7 @@ import PropTypes from "prop-types";
 import FilterTodo from "components/Todos/Topbar/filter-todo.component";
 import CreateTodo from "components/Todos/Topbar/create-todo.component";
 
-const TopBar = ({
-  onCreate,
-  activeFilterType,
-  isCreateButtonClicked,
-  onActiveFilterType,
-}) => {
+const TopBar = ({ onCreate, isCreateButtonClicked }) => {
   return (
     <div className="todo__top">
       <h1 className="todo__top-title">Add Task</h1>
@@ -17,10 +12,7 @@ const TopBar = ({
           onCreate={onCreate}
           isCreateButtonClicked={isCreateButtonClicked}
         />
-        <FilterTodo
-          activeFilterType={activeFilterType}
-          onActiveFilterType={onActiveFilterType}
-        />
+        <FilterTodo />
       </div>
     </div>
   );
@@ -28,8 +20,6 @@ const TopBar = ({
 
 TopBar.propTypes = {
   onCreate: PropTypes.func.isRequired,
-  onActiveFilterType: PropTypes.func.isRequired,
-  activeFilterType: PropTypes.string.isRequired,
   isCreateButtonClicked: PropTypes.bool.isRequired,
 };
 

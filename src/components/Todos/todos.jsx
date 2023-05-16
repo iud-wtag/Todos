@@ -12,7 +12,6 @@ import {
   TASK_PER_PAGE,
   LABEL_LOAD_MORE,
   LABEL_SHOW_LESS,
-  LABEL_FILTER_ALL,
   LABEL_FILTER_COMPLETE,
   LABEL_FILTER_INCOMPLETE,
 } from "common/constants";
@@ -36,7 +35,6 @@ const Todos = () => {
   const loader = useSelector((state) => state.loaderReducers.loader);
 
   const [todos, setTodos] = useState(todoList);
-  const [activeFilterType, setActiveFilterType] = useState(LABEL_FILTER_ALL);
 
   const currentTask = TASK_PER_PAGE * currentPage - isCreateButtonClicked;
   const currentTodoList = todos.slice(0, currentTask);
@@ -77,17 +75,10 @@ const Todos = () => {
         <div className="todo__wrapper">
           <TopBar
             onCreate={handleCreate}
-            onActiveFilterType={setActiveFilterType}
-            activeFilterType={activeFilterType}
             isCreateButtonClicked={isCreateButtonClicked}
           />
           <div className="todo__card__wrapper">
-            {isCreateButtonClicked && (
-              <AddCard
-                onCreate={handleCreate}
-                onActiveFilterType={setActiveFilterType}
-              />
-            )}
+            {isCreateButtonClicked && <AddCard onCreate={handleCreate} />}
             {currentTodoList.length
               ? currentTodoList.map((todo) => {
                   return <Todo key={todo.id} todo={todo} />;
