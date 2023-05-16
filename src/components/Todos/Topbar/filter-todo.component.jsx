@@ -72,6 +72,7 @@ const FilterTodo = () => {
           onChange={handleSelectFilter}
           options={filterButtons}
           styles={customStyles}
+          isSearchable={false}
         />
       </div>
     </>
