@@ -28,6 +28,10 @@ export const LABEL_FILTER_ALL = "All";
 export const LABEL_FILTER_COMPLETE = "Complete";
 export const LABEL_FILTER_INCOMPLETE = "Incomplete";
 
+export const TEXT_EMPTY_TASK = "You didn’t add any task. Please, add one.";
+export const TEXT_EMPTY_COMPLETE_TASK =
+  "You didn’t complete any task. Please, add & complete one";
+
 export const KEY_ENTER = "Enter";
 export const TASK_PER_PAGE = 9;
 
