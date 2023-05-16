@@ -5,7 +5,7 @@ import {
   ICON_DELETE,
   ALT_TEXT_COMPLETE_TODO,
   ALT_TEXT_DELETE_TODO,
-  MESSAGE_REQUIRED,
+  MESSAGE_REQUIRED_TITLE,
   MESSAGE_EDIT_TASK,
   MESSAGE_COMPLETE_TASK,
   MESSAGE_ERROR,
@@ -26,7 +26,7 @@ const EditActionBar = ({ todo, editedTask, onSetEdit }) => {
   function handleEditTask() {
     const sanitizedTask = sanitizeInput(editedTask);
     if (sanitizedTask.trim() === "") {
-      showRequiredToast(MESSAGE_REQUIRED);
+      showRequiredToast(MESSAGE_REQUIRED_TITLE);
       return;
     }
     dispatch(editTodo(id, sanitizedTask));
@@ -37,7 +37,7 @@ const EditActionBar = ({ todo, editedTask, onSetEdit }) => {
   function handleCompleteTask() {
     const sanitizedTask = sanitizeInput(editedTask);
     if (sanitizedTask.trim() === "") {
-      showRequiredToast(MESSAGE_REQUIRED);
+      showRequiredToast(MESSAGE_REQUIRED_TITLE);
       return;
     }
     dispatch(editTodo(id, sanitizedTask));

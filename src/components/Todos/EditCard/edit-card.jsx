@@ -5,7 +5,7 @@ import { sanitizeInput } from "helpers/sanitizeInput";
 import {
   KEY_ENTER,
   MESSAGE_EDIT_TASK,
-  MESSAGE_REQUIRED,
+  MESSAGE_REQUIRED_TITLE,
 } from "common/constants";
 import { useDispatch } from "react-redux";
 import EditActionBar from "components/Todos/EditCard/edit-action-bar.component";
@@ -30,7 +30,7 @@ const EditCard = ({ todo, onSetEdit }) => {
   function handleEditTask() {
     const sanitizedTask = sanitizeInput(editedTask);
     if (sanitizedTask.trim() === "") {
-      showRequiredToast(MESSAGE_REQUIRED);
+      showRequiredToast(MESSAGE_REQUIRED_TITLE);
       return;
     }
     dispatch(editTodo(id, sanitizedTask));

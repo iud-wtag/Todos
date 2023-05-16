@@ -5,7 +5,7 @@ import {
   KEY_ENTER,
   LABEL_FILTER_ALL,
   MESSAGE_ADD_TASK,
-  MESSAGE_REQUIRED,
+  MESSAGE_REQUIRED_TITLE,
   MESSAGE_ERROR,
 } from "common/constants";
 import {
@@ -31,7 +31,7 @@ const AddCard = ({ onCreate, onActiveFilterType }) => {
   function handleAddTask(inputTask) {
     const sanitizedTask = sanitizeInput(inputTask);
     if (sanitizedTask.trim() === "") {
-      showRequiredToast(MESSAGE_REQUIRED);
+      showRequiredToast(MESSAGE_REQUIRED_TITLE);
       return;
     }
     onCreate();
@@ -48,7 +48,7 @@ const AddCard = ({ onCreate, onActiveFilterType }) => {
     onActiveFilterType(filterType);
   }
 
-  function handleCancelClick() {
+  function handleCancelTask() {
     onCreate();
     showErrorToast(MESSAGE_ERROR);
   }
@@ -78,7 +78,7 @@ const AddCard = ({ onCreate, onActiveFilterType }) => {
       <AddCardActionBar
         inputTask={inputTask}
         onAddTask={handleAddTask}
-        onCancelClick={handleCancelClick}
+        onCancelTask={handleCancelTask}
       />
     </div>
   );

@@ -36,7 +36,7 @@ export const TASK_PER_PAGE = 9;
 
 export const MESSAGE_SUCCESS = "Changes are saved successfully";
 export const MESSAGE_ERROR = "We couldn't save your changes!";
-export const MESSAGE_REQUIRED = "Title is required!";
+export const MESSAGE_REQUIRED_TITLE = "Title is required!";
 export const MESSAGE_ADD_TASK = "Task Added Successfully";
 export const MESSAGE_DELETE_TASK = "Task Deleted";
 export const MESSAGE_COMPLETE_TASK = "Task Completed";
