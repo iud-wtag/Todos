@@ -26,12 +26,8 @@ const FilterTodo = () => {
   }
 
   function handleSelectFilter(event) {
-    const label = event.target.value;
-
     dispatch(handleCurrentPage(1));
-    dispatch(filterTodo(label));
-
-    onActiveFilterType(label);
+    dispatch(filterTodo(event.target.value.label));
   }
 
   return (
