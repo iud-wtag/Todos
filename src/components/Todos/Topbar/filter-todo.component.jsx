@@ -36,6 +36,8 @@ const FilterTodo = () => {
       backgroundColor: COLOR_ROYAL_BLUE,
       border: "none",
       boxShadow: "none",
+      minHeight: "34px",
+      height: "0px",
     }),
     singleValue: (defaultStyles) => ({ ...defaultStyles, color: COLOR_WHITE }),
   };
