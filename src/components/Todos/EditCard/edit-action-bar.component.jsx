@@ -39,14 +39,23 @@ const EditActionBar = ({ todo, editedTask, onSetEdit }) => {
   }
 
   return (
-    <div className="todo__card-edit-btns">
-      <button className="todo-save__btn btn__bg-white" onClick={handleEditTask}>
+    <div className="todo__card-edit-btn">
+      <button
+        className="todo__card-edit-btn__inner btn__bg--white"
+        onClick={handleEditTask}
+      >
         Save
       </button>
-      <button className="todo-complete__btn" onClick={handleCompleteTask}>
+      <button
+        className="todo__card-edit-btn__inner"
+        onClick={handleCompleteTask}
+      >
         <img src={ICON_CHECK} alt={ALT_TEXT_COMPLETE_TODO} />
       </button>
-      <button className="todo-delete__btn" onClick={handleCancelEditTask}>
+      <button
+        className="todo__card-edit-btn__inner"
+        onClick={handleCancelEditTask}
+      >
         <img src={ICON_DELETE} alt={ALT_TEXT_DELETE_TODO} />
       </button>
     </div>
