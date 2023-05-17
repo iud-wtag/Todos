@@ -60,12 +60,12 @@ const FilterTodo = () => {
           <button
             key={button.label}
             className={classNames(
-              "todo__top__btn-filter__inner",
+              "btn__bg-white",
+              "todo__top-btn-filter__inner",
               {
-                "todo__top__btn-filter__inner--active":
+                "todo__top-btn-filter__inner--active":
                   activeFilterType === button.label,
-              },
-              "btn__bg-white"
+              }
             )}
             data-label={button.label}
             onClick={handleFilter}
