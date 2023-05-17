@@ -46,9 +46,9 @@ const EditCard = ({ todo, onSetEdit }) => {
   return (
     <>
       <textarea
-        name="todo_input"
         id="todo-input"
-        className="todo__card-input"
+        name="todo_input"
+        className="todo__card-view__input"
         value={editedTask}
         ref={textRef}
         onChange={handleChange}

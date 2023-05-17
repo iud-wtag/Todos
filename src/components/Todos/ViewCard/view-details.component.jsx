@@ -10,13 +10,13 @@ const ViewDetails = ({ todo }) => {
   return (
     <div className="todo__card-view__details">
       <h3
-        className={`todo__card-view-title ${classNames({
+        className={`todo__card-view__details-title ${classNames({
           "task-complete": todo.isTaskComplete,
         })}`}
       >
         {task}
       </h3>
-      <p className="todo__card-view-create__time">
+      <p className="todo__card-view__details-time">
         Created At: {formattedDate}
       </p>
     </div>
