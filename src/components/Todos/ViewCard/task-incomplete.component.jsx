@@ -25,7 +25,7 @@ const TaskIncomplete = ({ todo }) => {
   }
 
   return (
-    <div className="todo__card-view-btns incomplete-btns">
+    <div className="todo__card-view-btn">
       <button onClick={handleCompleteTask}>
         <img src={ICON_CHECK} alt={ALT_TEXT_COMPLETE_TODO} />
       </button>
