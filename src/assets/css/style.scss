@@ -172,8 +172,8 @@ textarea {
       &__input {
         border: 0.188rem solid $color-input-border;
         border-radius: 0.313rem;
-        min-height: 5rem;
-        min-width: 21.875rem;
+        min-height: 3.125rem;
+        height: 100%;
       }
     }
 
@@ -344,7 +344,7 @@ textarea {
     }
 
     &-search {
-      &-input {
+      &__input {
         min-width: 20rem;
       }
     }
@@ -376,8 +376,10 @@ textarea {
 
   .todo {
     &__card {
-      &-input {
-        min-height: 5rem;
+      &-add {
+        &__input {
+          min-height: 5rem;
+        }
       }
 
       &__wrapper {
@@ -386,7 +388,7 @@ textarea {
     }
 
     &-search {
-      &-input {
+      &__input {
         box-shadow: 0rem 0.071rem 0.357rem 0.071rem #d1d8ff;
         left: 0;
         min-width: 100%;
@@ -396,7 +398,7 @@ textarea {
     }
 
     &__top {
-      &__btn {
+      &-btn {
         &-filter {
           display: none;
         }

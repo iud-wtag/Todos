@@ -55,12 +55,12 @@ const FilterTodo = () => {
 
   return (
     <>
-      <div className="todo__top__btn-filter">
+      <div className="todo__top-btn-filter">
         {filterButtons.map((button) => (
           <button
             key={button.label}
             className={classNames(
-              "btn__bg-white",
+              "btn__bg--white",
               "todo__top-btn-filter__inner",
               {
                 "todo__top-btn-filter__inner--active":
@@ -74,7 +74,7 @@ const FilterTodo = () => {
           </button>
         ))}
       </div>
-      <div className="todo__top__btn-filter-select">
+      <div className="todo__top-btn-filter-select">
         <Select
           value={{ label: activeFilterType, value: activeFilterType }}
           onChange={handleSelectFilter}
