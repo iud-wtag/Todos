@@ -35,7 +35,8 @@ const FilterTodo = () => {
             "btn__bg--white",
             "todo__top-btn-filter__inner",
             {
-              active: activeFilterType === button.label,
+              "todo__top-btn-filter__inner--active":
+                activeFilterType === button.label,
             }
           )}
           data-label={`${button.label}`}
