@@ -19,7 +19,7 @@ const TaskComplete = ({ todo }) => {
   }
 
   return (
-    <div className="todo__card-view-btns complete-btns">
+    <div className="todo__card-view-btn complete-btns">
       <button onClick={handleDeleteTask}>
         <img src={ICON_DELETE} alt={ALT_TEXT_DELETE_TODO} />
       </button>

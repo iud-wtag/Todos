@@ -50,8 +50,8 @@ const SearchBar = () => {
       {isSearchButtonClicked && (
         <input
           type="search"
-          id="todo-search-input"
-          className="todo-search-input"
+          id="search-input"
+          className="todo-search__input"
           placeholder={PLACEHOLDER_INPUT_SEARCH}
           onChange={handleSearchChange}
           autoFocus
