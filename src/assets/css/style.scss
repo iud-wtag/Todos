@@ -290,7 +290,7 @@ textarea {
         display: flex;
         gap: 1.25rem;
 
-        &__inner.active {
+        &__inner--active {
           background: $color-royal-blue;
           border: none;
           color: $color-white;

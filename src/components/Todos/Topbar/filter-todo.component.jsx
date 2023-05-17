@@ -10,6 +10,7 @@ import {
 } from "common/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { filterTodo, handleCurrentPage } from "actions";
+import classNames from "classnames";
 
 const FilterTodo = () => {
   const dispatch = useDispatch();
@@ -58,9 +59,14 @@ const FilterTodo = () => {
         {filterButtons.map((button) => (
           <button
             key={button.label}
-            className={`todo__top__btn-filter__inner btn__bg-white ${
-              activeFilterType === button.label ? "active" : ""
-            }`}
+            className={classNames(
+              "todo__top__btn-filter__inner",
+              {
+                "todo__top__btn-filter__inner--active":
+                  activeFilterType === button.label,
+              },
+              "btn__bg-white"
+            )}
             data-label={button.label}
             onClick={handleFilter}
           >
