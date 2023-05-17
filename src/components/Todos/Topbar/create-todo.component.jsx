@@ -4,9 +4,9 @@ import { ICON_CREATE, ALT_TEXT_CREATE_ICON } from "common/constants";
 
 const CreateTodo = ({ onCreate, isCreateButtonClicked }) => {
   return (
-    <div className="todo__top__btn-create">
+    <div className="todo__top-btn-create">
       <button
-        className="todo__top__btn-create__inner-btn btn__bg-purple"
+        className="todo__top-btn-create__inner btn__bg--purple"
         onClick={onCreate}
         disabled={isCreateButtonClicked}
       >
