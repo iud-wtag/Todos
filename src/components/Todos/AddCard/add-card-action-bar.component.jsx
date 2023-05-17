@@ -8,11 +8,14 @@ const AddCardActionBar = ({ onAddTask, inputTask, isEmptyError }) => {
   }
 
   return (
-    <div className="todo__card-add-btns">
-      <button onClick={handleAddTask} className="todo-add__btn btn__bg-white">
+    <div className="todo__card-add-btn">
+      <button
+        onClick={handleAddTask}
+        className="todo__card-add-btn__inner btn__bg--white"
+      >
         Add Task
       </button>
-      <button className="todo-delete__btn">
+      <button className="todo__card-add-btn__inner">
         <img src={ICON_DELETE} alt={ALT_TEXT_DELETE_TODO} />
       </button>
       {isEmptyError && <p className="error">Title is required</p>}

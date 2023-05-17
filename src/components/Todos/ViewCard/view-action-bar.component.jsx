@@ -10,7 +10,7 @@ import {
 
 const ViewActionBar = () => {
   return (
-    <div className="todo__card-view-btns">
+    <div className="todo__card-view-btn">
       <button>
         <img src={ICON_CHECK} alt={ALT_TEXT_COMPLETE_TODO} />
       </button>

@@ -8,8 +8,8 @@ const ViewDetails = ({ todo }) => {
 
   return (
     <div className="todo__card-view__details">
-      <h3 className="todo__card-view-title">{task}</h3>
-      <p className="todo__card-view-create__time">
+      <h3 className="todo__card-view__details-title">{task}</h3>
+      <p className="todo__card-view__details-time">
         Created At: {formattedDate}
       </p>
     </div>

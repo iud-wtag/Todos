@@ -7,7 +7,7 @@ const TopBar = ({ onCreate, isCreateButtonClicked }) => {
   return (
     <div className="todo__top">
       <h1 className="todo__top-title">Add Task</h1>
-      <div className="todo__top__btn-wrapper">
+      <div className="todo__top-btn-wrapper">
         <CreateTodo
           onCreate={onCreate}
           isCreateButtonClicked={isCreateButtonClicked}
