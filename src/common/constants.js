@@ -20,3 +20,5 @@ export const ALT_TEXT_DELETE_TODO = "Delete Button";
 export const ALT_TEXT_LOGO = "Logo";
 
 export const KEY_ENTER = "Enter";
+
+export const PLACEHOLDER_INPUT_TASK = "Add a new task here...";
