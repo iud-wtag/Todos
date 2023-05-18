@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { KEY_ENTER, LABEL_FILTER_ALL } from "common/constants";
+import {
+  KEY_ENTER,
+  PLACEHOLDER_INPUT_TASK,
+  LABEL_FILTER_ALL,
+} from "common/constants";
 import { sanitizeInput } from "helpers/sanitizeInput";
 import { addTodo, filterTodo, handleCurrentPage } from "actions";
 import AddCardActionBar from "components/Todos/AddCard/add-card-action-bar.component";
@@ -54,6 +58,7 @@ const AddCard = ({ isEmptyError, onCreate, toggleEmptyError }) => {
         id="todo-input"
         autoFocus
         value={inputTask}
+        placeholder={PLACEHOLDER_INPUT_TASK}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       ></textarea>

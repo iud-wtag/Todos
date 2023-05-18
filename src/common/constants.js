@@ -33,3 +33,5 @@ export const TEXT_EMPTY_COMPLETE_TASK = "You didn’t complete any task.";
 
 export const KEY_ENTER = "Enter";
 export const TASK_PER_PAGE = 9;
+
+export const PLACEHOLDER_INPUT_TASK = "Add a new task here...";
