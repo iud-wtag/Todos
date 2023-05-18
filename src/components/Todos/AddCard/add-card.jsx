@@ -7,6 +7,7 @@ import {
   MESSAGE_ADD_TASK,
   MESSAGE_REQUIRED_TITLE,
   MESSAGE_ERROR,
+  PLACEHOLDER_INPUT_TASK,
 } from "common/constants";
 import {
   showSuccessToast,
@@ -70,6 +71,7 @@ const AddCard = ({ onCreate }) => {
         id="todo-input"
         autoFocus
         value={inputTask}
+        placeholder={PLACEHOLDER_INPUT_TASK}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       ></textarea>
