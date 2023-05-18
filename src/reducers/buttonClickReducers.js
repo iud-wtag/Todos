@@ -9,6 +9,7 @@ const buttonClickReducers = (state = initialButton, action) => {
     case HANDLE_CREATE:
       const { isCreateButtonClicked } = action.payload;
       return {
+        ...state,
         isCreateButtonClicked,
       };
 

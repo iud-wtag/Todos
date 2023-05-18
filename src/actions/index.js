@@ -4,6 +4,7 @@ import {
   HANDLE_EMPTY,
   DELETE_TODO,
   COMPLETE_TODO,
+  EDIT_TODO,
 } from "actions/actionTypes";
 import { getDays } from "helpers/getDays";
 
@@ -45,6 +46,16 @@ export const completeTodo = (id, date) => {
       id: id,
       isTaskComplete: true,
       completeTime: getDays(date.getTime(), Date.now()),
+    },
+  };
+};
+
+export const editTodo = (id, editedTask) => {
+  return {
+    type: EDIT_TODO,
+    payload: {
+      id: id,
+      task: editedTask,
     },
   };
 };

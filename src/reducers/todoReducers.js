@@ -1,4 +1,9 @@
-import { ADD_TODO, DELETE_TODO, COMPLETE_TODO } from "actions/actionTypes";
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  COMPLETE_TODO,
+  EDIT_TODO,
+} from "actions/actionTypes";
 const initialData = {
   list: [],
 };
@@ -47,6 +52,24 @@ const todoReducers = (state = initialData, action) => {
       return {
         ...state,
         list: completedList,
+      };
+    }
+
+    case EDIT_TODO: {
+      const { id, task } = action.payload;
+      const editTaskIndex = state.list.findIndex((task) => task.id === id);
+
+      const editedTask = {
+        ...state.list[editTaskIndex],
+        task,
+      };
+
+      const editedList = state.list.map((todo) => ({ ...todo }));
+      editedList[editTaskIndex] = editedTask;
+
+      return {
+        ...state,
+        list: editedList,
       };
     }
 
