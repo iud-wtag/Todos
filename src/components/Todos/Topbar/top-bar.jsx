@@ -6,7 +6,7 @@ import CreateTodo from "components/Todos/Topbar/create-todo.component";
 const TopBar = ({ onCreate, isCreateButtonClicked }) => {
   return (
     <div className="todo__top">
-      <h2 className="todo__top-title">Add Task</h2>
+      <h2 className="todo__top-title">Add Tasks</h2>
       <div className="todo__top-btn-wrapper">
         <CreateTodo
           onCreate={onCreate}
