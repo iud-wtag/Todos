@@ -34,7 +34,7 @@ describe("<TopBar>", () => {
   it("render Add Task title", async () => {
     render(<MockTopBar />);
 
-    const titleElement = screen.getByRole("heading", { name: /Add Tasks/ });
+    const titleElement = screen.getByRole("heading", { name: /Add Tasks/i });
     expect(titleElement).toBeInTheDocument();
   });
 
