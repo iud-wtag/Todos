@@ -2,9 +2,9 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
+import userEvent from "@testing-library/user-event";
 import Logo from "components/Todos/Navbar/logo.component";
 import SearchBar from "components/Todos/Navbar/search-bar.component";
-import userEvent from "@testing-library/user-event";
 
 const mockStore = configureStore([]);
 
