@@ -6,14 +6,17 @@ import ViewActionBar from "components/Todos/ViewCard/view-action-bar.component";
 const ViewCard = ({ todo }) => {
   return (
     <>
-      <ViewDetails todo={todo} />
+      <ViewDetails task={todo.task} date={todo.date} />
       <ViewActionBar />
     </>
   );
 };
 
 ViewCard.propTypes = {
-  todo: PropTypes.object.isRequired,
+  todo: PropTypes.shape({
+    task: PropTypes.string.isRequired,
+    date: PropTypes.instanceOf(Date).isRequired,
+  }),
 };
 
 export default ViewCard;

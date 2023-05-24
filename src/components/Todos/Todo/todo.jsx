@@ -11,7 +11,10 @@ const Todo = ({ todo }) => {
 };
 
 Todo.propTypes = {
-  todo: PropTypes.object.isRequired,
+  todo: PropTypes.shape({
+    task: PropTypes.string.isRequired,
+    date: PropTypes.instanceOf(Date).isRequired,
+  }),
 };
 
 export default Todo;
