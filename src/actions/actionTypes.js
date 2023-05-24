@@ -6,3 +6,6 @@ export const EDIT_TODO = "EDIT_TODO";
 export const HANDLE_EMPTY = "HANDLE_EMPTY";
 export const HANDLE_CURRENT_PAGE = "HANDLE_CURRENT_PAGE";
 export const HANDLE_FILTER = "HANDLE_FILTER";
+export const SEARCH_TODO = "SEARCH_TODO";
+export const HANDLE_LOADER = "HANDLE_LOADER";
+export const HANDLE_SEARCH = "HANDLE_SEARCH";

@@ -7,6 +7,9 @@ import {
   EDIT_TODO,
   HANDLE_CURRENT_PAGE,
   HANDLE_FILTER,
+  SEARCH_TODO,
+  HANDLE_LOADER,
+  HANDLE_SEARCH,
 } from "actions/actionTypes";
 import { getDays } from "helpers/getDays";
 
@@ -85,6 +88,33 @@ export const filterTodo = (filterType) => {
     type: HANDLE_FILTER,
     payload: {
       filterType,
+    },
+  };
+};
+
+export const searchTodo = (searchValue) => {
+  return {
+    type: SEARCH_TODO,
+    payload: {
+      searchValue,
+    },
+  };
+};
+
+export const setLoader = (loader) => {
+  return {
+    type: HANDLE_LOADER,
+    payload: {
+      loader,
+    },
+  };
+};
+
+export const handleSearchButton = (isSearchButtonClicked) => {
+  return {
+    type: HANDLE_SEARCH,
+    payload: {
+      isSearchButtonClicked: !isSearchButtonClicked,
     },
   };
 };

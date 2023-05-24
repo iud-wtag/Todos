@@ -196,6 +196,11 @@ textarea {
     }
   }
 
+  &_disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   &__pagination {
     padding-top: 3.563rem;
     text-align: center;
@@ -208,6 +213,23 @@ textarea {
       font-weight: 500;
       line-height: 1.188rem;
       padding: 0.563rem 1.25rem;
+    }
+  }
+
+  &-search {
+    display: flex;
+    align-items: center;
+    gap: 1.063rem;
+
+    &__input {
+      border: 0.188rem solid $color-input-border;
+      border-radius: 0.313rem;
+      color: $color-black;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.188rem;
+      min-width: 31.25rem;
+      padding: 0.313rem 0.625rem;
     }
   }
 

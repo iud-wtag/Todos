@@ -3,9 +3,12 @@ import {
   DELETE_TODO,
   COMPLETE_TODO,
   EDIT_TODO,
+  SEARCH_TODO,
 } from "actions/actionTypes";
+
 const initialData = {
   list: [],
+  searchValue: "",
 };
 
 const todoReducers = (state = initialData, action) => {
@@ -72,6 +75,12 @@ const todoReducers = (state = initialData, action) => {
         list: editedList,
       };
     }
+
+    case SEARCH_TODO:
+      return {
+        ...state,
+        searchValue: action.payload.searchValue,
+      };
 
     default:
       return state;

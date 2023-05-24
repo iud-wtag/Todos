@@ -7,7 +7,13 @@ import {
   LABEL_FILTER_ALL,
 } from "common/constants";
 import { sanitizeInput } from "helpers/sanitizeInput";
-import { addTodo, filterTodo, handleCurrentPage } from "actions";
+import {
+  addTodo,
+  filterTodo,
+  searchTodo,
+  handleCurrentPage,
+  handleSearchButton,
+} from "actions";
 import AddCardActionBar from "components/Todos/AddCard/add-card-action-bar.component";
 
 const AddCard = ({ isEmptyError, onCreate, toggleEmptyError }) => {
@@ -21,10 +27,12 @@ const AddCard = ({ isEmptyError, onCreate, toggleEmptyError }) => {
       toggleEmptyError(true);
       return;
     }
-    dispatch(addTodo(sanitizedTask));
-    toggleEmptyError(false);
     onCreate();
+    toggleEmptyError(false);
     handleFilter(LABEL_FILTER_ALL);
+    dispatch(searchTodo(""));
+    dispatch(addTodo(sanitizedTask));
+    dispatch(handleSearchButton(true));
   }
 
   function handleFilter(filterType) {
