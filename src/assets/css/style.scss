@@ -24,6 +24,10 @@ img {
   cursor: pointer;
 }
 
+svg {
+  fill: $color-white;
+}
+
 textarea {
   resize: none;
 }
@@ -51,12 +55,6 @@ textarea {
   }
 }
 
-.error {
-  color: $color-error;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
 .empty__board {
   margin: auto;
   padding-top: 8.125rem;
@@ -68,6 +66,21 @@ textarea {
     font-weight: 700;
     line-height: 1.75rem;
     padding-top: 2rem;
+  }
+}
+
+.message {
+  color: $color-white;
+  &__error {
+    background: $color-error;
+  }
+
+  &__success {
+    background: $color-success;
+  }
+
+  &__warn {
+    background: $color-warning;
   }
 }
 
@@ -93,6 +106,20 @@ textarea {
     display: flex;
     padding: 1rem 0rem;
     justify-content: space-between;
+  }
+}
+
+.toast {
+  &__container {
+    width: fit-content;
+    text-align: center;
+  }
+
+  &__message {
+    color: $color-white;
+    font-size: 1.125rem;
+    line-height: 1.313rem;
+    padding: 1rem 3.125rem;
   }
 }
 

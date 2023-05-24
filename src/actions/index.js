@@ -1,7 +1,6 @@
 import {
   ADD_TODO,
   HANDLE_CREATE,
-  HANDLE_EMPTY,
   DELETE_TODO,
   COMPLETE_TODO,
   EDIT_TODO,
@@ -61,15 +60,6 @@ export const editTodo = (id, editedTask) => {
     payload: {
       id: id,
       task: editedTask,
-    },
-  };
-};
-
-export const handleEmptyError = (isEmptyError) => {
-  return {
-    type: HANDLE_EMPTY,
-    payload: {
-      isEmptyError,
     },
   };
 };

@@ -2,9 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { editTodo } from "actions";
 import { sanitizeInput } from "helpers/sanitizeInput";
-import { KEY_ENTER } from "common/constants";
+import {
+  KEY_ENTER,
+  MESSAGE_EDIT_TASK,
+  MESSAGE_REQUIRED_TITLE,
+} from "common/constants";
 import { useDispatch } from "react-redux";
 import EditActionBar from "components/Todos/EditCard/edit-action-bar.component";
+import { showRequiredToast, showSuccessToast } from "common/notification";
 
 const EditCard = ({ todo, onSetEdit }) => {
   const dispatch = useDispatch();
@@ -26,10 +31,12 @@ const EditCard = ({ todo, onSetEdit }) => {
   function handleEditTask() {
     const sanitizedTask = sanitizeInput(editedTask);
     if (sanitizedTask.trim() === "") {
+      showRequiredToast(MESSAGE_REQUIRED_TITLE);
       return;
     }
     dispatch(editTodo(id, sanitizedTask));
     onSetEdit(false);
+    showSuccessToast(MESSAGE_EDIT_TASK);
   }
 
   function setFocusAndSelection() {

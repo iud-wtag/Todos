@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { handleCreateButton, handleEmptyError } from "actions";
+import { handleCreateButton } from "actions";
 import Navbar from "components/Todos/Navbar/navbar";
 import TopBar from "components/Todos/Topbar/top-bar";
 import AddCard from "components/Todos/AddCard/add-card";
@@ -25,7 +25,6 @@ const Todos = () => {
   const isCreateButtonClicked = useSelector(
     (state) => state.buttonClickReducers.isCreateButtonClicked
   );
-  const isEmptyError = useSelector((state) => state.errorReducers.isEmptyError);
 
   const currentPage = useSelector(
     (state) => state.currentPageReducer.currentPage
@@ -44,10 +43,6 @@ const Todos = () => {
   const showLoadMoreButton = length > currentTask;
   const showSeeLessButton = length + isCreateButtonClicked > TASK_PER_PAGE;
   const showPagination = showLoadMoreButton || showSeeLessButton;
-
-  function toggleEmptyError(toggleValue) {
-    dispatch(handleEmptyError(toggleValue));
-  }
 
   function handleCreate() {
     dispatch(handleCreateButton(isCreateButtonClicked));
@@ -83,13 +78,7 @@ const Todos = () => {
             isCreateButtonClicked={isCreateButtonClicked}
           />
           <div className="todo__card__wrapper">
-            {isCreateButtonClicked && (
-              <AddCard
-                isEmptyError={isEmptyError}
-                onCreate={handleCreate}
-                toggleEmptyError={toggleEmptyError}
-              />
-            )}
+            {isCreateButtonClicked && <AddCard onCreate={handleCreate} />}
             {currentTodoList.length
               ? currentTodoList.map((todo) => {
                   return <Todo key={todo.id} todo={todo} />;
