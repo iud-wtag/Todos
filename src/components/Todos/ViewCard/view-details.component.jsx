@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { formatDate } from "helpers/fortmatDate";
 
-const ViewDetails = ({ todo }) => {
-  const { task, date } = todo;
+const ViewDetails = ({ task, date }) => {
   const formattedDate = formatDate(date);
 
   return (
@@ -17,7 +16,8 @@ const ViewDetails = ({ todo }) => {
 };
 
 ViewDetails.propTypes = {
-  todo: PropTypes.object.isRequired,
+  task: PropTypes.string.isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
 };
 
 export default ViewDetails;
