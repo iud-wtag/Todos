@@ -24,6 +24,43 @@ img {
   cursor: pointer;
 }
 
+button,
+input,
+textarea {
+  outline: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.188rem;
+
+  &::placeholder {
+    font-weight: 400;
+  }
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 2.625rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 2.188rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+}
+
+p {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1rem;
+}
+
 svg {
   fill: $color-white;
 }
@@ -38,9 +75,6 @@ textarea {
     border: none;
     border-radius: 0.313rem;
     color: $color-white;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.188rem;
   }
 
   &--white {
@@ -48,23 +82,19 @@ textarea {
     border: 0.063rem solid $color-border;
     border-radius: 0.313rem;
     color: $color-black;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.188rem;
     padding: 0.625rem 0.938rem;
   }
 }
 
 .empty__board {
-  margin: auto;
-  padding-top: 8.125rem;
+  left: 50%;
+  position: absolute;
   text-align: center;
+  top: 70%;
+  transform: translate(-50%, -70%);
 
   &-title {
     color: $color-black;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.75rem;
     padding-top: 2rem;
   }
 }
@@ -95,9 +125,6 @@ textarea {
 
     &-txt {
       color: $color-royal-blue;
-      font-size: 2.25rem;
-      font-weight: 700;
-      line-height: 2.625rem;
     }
   }
 
@@ -105,6 +132,7 @@ textarea {
     align-items: center;
     display: flex;
     padding: 1rem 0rem;
+    position: relative;
     justify-content: space-between;
   }
 }
@@ -144,13 +172,12 @@ textarea {
       justify-content: space-between;
       padding: 1rem;
       word-break: break-all;
-      width: 23.875rem;
 
       &__input {
         border: 0.188rem solid $color-input-border;
         border-radius: 0.313rem;
-        min-height: 5rem;
-        min-width: 21.875rem;
+        min-height: 3.125rem;
+        height: 100%;
       }
     }
 
@@ -195,9 +222,6 @@ textarea {
       &__details {
         &-title {
           color: $color-black;
-          font-size: 1.5rem;
-          font-weight: 700;
-          line-height: 1.75rem;
           padding-bottom: 0.625rem;
 
           &.task-complete {
@@ -208,18 +232,15 @@ textarea {
 
         &-time {
           color: $color-gray;
-          font-size: 0.875rem;
-          font-weight: 700;
-          line-height: 1rem;
           padding-bottom: 1.563rem;
         }
       }
     }
 
     &__wrapper {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
       gap: 2.125rem;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -236,9 +257,6 @@ textarea {
       background-color: $color-black;
       border-radius: 0.313rem;
       color: $color-white;
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.188rem;
       padding: 0.563rem 1.25rem;
     }
   }
@@ -252,10 +270,7 @@ textarea {
       border: 0.188rem solid $color-input-border;
       border-radius: 0.313rem;
       color: $color-black;
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.188rem;
-      min-width: 31.25rem;
+      min-width: 32.375rem;
       padding: 0.313rem 0.625rem;
     }
   }
@@ -290,6 +305,11 @@ textarea {
         }
       }
 
+      &-filter-select {
+        display: none;
+        position: relative;
+      }
+
       &-wrapper {
         display: flex;
         justify-content: space-between;
@@ -299,13 +319,99 @@ textarea {
 
     &-title {
       color: $color-black;
-      font-weight: 700;
-      font-size: 1.875rem;
-      line-height: 2.188rem;
     }
   }
 
   &__wrapper {
     padding: 4.063rem 0rem;
+  }
+}
+
+@media screen and (max-width: 62rem) {
+  html {
+    font-size: 15px;
+  }
+
+  .todo,
+  .navbar {
+    &__container {
+      max-width: 60rem;
+      padding: 0rem 1.5rem;
+    }
+  }
+
+  .todo {
+    &__card {
+      &__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &-search {
+      &__input {
+        min-width: 20rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 36rem) {
+  html {
+    font-size: 14px;
+  }
+
+  .toast {
+    &__container {
+      width: 100%;
+      margin: auto;
+    }
+
+    &__message {
+      padding: 1rem 3.125rem;
+    }
+  }
+
+  .todo,
+  .navbar {
+    &__container {
+      max-width: 100%;
+    }
+  }
+
+  .todo {
+    &__card {
+      &-add {
+        &__input {
+          min-height: 5rem;
+        }
+      }
+
+      &__wrapper {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    &-search {
+      &__input {
+        box-shadow: 0rem 0.071rem 0.357rem 0.071rem #d1d8ff;
+        left: 0;
+        min-width: 100%;
+        position: absolute;
+        top: 100%;
+      }
+    }
+
+    &__top {
+      &-btn {
+        &-filter {
+          display: none;
+        }
+
+        &-filter-select {
+          display: block;
+          min-width: 7rem;
+        }
+      }
+    }
   }
 }
