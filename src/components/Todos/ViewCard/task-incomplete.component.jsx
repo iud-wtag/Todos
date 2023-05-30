@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
-import { deleteTodo, completeTodo } from "actions";
 import {
   ICON_CHECK,
   ICON_EDIT,
@@ -11,28 +9,16 @@ import {
   ALT_TEXT_DELETE_TODO,
 } from "common/constants";
 
-const TaskIncomplete = ({ todo }) => {
-  const dispatch = useDispatch();
-
-  const { id, date } = todo;
-
-  function handleDeleteTask() {
-    dispatch(deleteTodo(id));
-  }
-
-  function handleCompleteTask() {
-    dispatch(completeTodo(id, date));
-  }
-
+const TaskIncomplete = ({ onDeleteTask, onCompleteTask }) => {
   return (
     <div className="todo__card-view-btn">
-      <button onClick={handleCompleteTask}>
+      <button onClick={onCompleteTask}>
         <img src={ICON_CHECK} alt={ALT_TEXT_COMPLETE_TODO} />
       </button>
       <button>
         <img src={ICON_EDIT} alt={ALT_TEXT_EDIT_TODO} />
       </button>
-      <button onClick={handleDeleteTask}>
+      <button onClick={onDeleteTask}>
         <img src={ICON_DELETE} alt={ALT_TEXT_DELETE_TODO} />
       </button>
     </div>
@@ -40,7 +26,8 @@ const TaskIncomplete = ({ todo }) => {
 };
 
 TaskIncomplete.propTypes = {
-  todo: PropTypes.object.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
+  onCompleteTask: PropTypes.func.isRequired,
 };
 
 export default TaskIncomplete;
