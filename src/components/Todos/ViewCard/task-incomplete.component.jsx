@@ -10,17 +10,35 @@ import {
 } from "common/constants";
 
 const TaskIncomplete = ({ onDeleteTask, onCompleteTask }) => {
+  const actionButtons = [
+    {
+      id: 0,
+      imageSource: ICON_CHECK,
+      altText: ALT_TEXT_COMPLETE_TODO,
+      handleFunction: onCompleteTask,
+    },
+    {
+      id: 1,
+      imageSource: ICON_EDIT,
+      altText: ALT_TEXT_EDIT_TODO,
+    },
+    {
+      id: 2,
+      imageSource: ICON_DELETE,
+      altText: ALT_TEXT_DELETE_TODO,
+      handleFunction: onDeleteTask,
+    },
+  ];
+
   return (
     <div className="todo__card-view-btn">
-      <button onClick={onCompleteTask}>
-        <img src={ICON_CHECK} alt={ALT_TEXT_COMPLETE_TODO} />
-      </button>
-      <button>
-        <img src={ICON_EDIT} alt={ALT_TEXT_EDIT_TODO} />
-      </button>
-      <button onClick={onDeleteTask}>
-        <img src={ICON_DELETE} alt={ALT_TEXT_DELETE_TODO} />
-      </button>
+      {actionButtons.map((button) => {
+        return (
+          <button onClick={button.handleFunction} key={button.id}>
+            <img src={button.imageSource} alt={button.altText} />
+          </button>
+        );
+      })}
     </div>
   );
 };
