@@ -3,7 +3,10 @@ import {
   HANDLE_CREATE,
   HANDLE_EMPTY,
   DELETE_TODO,
+  COMPLETE_TODO,
 } from "actions/actionTypes";
+import { getDays } from "helpers/getDays";
+
 export const addTodo = (task) => {
   return {
     type: ADD_TODO,
@@ -11,6 +14,8 @@ export const addTodo = (task) => {
       id: Date.now().toString(),
       task: task,
       date: new Date(),
+      isTaskComplete: false,
+      completeTime: null,
     },
   };
 };
@@ -32,6 +37,18 @@ export const deleteTodo = (id) => {
     },
   };
 };
+
+export const completeTodo = (id, date) => {
+  return {
+    type: COMPLETE_TODO,
+    payload: {
+      id: id,
+      isTaskComplete: true,
+      completeTime: getDays(date.getTime(), Date.now()),
+    },
+  };
+};
+
 export const handleEmptyError = (isEmptyError) => {
   return {
     type: HANDLE_EMPTY,

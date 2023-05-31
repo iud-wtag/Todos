@@ -131,7 +131,7 @@ textarea {
         &.complete-btns {
           justify-content: space-between;
 
-          & .complete-msg {
+          .complete-msg {
             background: $color-royal-blue;
             border-radius: 0.313rem;
             color: $color-white;
