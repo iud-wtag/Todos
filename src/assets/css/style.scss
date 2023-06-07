@@ -231,6 +231,14 @@ textarea {
       &-filter {
         display: flex;
         gap: 1.25rem;
+
+        &__inner {
+          &--active {
+            background: $color-royal-blue;
+            border: none;
+            color: $color-white;
+          }
+        }
       }
 
       &-wrapper {

@@ -6,6 +6,7 @@ import {
   COMPLETE_TODO,
   EDIT_TODO,
   HANDLE_CURRENT_PAGE,
+  HANDLE_FILTER,
 } from "actions/actionTypes";
 import { getDays } from "helpers/getDays";
 
@@ -75,6 +76,15 @@ export const handleCurrentPage = (currentPage) => {
     type: HANDLE_CURRENT_PAGE,
     payload: {
       currentPage,
+    },
+  };
+};
+
+export const filterTodo = (filterType) => {
+  return {
+    type: HANDLE_FILTER,
+    payload: {
+      filterType,
     },
   };
 };
