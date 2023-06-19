@@ -22,6 +22,11 @@ const AddCard = ({ isEmptyError, onCreate, toggleEmptyError }) => {
     onCreate();
   }
 
+  function handleCancelTask() {
+    onCreate();
+    toggleEmptyError(false);
+  }
+
   function handleInputChange(event) {
     setInputTask(event.target.value);
     if (isEmptyError) {
@@ -49,9 +54,10 @@ const AddCard = ({ isEmptyError, onCreate, toggleEmptyError }) => {
       ></textarea>
 
       <AddCardActionBar
-        onAddTask={handleAddTask}
         inputTask={inputTask}
         isEmptyError={isEmptyError}
+        onAddTask={handleAddTask}
+        onCancelTask={handleCancelTask}
       />
     </div>
   );

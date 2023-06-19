@@ -37,7 +37,6 @@ const Todos = () => {
             {isCreateButtonClicked && (
               <AddCard
                 isEmptyError={isEmptyError}
-                isCreateButtonClicked={isCreateButtonClicked}
                 onCreate={handleCreate}
                 toggleEmptyError={toggleEmptyError}
               />

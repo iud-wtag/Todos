@@ -7,7 +7,7 @@ const ViewCard = ({ todo }) => {
   return (
     <>
       <ViewDetails task={todo.task} date={todo.date} />
-      <ViewActionBar />
+      <ViewActionBar todo={todo} />
     </>
   );
 };
