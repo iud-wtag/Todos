@@ -1,34 +1,29 @@
-export const addTodo = (data) => {
+import { ADD_TODO, HANDLE_CREATE, HANDLE_EMPTY } from "actions/actionTypes";
+export const addTodo = (task) => {
   return {
-    type: "ADD_TODO",
+    type: ADD_TODO,
     payload: {
-      id: new Date().getTime().toString(),
-      data: data,
+      id: Date.now().toString(),
+      task: task,
+      date: new Date(),
     },
   };
 };
-export const removeTodo = () => {
+
+export const handleCreateButton = (isCreateButtonClicked) => {
   return {
-    type: "REMOVE_TODO",
+    type: HANDLE_CREATE,
+    payload: {
+      isCreateButtonClicked: !isCreateButtonClicked,
+    },
   };
 };
-export const updateTodo = () => {
+
+export const handleEmptyError = (isEmptyError) => {
   return {
-    type: "UPDATE_TODO",
-  };
-};
-export const allList = () => {
-  return {
-    type: "ALL_LIST",
-  };
-};
-export const completeList = () => {
-  return {
-    type: "COMPLETE_LIST",
-  };
-};
-export const incompleteList = () => {
-  return {
-    type: "INCOMPLETE_LIST",
+    type: HANDLE_EMPTY,
+    payload: {
+      isEmptyError,
+    },
   };
 };
