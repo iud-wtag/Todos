@@ -5,6 +5,7 @@ import {
   DELETE_TODO,
   COMPLETE_TODO,
   EDIT_TODO,
+  HANDLE_CURRENT_PAGE,
 } from "actions/actionTypes";
 import { getDays } from "helpers/getDays";
 
@@ -65,6 +66,15 @@ export const handleEmptyError = (isEmptyError) => {
     type: HANDLE_EMPTY,
     payload: {
       isEmptyError,
+    },
+  };
+};
+
+export const handleCurrentPage = (currentPage) => {
+  return {
+    type: HANDLE_CURRENT_PAGE,
+    payload: {
+      currentPage,
     },
   };
 };

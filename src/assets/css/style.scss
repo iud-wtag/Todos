@@ -57,6 +57,20 @@ textarea {
   font-weight: 500;
 }
 
+.empty__board {
+  margin: auto;
+  padding-top: 8.125rem;
+  text-align: center;
+
+  &-title {
+    color: $color-black;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+    padding-top: 2rem;
+  }
+}
+
 .navbar {
   background: $color-white;
   border: 0.063rem solid $color-border;
@@ -179,6 +193,21 @@ textarea {
       display: flex;
       flex-wrap: wrap;
       gap: 2.125rem;
+    }
+  }
+
+  &__pagination {
+    padding-top: 3.563rem;
+    text-align: center;
+
+    &-btn {
+      background-color: $color-black;
+      border-radius: 0.313rem;
+      color: $color-white;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.188rem;
+      padding: 0.563rem 1.25rem;
     }
   }
 
